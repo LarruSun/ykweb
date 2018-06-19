@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="foodstatus2">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">菜品管理</a>
+                    </li>
+                    <li>
+                        <a href="#">菜品标签</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_camp">
+                        <div class="mge_camp_aup">
+                            <a href="#" type="button" class="btn btn-success a_bottom" data-toggle="modal" v-on:click="toAdd">新增标签</a>
+                        </div>
+                        <div class="mge_set">
+                            <label for="text" class=" control-label  ">
+                                <input type="text" placeholder="请输入标签名称" class="seachName"/>
+                                <a href="#" class="btn btn-primary a_bottom" v-on:click="seach()">搜索</a>
+                            </label>
+                        </div>
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">标签名称</th>
+                                    <th class="center">创建时间</th>
+                                    <th class="center">最后修改时间</th>
+                                    <th class="center">状态</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in statusData">
+                                    <td class="center foodstatus" v-bind:name="item">{{item.name}}</td>
+                                    <td class="center">{{item.createTime|data}}</td>
+                                    <td class="center">{{item.updateTime|data}}</td>
+                                    <td class="center" v-if="item.status==1"><span class="label label-success">启用</span></td>
+                                    <td class="center" v-if="item.status==0"><span class="label label-default">停用</span></td>
+                                    <td class="center">
+                                        <a href="#" class="getthis" data-toggle="modal" data-target="#myModal_fen2" v-if="item.status==0&&item.name!='热门'&&item.name!='推荐'&&item.name!='特价'" v-on:click="getthis(item.id)">编辑</a>&nbsp;
+                                        <a href="#" class="getthis" data-toggle="modal" data-target="#myModal_remove" v-if="item.status==0&&item.name!='热门'&&item.name!='推荐'&&item.name!='特价'" v-on:click="getthis(item.id)">删除</a>&nbsp;
+                                        <a href="#" class="getthis" data-toggle="modal" data-target="#myModal_Stop" v-if="item.status==1" v-on:click="getthis(item.id)">停用</a>
+                                        <a href="#" class="getthis" data-toggle="modal" data-target="#myModal_Start" v-if="item.status==0" v-on:click="getthis(item.id)">启用</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--新增标签 start-->
+            <div class="modal fade" id="myModal_fen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_rw">
+                                新增标签
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <div class="scroll_name">
+                                <div class="">
+                                    <label>
+                                        <span class="lbl font_size">标签名称：</span>
+                                        <input placeholder="做多填写10个汉字" maxlength="10" class="addName" >
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="addFoodStatus()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--新增标签 end-->
+            <!--编辑标签 start-->
+            <div class="modal fade" id="myModal_fen2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_rw2">
+                                编辑标签
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <div class="scroll_name">
+                                <div class="">
+                                    <label>
+                                        <span class="lbl font_size">标签名称：</span>
+                                        <input placeholder="做多填写10个中文" maxlength="10" class="editName">
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="editFoodStatus()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--编辑标签 end-->
+            <!--删除标签 start-->
+            <div class="modal fade" id="myModal_remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_remove">
+                                删除标签
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <h4>确认删除此标签吗？</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="del()">
+                                确定
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--删除标签 end-->
+            <!--停用标签 start-->
+            <div class="modal fade" id="myModal_Stop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_Stop">
+                                停用标签
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <h4>确认停用此标签吗？</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="changeStatus('0')">
+                                确定
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--停用标签 end-->
+            <!--启用标签 start-->
+            <div class="modal fade" id="myModal_Start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_Start">
+                                启用标签
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <h4>确认启用此标签吗？</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="changeStatus('1')">
+                                确定
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--启用标签 end-->
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script>
+    new Vue({
+        el: "#main-container",
+        data: {
+            statusData:{},//暂存的所有数据
+            checked:false,
+            shopId:location.href.split("=")[1],
+            foodStatusId:''
+        },
+        methods:{
+            getStoreList:function(){
+                var pdata = {
+                    statusType:"3",
+                    name:$(".seachName").val(),
+                    shopId:this.shopId
+                }
+                console.log(pdata);
+                this.$http.post(cyApi+'/get/listFoodStatus',pdata,{emulateJSON:true,credentials: true}).then(function(res){
+                    //分页没做
+                    this.statusData = res.data.data.foodStatus;
+                    console.log(this.statusData)
+                });
+            },
+            toAdd:function(){
+                if(this.statusData.length<10){
+                    $('#myModal_fen').modal('show');
+                }else{
+                    alert("最多只能10条")
+                }
+            },
+            seach:function(){
+                this.getStoreList();
+
+            },
+            getthis:function(id){
+                var data=this.getDataById(id);
+                $(".editName").val(data.name);
+                this.foodStatusId = data.id;
+                console.log(data)
+            },
+            getDataById:function(id){
+                for(var i=0;i<this.statusData.length;i++){
+                    if(id==this.statusData[i].id){
+                        return this.statusData[i];
+                    }
+                }
+            },
+            addFoodStatus:function () {
+                var addData = {
+                    name:$(".addName").val(),
+                    statusType:'3',
+                    shopId:this.shopId
+                }
+                this.$http.post(cyApi+'/add/foodStatus',addData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }else{
+                        alert(res.data.message);
+                    }
+                });
+            },
+            editFoodStatus:function () {
+                var editData = {
+                    name:$(".editName").val(),
+                    statusType:'3',
+                    id:this.foodStatusId
+                }
+                this.$http.post(cyApi+'/edit/foodStatus',editData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }else{
+                        alert(res.data.message);
+                    }
+                });
+            },
+            changeStatus:function (status) {
+                var editData = {
+                    statu:status,
+                    id:this.foodStatusId
+                }
+                this.$http.post(cyApi+'/edit/foodStatusState',editData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }else{
+                        alert(res.data.message);
+                    }
+                });
+            },
+            del:function(){
+                var delData = {
+                    id:this.foodStatusId
+                }
+                this.$http.post(cyApi+'/del/foodStatus',delData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }else{
+                        alert(res.data.message);
+                    }
+                });
+            }
+        },
+        filters: {
+            data: function (input) {
+                var d = new Date(input);
+                var year = d.getFullYear();
+                var month = d.getMonth() + 1;
+                var day = d.getDate() < 10 ? '0' + d.getDate() : '' + d.getDate();
+                var hour = d.getHours();
+                var minutes = d.getMinutes();
+                var seconds = d.getSeconds();
+                return year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
+            }
+        },
+        watch:{
+
+        },
+        created:function() {
+            this.getStoreList();
+        }
+    });
+</script>
+</body>
+</html>

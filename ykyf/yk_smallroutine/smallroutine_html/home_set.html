@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微信小程序</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../smallroutine_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/bootstrap.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../smallroutine_css/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/jquery.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/bootstrap.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/ace.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue-resource.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgUtil.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <div>
+                <ul class="nav nav-list">
+                    <li  class="active">
+                        <a href="" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 小程序管理 </span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="../smallroutine_index.html" class="smallroutine_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序设置
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="home_set.html" class="home_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    主页设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wechat_shipu.html" class="smallroutine_template">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">小程序管理</a>
+                    </li>
+                    <li>
+                        <a href="#">主页设置</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row temp_recipe">
+
+                    <div class="col-sm-12">
+                        <div class="memberCenter_head" style="padding: 1px 1px;">
+                            <div class="col-sm-4 Center_head_body">
+                                <div class="Center_head">
+                                    <img v-bind:src="user.businessLogo" alt="" width="50">
+                                    <div class="Center_head_main">
+                                        <p>小程序主页：{{smallRoutineInfo.pageName}}</p>
+                                        <p>绑定时间：{{smallRoutineInfo.bindTime}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="Center_head_2">
+                                    <p v-if="smallRoutineInfo.checkStatu==0">审核状态：<span style="margin-left:12px" >成功使用</span></p>
+                                    <p v-if="smallRoutineInfo.checkStatu==1">审核状态：<span style="margin-left:12px" >审核失败</span></p>
+                                    <p v-if="smallRoutineInfo.checkStatu==2">审核状态：<span style="margin-left:12px" >微信审核中</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="Center_head_3">
+                                    <a href="#"  data-toggle="modal" data-target="#myModal_rw2" v-if="smallRoutineInfo.checkStatu==0">&nbsp;&nbsp;访问小程序</a>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="col-sm-12" style="margin: 12px">
+                        <a href="wechat_shipu.html" class="btn btn-primary a_bottom">新建</a>
+                    </div>
+                    <div class="table-responsive table-responsive_1">
+                        <table class="table  table-bordered table-hover center ">
+                            <thead>
+                            <tr>
+                                <th class="center">主页名称</th>
+                                <th class=" center">使用模板</th>
+                                <th class=" center">绑定状态</th>
+                                <th class=" center">创建时间</th>
+                                <th class=" center">浏览量</th>
+                                <th class=" center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="" v-for="item in templateList">
+                                <td>{{item.pageName}}</td>
+                                <td>{{item.typeName}}-{{item.template_name}}</td>
+                                <td v-if="item.bindStatu==0">未绑定</td>
+                                <td v-if="item.bindStatu==1">已绑定</td>
+                                <td>{{item.createTime}}</td>
+                                <td>{{item.pageView}}</td>
+                                <td class="hidden-480">
+                                    <a v-bind:href="item.url+'?pageId='+item.pageId+'&templateId='+item.templateId" class="acolor text_deco" >编辑</a>
+                                    <a href="#" class="acolor   text_deco1 text_deco  disable" data-toggle="modal" data-target="" v-if="item.bindStatu==1 && item.checkStatu==0">绑定中</a>
+                                    <a href="#" class="acolor   text_deco1 text_deco  disable" data-toggle="modal" data-target="" v-if="item.bindStatu==1 && item.checkStatu==2">微信审核中</a>
+                                    <a href="#" class="acolor   text_deco1 text_deco  disable" data-toggle="modal" data-target="" v-if="item.bindStatu==1 && item.checkStatu==1">微信审核失败</a>
+                                    <a href="#" class="acolor   text_deco1 text_deco  " data-toggle="modal" data-target="#myModal_main" v-if="item.bindStatu==0" v-on:click="bind(item.wxTemplateId,item.version,item.id)">绑定</a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="clear:both"></div>
+                </div><!-- /.main-content -->
+            </div>
+            <div class="page-footer ">
+                <div class="content_based" >
+                    <a  href="javascript:void(0)" style="">
+                        <p style="">
+                            <img src="../smallroutine_images/logo_new2.png" alt="" width="25" />
+                            <img src="../smallroutine_images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+    <div class="modal fade" id="myModal_main" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <button type="button" class="close close_x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel_1">绑定主页</h4>
+                </div>
+                <div class="modal-body center">
+                    <p  style="padding:32px;font-size: 16px">确认绑定此主页做为小程序主页吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary text_dec"  data-dismiss="modal" v-on:click="submitCheck">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 设置默认  end-->
+    <!--二维码 主页 modal start-->
+    <div class="modal fade" id="myModal_rw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+        <div class="modal-dialog" style="    width: 410px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rw">
+                        主页查看
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height">
+                    <div class="scan_show">
+                        <div class="scan_main">
+                            <div class="scan_main_son">
+                                <p>请用微信扫一扫查看此主页</p>
+                                <img src="../images/small/ewm.png"  width="200"/>
+                                <!--<a href="#">下载二维码</a>-->
+                            </div>
+                            <!--<div class="scan_main_son1" style="display:block">-->
+                            <!--<p class="disable" disabled="disabled" style="display:inline-block\0;">http://127.0.0.1:32767/start.html#p</p><a href="#" class="btn btn-primary scan_a">复制</a>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="myModal_rw2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw2" aria-hidden="true">
+        <div class="modal-dialog" style="    width: 410px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rw2">
+                        小程序二维码
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height">
+                    <div class="scan_show">
+                        <div class="scan_main">
+                            <div class="scan_main_son">
+                                <p>请用微信扫一扫，查看此小程序</p>
+                                <img v-bind:src="smallRoutineInfo.qrCode"  width="200"/>
+                                <!--<a href="#">下载二维码</a>-->
+                            </div>
+                            <!--<div class="scan_main_son1" style="display:block">-->
+                            <!--<p class="disable" disabled="disabled" style="display:inline-block\0;">http://127.0.0.1:32767/start.html#p</p><a href="#" class="btn btn-primary scan_a">复制</a>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!-- 设置默认 start -->
+
+<!--二维码 主页 modal end-->
+<!--二维码 小程序 modal start-->
+
+<script src="../smallroutine_js/const.js"></script>
+<script src="../smallroutine_js/home_set.js"></script>
+<script>
+
+
+</script>
+</body>
+</html>

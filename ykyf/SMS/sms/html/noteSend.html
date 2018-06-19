@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>发送设置</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../sms_common/sms_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../sms_common/sms_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/city/pagination.css" />
+    <script src="../../../resources/config.js"></script>
+    <link rel="stylesheet" href="../../sms_common/sms_plugins/msgbox/msgbox.css">
+    <script src="../../sms_common/sms_plugins/msgbox/msgUtil.js"></script>
+    <script src="../../sms_common/sms_plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li class="">
+                    <a href="../../login.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">短信管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/noteTest.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信测试
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/noteRecharge.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信充值
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/noteRecord.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信记录
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="../html/noteSend.html">
+                                <i class="icon-double-angle-right"></i>
+                                发送设置
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">短信管理</a>
+                    </li>
+                    <li>
+                        <a href="#">发送设置</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="app" v-cloak>
+                <div class="row ">
+                    <div class="col-sm-12 sms_send">
+                        <div class="col-sm-12 index_prompt">
+                            <div class="temp_newxj_title">
+                                <img src="../../sms/images/small/her.png" alt="">
+                                <span>您可以通过短信给顾客推送验证消息，及相关的提醒消息，以提升顾客的使用体验，获得更高的订单转化率和复购率</span>
+                            </div>
+                        </div>
+
+                            <div class="send_top  col-sm-12" v-for="listJson in setList">
+                                <div class="send_title" style="">
+                                    <p class=" ">{{listJson[0].typeName}}</p>
+                                </div>
+                                <div class="send_main" v-for="json in listJson">
+                                        <div class="send_son">
+                                            <p class="send_name">{{json.setName}}</p>
+                                            <div class="media">
+                                                <p v-if="json.active == 0" class="pull-left red_active">未启用</p>
+                                                <p v-else-if="json.active == 1" class="pull-left" style="color: #999">已启用</p>
+                                                <a href="#" class="pull-right" data-toggle="modal"
+                                                   data-target="#myModal_set_one" v-on:click="openSet">设置</a>
+                                                <input type="hidden" name="id" v-bind:value="json.id">
+                                                <input type="hidden" name="active" v-bind:value="json.active">
+                                                <input type="hidden" name="remindText" v-bind:value="json.remindText">
+                                                <input type="hidden" name="text" v-bind:value="json.text">
+                                                <input type="hidden" name="setName" v-bind:value="json.setName">
+                                                <input type="hidden" name=sendTime v-bind:value="json.sendTime">
+                                                <input type="hidden" name="setId" v-bind:value="json.id">
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="page-footer ">
+                    <div class="content_based" >
+                        <a  href="javascript:void(0)" style="">
+                            <p style="">
+                            <img src="../../sms_common/sms_common_images/logo_new2.png" alt="" width="25" />
+                            <img src="../../sms_common/sms_common_images/name.png" alt="" width="71"/>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal_dataSelection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_dataSelection">
+                                    提示
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">至少选择一条数据！</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--数据选择 end-->
+                <!--设置 start-->
+                <div class="modal fade" id="myModal_set_one" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="    width: 690px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    模板设置
+                                </h4>
+                            </div>
+                            <div class="modal-body myModal_set_one">
+                                <div class="scroll_name">
+                                    <div class="scroll_1" >
+                                        <label>
+                                            <span class="rq" id="typeName_modelOne" >订单催付</span>
+                                            <input name="switch-field-1" class="ace ace-switch" type="checkbox" id="checkBox_modelOne">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </div>
+                                    <div class="scroll_2" id="sendTime">
+
+                                    </div>
+                                    <div class="scroll_4" >
+                                        <p>短信内容</p>
+                                        <input type="hidden" id="setId"/>
+                                        <textarea disabled="disabled" cols="50" rows="4" id="text_modelOne" placeholder="" style="resize: none">嗨！你要购买的"<商品名称>"还没付款哦。查看详情<订单链接></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary "  v-on:click="saveSet" >
+                                    确认
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--数据选择 start-->
+
+<!--设置2 end-->
+<!--设置3 start-->
+<script src="../../sms_common/sms_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../sms_common/sms_common_js/ace-extra.min.js"></script>
+<script src="../../sms_common/sms_common_js/bootstrap.min.js"></script>
+<script src="../../sms_common/sms_common_js/ace.min.js"></script>
+<script src="../../sms_common/sms_common_js/jquery-ui.min.js"></script>
+<script src="../../sms_common/sms_common_js/vue.min.js"></script>
+<script src="../../sms_common/sms_common_js/vue-resource.min.js"></script>
+<script src="../../sms_common/sms_common_js/cookie.js"></script>
+<!--分页 start-->
+<script src="../../sms_common/sms_plugins/page/pagination.js"></script>
+<!--分页 end-->
+
+<script src="../js/const.js"></script>
+<script src="../js/jsPlugins.js"></script>
+<script src="../js/noteSend.js"></script>
+<script>
+
+</script>
+</body>
+</html>

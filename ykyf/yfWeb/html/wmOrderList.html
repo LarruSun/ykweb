@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../js/msgbox/msgbox.css">
+    <script type="text/javascript" src="../js/rem.js"></script>
+    <link rel="stylesheet" href="../css/wmOrderList.css">
+    <title>订单列表</title>
+</head>
+<body>
+<section id="app" v-cloak style="overflow: scroll">
+    <header class="header">
+        <div>
+            <span>订单状态</span>
+            <select v-model="orderType" @change="filterList">
+                <option v-for="(item,index) in orderStatus" :value="index">{{ item }}</option>
+            </select>
+        </div>
+        <div>
+            <span>配送状态</span>
+            <select v-model="takeoutType" @change="filterList">
+                <option v-for="(item,index) in takeoutStatus" :value="index">{{ item }}</option>
+            </select>
+        </div>
+        <div>
+            <span>开始时间</span>
+            <input type="date" v-model="startTime" @change="filterList">
+        </div>
+        <div>
+            <span>结束时间</span>
+            <input type="date" v-model="endTime" @change="filterList">
+        </div>
+    </header>
+    <div class="blank"></div>
+    <ul>
+        <li>
+            <div>流水号</div>
+            <div>订单状态</div>
+            <div>下单时间</div>
+            <div>配送状态</div>
+        </li>
+        <li v-for="item in orderList" @click="goInfo(item.id)">
+            <div>#{{ item.sonOrder.currentOrderNum }}</div>
+            <div>{{ item.status | getStatus }}</div>
+            <div>{{ item.createDate | formartTime }}</div>
+            <div>{{ item.summaryOrderTakeOut | getTakeoutStatus }}</div>
+        </li>
+    </ul>
+    <div class="loadMore" @click="touchStart()">{{ loadContent }}</div>
+</section>
+</body>
+<script src="../../resources/common/lib/jquery.min.js"></script>
+<script src="../js/flexible.js"></script>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/vue-router.min.js"></script>
+<script src="../js/msgbox/msgbox.js"></script>
+<script src="../js/msgbox/msgUtil.js"></script>
+<script src="../../resources/config.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/wmOrderList.js"></script>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../../resources/config.js"></script>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <!--<li >-->
+                            <!--<a href="../html/promoting.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--推广的券-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li class="active">-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="icon-columns"></i>-->
+                        <!--<span class="menu-text">别人的券</span>-->
+                        <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                        <!--<li class="active">-->
+                            <!--<a href="../html/collect_stamps.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--券列表-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_receive.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--领用记录-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="collect_stamps.html">别人的券</a>
+                    </li>
+                    <li>
+                        <a href="#">券列表</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row collect_stamps" >
+                    <p class="create">
+                        <a href="#" class=" btn btn-success">找更多的券</a>
+                    </p>
+                    <div class="create_list">
+                        <label class="">投放状态：
+                            <select name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                <option value="全部">全部</option>
+                                <option value="全部">以投放</option>
+                                <option value="全部">待投放</option>
+                            </select>
+                        </label>
+                        <span>
+                             <input type="text" placeholder="请输入优惠券名称">
+                            <a href="#" class="btn btn-primary find_a">查找</a>
+                        </span>
+                    </div>
+                    <div class="add_state ">
+                        <label class="add_state_1">有效期状态：
+                            <a href="#" class="red">全部(11)</a>
+                            <a href="#">未开始(3)</a>
+                            <a href="#">进行中(4)</a>
+                            <a href="#">已失效(7)</a>
+                        </label>
+                    </div>
+                    <div class="toWhere">
+                        <!--<a href="#" class="up btn btn-info"  data-toggle='modal' data-target='#show_new'>投放</a>-->
+                        <!--<a href="collect_holds_list.html" class="up btn btn-info">投放列表</a>-->
+                        <a href="#" class="up btn btn-info" data-toggle="modal" data-target="#myModal_amount">取消收藏</a>
+                    </div>
+                    <div class=" table-responsive">
+                        <table class="table  table-bordered table-hover center tbShow">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input class="ace clickAll" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th class="center">发券方</th>
+                                <th class="center">优惠券名称</th>
+                                <th class="center">面额</th>
+                                <th class="center">佣金规则</th>
+                                <th class="center">有效期</th>
+                                <th class="center">领取/券量</th>
+                                <th class="center">收藏日期</th>
+                                <th class="center">收藏状态</th>
+                                <th class="center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">小肥羊</td>
+                                <td class="center table_css">庆五一大活动</td>
+                                <td class="hidden-480 center">￥10.00<br><span style="color:#999">100元可用</span></td>
+                                <td class="hidden-480 center">核销数*0.1</td>
+                                <td class="hidden-480 center">2016/08/04-2016/09/01<br><span class="label label-warning">(未开始）</span></td>
+                                <td class="hidden-480 center table_css">200/800</td>
+                                <td class="hidden-480 center table_css">xxxx-xx-xx</td>
+                                <td class="hidden-480 center table_css"><span class="label label-success">推广中</span></td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="" href="collect_details.html">券详情</a>
+                                </td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">宋江宾馆</td>
+                                <td class="center table_css">庆十一大活动</td>
+                                <td class="hidden-480 center">￥10.00<br><span style="color:#999">100元可用</span></td>
+                                <td class="hidden-480 center">核销数*0.1</td>
+                                <td class="hidden-480 center">2016/08/04-2016/09/01<br><span class="label label-warning">(未开始）</span></td>
+                                <td class="hidden-480 center table_css">200/800</td>
+                                <td class="hidden-480 center table_css">xxxx-xx-xx</td>
+                                <td class="hidden-480 center table_css"><span class="label label-info">已结束</span></td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="" href="collect_details.html">券详情</a>
+                                </td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">宋江宾馆</td>
+                                <td class="center table_css">庆八一大活动</td>
+                                <td class="hidden-480 center">￥10.00<br><span style="color:#999">100元可用</span></td>
+                                <td class="hidden-480 center">核销数*0.1</td>
+                                <td class="hidden-480 center">2016/08/04-2016/09/01<br><span class="label label-default">(已失效）</span></td>
+                                <td class="hidden-480 center table_css">200/800</td>
+                                <td class="hidden-480 center table_css">xxxx-xx-xx</td>
+                                <td class="hidden-480 center table_css"><span class="label label-success">推广中</span></td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="" href="collect_details.html">券详情</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<!--取消收藏 start-->
+<div class="modal" id="myModal_amount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >取消收藏</h4>
+            </div>
+            <div class="modal-body center" >
+                <p>优惠券名称：<span>开店三周年20元代金券</span></p>
+                <p style="margin-top: 40px;">确认取消收藏此优惠券吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--取消收藏 end-->
+
+<!--投放 s-->
+<div class="modal fade know_up" id='show_new' tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >活动投放</h4>
+            </div>
+            <div class="modal-body" >
+                <p class="font-size">投放渠道：</p>
+                <div class="vouchers">
+                    <div class="collect">
+                        <div class="radio">
+                            <label class="ace_block cas">
+                                <input name="form-field-radio" class="ace ace_1" type="radio" >
+                                <span class="lbl">业务直属团</span>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="ace_block">
+                                <input name="form-field-radio" class="ace ace_1" type="radio">
+                                <span class="lbl">互联网渠道</span>
+                            </label>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"  id="btn_true">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade myModal_pu" id='show_new2' tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount" aria-hidden="true">
+    <div class="modal-dialog" style="width:993px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >选择优惠券投放模板</h4>
+            </div>
+            <div class="modal-body temp_main " >
+                <div class="temp_qie">
+                    <p class="stort"><span></span> 模板市场</p>
+                    <div class="temp_t">
+                        <label class="add_state_1">应用场景：
+                            <a href="#" class="red">全部(11)</a>
+                            <a href="#">平时促销(2)</a>
+                            <a href="#">节日促销(3)</a>
+                            <a href="#">流行元素(4)</a>
+                            <a href="#">店庆(3)</a>
+                        </label>
+                    </div>
+                    <div class="temp_tt">
+                        <label class="add_state_1">券数量：
+                            <a href="#" class="red">全部(11)</a>
+                            <a href="#">单券(2)</a>
+                            <a href="#">2券(3)</a>
+                            <a href="#">3券(4)</a>
+                            <a href="#">4券(3)</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="temp_img ">
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp1.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u105.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">单券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp2.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u107.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">双券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp1.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u105.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">单券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp2.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u107.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">双券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp1.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u105.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">双券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use_big">
+                        <div class="use_temp_yy">
+                            <a href="collect_temp1.html" class="use_temp">使用模板</a>
+                        </div>
+                        <div class="temp_img_son">
+                            <img src="../img/u105.jpg" alt="" >
+                            <div class="temp_explain">
+                                <p>圣诞节彩旗</p>
+                                <div class="temp_label">
+                                    <span class="label label-warning">节日</span>
+                                    <span class="label label-warning">双券</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--投放 e-->
+<script src="../js/const.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+</body>
+</html>

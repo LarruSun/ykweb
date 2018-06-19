@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+    <script src="../../resources/plugins/lrz/dist/lrz.bundle.js"></script>
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .span-bg{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+        .avatar{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="addLevelCardBody">
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="../images/img/logo.png" width="25px" alt="会员管理" />
+                    会员管理
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="../avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!--<li class="">
+                    <a href="../index.html" class="active">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>-->
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe62b;</i>
+                        <span class="menu-text"> 客户关系管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="clients.html">
+                                <i class="icon-double-angle-right"></i>
+                                客户列表
+                            </a>
+                        </li>
+
+                        <!--<li >
+                            <a href="management.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                会员管理
+                            </a>
+                        </li>-->
+                        <!--<li  >
+                            <a href="fans_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                粉丝管理
+                            </a>
+                        </li>-->
+                        <li  class="">
+                            <a href="members_home.html">
+                                <i class="icon-double-angle-right"></i>
+                                会员主页
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="label.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                标签管理
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li  class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe6b4;</i>
+                        <span class="menu-text"> 卡管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li  class="active">
+                            <a href="card_type.html">
+                                <i class="icon-double-angle-right"></i>
+                                等级卡管理
+                            </a>
+                        </li>
+                        <li >
+                            <a href="get_record.html" >
+                                <i class="icon-double-angle-right"></i>
+                                领取记录
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="wechaVipCard.html" >
+                                <i class="icon-double-angle-right"></i>
+                                微信会员卡
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe694;</i>
+                        <span class="menu-text">积分管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="integal_set.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分设置
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integal_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe607;</i>
+                        <span class="menu-text">储值管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li >
+                            <a href="store_value.html"  class="active">
+                                <i class="icon-double-angle-right"></i>
+                                储值设置
+                            </a>
+                        </li>
+
+                        <li >
+                            <a href="balance_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                余额记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!--<li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe61e;</i>
+                        <span class="menu-text"> 数据统计 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="expense_calendar.html" >
+                                <i class="icon-double-angle-right"></i>
+                                消费记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="card_type.html">等级卡管理</a>
+                    </li>
+                    <li>
+                        <a href="#">新建等级规则卡</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px;">
+                <div class="row ">
+                    <div class="col-sm-12 add_levelR">
+                        <div class="col-sm-12 temp_jr">
+                            <div class="temp_left col-sm-4">
+                                <div class="jr_1">
+                                    <div class="arch_head ">
+                                        <img src="../images/img/arch_img.png" alt="" class="img-responsive">
+                                        <p class="arch_p " >卡详情</p>
+                                    </div>
+                                    <div class="hhl_b">
+                                        <div class="arch_hmain_first kojer" v-if="isDiyBg == 'false'">
+                                            <div class="arch_nbiao">
+                                                <div class="jr_title te_jar_back" :style="{ 'background-color' : formData.backgroundColor }">
+                                                    <div class="jr_title_pos">
+                                                        <div class=" Center_head_body">
+                                                            <div class="Center_head media" style="padding: 13px 13px 0px;margin-bottom: 12px">
+                                                                <div class=" pull-left">
+                                                                    <div style="    float: left; width:50px;overflow: hidden;border-radius: 25px;margin-bottom: 11px;    margin-top: 4px;">
+                                                                        <img :src="avatar" class="img-responsive avatar" alt="" width="">
+                                                                    </div>
+                                                                    <div class="Center_head_main " style="    float: left; font-size: 17px;margin-top: 10px;">
+                                                                        <p>{{ nickName }}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Center_head_3  pull-right" style="      margin-top: 8px;">
+                                                                    <a href="#" ><img src="../images/img/eeer.png" alt="" width="23"/></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Center_head_fotter media">
+                                                            <div class="pull-left">
+                                                                <p class="holds_her">{{formData.name || '暂无'}}</p>
+                                                                <p>有效期：无限期</p>
+                                                            </div>
+                                                            <div class="pull-right">
+                                                                <p>默认卡</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" te_jar_img_B" style="position: relative" v-if="isDiyBg == 'true'">
+                                            <img  id="imgid" v-if="backUrl" :src="backUrl" alt="" width="315" height="158" style=" border-radius: 16px;"/>
+                                            <img  v-if="!backUrl" src="../images/img/other_1.png" alt="" width="315" height="158" style=" border-radius: 16px;"/>
+                                            <div class="arch_nbiao" style="position: absolute;top:0;">
+                                                <div class="jr_title te_jar_back">
+                                                    <div class="jr_title_pos">
+                                                        <div class=" Center_head_body">
+                                                            <div class="Center_head media" style="padding: 13px 13px 0px;margin-bottom: 12px">
+                                                                <div class=" pull-left">
+                                                                    <div style="    float: left; width:50px;overflow: hidden;border-radius: 25px;margin-bottom: 11px;    margin-top: 4px;">
+                                                                        <img :src="avatar" class="img-responsive" alt="" width="">
+                                                                    </div>
+                                                                    <div class="Center_head_main " style="    float: left; font-size: 17px;margin-top: 10px;">
+                                                                        <p>{{ nickName }}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="Center_head_3  pull-right" style="      margin-top: 8px;">
+                                                                    <a href="#" ><img src="../images/img/eeer.png" alt="" width="23"/></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Center_head_fotter media">
+                                                            <div class="pull-left">
+                                                                <p>{{formData.name || '暂无'}}</p>
+                                                                <p>有效期：无限期</p>
+                                                            </div>
+                                                            <div class="pull-right">
+                                                                <p>默认卡</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jr_title_2">
+                                        <div class="media separate1">
+                                            <div class="jr_title_pos">
+                                                <img src="../images/img/girl.png" alt="" width="56">
+                                                <p>松江</p>
+                                                <p>2017 0123 5558 9999 47</p>
+                                            </div>
+                                        </div>
+                                        <div class="media separate2">
+                                            <a href="#" class="spears pull-left">
+                                                <img src="../images/img/icon_vv.png" alt="">
+                                                会员权益
+                                            </a>
+                                            <div class="box_box">
+                                                <div class="pull-left vip_price_show">
+                                                    <img src="../images/img/zhekk.png" alt="">
+                                                    <p><span class="vip_price_show_s">{{formData.discount}}</span>折</p>
+                                                </div>
+                                                <div class="pull-left postage_show" hidden>
+                                                    <img src="../images/img/baoyou.png" alt="">
+                                                    <p>包邮</p>
+                                                </div>
+                                                <div class="pull-left integral_in_show" hidden>
+                                                    <img src="../images/img/jifen.png" alt="">
+                                                    <p class="integral_in_text_show">送积分</p>
+                                                </div>
+                                                <div class="pull-left coupon_show">
+                                                    <img src="../images/img/hhju.png" alt="">
+                                                    <p class="integral_in_text_show">优惠券</p>
+                                                </div>
+                                                <!--<span class="pull-right">></span>-->
+                                            </div>
+                                        </div>
+                                        <div class="media separate3">
+                                            <a href="#" class="pull-left">
+                                                <img src="../images/img/icon_shi.png" alt="">
+                                                使用须知
+                                            </a>
+                                            <span class="pull-right desiw">></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="temp_right_add col-sm-7">
+                                <p class="temp_Rtitle">会员卡基本信息</p>
+                                <div class="holds_top_son2">
+                                    <p class="pag_mia"><span style="color: red;">*</span>&nbsp;卡名称：</p>
+                                    <div class="pag">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" class="holds_name" placeholder="请输入卡名称" v-model="formData.name">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="ruleCard_main_son1">
+                                    <p class="reul_add_title"><span style="color: red;">*</span>&nbsp;卡面封面：</p>
+                                    <div class="Cright_m">
+                                        <div class="radio radioAdd">
+                                            <label class="ace_block">
+                                                <input name="form-field-radio" class="ace ace_1" type="radio" value="false" v-model='isDiyBg'>
+                                                <span class="lbl">背景色</span>
+                                            </label>
+                                            <div class="p1" v-if="isDiyBg == 'false'">
+                                                <span class="span-bg" v-for="item in colorList" :style="{ 'background-color' : item }" @click="bindBg(item)"></span>
+                                            </div>
+                                        </div>
+                                        <div class="radio radioAdd2">
+                                            <label class="ace_block">
+                                                <input name="form-field-radio" class="ace ace_1" type="radio" value="true" v-model='isDiyBg'>
+                                                <span class="lbl">封面图片</span>
+                                            </label>
+                                            <div class="topp" v-if="isDiyBg == 'true'">
+                                                <a href="#">选择图片</a>
+                                                <div style="width: 57px;height: 27px;margin-top: 11px;font-size: 13px;line-height: 21px;overflow: hidden;margin-top: -25px;margin-left: -1px;color: #999;opacity: 0;">
+                                                    <a href="#" class="fileid_a"> <input id="fileid" type="file" @change="bindImg"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="explain" v-if="isDiyBg == 'true'">尺寸：1000*600像素，小于1M，支持jpg,png,jpeg格式</p>
+                                        <div style="clear: both;"></div>
+                                    </div>
+                                </div>
+                                <div class="ruleCard_main_son2">
+                                    <p class="pag_mia"><span style="color: red;">*</span>&nbsp;会员权益：</p>
+                                    <div class="pag">
+                                        <!--<div class="ruleCard_main postage">
+                                            <label>
+                                                <input class="ace clickAll" type="checkbox" checked="checked" v-model="formData.freightFree">
+                                                <span class="lbl">包邮</span>
+                                            </label>
+                                        </div>-->
+                                        <div class="ruleCard_main1 vip_price">
+                                            <label>
+                                                <input class="ace clickAll" type="checkbox" value="1" v-model="isDiscount">
+                                                <span class="lbl">会员折扣</span>
+                                            </label>
+                                            <label>
+                                                <input class="ace vip_price_text" type="number" :disabled="isDiscount == '0'" min="0" max="10"  placeholder="" v-model="formData.discount">
+                                                <span class="lbl">折</span>
+                                            </label>
+                                        </div>
+                                        <!--<div class="ruleCard_main2 integral_in">
+                                            <label>
+                                                <input class="ace clickAll" type="checkbox" value="1" v-model="isIntegral">
+                                                <span class="lbl">积分</span>
+                                            </label>
+                                            <div class="ske_a">
+                                                <p>开卡赠送</p>
+                                            </div>
+                                            <label>
+                                                <input class="ace integral_in_text" :disabled="isIntegral == '0'" type="number" v-model="formData.integral">
+                                                <span class="lbl">积分</span>
+                                            </label>
+                                        </div>-->
+                                        <div class="ruleCard_main3 coupon">
+                                            <label>
+                                                <input class="ace clickAll" type="checkbox" value="1" v-model="isCoupon">
+                                                <span class="lbl">优惠券</span>
+                                            </label>
+                                            <div  class="ske_a">
+                                                <p>开卡赠送</p>
+                                            </div>
+                                            <label for="text" class=" control-label  ">
+                                                <select size="1" name="sample-table-2_length" :disabled="isCoupon == '0'" aria-controls="sample-table-2" v-model="formData.couponId">
+                                                    <option value="" >无优惠券</option>
+                                                    <option :value="item.id" v-for="item in couponList">{{item.couponsName}}</option>
+                                                </select>
+                                            </label>
+                                            <p class="ruleCard_title">优惠券过期、被删除、或库存为0时，系统不再送券</p>
+                                        </div>
+                                        <div class="ruleCard_main4">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia" style="margin-right: 46px;"><span style="color: red;">*</span>&nbsp;使用须知：</p>
+                                            </div>
+                                            <div style="display: flex;flex-direction: column;">
+                                                <input type="text" class="holds_name" style="width: 405px;margin-bottom: 10px;" placeholder="请输入使用须知" v-model="formData.remark1">
+                                                <input type="text" class="holds_name" style="width: 405px;margin-bottom: 10px;" placeholder="请输入使用须知" v-model="formData.remark2">
+                                                <input type="text" class="holds_name" style="width: 405px;margin-bottom: 10px;" placeholder="请输入使用须知" v-model="formData.remark3">
+                                                <input type="text" class="holds_name" style="width: 405px;margin-bottom: 10px;" placeholder="请输入使用须知" v-model="formData.remark4">
+                                                <input type="text" class="holds_name" style="width: 405px;" placeholder="请输入使用须知" v-model="formData.remark5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="holds_top_good">
+                                    <p class="temp_Rtitle">会员卡领取设置</p>
+                                   <div class="holds_top_good_main">
+                                       <!--<div class="holds_Card">
+                                           <p class="pag_mia"><span style="color: red;">*</span>&nbsp;等级：</p>
+                                           <div class="pag">
+                                               <label for="text" class=" control-label  ">
+                                                   <select size="1" name="sample-table-2_length" aria-controls="sample-table-2">
+                                                       <option value="time">请选择</option>
+                                                       <option value="time">1</option>
+                                                       <option value="time">2</option>
+                                                       <option value="time">3</option>
+                                                       <option value="time">4</option>
+                                                   </select>
+                                               </label>
+                                                <p style="font-size: 12px;color: #999;margin-left: 123px;">
+                                                    1-9级，数字越大等级越高，当满足升级条件时会自动发放相对应的会员卡，一个级别只能有一种等级规则卡
+                                                </p>
+                                           </div>
+                                       </div>-->
+                                <!-- <div class="holds_Card2">
+                                     <p class="pag_mia"><span style="color: red;">*</span>&nbsp;发放条件：</p>
+                                     <div class="pag">
+                                         <label>
+                                             <span class="lbl">累计支付成功</span>
+                                             <input class="ace " type="number" style="margin-left: 26px;" v-model="formData.consumeCount">
+                                             <span class="lbl">笔</span><br><br>
+                                             <span class="lbl">或&nbsp;&nbsp;&nbsp;累计消费金额</span>
+                                             <input class="ace " type="number" v-model="formData.consumeAmount">
+                                             <span class="lbl">元</span><br><br>
+                                             <span class="lbl">或&nbsp;&nbsp;&nbsp;累计积分达到</span>
+                                             <input class="ace " type="number" v-model="formData.consumeIntegarl">
+                                             <span class="lbl">元</span>
+                                         </label>
+                                     </div>
+                                 </div>
+                                 <div class="holds_Card3">
+                                     <p class="pag_mia"><span style="color: red;">*</span>&nbsp;激活设置：</p>
+                                     <div class="pag activate_label">
+                                         <label>
+                                             <input class="ace clickAll" name="radioss" type="radio" value="false" checked="checked" v-model="formData.activate">
+                                             <span class="lbl">无需激活</span>
+                                         </label>
+                                         <label>
+                                             <input class="ace clickAll" name="radioss" type="radio" value="true" v-model="formData.activate">
+                                             <span class="lbl">需要激活</span>
+                                         </label>
+                                         <div class="holds_son activate" style="display: none">
+                                             <label>
+                                                 <input class="ace clickAll "  disabled type="checkbox" checked="checked">
+                                                 <span class="lbl">验证手机号(必选)</span>
+                                             </label><br/>
+                                             <label>
+                                                 <input class="ace clickAll "  type="checkbox" >
+                                                 <span class="lbl">填写完整会员资料</span>
+                                             </label>
+                                             <p style="margin-left: 116px;color: #999;font-size: 12px;">如需在线下门店使用,建议设置为"需要激活"</p>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                          </div>-->
+                                <div class="" style="margin-top: 29px;">
+                                    <button class="btn btn-primary a_bottom" @click="addCard">确定</button>
+                                    <!--<button href="#" class="btn btn-primary a_bottom">取消</button>-->
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div><!-- /.main-content -->
+            </div><!-- /.main-container-inner -->
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+</div><!--.main-container-->
+</div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!--<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>-->
+<!--<script src="../js/flot/jquery.flot.min.js"></script>-->
+<script src="../js/ace.min.js"></script>
+<!--<script src="../js/js.js"></script>-->
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../myjs/const.js"></script>
+<script src="../myjs/addLevelCard.js"></script>
+<script>
+$(function(){
+    var num1;
+    var arr= $(".coupon  label input");
+    var len=$(".coupon label input").length;
+    for(var i=0;i<len;i++){
+        arr[i].index=i;
+        arr[i].onclick=function(){
+            num1=this.index;
+            //console.log(num1);
+            if(num1==0){
+                if($(this).prop("checked")){
+                    $(".coupon_show").show();
+                }else{
+                    $(".coupon_show").hide();
+                }
+            }
+        };
+    }
+});
+    $(function(){
+        var num1;
+        var arr= $(".postage  label input");
+        var len=$(".postage  label input").length;
+        for(var i=0;i<len;i++){
+            arr[i].index=i;
+            arr[i].onclick=function(){
+                num1=this.index;
+                //console.log(num1);
+                if(num1==0){
+                    if($(this).prop("checked")){
+                        $(".postage_show").show();
+                    }else{
+                        $(".postage_show").hide();
+                    }
+                }
+            };
+        }
+    });
+    $(function(){
+        var num1;
+        var arr= $(".vip_price  label input");
+        var len=$(".vip_price  label input").length;
+        for(var i=0;i<len;i++){
+            arr[i].index=i;
+            arr[i].onclick=function(){
+                num1=this.index;
+                //console.log(num1);
+                if(num1==0){
+                    if($(this).prop("checked")){
+                        $(".vip_price_show").show();
+                    }else{
+                        $(".vip_price_show").hide();
+                    }
+                }
+            };
+        }
+    });
+    $(function(){
+        var num1;
+        var arr= $(".integral_in  label input");
+        var len=$(".integral_in  label input").length;
+        for(var i=0;i<len;i++){
+            arr[i].index=i;
+            arr[i].onclick=function(){
+                num1=this.index;
+                //console.log(num1);
+                if(num1==0){
+                    if($(this).prop("checked")){
+                        $(".integral_in_show").show();
+                    }else{
+                        $(".integral_in_show").hide();
+                    }
+                }
+            };
+        }
+    });
+    //选择Logo
+    function imageChangeValids(fileId,saveImgId)
+    {
+        //判断上传图片大小问题
+        var f = document.getElementById(fileId).files;
+        if(f[0]!=null)
+        {
+            var fileSize = 0;
+            fileSize = Math.round(f[0].size*100/(1024 * 1024))/100;
+            if(parseFloat(fileSize)>parseFloat(0.5)){
+
+                alertErrors("图片大小不能超过2M",2000);
+//		    	resetFileInput($("#upImg_bts01"));
+
+                return;
+            }else{
+                //上次修改时间  f[0].lastModifiedDate 名称  f[0].name 大小 字节  f[0].size 类型  f[0].type
+// 		    $("#"+fileNameId).val(f[0].name);
+                var obj=new FileReader();
+                obj.readAsDataURL(f[0]);
+                obj.onload=function(){
+                    $("#"+saveImgId).attr("src",obj.result);
+                    $("#"+fileId).change(function(){imageChangeValids(fileId,saveImgId)});
+                }
+            }
+        }else
+        {
+            alertErrors("文件格式选择错误,请重新选择",2000);
+            $("#"+saveImgId).attr("src","./resources/images/frame/user_logo.png")
+        }
+    }
+    $(function(){
+        var num2;
+        var num1;
+        var index_1=$(".separate");
+        var length_1=$(".separate").length;
+
+
+        var index_=$(".function_button label input");
+        var length_=$(" .function_button label input").length;
+        for(var i=0;i<length_;i++){
+            index_[i].index=i;
+            index_[i].onclick=function(){
+                num2=this.index;
+                var ts=index_1.get(num2);
+                if($(this).prop('checked')){
+                    $(ts).show();
+                }else{
+                    $(ts).hide();
+                }
+
+            }
+        };
+        for(var j=0;j<length_1;j++){
+            index_1[j].index=j;
+            index_1[j].onclick=function(){
+                num1=this.index;
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

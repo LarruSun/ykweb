@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="posterName">优惠券</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../sass/swiper.css">
+    <link rel="stylesheet" href="../sass/animate.css">
+    <link rel="stylesheet" href="../sass/app.css">
+    <script src="../../../resources/config.js"></script>
+    <style>
+        em{font-style:normal;}
+    </style>
+</head>
+<body class="quanT1">
+<section class="swiper-container">
+    <i class="music-c"></i>
+    <i class="music-note">
+        <audio class="bgMusic" src="../audio/live.mp3" autoplay></audio>
+    </i>
+    <section class="swiper-wrapper">
+        <article class="swiper-slide box-1 iframeBg">
+            <div class="lt ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay=".5s" >
+                <img class="poster-img" src="https://yun.eaqul.com/yk_coupon/WebPost/images/taohua1.png">
+            </div>
+            <div class="logoBox" >
+                <p class="ani" swiper-animate-effect="fadeInDownBig" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+                    <img class="logoImg poster-img" src="" alt="">
+                </p>
+                <div class="poster-txt" style="outline: none">
+                    <p class="tit ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="2s" swiper-animate-delay="3.5s" style="font-size: 0.5rem;color: #78394c;font-weight: 500;" id="userName">
+
+                    </p>
+                </div>
+                <div class="poster-txt" style="outline: none">
+                    <p class="desc ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="2s" swiper-animate-delay="3.5s" style="font-size: 0.7rem;color: #78394c; font-weight: 500;" id="userDesc">
+
+                    </p>
+                </div>
+            </div>
+            <div class="quan">
+                <div class="poster-quan">
+                    <div class="item ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="2s" swiper-animate-delay="1.5s" style="width:4rem">   <!--style="width:4rem;width: 100%;height: 1.8rem;background: url(../images/duang.png);
+    background-size: 100% 106%;display: flex;"-->
+                        <a href="#" style="color: #d5cb40;font-size: 0.52rem;text-shadow: none;text-align: center; box-sizing: border-box; padding: 0.2rem 0.15rem 0.15rem 0.4rem; font-weight: 100;width: 1.2rem;text-decoration: none;" data-ajax="false" data-role="none" onclick="toGetCoupon(this)" couponId="${coupon1.id}" sid="${coupon1.sid}">领取</a>
+                        <p style="box-sizing: border-box; padding: 0.2rem 0rem 0rem 0rem;width: 100%;">
+                            <b style="width: 100%;text-align: center;display: inline-block;font-size: 0.6rem;color: #500304;font-weight: 600;"><em class="vouchers">10</em>元</b><br>
+                            <span style="font-size: 0.4rem;display: inline-block;width: 100%;text-align: center;color: #702225;" class="lowestConsume">满100元可用</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="poster-quan">
+                    <div class="item ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="2s" swiper-animate-delay="1.5s" style="width:4rem">
+                        <a href="#" data-ajax="false" data-role="none">领取</a>
+                        <p>
+                            <b><em class="vouchers">10</em>元</b><br>
+                            <span class="lowestConsume">满100元可用</span> 	<!-- <em style="font-weight:normal;">100</em> -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ani thz" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1.5s" >
+                <img class="poster-img" src="https://yun.eaqul.com/yk_coupon/WebPost/images/thz.png" alt="">
+            </div>
+            <div class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.5s" >
+
+            </div>
+            <div class="ani rb" swiper-animate-effect="slideInRight" swiper-animate-duration="1s" swiper-animate-delay=".5s" >
+                <img class="poster-img" src="https://yun.eaqul.com/yk_coupon/WebPost/images/taohua2.png" alt="">
+            </div>
+        </article>
+    </section>
+    <!-- <nav class="swiper-pagination"></nav>-->
+</section>
+
+</body>
+<script src="../js/flexible.js"></script>
+<script src="../js/jquery-3.0.0.js"></script>
+<script src="../js/touch.js"></script>
+<script src="../js/swiper.js"></script>
+<script src="../js/swiper.animate1.0.2.min.js"></script>
+<script src="../../js/const.js"></script>
+<script>
+    getUser();
+    function getUser(){
+        $.ajax({
+            type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data:{},
+            url:pathApi + '/web/coupon/get/getUser',
+            success:function(data){
+                console.log(data);
+                $("#userName").html(data.data.nickName);
+                $("#userDesc").html(data.data.nickName+"优惠节");
+                $(".logoImg").attr("src",data.data.businessLogo);
+            },
+            error:function(data){
+                alertErrors("查询错误",1500);
+                console.log(data);
+            }
+        });
+    }
+
+    var postersId=window.parent.document.getElementById("finput").value;
+    var getSetedData=function(){
+        if(postersId!=""){
+            $.ajax({
+                type:"post",
+                data:{
+                    "couponsPostersId":postersId
+                },
+                url:pathApi + "/coupons/coupon/getCouponsPostersById",
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    //var list=JSON.parse(data);
+                    setDomAttr(data.data);
+                    init();
+                },
+                error:function(data){
+                    alert("查询错误");
+                    console.log(data);
+                }
+            });
+        }
+
+    };
+
+    var init=function(){
+        var swiper = new Swiper(".swiper-container",{
+            "direction":"vertical",
+            /*     "autoplay":5000,
+            "pagination":".swiper-pagination",
+            "effect":"coverflow", */
+            "noSwiping" : true,
+            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            }
+        });
+
+        var musicC = document.querySelector(".music-c");
+        var musicnote = document.querySelector(".music-note");
+        var audio = document.querySelector("audio");
+        musicC.addEventListener("click",function(){
+            if(audio.paused){
+                audio.play();
+                musicnote.style.display="block";
+                musicC.style.animationPlayState = "running";
+            }else{
+                audio.pause();
+                musicnote.style.display="none";
+                musicC.style.animationPlayState = "paused";
+            }
+        })
+    }
+
+    if(postersId&&postersId!=''){
+        getSetedData();
+    }else{
+        init();
+    }
+    //获取后台数据生成用户指定的微场景
+    function setDomAttr(obj){
+        var img=JSON.parse(obj.img);
+        var quan=JSON.parse(obj.quan);
+        var txt=JSON.parse(obj.txt);
+        var posterImg = document.getElementsByClassName('poster-img'); //图片
+        var posterQuanT=document.getElementsByClassName("poster-quan"); //优惠券
+        var posterTxt=document.getElementsByClassName("poster-txt"); //文本
+        var iframeBg=document.querySelector('.iframeBg'); //背景图
+        var posterName=document.querySelector(".posterName"); //页面title
+        var bgMusic=document.querySelector(".bgMusic"); //页面背景音乐
+        $(posterName).html(obj.posterName); //设置页面title
+        if(obj.backgroundImg!=''){ //设置页面背景图
+            $(iframeBg).css("background",'url('+obj.backgroundImg+')');
+        }
+        if(obj.backgroundMusic!=''){ //设置背景音乐
+            var backgroundMusic=JSON.parse(obj.backgroundMusic);
+            $(bgMusic).attr("src",backgroundMusic.musicUrl);
+        }
+        for(var i=0;i<img.length;i++){ //设置图片
+            var anim=img[i].anim;
+            if(anim&&anim!=''){
+                $(posterImg).eq(img[i].ind).parent().attr('swiper-animate-effect',anim);
+            }
+        }
+        for(var i=0;i<quan.length;i++){ //设置优惠券
+            var anim=quan[i].anim;
+            var vouchers=quan[i].vouchers;
+            var lowestConsume=quan[i].lowestConsume;
+            if(anim&&anim!=''){
+                $(posterQuanT).eq(quan[i].ind).find(".item").attr('swiper-animate-effect',anim);
+            }
+            if(vouchers&&vouchers!=''){
+                $(posterQuanT).eq(quan[i].ind).find(".vouchers").html(vouchers);
+            }
+            if(lowestConsume&&lowestConsume!=''){
+                $(posterQuanT).eq(quan[i].ind).find(".lowestConsume").html(lowestConsume);
+            }
+        }
+        for(var i=0;i<txt.length;i++){
+            var anim=txt[i].anim;
+            var fontsize=txt[i].fontsize;
+            var fontmargin=txt[i].fontmargin;
+            var fontlineheight=txt[i].fontlineheight;
+            var fonttxt=txt[i].txt;
+            var fontcolor=txt[i].fontcolor;
+            if(fonttxt&&fonttxt!=''){
+                $(posterTxt).eq(txt[i].ind).find("p").html(txt[i].txt);
+            }
+            if(anim&&anim!=''){
+                var dom=$(posterTxt).eq(txt[i].ind).find("p").attr('swiper-animate-effect',anim);
+            }
+            if(fontsize&&fontsize!=''){
+                var dom=$(posterTxt).eq(txt[i].ind).find("p").css("font-size",fontsize);
+            }
+            if(fontcolor&&fontcolor!=''){
+                var dom=$(posterTxt).eq(txt[i].ind).find("p").css("color",fontcolor);
+            }
+            if(fontmargin&&fontmargin!=''){
+                var dom=$(posterTxt).eq(txt[i].ind).find("p").css("letter-spacing",fontmargin)
+            }
+            if(fontlineheight&&fontlineheight!=''){
+                var dom=$(posterTxt).eq(txt[i].ind).find("p").css("line-height",fontlineheight)
+            }
+        }
+
+    }
+
+    var  flowerFlay=function(){
+        var root=path;
+        var d='<div class="snow"><img src="'+root+'/yk_coupon/WebPost/images/flower01.png" alt=""><div>';
+        setInterval(function(){
+            var f=$(document).width();
+            var e=Math.random()*f-100;
+            var o=0.3+Math.random();
+            var fon=10+Math.random()*30;
+            var l = e - 100 + 200 * Math.random();
+            var k=2000 + 5000 * Math.random();
+            $(d).clone().appendTo(".swiper-container").css({
+                left:e+"px",
+                top:0,
+                opacity:o,
+                "font-size":fon,
+                "z-index":8,
+                "position":"absolute"
+            }).animate({
+                top:"400px",
+                left:-l+"px",
+                opacity:0.1,
+            },k,"linear",function(){$(this).remove()})
+        },1000)
+    };
+    flowerFlay();
+
+    function sonDOMClick(){
+        var pdocument=window.parent.document;
+        var navas=pdocument.querySelectorAll(".nava");
+        document.onclick=function(e){
+            var curDOM=e.target;
+            var hclass=$(curDOM).attr("class");
+            if(hclass.indexOf("poster-img")>=0){
+                $(navas).each(function(){
+                    if($(this).attr("ty")=='img'){
+                        $(this).click();
+                    }
+                })
+            }
+        }
+    }
+
+    sonDOMClick();
+</script>
+
+</html>

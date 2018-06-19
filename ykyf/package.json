@@ -1,0 +1,21 @@
+{
+  "name": "ykyf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "vue": "^2.5.13",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "lrz": "^4.9.40",
+    "vue-resource": "^1.3.5",
+    "vue-router": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

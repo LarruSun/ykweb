@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../js/boot/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="../css/pagination.css" />
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+        <headd></headd>
+</div>
+<div id="balanceRecordBody">
+
+
+            
+ 
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar" sonpage="balanceRecordBody">
+                    <ul class="nav nav-list">
+                        <!-- <li class="">
+                             <a href="../index.html" class="active">
+                                 <i class="icon-desktop"></i>
+                                 <span class="menu-text"> 首页 </span>
+                             </a>
+                         </li>-->
+                         <li >
+                            <a href="#" class="dropdown-toggle">
+                                    <i class="icon-list"></i>
+                                    <span class="menu-text">客户列表</span>
+                                    <b class="arrow icon-angle-down"></b>
+                            </a>
+                            <ul class="submenu">    
+                                    <li class="VIP_customerList">
+                                        <a v-bind:href="'../ykcy_html/VIP_customerList.html'">
+                                            <i class="icon-double-angle-right"></i>
+                                            客户列表
+                                        </a>
+                                    </li>         
+                                </ul>
+                         </li>
+    
+    
+                          <!--中间-->
+                          <li>
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="icon-signout"></i>
+                                    <span class="menu-text"> 会员等级列表 </span>
+                                    <b class="arrow icon-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    
+                                    
+                                   <li class="VIP_gradeList">
+                                       <a v-bind:href="'../ykcy_html/VIP_gradeList.html'">
+                                           <i class="icon-double-angle-right"></i>
+                                           会员等级列表
+                                       </a>
+                                   </li>
+    
+                                </ul>
+                            </li>
+    
+                         
+                            <li class="">
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-th-large"></i>
+                                        <span class="menu-text"> 积分管理 </span>
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
+                                    <ul class="submenu">
+                                        
+                                        <li class='VIP_setIntegral'>
+                                            <a v-bind:href="'../ykcy_html/VIP_setIntegral.html'">
+                                                <i class="icon-double-angle-right"></i>
+                                                积分设置
+                                            </a>
+                                        </li>
+    
+    
+                                        <li class='VIP_IntegralRecord'>
+                                        <a v-bind:href="'../ykcy_html/VIP_IntegralRecord.html'">
+                                            <i class="icon-double-angle-right"></i>
+                                            积分记录
+                                        </a>
+                                    </li>
+    
+                                    </ul>
+                            </li>
+    
+                          <li class="">
+                              <a href="#" class="dropdown-toggle">
+                                    <i class="icon-signout"></i>
+                                    <span class="menu-text">储值管理 </span>
+                                  <b class="arrow icon-angle-down"></b>
+                              </a>
+    
+                              <ul class="submenu">
+                                  <li  class="active">
+                                      <a href="store_value.html"  class="active">
+                                          <i class="icon-double-angle-right"></i>
+                                          储值设置
+                                      </a>
+                                  </li>
+    
+                                  <li>
+                                      <a href="balance_record.html" class='balanceRecordBody'>
+                                          <i class="icon-double-angle-right"></i>
+                                          余额记录
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                      
+                    </ul><!-- /.nav-list -->
+                    <!-- <div class="sidebar-collapse" id="sidebar-collapse">
+                        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                    </div> -->
+                </div>
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="#">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="#">消费记录</a>
+                        </li>
+                    </ul><!-- .breadcrumb -->
+                </div>
+                <div class="page-content" style="min-width: 1086px;min-height: 640px;">
+                    <div class="row " >
+                        <div class="col-xs-12 order_list">
+                            <div class="order_time">
+                                <div class="order_showAll">
+                                    <div class="order_show">
+                                        <label class="voucher_time">时段选择：
+                                            <input class="form_datetime" id="wei_datetime" type="date" v-model="startTime">
+                                            &nbsp;至&nbsp;
+                                            <input class="form_datetime" id="wei_datetime1" type="date" v-model="endTime">
+                                        </label>
+                                    </div>
+                                </div>
+                                <!--<div class="order_bo">
+                                    <a href="#" class="order_today order_list_activ">今</a>
+                                    <a href="#" class="order_today2">昨</a>
+                                    <a href="#" class="order_today3">周</a>
+                                    <a href="#" class="order_today4">月</a>
+                                </div>-->
+                            </div>
+                            <div class="col-xs-12 col-sm-12 mge_set">
+                                <label for="text" class=" control-label  ">订单类型：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="tradeTypeCode">
+                                        <option value="">全部</option>
+                                        <option value="MEMBER_DEPOSIT">会员充值</option>
+                                        <option value="MEMBER_DEDUCT">会员支付扣款</option>
+                                    </select>
+                                </label>
+                                <label for="text" class=" control-label  ">交易场景：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="tradeType">
+                                        <option value="">全部</option>
+                                        <option value="MEMBER_DEPOSIT">会员充值</option>
+                                        <option value="WAIMAI">外卖/退款</option>
+                                    </select>
+                                </label>
+                                <label for="text" class=" control-label  ">
+                                    <input type="text" placeholder="请输入卡号" v-model="userName"/>
+                                    <a href="#" class="btn btn-info a_bottom" @click="getList">搜索</a>
+                                </label>
+                            </div>
+                            <!--<div class="add_state0" style="  margin-top: 92px;  border-bottom:0; margin-bottom: 14px;">
+                                <a href="#" class="a_bottom btn btn-primary" style="margin-right: 21px">下载</a>
+                                <a href="#" class="a_bottom btn btn-primary">打印</a>
+                            </div>-->
+                            <div class="table-responsive">
+                                <table  class="table  table-bordered table-hover center table_all table_css">
+                                    <thead>
+                                    <tr>
+                                        <th class="center">日期时间</th>
+                                        <th class="hidden-480 center">卡号</th>
+                                        <th class="hidden-480 center">会员名称</th>
+                                        <th class="hidden-480 center">交易金额</th>
+                                        <th class="hidden-480 center">余额</th>
+                                        <th class="hidden-480 center">订单类型</th>
+                                        <th class="hidden-480 center">交易场景</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="selected" v-for="item in list" v-cloak>
+                                            <td class="hidden-480 center">{{ item.tradeTime | formartDate }}</td>
+                                            <td class="center">{{ item.cardNO }}</td>
+                                            <td class="center">{{ item.userName }}</td>
+                                            <td class="center">{{ (item.amount*0.01).toFixed(2) }}</td>
+                                            <td class="center">{{ (item.accountAmount*0.01).toFixed(2) }}</td>
+                                            <td class="center">{{ item.tradeTypeCode }}</td>
+                                            <td class="center">{{ item.tradeType }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- /.main-content -->
+                </div><!-- /.main-container-inner -->
+                <div class="pagination" style="position: absolute;right: 80px;bottom: 0;">
+                    <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                </div>
+            </div><!--/.main-container-->
+        </div>
+        <!--footer s-->
+
+        <!--footer e-->
+        <!--置顶图标 start-->
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+        <!--置顶图标 end-->
+    </div><!--.main-container-->
+</div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/time.js"></script>
+<script src="../js/js.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<!-- <script src="../myjs/const.js"></script> -->
+<script src="../ykcy_js/const.js"></script>
+
+<script src="../js/pagination.js"></script>
+<script src="../myjs/balanceRecord.js"></script>
+</body>
+</html>

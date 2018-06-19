@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="setup_out">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">外卖管理</a>
+                    </li>
+                    <li>
+                        <a href="#">基本设置</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <p class="header-btn">
+                    <button class="btn btn-primary" style="margin-right: 20px;">基本设置</button>
+                    <button class="btn" style="margin-right: 20px;">外卖设置</button>
+                    <button class="btn" >堂食设置</button>
+                </p>
+                <div class="row" id="setup_out">
+                    <div style="font-size: 14px;margin-left: 12px;" class="tab-item">
+                        <p style="font-size: 18px"><b>线下营业时间</b></p>
+                        <div>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="1"><span class="lbl">周一</span></label>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="2"><span class="lbl">周二</span></label>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="3"><span class="lbl">周三</span></label>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="4"><span class="lbl">周四</span></label>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="5"><span class="lbl">周五</span></label>
+                            <label style="margin-right: 20px;"><input class="ace check_son" type="checkbox" v-model="businessDate" value="6"><span class="lbl">周六</span></label>
+                            <label><input class="ace check_son" type="checkbox" v-model="businessDate" value="7"><span class="lbl">周日</span></label>
+                        </div>
+                        <div class="setup_out_time2" style="margin-top: 20px;">
+                            <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" v-model="form.startTime1">
+                            &nbsp;至&nbsp;
+                            <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" style="margin-right: 20px;" v-model="form.endTime1">
+                        </div>
+                        <div class="setup_out_time2" style="margin-top: 20px;" v-if="basicAddTime">
+                            <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" v-model="form.startTime2">
+                            &nbsp;至&nbsp;
+                            <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" v-model="form.endTime2" style="margin-right: 20px;">
+                        </div>
+                        <p style="margin-top: 10px;" @click="basicAddTime = true" v-if="!basicAddTime"><a>新增时间段</a></p>
+                        <p style="margin-top: 10px;" @click="basicAddTime = false;form.startTime2 = '';form.endTime2 = ''" v-if="basicAddTime"><a>删除时间段</a></p>
+                        <button class="btn btn-primary" @click="saveBasic">保存</button>
+                    </div>
+                    <div class="col-xs-12 tab-item" hidden>
+                        <table class="table table-condensed table-responsive setup_eat" style="margin-left: 0">
+                            <tr>
+                                <td >
+                                    <div class="form-group setup_out_1 " style="position: relative">
+                                        <div style="position: absolute;top: 13px;">
+                                            <label  class=" control-label font_size setup_eat1 waimais">外卖时段：</label>
+                                        </div>
+                                        <div class="form-lable1 hiler"  style="display: inline-block;margin-left: 89px">
+                                            <div class="setup_out_1 setup_out_disnone " style="    margin-top: 12px;display: none;">
+                                                <label >
+                                                    <input name="form-field-rao" class="ace" v-model="initData.openTime" value="1" type="radio" >
+                                                    <span class="lbl">与营业时间保持一致</span>
+                                                </label>
+                                                <p class="setup_out_ple" style="margin-top: 13px;color: #999;font-size: 14px; margin-left: 19px;">周一至周日，8:00至20:00 <a href="#">修改店铺设置</a></p>
+                                            </div>
+                                            <div class="setup_out_1 setup_out_disnone" style="    margin-top: 12px;display: grid;">
+                                                <label >
+                                                    <input name="form-field-rao" class="ace" v-model="initData.openTime=0" value="0"  type="radio">
+                                                    <span class="lbl">单独设置外卖时段</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div v-if="initData.openTime==0" class="form-group mkm" style=" margin-top: -17px;margin-left: 92px;margin-bottom: 33px">
+                                        <label for="text" class=" control-label  setup_eat1">
+                                            <a href="#" v-on:click="isShowWeeks" class="text_week" style=" text-decoration: none; color: #666; padding: 0 4px; line-height: 23px;  width: 207px; border: 1px solid #d5d5d5;display: block;height: 28px;">
+                                                {{weeks}}
+                                            </a>
+                                        </label>
+                                        <div v-show="isShowWeek" class="choose_week" style="margin-top: 6px;border: 1px solid #ddd;box-shadow: 2px 1px 4px #ddd;margin-bottom: 12px;padding: 12px;">
+                                            <div class="week_sort">
+                                                <label><input type="checkbox" value="1" v-model="initData.takeOutDate"><span>星期一</span></label>
+                                                <label><input type="checkbox" value="2" v-model="initData.takeOutDate"><span>星期二</span></label>
+                                                <label><input type="checkbox" value="3" v-model="initData.takeOutDate"><span>星期三</span></label>
+                                                <label><input type="checkbox" value="4" v-model="initData.takeOutDate"><span>星期四</span></label>
+                                                <label><input type="checkbox" value="5" v-model="initData.takeOutDate"><span>星期五</span></label>
+                                                <label><input type="checkbox" value="6" v-model="initData.takeOutDate"><span>星期六</span></label>
+                                                <label><input type="checkbox" value="7" v-model="initData.takeOutDate"><span>星期日</span></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div  v-if="initData.openTime==0" class="form-group setup_out_9 mkm" style="margin-left: -45px;">
+                                        <div class="setup_out_time">
+                                            <div class="setup_out_time2" v-for="item in initData.startTime1">
+                                                <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" v-model="item.startTime">
+                                                &nbsp;至&nbsp;
+                                                <input size="9" class="sang_Calender" name="sample-table-2_length" aria-controls="sample-table-2" type="time" v-model="item.endTime" style="margin-right: 20px;">
+                                            </div>
+                                            <div class="setup_out_addtime">
+                                                <a href="javascript:;" class="addtime1" v-on:click="addAndDelStartTime">{{initData.startTime1.length==2?'删除时间段':'添加时间段'}}</a>
+                                            </div>
+                                        </div>
+<!--                                        <p>请使用24小时制输入时间,格式如9:30至17:30</p>-->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="display: none;">
+                                <td>
+                                    <div class="form-group setup_out_1">
+                                        <label for="text" class=" control-label font_size setup_eat1">外卖自提：</label>
+                                        <div class="form-lable1"  style="display: inline-block">
+                                            <label style="    margin-top: 6px;">
+                                                <input name="switch-field-1" class="ace ace-switch" type="checkbox" v-model="initData.extractSelf">
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="display: none;">
+                                <td>
+                                    <div class="form-group setup_out_2">
+                                        <label for="text" class=" control-label  ">送厨延时：</label>
+                                        <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="initData.delayedTime">
+                                            <option value="0">预约时间前0分钟</option>
+                                            <option value="5">预约时间前5分钟</option>
+                                            <option value="10">预约时间前10分钟</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="display: none">
+                                <td>
+                                    <div class="form-group setup_out_3">
+                                        <label for="text" class=" control-label ">支付方式： </label>
+                                            <div class="setup_out_1">
+                                                <label>
+                                                    <input class="ace clickAll" type="checkbox" v-model="initData.paymentMode_zt" value="0">
+                                                    <span class="lbl">在线支付</span>
+                                                </label>&nbsp;&nbsp;&nbsp;
+                                                <label style="display: none;">
+                                                    <input class="ace clickAll" type="checkbox" v-model="initData.paymentMode_zt" value="1">
+                                                    <span class="lbl">到店支付</span>
+                                                </label>
+                                            </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_1">
+                                        <label for="text" class=" control-label font_size setup_eat1">外卖配送：</label>
+                                        <div class="form-lable1" style="display: inline-block">
+                                            <label   style="margin-top: 6px;"  >
+                                                <input name="switch-field-1" class="ace ace-switch" type="checkbox" v-model="initData.takeOut">
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_7" style="    margin-top: -13px;">
+                                        <label for="text" class=" control-label  ">支付方式： </label>
+                                       <div class="setup_out_play">
+                                           <label>
+                                               <input class="ace clickAll" type="checkbox" v-model="initData.paymentMode_ps" value="0">
+                                               <span class="lbl">在线支付</span>
+                                           </label>&nbsp;&nbsp;&nbsp;
+                                           <label style="display: none">
+                                               <input class="ace clickAll" type="checkbox" v-model="initData.paymentMode_ps" value="2">
+                                               <span class="lbl">货到付款</span>
+                                           </label>
+                                       </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_8">
+                                        <label for="text" class=" control-label  setup_eat1">配送时长：
+                                            <input name="form-field-radio" class="ace" checked="" type="text" v-model="initData.takeOutTime" >
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_8" style="    margin-bottom: -7px;    margin-top: -33px;">
+                                        <label  class=" control-label  setup_eat1">配送方式： </label>
+                                        <div style="    margin-top: -26px;margin-left: 138px;    margin-bottom: 36px;">
+                                            <label >
+                                                <input class="ace clickAll" type="checkbox" v-model="initData.takeOutMode" value="0" style="margin-left: 0" @change="checkTakeOutMode">
+                                                <span class="lbl">自营配送</span>
+                                            </label>
+                                            <label style="margin-left: 10px">
+                                                <input class="ace clickAll" type="checkbox"  v-model="initData.takeOutMode" value="1" @change="checkTakeOutMode">
+                                                <span class="lbl">第三方配送</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_8" style="    margin-bottom: -7px;    margin-top: -33px;">
+                                        <label  class=" control-label  setup_eat1">默认配送： </label>
+                                        <div style="    margin-top: -26px;margin-left: 138px;    margin-bottom: 36px;">
+                                            <label >
+                                                <input class="ace clickAll" type="radio" v-model="initData.priorityMode" value="ZIYING_TAKEOUT" style="margin-left: 0">
+                                                <span class="lbl">自营配送</span>
+                                            </label>
+                                            <label style="margin-left: 10px">
+                                                <input class="ace clickAll" type="radio"  v-model="initData.priorityMode" value="DADA_TAKEOUT" :disabled="isHaveThird">
+                                                <span class="lbl">达达外卖配送</span>
+                                            </label>
+                                            <label  style="margin-left: 10px">
+                                                <!-- :disabled="isHaveThird" -->
+                                                <input title="暂未开放" class="ace clickAll" type="radio"  v-model="initData.priorityMode" value="FENGNIAO_TAKEOUT" disabled>
+                                                <span title="暂未开放" class="lbl">蜂鸟外卖配送</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_8" style="    margin-bottom: -7px;    margin-top: -33px;">
+                                        <label  class=" control-label  setup_eat1">是否自动接单： </label>
+                                        <div style="    margin-top: -26px;margin-left: 138px;    margin-bottom: 36px;">
+                                            <label>
+                                                <input class="ace clickAll" type="radio" v-model="initData.autoReceiving" value="true" style="margin-left: 0">
+                                                <span class="lbl">是</span>
+                                            </label>
+                                            <label style="margin-left: 10px">
+                                                <input class="ace clickAll" type="radio" v-model="initData.autoReceiving" value="false">
+                                                <span class="lbl">否</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-group setup_out_ps">
+                                        <label for="text" class=" control-label font_size ">配送设置：</label>
+                                    </div>
+                                    <div class="form-group  setup_out_psapply" style="    margin-top: -45px;margin-left: 13px;">
+                                        <div class="setup_out_psapply3" style="      float: left;  margin-left: 68px;">
+                                            <div class="widget-business-input widget-business-input--normal ">
+                                                <span class="">配送费：</span>
+                                                <input type="number" min="0" step="1" v-on:blur="getNum" class="zent-input" v-model="initData.takeOutAmount" placeholder="" style="width: 66px;">
+                                                <span>元</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-business-input widget-business-input--normal " style="float: left;margin-top: 2px; margin-left: 23px;">
+                                            <span class="">起送价：</span>
+                                            <input type="number" min="0" step="1"  v-on:blur="getNum" class="zent-input" v-model="initData.startingPrice" placeholder="" style="width: 66px;">
+                                            <span>元</span>
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="  display: inline-block;  position: relative;margin-left: 82px;">
+                                        <div class="kiu">
+                                            <span>配送范围：</span><input type="number" class="setRadio" v-model="initData.takeOutScope"  style="width: 102px;"/>
+                                        </div>
+                                        <div class="radioTip kiu " style="position: absolute;right: -2px;top: 0px;background: #fff;font-size: 13px;border: 1px solid #d5d5d5; padding: 4px 5px;">米</div>
+                                    </div>
+                                    <div class="klo" style="display: none;position: relative;margin-left: 82px;     margin-top: -16px;" >
+                                        <span>配送范围：</span><span><img src="../images/small/fw.png" alt="" width="23"/>区域内</span>
+                                    </div>
+                                    <div style="    display: block; position: relative; margin-left: 397px; margin-top: -25px;">
+                                        <div class="strange">
+                                            <span>划分方式：</span>
+                                            <div class="qiehua" style="    display: inline-block;">
+                                                <label class="ace_block cas">
+                                                    <input name="form-field-radio" class="ace ace_1" type="radio" checked="checked">
+                                                    <span class="lbl">半径</span>
+                                                </label>
+<!--                                                <label class="ace_block cas">
+                                                    <input name="form-field-radio" class="ace ace_1"  id="ader" type="radio" onclick = "polyline.enableEditing()" >
+                                                    <span class="lbl">自定义</span>
+                                                </label>-->
+                                            </div>
+                                            <!--<a href="javascript:void(0)" onclick='Editing("enable")' -->
+                                               <!--class="bianji btn btn-primary a_bottom" style="display: none;    position: absolute;left: 118px; top: 1px;">编辑</a>-->
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="map_one" style="position: relative;height: 500px;overflow: hidden;" >
+                            <div id="allmap" style="width:96%"></div>
+                        </div>
+                        <div class="" style="margin-top: 30px; margin-bottom: 30px">
+                            <a href="javascript:;" class="btn btn-primary a_bottom" v-on:click="save">保存</a>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px;margin-left: 12px;" class="tab-item" hidden>
+                        <p>
+                            <span style="margin-right: 20px;">堂食功能</span>
+                            <label class="ace_block cas">
+                                <input name="isOpen_eatIn" class="ace ace_1" type="radio" value="1" v-model="eatInStatus">
+                                <span class="lbl">开启</span>
+                            </label>
+                            <label class="ace_block cas">
+                                <input name="isOpen_eatIn" class="ace ace_1" type="radio" value="0" v-model="eatInStatus">
+                                <span class="lbl">关闭</span>
+                            </label>
+                        </p>
+                        <p>
+                            <span style="margin-right: 20px;">堂食功能</span>
+                            <label class="ace_block cas">
+                                <input class="ace ace_1" type="radio" checked>
+                                <span class="lbl">与营业时间保持一致</span>
+                            </label>
+                        </p>
+                        <p style="display: inline-block;margin-left: 80px;background-color: #EEEEEE;padding: 5px;">
+                            <span style="margin-left: 10px;">{{switchWeek(businessDate)}}</span>
+                            <span style="margin-left: 10px;">{{form.startTime1}}至{{form.endTime1}}</span>
+                            <span style="margin-left: 10px;" v-if="form.startTime2 || form.endTime2">{{form.startTime2}}至{{form.endTime2}}</span>
+                            <a class="switch-tab">修改店铺设置</a>
+                        </p>
+                        <div>
+                            <button class="btn btn-primary" @click="eatInSave">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer " style=" padding: 78px 0px 24px 0;margin-top: 85px; margin-bottom: -357px;">
+                <div class="content_based" style=" text-align: center;padding: 0px 13px 1px;margin-bottom: -22px">
+                    <a id="toMiitbeian" href="javascript:void(0)" style="text-decoration: none;color: #666;">
+                        <p style=" margin-top: 14px;display: inline-block;">
+                            <img src="../../resources/common/images/logo_new2.png" alt="" width="25" style="    margin-right: 7px;"/>
+                            <img src="../../resources/common/images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse" style="    bottom: -357px;">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.4&key=21f344b525eb99ddc34cf2d540f7d9c9&plugin=AMap.PolyEditor,AMap.CircleEditor"></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+<script type="text/javascript">
+    function MapCircle(_this){
+         console.log(_this.posi);
+         this.map=new AMap.Map("allmap", {
+            // resizeEnable: true,
+             center: [_this.posi.lng*1, _this.posi.lat*1],//地图中心点
+             zoom: 13 //地图显示的缩放级别
+         });
+         this.circle=new AMap.Circle({
+             center: [_this.posi.lng*1, _this.posi.lat*1],// 圆心位置
+             radius: _this.initData.takeOutScope, //半径
+             strokeColor: "#F33", //线颜色
+             strokeOpacity: 1, //线透明度
+             strokeWeight: 3, //线粗细度
+             fillColor: "#ee2200", //填充颜色
+             fillOpacity: 0.35,//填充透明度
+         });
+        this._this=_this;
+    }
+    MapCircle.prototype={
+        init:function(){
+            var that=this;
+            this._circle=(function(){
+                that.circle.setMap(that.map);
+                that.circle.on('change',function(e){
+                    that._this.initData.takeOutScope=that.circle.getRadius()
+                })
+                return that.circle;
+            })();
+            that.map.setFitView();
+            that._circleEditor= new AMap.CircleEditor(that.map, that._circle);
+            that.startEditCircle=function(){
+                that._circleEditor.open();
+            }
+            that.startEditCircle();
+        },
+        setCirclesetRadius:function(n){  //设置圆形覆盖物的半径
+            this.circle.setRadius(n);
+        },
+        setCircleCenter:function(posi){  //设置圆形覆盖物的圆心位置
+            this.setMapCenter(posi);
+            this.circle.setCenter([posi.lng,posi.lat])
+        },
+        setMapCenter:function(posi){    //设置地图的圆心位置
+            this.map.setCenter([posi.lng,posi.lat]);
+        }
+    };
+
+    $(function(){
+        $('.header-btn button').click(function(){
+            let index = $(this).index();
+            $('.tab-item').hide();
+            $('.tab-item').eq(index).show();
+            $('.header-btn button').removeClass('btn-primary');
+            $(this).addClass('btn-primary');
+        })
+
+        $('.switch-tab').click(function () {
+            $('.tab-item').hide();
+            $('.tab-item').eq(0).show();
+            $('.header-btn button').removeClass('btn-primary');
+            $('.header-btn button').eq(0).addClass('btn-primary');
+        })
+    });
+
+    new Vue({
+        el:'#setup_out',
+        data:{
+             initData:{
+                 extractSelf:false,//是否自提
+                 delayedTime:0,  //延时分钟数
+                 takeOut:false,//是否配送外卖
+                 paymentMode_zt:[0],//外卖自提支付方式（0：在线支付 1：到店支付 2 货到付款）
+                 paymentMode_ps:[0],//外卖配送支付方式（0：在线支付 1：到店支付 2 货到付款）
+                 takeOutTime:15,//配送时长（分钟）
+                 takeOutMode:[0],//配送方式:0自己 1第三方
+                 takeOutAmount:0,//配送金额(分)
+                 takeOutScope:1000,//配送范围
+                 openTime:0,//是否与营业时间一致(默认一致)
+                 takeOutDate:[],//外卖时间段（1,2,3）
+                 shopId:location.href.split("=")[1],
+                 endTime1:'',
+                 startTime2:'',
+                 endTime2:'',
+                 startingPrice:0,//起送价
+                 startTime1:[{startTime:'00:00',endTime:'00:00'}],//开始时间1
+                 autoReceiving: true,
+                 priorityMode:'ZIYING_TAKEOUT'
+             },
+            isHaveThird: false,
+            mcircle:{},
+            isShowWeek:false,
+            weeks:'',
+            shopId:location.href.split("=")[1],
+            posi:{
+                lng:'',
+                lat:''
+            },
+            tabIndex: 0,
+            businessDate: [],
+            basicAddTime: false,
+            form: {
+                'startTime2' : '',
+                'endTime2' : ''
+            },
+            eatInStatus: 0,
+            timeStatus: 1
+        },
+        methods:{
+            saveBasic() {
+                if (this.businessDate.length <= 0) {
+                    alertErrors('请选择营业时间');
+                    return
+                }
+                if (!this.form.startTime1 || !this.form.endTime1 ) {
+                    alertErrors('请填写时间段');
+                    return
+                }
+                let data = {
+                    shopId: this.shopId,
+                    businessDate: this.businessDate.join(','),
+                    startTime1: this.form.startTime1,
+                    endTime1: this.form.endTime1,
+                    startTime2: this.form.startTime2,
+                    endTime2: this.form.endTime2,
+                    branch_name: '',
+                    telephone: ''
+                };
+                this.$http.post(cyApi+'/upShopBasicInfo',data,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        alertSuccess(res.data.message);
+                    }else {
+                        alertErrors(res.data.message);
+                    }
+                });
+            },
+            eatInSave() {
+                let data = {
+                    id: this.basicId,
+                    shopId: this.shopId,
+                    status: this.eatInStatus,
+                    timeStatus: 1,
+                };
+                this.$http.post(cyApi+'/addOrUpCySetting',data,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        alertSuccess(res.data.message)
+                    }else {
+                        alertErrors(res.data.message)
+                    }
+                });
+            },
+            getNum:function (e) {
+                $(e.target).val(Math.floor($(e.target).val()))
+            },
+            getInitData:function(){
+                this.$http.post(cyApi+'/get/takeOutSetting',{shopId:this.shopId},{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        if(res.data.data.shop){
+                            this.posi.lng=res.data.data.shop.longitude;
+                            this.posi.lat=res.data.data.shop.latitude;
+                            this.mcircle.setCircleCenter({lng:parseFloat(this.posi.lng),lat:parseFloat(this.posi.lat)});
+                        }
+                        if(res.data.data.takeoutSetting){
+                            this.initData=this.dealData(res.data.data.takeoutSetting).inData();
+                        }
+                        this.checkTakeOutMode();
+                    }
+                });
+                this.$http.post(cyApi+'/getShopDataByShopId',{shopId:this.shopId},{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        if (res.data.data.shop.businessDate.length > 0) {
+                            this.businessDate = res.data.data.shop.businessDate.split(',');
+                        }
+                        if (res.data.data.shop.startTime2 && res.data.data.shop.endTime2){
+                            this.basicAddTime = true;
+                            this.form.startTime2 = res.data.data.shop.startTime2;
+                            this.form.endTime2 = res.data.data.shop.endTime2;
+                        }
+                        this.form.startTime1 = res.data.data.shop.startTime1;
+                        this.form.endTime1 = res.data.data.shop.endTime1;
+                    }
+                });
+                this.$http.post(cyApi+'/getCySettingByShopId',{shopId:this.shopId},{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        if (res.data.data == null) {
+                            this.basicId = ''
+                        }else {
+                            this.eatInStatus = String(res.data.data.cyEatSetting.status);
+                            this.basicId = res.data.data.cyEatSetting.id;
+                        }
+                    }
+                });
+            },
+            addAndDelStartTime:function(e){
+               // debugger;
+                if(this.initData.startTime1.length==2){
+                     this.initData.startTime1.splice(1,1)
+                }else{
+                    var obj={startTime:'00:00',endTime:'00:00'};
+                    this.initData.startTime1.push(obj);
+                }
+            },
+            isShowWeeks:function(){
+                this.isShowWeek=this.isShowWeek?false:true;
+            },
+            save:function(){
+                if (this.initData.takeOutMode.length == 0) {
+                    alertErrors("请选择配送方式");
+                    return
+                }
+                if (!this.initData.priorityMode) {
+                    alertErrors("请选择优先配送方式");
+                    return
+                }
+                this.initData.startTime2='';
+                this.initData.endTime1='';
+                this.initData.endTime2='';
+                var redata=this.dealData(this.initData).backData();
+                if(this.checkSave(redata)){
+                    this.$http.post(cyApi+'/edit/saveCyTakeoutSetting',redata,{emulateJSON:true,credentials: true}).then(function(res){
+                        if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                            alertSuccess(res.data.message);
+                        }
+                    });
+                }
+
+            },
+            checkTakeOutMode() {
+                if (this.initData.takeOutMode.indexOf('1') < 0 ){
+                    this.isHaveThird = true;
+                    if (this.initData.priorityMode == 'ZIYING_TAKEOUT'){
+                        return
+                    }else {
+                        this.initData.priorityMode = '';
+                    }
+                }else {
+                    this.isHaveThird = false;
+                }
+            },
+            dealData:function(data){
+                var obj={};
+                var reData={};//返回的处理后的数据
+                var that=this;
+                obj.backData=function(){  //返回后台数据时处理的数据
+                     for(var key in data){
+                         reData[key]=data[key];
+                         if(key=='paymentMode_zt'||key=='paymentMode_ps'||key=='takeOutMode'||key=='takeOutDate'){
+                             reData[key]=reData[key].join(',');
+                         }
+                         if(key=='startTime1'){
+                              var arr=reData[key];
+                              for(var i=0;i<arr.length;i++){
+                                  reData['startTime'+(i+1)]=arr[i].startTime;
+                                  reData['endTime'+(i+1)]=arr[i].endTime;
+                              }
+                         }
+                     }
+                     return reData;
+                }
+                obj.inData=function(){  //刚开始加载时处理的数据函数
+                    var newArr=[];
+                    var obj1={};
+                    var obj2={};
+                      for(var key in that.initData){
+                           reData[key]=data[key];
+                          if(key=='paymentMode_zt'||key=='paymentMode_ps'||key=='takeOutMode'||key=='takeOutDate'){
+                              reData[key]=reData[key].split(',');
+                          }
+
+                          if(key=='startTime1'){
+                              obj1.startTime = reData[key];
+                          }
+                          if(key=='endTime1'){
+                              obj1.endTime = reData[key];
+                          }
+                          if(key=='startTime2'&&reData[key]!=''){
+                              obj2.startTime = reData[key];
+                          }
+                          if(key=='endTime2'&&reData[key]!=''){
+                              obj2.endTime = reData[key];
+                          }
+                      }
+                      newArr.push(obj1);
+                      if(obj2.startTime)
+                          newArr.push(obj2);
+                    reData['startTime1']=newArr;
+                    return reData;
+                };
+                return obj;
+            },
+            checkSave:function(data){  //提交数据时的数据校验
+                 var checkArr=[{name:'takeOutDate',msg:'请选择外卖时段!'},{name:'paymentMode_zt',msg:'请选择外卖自提支付方式!'},{name:'paymentMode_ps',msg:'请选择外卖配送支付方式!'},{name:'takeOutTime',msg:'请填写配送时长!'},{name:'takeOutMode',msg:'请选择配送方式!'},
+                     {name:'takeOutAmount',msg:'请填写配送金额'},{name:'startingPrice',msg:'请填写起送价'},{name:'takeOutScope',msg:'请填写配送范围'}]
+                var flag=true;
+                for(var i=0;i<checkArr.length;i++){
+                    if(data[checkArr[i].name].constructor==Array&&data[checkArr[i].name].length==0){  //如果是数组
+                        alert(checkArr[i].msg);
+                        flag=false;
+                        return flag;
+                    }else if(data[checkArr[i].name]===''){
+                        alert(checkArr[i].msg);
+                        flag=false;
+                        return flag;
+                    }
+                }
+                return flag;
+            }
+        },
+        created:function(){
+            this.getInitData();
+
+        },
+        mounted:function(){
+            this.mcircle=new MapCircle(this);
+            this.mcircle.init(this.initData.takeOutScope);
+        },
+        watch:{
+            'initData.takeOutScope':function(){
+                this.mcircle.setCirclesetRadius(this.initData.takeOutScope);
+            },
+            'initData.takeOutDate':function(){
+                var arr=[];
+                for(var i=0;i<this.initData.takeOutDate.length;i++){
+                    arr[i]=this.initData.takeOutDate[i];
+                }
+                this.weeks=switchWeek(arr.sort());
+            },
+        }
+    })
+</script>
+</body>
+</html>

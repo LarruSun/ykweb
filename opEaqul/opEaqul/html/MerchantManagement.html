@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>易快云服管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../opEaqul_common/opEaqul_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../opEaqul_common/opEaqul_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/city/pagination.css" />
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">商户管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="active">
+                            <a href="../html/MerchantManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/TemporaryManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                临时商户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/auditManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">员工管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/divisionalManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                部门管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/operationsManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                运营人员
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">服务管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/serviceManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                服务信息管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">模板管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/SMSManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信业务模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSPricingManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信价格管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板类型管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券海报模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券模板管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">商户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">商户信息管理</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="app">
+                <div class="row">
+                    <div class="col-xs-12 MerchantManagement">
+                        <div class="MerchantManagement_choose">
+                            <label for="text" class=" control-label">状态：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="status">
+                                    <option value="">请选择</option>
+                                    <option  value="1">启用</option>
+                                    <option  value="0">停用</option>
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label">级别：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="levels">
+                                    <option value="">请选择</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </label>
+                            <form class="form-inline" style="margin-right: 12px">
+                                <div data-toggle="distpicker">
+                                    <div class="form-group">省份：
+                                        <label class="sr-only" for="province3">Province</label>
+                                        <select class="form-control" id="province3" data-province="" style="height: 29px;" v-model="province"></select>
+                                    </div>
+                                    <div class="form-group">地级市：
+                                        <label class="sr-only" for="city3">City</label>
+                                        <select class="form-control" id="city3" data-city="" style="height: 29px;" v-model="provinceSon"></select>
+                                    </div>
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="sr-only" for="district3">District</label>-->
+                                        <!--<select class="form-control" id="district3" data-district="西湖区" style="height: 29px;"></select>-->
+                                    <!--</div>-->
+                                </div>
+                            </form>
+                            <div class=" mge_set">
+                                <label for="text" class=" control-label">
+                                    <input type="text" v-model="inputInquire" placeholder="请输入商家简称或易快账号"/>
+                                    <a href="#" class="btn btn-info a_bottom" @click="inquire()">查询</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="MerchantManagement_bottom">
+                            <a href="#" class="btn btn-primary a_bottom signature" data-toggle="modal" data-target="" @click="signature()" >详情</a>
+                            <a href="#" class="btn btn-primary a_bottom startUsing" data-toggle="modal" data-target=""  @click="startUsing()">启用</a>
+                            <a href="#" class="btn btn-primary a_bottom blockUp" data-toggle="modal" data-target=""  @click="blockUp()">停用</a>
+                            <a href="#" class="btn btn-primary a_bottom" data-toggle="modal" data-target="">短信充值</a>
+                            <a href="#" class="btn btn-primary a_bottom" data-toggle="modal" data-target="">微信支付</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">
+                                            <input class="ace clickAll" type="checkbox" v-model="checked" @click="checkedF">
+                                            <span class="lbl"  for="runoob"></span>
+                                    </th>
+                                    <th class="center">商家简称</th>
+                                    <th class="center">企业全称</th>
+                                    <th class="center">省/市/区</th>
+                                    <th class="center">来源</th>
+                                    <th class="center">级别</th>
+                                    <th class="center">易快账号</th>
+                                    <th class="center">状态</th>
+                                    <th class="center">业务归属</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in first" v-cloak>
+                                    <td class="center">
+                                            <input class="ace clickSon" type="checkbox" :value="item.id"  @click="checkedSon">
+                                            <span class="lbl"></span>
+                                    </td>
+                                    <td class="center">{{item.nickName}}</td>
+                                    <td class="center">{{item.fullName}}</td>
+                                    <td class="center">{{item.addressProvince}}/{{item.addressCity}}/{{item.addressArea}}</td>
+                                    <td class="center">/</td>
+                                    <td class="center">{{item.level}}</td>
+                                    <td class="center" >{{item.loginName}}</td>
+                                    <td class="center" v-if="item.isActive==1">启用</td>
+                                    <td class="center" v-else>停用</td>
+                                    <td class="center">/</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="media p_cssA">
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--详情 start-->
+                <div class="modal fade" id="myModal_signature" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog" style="width: 852px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_rw">
+                                    详情查看
+                                </h4>
+                            </div>
+                            <div class="modal-body myModal_sign" id="aApp">
+                                <div class="signature" >
+                                    <div class="signature_son">
+                                        <p class="signature_title">简称</p>
+                                        <div class="signature_main">
+                                            <p>{{signatureData}}</p>
+                                            <img v-bind:src="signatureLogo" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">易快账号</p>
+                                        <div class="signature_main">
+                                            <p>{{Eqaccount}}</p>
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">省市区</p>
+                                        <div class="signature_main">
+                                            <p>{{Fcity1}}-{{Fcity2}}-{{Fcity3}}</p>
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">联系人</p>
+                                        <div class="signature_main">
+                                            <p>{{contacts}}</p>
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">全称</p>
+                                        <div class="signature_main">
+                                            <p>{{Benelux}}</p>
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">营业执照编号</p>
+                                        <div class="signature_main">
+                                            <p>{{BusinessLicenseNumber}}</p>
+                                            <img v-bind:src="BusinessLicenseNumberimg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">法人</p>
+                                        <div class="signature_main">
+                                            <p>{{legalPerson}}</p>
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="signature_son">
+                                        <p class="signature_title">身份证号码</p>
+                                        <div class="signature_main">
+                                            <p></p>
+                                            <img v-bind:src="IDcard" alt="">
+                                            <img v-bind:src="IDcardF" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="modal" @click="submit()">
+                                    确定
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--详情 end-->
+                <!--启用 start-->
+                <div class="modal fade" id="myModal_startUsing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    启用
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">确定启用？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary " data-dismiss="modal" @click="startUsingSubmit">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--启用 end-->
+                <!--停用 start-->
+                <div class="modal fade" id="myModal_blockUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_blockUp">
+                                    停用
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">确定停用？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" @click="blockUpSubmit">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--停用 end-->
+                <!--数据选择 start-->
+                <div class="modal fade" id="myModal_dataSelection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_dataSelection">
+                                    提示
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">至少选择一条数据！</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--数据选择 end-->
+            </div>
+
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+
+<script src="../js/const.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace-extra.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/bootstrap.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace.min.js"></script>
+<!--<script src="../../opEaqul_common/opEaqul_common_js/jquery.min.js"></script>-->
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-ui.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue-resource.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/cookie.js"></script>
+<!--省市区 start-->
+<script src="../../opEaqul_common/opEaqul_plugins/city/distpicker.data.js"></script>
+<script src="../../opEaqul_common/opEaqul_plugins/city/distpicker.js"></script>
+<script src="../../opEaqul_common/opEaqul_plugins/city/main.js"></script>
+<!--省市区 end-->
+<!--分页 start-->
+<script src="../../opEaqul_common/opEaqul_plugins/page/pagination.js"></script>
+<!--分页 end-->
+<script src="../js/pageJs/MerchantManagement.js"></script>
+<script src="../js/templete/jsPlugins.js"></script>
+<script>
+
+
+</script>
+</body>
+</html>

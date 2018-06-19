@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微信小程序</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../smallroutine_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/bootstrap.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../smallroutine_css/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/jquery.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/bootstrap.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/ace.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue-resource.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgUtil.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <div>
+                <ul class="nav nav-list">
+                    <li  class="active">
+                        <a href="" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 小程序管理 </span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="../smallroutine_index.html" class="smallroutine_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序设置
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="home_set.html" class="home_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    主页设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wechat_shipu.html" class="smallroutine_template">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="home_set.html">主页设置</a>
+                    </li>
+                    <li>
+                        <a href="#">新建主页</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row temp_xinjian">
+                    <div class="col-sm-12 temp_newxj">
+                        <div class="temp_newxj_title"><img src="../images/small/her.png" alt=""/><span>请选择以下模板来制作你的小程序主页</span></div>
+                    </div>
+                    <div class="temp_newxj_main">
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 餐饮美食-单门店001</p>
+                                    <a href="SingleStore.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 餐饮美食-多门店001</p>
+                                    <a href="wechat_newTemp.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 零售商超-风格1</p>
+                                    <a href="wechat_newTemp.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left">零售商超-风格2</p>
+                                    <a href="wechat_set_pageTwo.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div><!-- /.col -->
+            </div>
+            <div class="page-footer ">
+                <div class="content_based" >
+                    <a  href="javascript:void(0)" style="">
+                        <p style="">
+                            <img src="../smallroutine_images/logo_new2.png" alt="" width="25" />
+                            <img src="../smallroutine_images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../smallroutine_js/const.js"></script>
+<script>
+</script>
+</body>
+</html>

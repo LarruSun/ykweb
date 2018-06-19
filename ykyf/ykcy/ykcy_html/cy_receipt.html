@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>微点餐</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css"/>
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_plugins/msgbox/msgbox.css"/>
+    <script src="../ykcy_resources/ykcy_plugins/msgbox/msgUtil.js"></script>
+    <script src="../ykcy_resources/ykcy_plugins/msgbox/msgbox.js"></script>
+    <link rel="stylesheet" href="../ykcy_css/index.css"/>
+    <script src="../../resources/config.js"></script>
+    <style>
+        .receipt {
+            display: inline-block;
+            width: 350px;
+            border: 1px solid #999;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .setReceipt {
+            width: 350px;
+            height: 500px;
+            border: 1px solid #999;
+            box-sizing: border-box;
+            margin-left: 50px;
+            padding: 15px;
+        }
+
+        .setReceipt textarea {
+            resize: none;
+            width: 100%;
+            height: 100px;
+        }
+
+        .setReceipt button {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cy_receipt">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">小票设置</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <p>
+                    <button class="btn" @click="switchTab('0')" :class="tabIndex == '0' ? 'btn-primary' : '' ">外卖小票</button>
+                    <button class="btn" @click="switchTab('1')" :class="tabIndex == '1' ? 'btn-primary' : '' ">堂食小票</button>
+                </p>
+                <div class="row" style="display: flex" v-if="tabIndex == '0'">
+                    <div class="receipt">
+                        <p style="display: flex;justify-content: space-between;font-size: 16px;">
+                            <span>*****</span>
+                            <span>#22 微信公众号订单</span>
+                            <span>*****</span>
+                        </p>
+                        <p class="center">{{receiptTitle}}</p>
+                        <p class="center" style="font-size: 18px;">- 已在线支付 -</p>
+                        <p>----------------------------------------------------</p>
+                        <p><span>下单时间： </span><span>2017-06-12 15:00</span></p>
+                        <p><span>发票抬头： </span><span>深圳市XXX有限公司</span></p>
+                        <p style="font-size: 20px;font-weight: 700"><span>备注： </span><span>带两双筷子</span></p>
+                        <p>----------------------------------------------------</p>
+                        <p style="font-size: 20px;font-weight: 700"><span>配送地址： </span></p>
+                        <p>----------------------------------------------------</p>
+                        <p>姓名：<span>吴用兵   先生</span></p>
+                        <p>电话：<span>13923899180</span></p>
+                        <p>地址：<span>福田区**14B</span></p>
+                        <p style="font-size: 20px;font-weight: 700"><span>菜品详情： </span></p>
+                        <p>----------------------------------------------------</p>
+                        <div>
+                            <p style="display: flex">
+                                <span style="flex: 1;">清炒白萝卜</span>
+                                <span style="padding-right: 30px;">1</span>
+                                <span>¥ <em>1.0</em></span>
+                            </p>
+                            <p>大份 白灼 卤蛋 牛肉 少放辣椒</p>
+                        </div>
+                        <div>
+                            <p style="display: flex">
+                                <span style="flex: 1;">清炒白萝卜</span>
+                                <span style="padding-right: 30px;">1</span>
+                                <span>¥ <em>1.0</em></span>
+                            </p>
+                            <p>大份 白灼 卤蛋 牛肉 少放辣椒</p>
+                        </div>
+                        <p>----------------------------------------------------</p>
+                        <p><span>餐盒饭</span><span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>配送费</span><span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>优惠券</span>-<span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>会员折扣</span>-<span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>优惠</span><span class="fr">合计¥ <em>12.00</em></span></p>
+                        <p style="display: flex;justify-content: space-between;font-size: 16px;">
+                            <span>*****</span>
+                            <span>#22 完</span>
+                            <span>*****</span>
+                        </p>
+                    </div>
+                    <div class="setReceipt">
+                        <p style="font-size: 16px;margin-top: 40px;">编辑头部标题</p>
+                        <textarea name=""  v-model="receiptTitle"></textarea>
+                        <div style="margin-top: 100px;">
+                            <button class="btn btn-primary" v-on:click="testTikcet">打印测试</button>
+                            <button class="btn btn-primary" style="margin-left: 10px;" v-on:click="apply">应用</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="display: flex" v-if="tabIndex == '1'">
+                    <div class="receipt">
+                        <p style="display: flex;justify-content: space-between;font-size: 16px;">
+                            <span>*****</span>
+                            <span>#22 微信公众号订单</span>
+                            <span>*****</span>
+                        </p>
+                        <p class="center">{{receiptTitle}}</p>
+                        <p class="center" style="font-size: 18px;">- 已在线支付 -</p>
+                        <p>----------------------------------------------------</p>
+                        <p><span>下单时间： </span><span>2017-06-12 15:00</span></p>
+                        <p>----------------------------------------------------</p>
+                        <div>
+                            <p style="display: flex">
+                                <span style="flex: 1;">清炒白萝卜</span>
+                                <span style="padding-right: 30px;">1</span>
+                                <span>¥ <em>1.0</em></span>
+                            </p>
+                            <p>大份 白灼 卤蛋 牛肉 少放辣椒</p>
+                        </div>
+                        <div>
+                            <p style="display: flex">
+                                <span style="flex: 1;">清炒白萝卜</span>
+                                <span style="padding-right: 30px;">1</span>
+                                <span>¥ <em>1.0</em></span>
+                            </p>
+                            <p>大份 白灼 卤蛋 牛肉 少放辣椒</p>
+                        </div>
+                        <p>----------------------------------------------------</p>
+                        <p><span>餐盒饭</span><span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>配送费</span><span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>优惠券</span>-<span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>会员折扣</span>-<span class="fr">¥ <em>12.00</em></span></p>
+                        <p><span>优惠</span><span class="fr">合计¥ <em>12.00</em></span></p>
+                        <p style="display: flex;justify-content: space-between;font-size: 16px;">
+                            <span>*****</span>
+                            <span>#22 完</span>
+                            <span>*****</span>
+                        </p>
+                    </div>
+                    <div class="setReceipt">
+                        <p style="font-size: 16px;margin-top: 40px;">编辑头部标题</p>
+                        <textarea name="" id="" v-model="receiptTitle"></textarea>
+                        <div style="margin-top: 100px;">
+                            <button class="btn btn-primary" v-on:click="testTikcet">打印测试</button>
+                            <button class="btn btn-primary" style="margin-left: 10px;" v-on:click="apply">应用</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/cy_receipt.js"></script>
+</body>
+</html>

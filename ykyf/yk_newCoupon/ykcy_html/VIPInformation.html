@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body style="background:#fff;overflow-x:hidden">
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+
+<div class="sidebar" id="sidebar" sonpage="couponList" style="margin-top:20px;">
+
+    <sidebar></sidebar>
+
+</div>
+
+<div class="main-container" id="VIPInformation" style="margin-left:10%;width:1400px;">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">优惠券</a>
+                </li>
+                <li>
+                    <a href="#">会员信息</a>
+                </li>
+            </ul>
+
+    
+        </div>
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+        
+            <div class="breadcrumbs">
+               
+                <div class="page-content">
+                    <p class="topTitle">基本信息 <a href="#" data-toggle="modal" data-target="#edit" @click='edit()'>（编辑基本信息）</a></p>
+                    <div class="list">
+                        <div class="left">
+                            <p> 名称： &nbsp;  &nbsp;  &nbsp;{{orderData.userName}}</p>
+                            <p> 手机号码： &nbsp;  &nbsp;  &nbsp;{{orderData.phone}}</p>
+                            <p> 首次来源 &nbsp;  &nbsp;  &nbsp;{{orderData.platformName}} {{orderData.createDate}}</p>
+                        </div>
+
+                        <div class="right">
+                            <p> 性别： &nbsp;  &nbsp;  &nbsp;{{orderData.sex}}</p>
+                            <p> 生日： &nbsp;  &nbsp;  &nbsp;{{orderData.birthday}}</p>
+                            <p> 备注： &nbsp;  &nbsp;  &nbsp;{{orderData.remark}}</p>
+                        </div>
+
+                    </div>
+
+
+                    
+                    <p class="topTitle">资产信息  
+                        <a href="#" data-toggle="modal" data-target="#jf">（积分操作）</a>
+                    </p>
+                    <div class="list">
+                        <div class="left">
+                            <p> 余额： &nbsp;  &nbsp;  &nbsp;{{orderData.account}}</p>
+                            <p> 积分： &nbsp;  &nbsp;  &nbsp;{{orderData.integral}}</p>
+                        </div>
+
+                        <div class="right">
+                            <p> 会员： &nbsp;  &nbsp;  &nbsp;{{orderData.cardName}}</p>
+                            <p> 卡号： &nbsp;  &nbsp;  &nbsp;{{orderData.cardNo}}</p>
+                        </div>
+    
+                    </div>
+
+
+
+                    <p class="topTitle">交易信息</p>
+                    <div class="list">
+                        <div class="left">
+                            <p> 交易总额： &nbsp;  &nbsp;  &nbsp;{{orderData.totalConsume*0.01}} <span>交易总额不统计交易关闭订单</span></p>
+                            <p> 平均订单金额： &nbsp;  &nbsp;  &nbsp;{{(orderData.averageConsume*0.01).toFixed(2)}}</p>
+                        </div>
+
+                        <div class="right">
+                            <p> 上次交易时间： &nbsp;  &nbsp;  &nbsp;{{orderData.consumeTime}}</p>
+                            <p> 交易次数： &nbsp;  &nbsp;  &nbsp;{{orderData.totalCount}} <span>交易次数不统计交易关闭订单</span></p>
+                           
+                        </div>
+    
+                    </div>
+                </div>
+
+
+
+                <!-- 编辑基本信息弹框 -->           
+                <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header edit">
+                                    <h1 style="text-align:center">编辑基本信息</h1>
+                                    <table style="margin:auto;margin-bottom:30px;">
+                                            <tr>
+                                                <td>性别：</td>
+                                                <td>
+                                                    <label for="sex">男 
+                                                        <input type="radio" id="sex" name='sex' value="男" v-model='editData.sex'>
+                                                    </label>
+                    
+                                                    <label for="sex">女 
+                                                        <input type="radio" id="sex" name='sex' value="女" v-model='editData.sex'>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                                                         
+                                            <tr>
+                                                    <td>生日：</td>
+                                                    <td>                 
+                                                        <input class="form_datetime" id="wei_datetime2" type="date" v-model='editData.birthday'>     
+                                                    </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>备注：</td>
+                                                <td><textarea class="form-control" rows="3" v-model='editData.remark'></textarea></td>
+                                            </tr>
+                                        </table>
+
+
+
+
+
+
+                                    <!-- <h1>确定删除此优惠券数据吗？</h1 > -->
+
+                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                    
+                                    <button  class="btn btn-primary" data-dismiss="modal" @click='editSave()'>保存</button>
+                                    <button   class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            
+                            </div>
+                        </div>
+                </div>
+
+
+                    <!--积分操作弹框 -->           
+                <div class="modal fade" id="jf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header edit">
+                                    <h1 style="text-align:center">积分操作</h1>
+                                    <table style="margin:auto;margin-bottom:30px;">
+                                            <tr>
+                                                <td>积分数额：</td>
+                                                <td>
+                                                    <select size="1" name="sample-table-2_payType" aria-controls="sample-table-2" v-model='isGive'>
+                                                        <option value=true>赠送</option>
+                                                        <option value=false>扣除</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                   <input v-model='integralData.total' type="number" placeholder="输入积分只能为整数">
+                                                </td>
+                                            </tr>
+                                                                            
+                                            <tr>
+                                                <td>操作说明：</td>
+                                                <td colspan="2">                 
+                                                    <input type="text" v-model='integralData.remark'>    
+                                                </td>
+                                            </tr>
+
+                                        </table>                                   
+                                    <button  class="btn btn-primary" data-dismiss="modal"  data-toggle="modal" data-target="#sure">确定</button>
+                                    <button   class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            
+                            </div>
+                        </div>
+                </div>
+
+
+
+
+
+                
+                <!-- 确认提示弹框弹框 -->           
+                <div class="modal fade" id="sure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header cancelmessage">
+                                    <h1>提醒</h1>
+                                    <h4 style="margin:50px 0 50px 0;text-align:center" v-if='isGive==true'>确认赠送 {{integralData.total}}积分 到 {{orderData.userName}} 用户？</h4>
+                                    <h4 style="margin:50px 0 50px 0;text-align:center" v-else>确认扣除用户{{orderData.userName}}  {{integralData.total}}积分？</h4>
+            
+                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                    
+                                    <button  class="btn btn-primary" data-dismiss="modal" @click='editIntegral()'>确定</button>
+                                    <button   class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+
+                
+                
+
+
+            
+            
+            
+            </div>
+            <div style="margin:auto;width:100px;">
+                    <a href="#"  @click='JavaScript:history.back(-1)' class="btn btn-primary a_bottom" style="width:100px;">返回列表</a> 
+            </div>
+
+
+
+
+
+
+
+            
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/VIPInformation.js"></script>
+</body>
+</html>

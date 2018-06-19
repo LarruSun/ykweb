@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=1220">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper2.css">
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+<body>
+    <div id="home">
+        <div class="head">
+            <div class="logo">
+                <div class="imgage">
+                    <img src="./image/logo.png" alt="">
+                </div>
+                
+                <div style="background: url('./image/phone.png') no-repeat 0px 32.0004px;" >186 6666 4003</div>
+            </div>
+ 
+            <ul class="nav" id="navUl">
+                <li class="active" onclick="naClick(0)">
+                    首页
+                </li>
+                <li >外卖管理</li>
+                <li>堂内点餐</li>
+                <li>平台优势</li>
+                <li style="border-right:2px solid #ccc">关于我们</li>
+                <li class="login"><a href="https://yun.lolola.cn">登录</a></li>
+                <!-- <li><a href="#" class="zz">快速注册</a></li> -->
+                <!-- <li style="margin-left:5px;"><a href="#" class="zz kz">控制中心</a></li> -->
+            </ul>
+        </div>
+
+        <div class="banner" >
+                <a href="https://yun.lolola.cn" class="beganUse">开始使用</a>
+                <div class="swiper-container" style="height:625px;">
+                    <div class="swiper-wrapper">                    
+                        <img class="swiper-slide" src="./image/banner/img0.jpg" alt="">
+                        <img  class="swiper-slide" src="./image/banner/img1.jpg" alt="">
+                        <img  class="swiper-slide" src="./image/banner/img2.jpg" alt="">
+                    </div>
+
+                    <!-- 如果需要分页器 -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                    
+                    <!-- 如果需要导航按钮 -->
+                    <!-- <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div> -->
+                    
+                    <!-- 如果需要滚动条 -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+
+        </div>
+
+        <div class="title">
+            <p>打造智慧云餐厅</p>
+            <p>帮助餐厅企业打造线上线下一站式营销管理系统</p>
+            <img src="./image/xjt.png" alt="">
+        </div>
+
+        <div class="orderWm" id="orderWm">
+            <p>在线外卖</p>
+            <p>Online takeout</p>
+            <div>
+                <div>
+                    <img src="./image/xcx.png" alt="">
+                    <p>易使用</p>
+                    <p>一键生成小程序</p>
+                </div>
+                
+                <div>
+                    <img src="./image/mian.png" alt="">
+                    <p>低成本</p>
+                    <p>自有平台免佣金</p>
+                </div>
+
+                <div>
+                    <img src="./image/dz.png" alt="">
+                    <p>到账快</p>
+                    <p>收入T+1到账</p>
+
+                </div>
+
+                <div>
+                    <img src="./image/rk.png" alt="">
+                    <p>入口多</p>
+                    <p>微信自带九大入口</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 堂食点餐 -->
+        <div class="tsdc" id="tsdc">
+
+            <div class="tsList">
+                <div class="left">
+                    <div class="list">
+                        <img src="./image/smdc.png" alt="">
+                        <div class='titles'>
+                            <p>扫码点餐</p>
+                            <p style="font-size:15px;">自助下单，自助支付</p>
+                        </div>
+                    </div>
+
+                    <div class="borders"></div>
+
+                    <div class="list">
+                        <img src="./image/infor.png" alt="">
+                        <div class="titles">
+                            <p>会员系统</p>
+                            <p style="font-size:15px;">用户扫码及会员</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="center">
+                        <p>堂食点餐</p>
+                        <p>Dining room</p>
+                    <img src="./image/tndc.png" alt="">
+                </div>
+
+
+                <div class="right">
+                    <div class="list">
+                        <img src="./image/ctcp.png" alt="">
+                        <div class='titles'>
+                            <p>传统菜谱</p>
+                            <p style="font-size:15px;">自动接单，用不漏单</p>
+                        </div>
+                    </div>
+
+                    <div class="borders"></div>
+
+                    <div class="list">
+                        <img src="./image/xxxt.png" alt="">
+                        <div class="titles" style="font-size:15px;">
+                            <p>营销系统</p>
+                            <p>优惠券，砍价，拼单等多种工具</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="ptys" id="ptys">
+            <div class="top">
+                <p>平台优势</p>
+                <p>Plantform advantage</p>
+                <p></p>
+            </div>
+
+
+            <div class="bottom">
+                <div class="left">
+                    <p>一 . 注重体验</p>
+                    <p>Focus on experience</p>
+                    <p></p>
+
+                    
+                    <p>便管理，易上手，商家得心应手</p>
+                    <p>点单快，支付爽，回头客户自然多</p>
+                </div>
+
+                <div class="right">
+                    <img src="./image/ptys.png" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="zngx">
+            <!-- <img src="./image/zngx.jpg" alt=""> -->
+            <p>二 . 智能高效</p>
+            <p>Intelligent and efficient</p>
+            <p></p>
+
+            
+            <p>小程序、公众号、APP、PC多方平台任意选择</p>
+            <p>操作简单，效率超群</p>
+        </div>
+
+        
+        <div class="yzs">
+            <div class="cont">
+                <p>三 . 一站式管理</p>
+                <p>One-stop management</p>
+                <p></p>
+
+                
+                <p>提升运营效率，降低人力成本</p>
+                <p>打通线上线下经营渠道</p>
+            </div>
+
+        </div>
+        <div class="dcyx">
+                       <!-- <img src="./image/zngx.jpg" alt=""> -->
+            <p>四 . 多重营销</p>
+            <p>Multiple marketing</p>
+            <p></p>
+
+            
+            <p>定制化宣传海报，节日卷，优惠券时时更新</p>
+            <p>更多营销利器，玩转活动，引爆餐厅</p>
+        </div>
+
+        <div class="yykj">
+            <!-- <img src="./image/yykj.jpg" alt=""> -->
+           <div class="cont">
+                <p>五 . 易用快捷</p>
+                <p>Easy to sue fast</p>
+                <p></p>
+
+                
+                <p>一键生成门店小程序，多种模板任你选</p>
+                <p>连接商户与消费者，建立沟通桥梁</p>
+            </div>
+        </div>
+
+        <div class="foot" id="foot">
+            <div class="top">
+                <div class="jj">
+                    <p>公司简介</p>
+                    <p>深圳市易快科技有限公司，独立第三方云服务平台，</p>
+                    <p>易用，快捷，简单的操作模式。致力于通过移动互联网，</p> 
+                    <p> 帮助商家更有效地管理提升餐饮行业整体信息化水平。</p>
+                </div>
+
+                <div class="xian"></div>
+                
+                <div class="xl">
+                    <p>联系我们</p>
+                    <p>服务电话：186 6666 4003</p>
+                    <p>地址：广东省深圳市南山区珠光北路142号明亮科技园1栋318</p>
+                    <p>邮箱：123456789@qq.com</p>
+                </div>
+                
+                <div class="xian"></div>
+
+                <div class="gw">
+                    <p>官网</p>
+                    <p>equal.com</p>
+                </div>
+                
+                <div class="xian"></div>
+
+                <div class="ewm">
+                    <img src="./image/ewm.png" alt="">
+                    <p>关注二维码</p>
+                    <p>进入微信公众号</p>
+                </div>
+            </div>
+
+
+            <div class="botton">
+                <p>Copyright@2016.Shen Zhen eaqul technology co.,ltd.All Rights Reserved.</p>
+                <p>粤ICP备16098581号-1</p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+<!-- 初始化swiper -->
+<script src="./js/swiper2.js"></script>
+<script>
+    if(IEVersion()>0 && IEVersion()<=9){
+        alert('您当前IE浏览器版本太低，请升级到IE10或IE10以上的版本，或者使用其他非IE浏览器打开此网页')
+        // return;
+    }
+    var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: 2000,//可选选项，自动滑动
+            speed:2000,
+            // // 如果需要分页器
+            // pagination: '.swiper-pagination',
+            
+            // // 如果需要前进后退按钮
+            // nextButton: '.swiper-button-next',
+            // prevButton: '.swiper-button-prev',
+            
+            // // 如果需要滚动条
+            // scrollbar: '.swiper-scrollbar',
+    })
+
+
+    var navUl=document.getElementById('navUl');
+    var nav=navUl.getElementsByTagName('li');
+    for(var i=0;i<nav.length;i++){
+        nav[i].index=i;
+        nav[i].onclick=function(){
+            naClick(this.index);
+        }
+    }
+
+    // 转换为数字 
+    function intval(v) {     v = parseInt(v);     return isNaN(v) ? 0 : v; }  
+    // 获取元素信息 
+    function getPos(e) {     var l = 0;     var t  = 0;     var w = intval(e.style.width);     var h = intval(e.style.height);     var wb = e.offsetWidth;     var hb = e.offsetHeight;     while (e.offsetParent){         l += e.offsetLeft + (e.currentStyle?intval(e.currentStyle.borderLeftWidth):0);         t += e.offsetTop  + (e.currentStyle?intval(e.currentStyle.borderTopWidth):0);         e = e.offsetParent;     }     l += e.offsetLeft + (e.currentStyle?intval(e.currentStyle.borderLeftWidth):0);     t  += e.offsetTop  + (e.currentStyle?intval(e.currentStyle.borderTopWidth):0);     return {x:l, y:t, w:w, h:h, wb:wb, hb:hb}; }  
+    // 获取滚动条信息 
+    function getScroll()  {     var t, l, w, h;          if (document.documentElement && document.documentElement.scrollTop) {         t = document.documentElement.scrollTop;         l = document.documentElement.scrollLeft;         w = document.documentElement.scrollWidth;         h = document.documentElement.scrollHeight;     } else if (document.body) {         t = document.body.scrollTop;         l = document.body.scrollLeft;         w = document.body.scrollWidth;         h = document.body.scrollHeight;     }     return { t: t, l: l, w: w, h: h }; }  
+    // 锚点(Anchor)间平滑跳转 
+    function scroller(el, duration) {     if(typeof el != 'object') { el = document.getElementById(el); }      if(!el) return;      var z = this;     z.el = el;     z.p = getPos(el);     z.s = getScroll();     z.clear = function(){window.clearInterval(z.timer);z.timer=null};     z.t=(new Date).getTime();      z.step = function(){         var t = (new Date).getTime();         var p = (t - z.t) / duration;         if (t >= duration + z.t) {             z.clear();             window.setTimeout(function(){z.scroll(z.p.y, z.p.x)},13);         } else {             st = ((-Math.cos(p*Math.PI)/2) + 0.5) * (z.p.y-z.s.t) + z.s.t;             sl = ((-Math.cos(p*Math.PI)/2) + 0.5) * (z.p.x-z.s.l) + z.s.l;             z.scroll(st, sl);         }     };     z.scroll = function (t, l){window.scrollTo(l, t)};     z.timer = window.setInterval(function(){z.step();},13); } 
+
+
+
+
+    function naClick(index){
+        if(index>4){
+            return;
+        }
+        var arrId=['head','orderWm','tsdc','ptys','foot'];
+        var navUl=document.getElementById('navUl');
+        var nav=navUl.getElementsByTagName('li');
+        nav[0].classList.remove('active');
+        nav[index].classList.add('active');
+        scroller(arrId[index],500);
+
+        setTimeout(function(){
+            nav[0].classList.add('active');
+            nav[index].classList.remove('active');
+        },1000)
+        console.log(index);
+    }
+
+
+
+
+    function IEVersion() {
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+            if(isIE) {
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1"]);
+                if(fIEVersion == 7) {
+                    return 7;
+                } else if(fIEVersion == 8) {
+                    return 8;
+                } else if(fIEVersion == 9) {
+                    return 9;
+                } else if(fIEVersion == 10) {
+                    return 10;
+                } else {
+                    return 6;//IE版本<=7
+                }   
+            } else if(isEdge) {
+                return 'edge';//edge
+            } else if(isIE11) {
+                return 11; //IE11  
+            }else{
+                return -1;//不是ie浏览器
+            }
+    }
+          
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+
+<body style="background:#fff;overflow-x:hidden">
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="collarRecord" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+<div class="main-container" id="collarRecord" style="margin-left:12%;width:1300px">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>    <!-- .导航显示 -->
+
+        <div class="breadcrumbs" id="breadcrumbs"   >
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">优惠券</a>
+                </li>
+                <li>
+                    <a href="#">领用记录</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-container-inner" style="width:95%;margin:auto">
+            <!-- 导航条 -->
+            <!-- <div class="breadcrumbs" id="breadcrumb">
+                <a href="./couponList.html">优惠券列标</a>
+                <a href="./launchList1.html"  style="margin-left:20px">券投放列表</a>
+                <a href="#"  style="margin-left:20px;background:#428BCA;color:#fff">领用记录</a> 
+            </div> -->
+            <!-- 搜索 -->
+            <div  style="margin:20px 0 100px 50px;border-bottom:1px solid #ccc;padding-bottom:50px;">
+                <label class="control-label" >关键字：
+                    <input name='searchOrder' type="text" ref="keywords" placeholder="优惠券序列码" />
+                </label>
+                <label class="control-label" >券类型
+                    <select size="1" name="sample-table-2_payType" ref="type" aria-controls="sample-table-2">
+                        <option value="">全部</option>
+                        <option value="1">代金券</option>
+                        <option value="2">折扣券</option>
+                    </select>
+                </label>
+                <label class="control-label" >领取渠道：
+                    <select size="1" name="sample-table-2_orderType" ref="receive" aria-controls="sample-table-2">
+                        <option value="">全部</option>
+                        <option value="DAODIANLINGQUAN">到店领券</option>
+                        <option value="HAIBAOLINGQUAN">海报领券</option>
+                        <option value="HUIYUANSONGQUAN">会员送券</option>
+                        <option value="JIFENDUIQUAN">积分兑券</option>
+                    </select>
+                </label>
+                <label for="text" class="control-label" style="width:20%;">
+                    <a class="btn btn-info a_bottom" @click='search()'>搜索</a>
+                </label>
+            </div>
+            <!-- 表格 -->
+            <div class="table-responsive" style="width:95%; margin: auto;">
+                    <table  class="table  table-bordered table-hover center table_all table_css">
+                        <thead>
+                        <tr>
+                            <th class="center">优惠券序列码</th>
+                            <th class="hidden-480 center">券类型</th>
+                            <th class="hidden-480 center">面额</th>
+                            <th class="hidden-480 center">领取渠道</th>
+                            <th class="hidden-480 center">会员卡号</th>
+                            <th class="hidden-480 center">领取时间</th>
+                            <th class="hidden-480 center">使用时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  class="selected" v-for="order in orderList">
+                            <td class="hidden-480 center">{{order.sequence}} </td>
+                            <td class="hidden-480 center">
+                                <span v-if='order.couponsType==1'>代金券</span>
+                                <span v-else>折扣券</span>
+                            </td>
+                            <td class="center">
+                                <span v-if='order.couponsType==1'>¥{{(order.vouchers*0.01).toFixed(2)}}</span>
+                                <span v-else>{{order.discount}}折</span>
+                            </td>
+                            <td class="center">
+                                <span v-if='order.putMethod=="HUIYUANSONGQUAN"'>会员送券</span>
+                                <span v-else-if='order.putMethod=="DAODIANLINGQUAN"'>到店领券</span>
+                                <span v-else-if='order.putMethod=="JIFENDUIQUAN"'>积分兑券</span>
+                                <span v-else>海报领券</span>
+                            </td>
+                            <td class="center"><a :href='"VIPInformation.html?cardNO="+order.cardNO'>{{order.cardNO }}</a></td>
+                            <td class="center" style="position:relative">{{order.receiveDate}}</td>
+                            <td class="center" style="position:relative">{{order.useDate}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- 分页 -->
+                    <div class="media p_cssA" style="margin-right:20px">
+                        <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.main-container-inner -->
+
+</div><!-- /.main-content -->
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/collarRecord.js"></script>
+</body>
+</html>

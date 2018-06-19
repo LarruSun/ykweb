@@ -1,0 +1,222 @@
+.breadcrumbs{
+    margin-top: 20px;
+    margin-left: 90px;
+    margin-bottom: 50px;
+    border: none;
+    border-bottom:1px solid #ccc;
+    padding-bottom: 10px;
+}
+.main-container .main-container-inner #breadcrumb{
+    margin: 0 20px 20px 20px;
+}
+.main-container .main-container-inner #breadcrumb a{
+    display: inline-block;
+    width: 105px;
+    height: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background: #fff;
+}
+
+/* addCoupon */
+.main-container .breadcrumbs .page-content .topTitle,#couponOrder .breadcrumbs .page-content .topTitle{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px dashed #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.main-container .breadcrumbs .page-content table,#couponOrder .breadcrumbs .page-content table{
+    width: 428px;
+    margin: auto;
+}
+.main-container .breadcrumbs .page-content table tr td:nth-child(1),#couponOrder .breadcrumbs .page-content table tr td:nth-child(1){
+    /* color: red; */
+    text-align:right; 
+    /* margin-right: 5px; */
+}
+
+/* couponOrder */
+
+/* distribution */
+.main-container .main-container-inner .top{
+    position: relative;
+    margin:20px 0 50px 3%;
+    padding-bottom: 50px;
+    /* margin-bottom: 50px; */
+    border-bottom:1px solid #ccc; 
+    width: 100%;
+    position: relative;
+}
+.main-container .main-container-inner .top p{
+    margin-left: 100px;
+}
+.main-container .main-container-inner .top img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 20px;
+    border-radius: 50%;
+}
+
+/* couponList */
+
+.main-container .main-container-inner .launchList{
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    margin:auto;
+}
+
+.main-container .main-container-inner .launchList .list{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 30%;
+    margin:5% 10%;
+    border: 1px solid #ccc;
+    /* height: 200px; */
+}
+.main-container .main-container-inner .launchList .list .left{
+    width: 35%;
+    text-align: center;
+    /* line-height: 100px; */
+    margin-right: 10px;
+
+}
+.main-container .main-container-inner .launchList .list .left img{
+    width: 100%;
+    height: auto;
+    margin:10px 0 20px 10px; 
+}
+
+.main-container .main-container-inner .launchList .list .left p a{
+    width: 80%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.main-container .main-container-inner .launchList .list .right{
+    width: 75%;
+    text-align: left;
+    background: #ccc;
+    padding-left: 5%;
+}
+
+.main-container .main-container-inner .launchList .list .right h2{
+    height: 80px;
+    line-height: 80px;
+}
+
+.main-container .main-container-inner #fuelux-wizard{
+    margin:50px 0 50px 50px;
+    width:100%;
+    border-bottom:1px solid #ccc;
+    padding-bottom:50px;
+    /* height: 00px; */
+}
+.main-container .main-container-inner .lsatSeach{
+    margin:10px 0 10px 4%;padding-bottom:40px;border-bottom:1px solid #ccc
+}
+.main-container .main-container-inner .table-responsive{
+    width:100%;margin-left:4%;margin-bottom:50px;
+}
+.main-container .main-container-inner table{
+    margin-bottom: 50px;
+}
+
+/* coilingList 开始*/
+.main-container .main-container-inner .hbmc{
+    margin:50px 0 50px 0px; font-weight:600;text-align:center;font-size:20px;width:95%
+}
+/* coilingList结束*/
+
+/* VIPInformation */
+.main-container .main-container-inner .breadcrumbs .page-content .list{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 80%;
+    margin: auto;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .left{
+    width: 50%;
+    padding-left: 10%;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .left span{
+    font-size: 12px;
+    color: #aaa;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .right{
+    width: 50%;
+    padding-left: 20%;
+}
+
+/* 取消订单弹框样式 */
+.modal-dialog{
+    margin-top: 200px;
+  }
+.modal-dialog .modal-content .cancelmessage{
+height: 320px;
+}
+.modal-dialog .modal-content .cancelmessage h1:nth-child(1){
+text-align: center;
+border-bottom: 1px solid #222;
+font-weight: bolder;
+padding-bottom: 10px;
+}
+
+.modal-dialog .modal-content .cancelmessage h1:nth-child(2){
+text-align: center;
+height: 140px;
+line-height: 140px;
+font-weight: bolder;
+}
+.modal-dialog .modal-content button{
+width: 140px;
+height: 40px;
+margin-left: 90px;
+}
+
+/* 取消订单弹框样式结束 */
+
+/* 二维码弹框样式 */
+.modal-dialog .modal-content .rew{
+/* height: 500px; */
+}
+
+.modal-dialog .modal-content .rew p:nth-child(2){
+text-align:center;
+margin: 20px 0 20px 0;
+font-weight: 600;
+font-size: 15px;
+}
+
+.modal-dialog .modal-content .rew img{
+width: 50%;
+height:auto;
+margin-left: 25%;
+}
+
+.modal-dialog .modal-content .rew p:nth-child(4){
+color: blue;
+font-weight: 600;
+margin: 20px 0 20px 0;
+font-size: 20px;
+cursor: pointer;
+
+}
+.modal-dialog .modal-content .rew .download{
+  text-align: center;
+  font-size: 15px;
+  margin:50px 0 50px 0px;
+}
+/* 二维码弹框样式结束 */
+label{
+    margin-left: 30px;
+}
+
+
+ 

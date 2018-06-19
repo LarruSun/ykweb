@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/timedropper.css">
+    <script src="../../resources/config.js"></script>
+    <style>
+       .addcp_3 {
+            margin-top: 12px;
+        }
+        .addcp_3 .addcp_time {
+            margin-top: -28px;
+            margin-left: 104px;
+        }
+        .addcp_3 .addcp_time p {
+            display: inline-block;
+        }
+        .addcp_3 .addcp_time .addcp_tInput {
+            display: inline-block;
+        }
+       .addcp_3 .addcp_time .addcp_tInput input {
+            width: 80px;
+        }
+        .addcp_3 .addcp_time .addcp_tInput2 {
+            margin-left: 30px;
+        }
+       .addcp_3 .addcp_time .addcp_tInput2 input {
+            width: 80px;
+        }
+        .addcp_3 .addcp_time a {
+            margin-left: 12px;
+        }
+       .addcp_3 .addcp_span {
+            color: #999;
+            margin-left: 77px;
+        }
+
+        .customersChoose{
+            margin-left: 0px;
+            margin-bottom: 16px;
+        }
+       .group_pack .group_main .group_second label{
+           float: left;
+           margin-top: 25px;
+        }
+        .customersChoose_body{
+            margin-left: 104px;
+            margin-bottom: 16px;
+        }
+        .customersChoose_bodyN{
+            display: flex;
+            margin-top: 0px;
+            justify-content: flex-start;
+        }
+        .customersChoose_son{
+            text-align: center;
+            border: 1px solid #ddd;
+            align-items: center;
+            display: flex;
+        }
+        .customersChoose_p{
+            margin-bottom: 0;
+            padding: 3px 16px
+        }
+        .customersChoose_son1{
+            margin-left: -1px;
+            text-align: center;
+            border: 1px solid #ddd;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+        }
+        .customersChoose_son2{
+            margin-left: -1px;
+            text-align: center;
+            border: 1px solid #ddd;
+            width: 323px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 8px 8px;
+        }
+       .customersChoose_son2 .customersChoose_p{
+           margin-bottom: 2px;
+           margin-right: 2px;
+           line-height: 28px;
+           padding: 3px 16px;
+           border: 1px solid #ddd;
+       }
+        .customersChoose_a{
+            line-height: 28px;
+            padding: 3px 16px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .addCaiName{
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+       .addCaiName_delete{
+           line-height: 28px;
+           padding: 3px 0px;
+           display: flex;
+           align-items: center;
+           text-decoration: none;
+       }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cysuitList">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="mgement_group.html">套餐组合</a>
+                    </li>
+                    <li>
+                        <a href="#">套餐添加</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row" id="add_foodPackage">
+                    <div class="col-sm-12 group_pack">
+                        <div class="group_main">
+                            <div class="group_first">
+                                <label class=" control-label  ">套餐名称：
+                                    <input type="text" v-model="returnData.stuitName" placeholder="请输入套餐名称" v-on:blur="getBriefCode">
+                                </label>
+                                <label class=" control-label">
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="margin-left: 31px;width:163px;"  v-model="returnData.caipinType">
+                                        <option value="">菜品分类</option>
+                                        <option v-bind:value="item.id"  v-for="item in caipinTypeData">{{item.name}}</option>
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+                                <a href="#" data-toggle="modal" data-target="#myModal_infic">添加</a>
+                            </div>
+                            <div class="deliveryTimev" style="margin-top: 12px">
+                                <label class=" control-label  ">供应时间：</label>
+                                <div>
+                                    <label style="margin-left:104px;margin-top:-53px">
+                                        <input class="ace clickAll" type="checkbox" v-model="isFullsupplyTime" v-on:click="isFullWeek">
+                                        <span class="lbl">全选</span>
+                                    </label>
+                                    <div style="margin-left: 90px;margin-top: -16px;" class="check_son_body">
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="1" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周一</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="2" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周二</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="3" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周三</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="4" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周四</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="5" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周五</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="6" v-model="returnData.supplyTime">
+                                            <span class="lbl">周六</span>
+                                        </label>
+                                        <label style="    margin-left: 14px;">
+                                            <input class="ace check_son" type="checkbox" value="7" v-model="returnData.supplyTime" >
+                                            <span class="lbl">周日</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customerThe_choose" style="margin-bottom: 0px;margin-top: 17px;">
+                                <p style="display: inline-block;margin-right: 34px;">点单模式：</p>
+                                <label class="" style="margin-right: 32px">
+                                    <input name="form-field-rdi" class="ace ace_1" type="radio" value="0" v-model="returnData.daindanType">
+                                    <span class="lbl">固定套餐</span>
+                                </label>
+                                <label class="">
+                                    <input name="form-field-rdi" class="ace ace_1" type="radio" value="1" v-model="returnData.daindanType">
+                                    <span class="lbl">允许顾客自选</span>
+                                </label>
+                            </div>
+                            <div>
+                                <div class="group_second group_secondOne" v-show="returnData.daindanType==0">
+                                    <label for="text" class=" control-label  ">菜品组合：</label>
+                                    <div class="group_text" style="">
+                                        <a href="#" class="del_cai" v-on:mouseenter="mouseCome" v-on:mouseleave="mouseOut" v-for="item in returnData.foodCompositionArr">
+                                            <img src="../ykcy_images/dele.png" alt="" class="ddel" style="display: none"  v-on:click="delfoodCompositionItem(item.id)" /><span>{{item.name}}</span>
+                                        </a>
+                                        <a href="#" data-toggle="modal" data-target="#myModal_dishes" class="addCaiName">添加</a>
+                                    </div>
+                                    <div style=" margin-left: 105px;margin-top: 13px;">
+                                        <p>合计：<span style="color: red">￥26</span></p>
+                                    </div>
+                                </div>
+                                <div class="group_second group_secondTwo customersChoose" v-show="returnData.daindanType==1">
+                                    <label for="text" class=" control-label">套餐明细：</label>
+                                    <div class="customersChoose_body">
+                                        <div class="customersChoose_body_box">
+                                            <div class="customersChoose_bodyN" v-for="(item,index) in stuitInfoSaveAfter">
+                                                <div class="customersChoose_son">
+                                                    <p class="customersChoose_p">{{item.name}}</p>
+                                                </div>
+                                                <div class="customersChoose_son1">
+                                                    <p class="customersChoose_p">{{item.checkFoods.length}}选{{item.changeNum}}</p>
+                                                </div>
+                                                <div class="customersChoose_son2">
+                                                    <p class="customersChoose_p" v-for="sitem in item.checkFoods">{{sitem.name}}</p>
+                                                </div>
+                                                <a href="#" class="customersChoose_a"  data-toggle="modal" data-target="#myModal_customerThe" v-on:click="editstuitInfo(index)">编辑</a>
+                                                <a href="#" v-if="index>0" class="customersChoose_delete addCaiName_delete" v-on:click="delstuitInfo(index)">删除</a>
+                                            </div>
+                                        </div>
+                                        <a href="#" data-toggle="modal" data-target="#myModal_customerThe" class="addCaiName" v-on:click="addstuitInfo">新增分组</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group_third" >
+                                <p class="dishes_title" >菜品图片：</p>
+                                <div class="dishes_up" >
+                                    <p style="">建议尺寸：100*100</p>
+                                    <a href="#" style="position: relative">
+                                        <img src="../ykcy_images/camera.png"  id="upImg_bts03"  alt="" style="border: 1px dashed #aaa;width:100px;height:100px;padding: 0;"  />
+                                        <input id="fileid" v-on:change="imageChangeValids('#upImg_bts03')" type="file" style="width: 100px; height: 100px;left: 0; top: 43px; position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="group_fourth">
+                                <label for="text" class=" control-label  ">正常售价：
+                                    <input type="text" v-model="returnData.normalPrice">
+                                </label>
+                                <label for="text" class=" control-label  ">时段特价：
+                                    <input type="text" v-model="returnData.specialPrice">
+                                </label>
+                            </div>
+                            <div class="addcp_3">
+                                <label for="text" class=" control-label  ">特价时间：</label>
+                                <div class="addcp_time" style="position: relative">
+                                    <div style="display: inline-block;">
+                                        <div v-for="item in returnData.specialTime">
+                                            <div class="addcp_tInput">
+                                                <input type="time" v-model="item.startTime" class="td-input"> <span class="lbl">至</span> <input type="time" v-model="item.endTime"  class="td-input">
+                                            </div><br/>
+                                        </div>
+                                        <a href="#" class="addTime2" v-on:click="addOrDelTime">添加时间段</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="group_fifth">
+                                <label for="text" class=" control-label  ">助记码：
+                                    <input type="text" readonly  v-model="returnData.briefCode">
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace " type="checkbox" v-model="returnData.isOn">
+                                    <span class="lbl">立即上架</span>
+                                </label>
+                            </div>
+                            <div class="group_sixth">
+                                <a href="javascript:;" class="btn btn-primary a_bottom" v-on:click="save">保存</a>
+                                <a href="#" class="btn btn-primary a_bottom">取消</a>
+                            </div>
+                        </div>
+                        <div class="clear:both"></div>
+                    </div>
+
+                    <!--添加套餐分类 start-->
+                    <div class="modal fade" id="myModal_infic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel_remove2">
+                                        添加菜品分类
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="scroll_name center">
+                                        <div class="">
+                                            <label>
+                                                <span class="lbl font_size">分类名称：</span>
+                                                <input placeholder=""  v-model="addcaipin.name">
+                                            </label>
+                                        </div>
+
+                                        <div class="" style="    margin-top: 18px;">
+                                            <label>
+                                                <span class="lbl font_size" style="margin-right: 29px;">备注：</span>
+                                                <input placeholder="" v-model="addcaipin.descript">
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="addFoodType">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                    <!--添加套餐分类 end-->
+                    <!--解绑微信2 start-->
+                    <div class="modal fade" id="myModal_dishes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove222" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel_remove222">
+                                        请选择一种菜品
+                                    </h4>
+                                </div>
+                                <div class="modal-body img_main">
+                                    <div class="img_left">
+                                        <ul class="nav nav-pills nav-stacked ">
+                                            <li role="presentation" class="" v-for="item in caipinTypeData" v-bind:tid="item.id"><a href="#"  v-on:click="getCtypeDataBytid">{{item.name}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="img_right" style="display: block">
+                                        <div class="hint_2">
+                                            <div class=" mge_set">
+                                                <label for="text" class=" control-label">状态
+                                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="width: 97px;" class="status" v-model="serchdata.status">
+                                                        <option value="1">上架</option>
+                                                        <option value="0">下架</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                            <div class="mge_set2">
+                                                <label for="text" class=" control-label  ">
+                                                    <input type="text" placeholder="请输入菜品名称" class="foodName" v-model="serchdata.foodName">
+                                                    <a href="#" class="btn btn-info a_bottom" v-on:click="getCtypeData(0)">搜索</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover center table_all table_css">
+                                                <thead>
+                                                <tr>
+                                                    <th class="center">菜品名称</th>
+                                                    <th class="center">状态</th>
+                                                    <th class="center">售价</th>
+                                                    <th class="center">库存/最大</th>
+                                                    <th class="center">出品部门</th>
+                                                    <th class="center">操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="selected" v-for="item in foodDefines">
+                                                    <td class="center">{{item.name}}</td>
+                                                    <td class="center">{{item.status==1?'上架':'下架'}}</td>
+                                                    <td class="center">{{item.price}}</td>
+                                                    <td class="center">{{item.currentCount}}/{{item.maxCount}}</td>
+                                                    <td class="center">{{item.department}}</td>
+                                                    <td class="center">
+                                                        <div class="setup_out_1">
+                                                            <input name="form-field-radio" class="ace" v-bind:value="item.id"  v-model="returnData.foodComposition"  type="checkbox" style="margin-left: 20px\0">
+                                                            <span class="lbl">选择</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary group_Pac" data-dismiss="modal" v-on:click="foodCompositionSureBtn">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                    <!--解绑微信2 end-->
+                    <!--顾客自提 start-->
+                    <div class="modal fade" id="myModal_customerThe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove222" aria-hidden="true">
+                        <div class="modal-dialog" style="width: 800px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel_customerThe">
+                                        新增分组
+                                    </h4>
+                                </div>
+                                <div class="modal-body customerThe">
+                                    <div class="customerThe_new">
+                                        <label for="text" class=" control-label  ">分组名称：
+                                            <input type="text" class="GroupName" v-model="temObj.name" placeholder="请输入分组名称">
+                                        </label>
+                                        <label for="text" class=" control-label  ">可选数量：
+                                            <input type="text" class="OptionalNumber" v-model="temObj.changeNum" placeholder="请输入可选数量">
+                                        </label>
+                                    </div>
+                                    <div class="customerThe_main">
+                                        <p class="customerThe_title">菜品</p>
+                                        <div class="customerThe_body">
+                                            <div class="customerThe_box">
+                                                <a href="#" class="customerThe_cai" v-for="item in returnData.stuitInfoArr" v-on:mouseenter="mouseCome" v-on:mouseleave="mouseOut">
+                                                    <img src="../ykcy_images/dele.png" alt="" class="customerThe_ddel" v-on:click="delstuitInfoItem(item.id)" style="display: none">
+                                                    <span>{{item.name}}</span>
+                                                </a>
+                                            </div>
+                                            <div class="customerThe_set">
+                                                <div class="customerThe_set_z">
+                                                    <p class="customerThe_set_title">请选择菜品</p>
+                                                </div>
+                                                <div class="customerTheImg_left">
+                                                    <ul class="nav nav-pills nav-stacked">
+                                                        <li role="presentation" class="" v-for="item in caipinTypeData" v-bind:tid="item.id"><a href="#"  v-on:click="getCtypeDataBytid1">{{item.name}}</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="customerTheImg_right" style="display: block">
+                                                    <div class="customerTheHint_2">
+                                                        <div class="mge_set">
+                                                            <label for="text" class=" control-label  ">状态
+                                                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="width: 97px;" v-model="serchdata1.status">
+                                                                    <option value="1">上架</option>
+                                                                    <option value="0">下架</option>
+                                                                </select>
+                                                            </label>
+                                                        </div>
+                                                        <div class="mge_set2">
+                                                            <label for="text" class=" control-label  ">
+                                                                <input type="text" placeholder="请输入菜品名称" v-model="serchdata1.foodName">
+                                                                <a href="#" class="btn btn-info a_bottom" v-on:click="getCtypeData(1)">搜索</a>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-bordered table-hover center table_all table_css">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="center">菜品名称</th>
+                                                                <th class="center">状态</th>
+                                                                <th class="center">售价</th>
+                                                                <th class="center">库存/最大</th>
+                                                                <th class="center">出品部门</th>
+                                                                <th class="center">操作</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr class="selected" v-for="item in foodDefines1">
+                                                                <td class="center">{{item.name}}</td>
+                                                                <td class="center">{{item.status==1?'上架':'下架'}}</td>
+                                                                <td class="center">{{item.price}}</td>
+                                                                <td class="center">{{item.currentCount}}/{{item.maxCount}}</td>
+                                                                <td class="center">{{item.department}}</td>
+                                                                <td class="center">
+                                                                    <div class="setup_out_1">
+                                                                        <input name="form-field-radio" class="ace" v-bind:value="item.id" v-model="returnData.stuitInfo"  type="checkbox" style="margin-left: 20px\0">
+                                                                        <span class="lbl">选择</span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary customerThe_save" data-dismiss="" v-on:click="stuitInfoSureBtn">
+                                        确定
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../ykcy_js/timedropper.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../ykcy_js/lrz.bundle.js"></script>
+
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/ZHtoLetter.js"></script>
+<script>
+new Vue({
+    el:'#add_foodPackage',
+    data:{
+        returnData:{
+             stuitName:'', //套餐名称
+             briefCode:'', //助记码
+             caipinType:'', //菜品分类
+             supplyTime:[],  //供应时间
+             daindanType:'0', //点单模式
+             foodComposition:[], //菜品组合
+             foodCompositionArr:[], //菜品组合显示的item
+             stuitInfo:[],  //套餐明细
+             stuitInfoArr:[], //套餐明细显示的item
+             foodImg:'', //菜品图片
+             normalPrice:'',//正常售价
+             specialPrice:'', //时段特价
+             specialTime:[
+                 {
+                     startTime:'00:00',
+                     endTime:'00:00'
+                 }
+             ], //特价时间
+             isspecialTime:'', //是否启用特价时间
+             isOn:true,  //是否立即上架
+        },
+        addcaipin:{   //添加菜品分类
+            name:'',
+            descript:''
+        },
+        caipinTypeData:'',  //菜品分类数据
+        isFullsupplyTime:false, //是否是周一至周日
+        stuitInfoSaveAfter:[
+            {
+                name:'默认分组',  //默认分组名
+                changeNum :'0',  //几选几
+                checkFoods:[
+                    {
+                        id:'',
+                        name:'未选择菜品'
+                    }
+                ]
+            }
+        ],  //套餐明细的数据
+        allFoodDefines:[], //所有的菜品数据
+        foodDefines:[], //后台查询到的菜品数据
+        foodDefines1:[],
+        serchdata:{
+            status:'1',
+            typeId:'',
+            foodName:'',
+        },
+        serchdata1:{
+            status:'1',
+            typeId:'',
+            foodName:'',
+        },
+        temObj:{
+            name:'',  //默认分组名
+            changeNum:'0',  //几选几
+            checkFoods:[
+                {
+                    id:'',
+                    name:'未选择菜品'
+                }
+            ]
+        },
+        editstuitInfoStatus:0,  //套餐明细编辑、新增状态(0编辑，1新增,-1删除)
+        editstuitInfoIndex:'', //编辑或者删除套餐明细的索引值
+        imgsrc:''
+    },
+    methods:{
+       getInitCaipinTypeData:function(){   //初始化获取菜品分类的数据
+           this.$http.post(cyApi+'/toadd/suite',{},{emulateJSON:true,credentials: true}).then(function(res){
+               if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                   this.caipinTypeData=res.data.data.types;
+                   console.log(this.caipinTypeData)
+               }else{
+                   alert(res.data.message);
+               }
+           });
+       },
+       addFoodType:function(e){   //添加菜品分类
+           if(this.checkAddFoodTypeData()){
+               $(e.target).attr("data-dismiss","modal");
+               this.$http.post(cyApi+'/add/foodType',this.addcaipin,{emulateJSON:true,credentials: true}).then(function(res){
+                   console.log(res);
+                   if(res.body.type=='SUCCESS'||res.body.type=='success'){
+                       alert("菜品添加成功!");
+                   }else{
+                       alert(res.data.message);
+                   }
+               });
+           }
+       },
+       checkAddFoodTypeData:function(){  //添加菜品分类验证
+           if(this.addcaipin.name!=''&&this.addcaipin.descript!=''){
+                return true;
+           }
+           if(this.addcaipin.name==''){
+               alert("菜品名称不能为空");
+               return false;
+           }
+           if(this.addcaipin.descript==''){
+               alert("菜品描述不能为空");
+               return false;
+           }
+       },
+        isFullWeek:function(e){   //全选
+            if(e.target.checked){ //如果是全选
+                this.returnData.supplyTime=['1','2','3','4','5','6','7']
+            }else{
+                this.returnData.supplyTime=[];
+            }
+        },
+        mouseCome:function(e){   //鼠标在菜品组合item上移入
+            $(e.target).addClass("dan_car").find("img").show();
+            console.log(90)
+        },
+        mouseOut:function(e){   //鼠标在菜品组合item上移出
+            $(e.target).removeClass("dan_car").find("img").hide();
+        },
+        getCtypeData:function(num){   //0为固定套餐搜索，1为允许顾客自选搜索
+            if(num==0){
+                this.$http.post(cyApi+'/get/listFoodsByShopId',this.serchdata,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        this.foodDefines=res.data.data.foodDefines;
+                        console.log(this.foodDefines)
+                    }
+                });
+            }
+            if(num==1){
+                this.$http.post(cyApi+'/get/listFoodsByShopId',this.serchdata1,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        this.foodDefines1=res.data.data.foodDefines;
+                        console.log(this.foodDefines)
+                    }
+                });
+            }
+            if(num==-1){ //获取所有的菜品数据
+                this.$http.post(cyApi+'/get/listFoodsByShopId',{status:'',typeId:'',foodName:'',page:0},{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        this.allFoodDefines=res.data.data.foodDefines;
+                        console.log(this.allFoodDefines)
+                    }
+                });
+            }
+        },
+        getCtypeDataBytid:function(e){
+            $(e.target).parent().addClass("active").siblings().removeClass('active');
+            this.serchdata.typeId= $(e.target).parent().attr('tid');
+            this.getCtypeData(0);
+        },
+        getCtypeDataBytid1:function(e){
+            $(e.target).parent().addClass("active").siblings().removeClass('active');
+            this.serchdata1.typeId= $(e.target).parent().attr('tid');
+            this.getCtypeData(1);
+        },
+        getFoodArrByArr:function(arr){  //通过菜id查找对应的菜item
+            var tArr=[];
+            for(var i=0;i<arr.length;i++){
+                for(var k=0;k<this.allFoodDefines.length;k++){
+                    if(arr[i]==this.allFoodDefines[k].id){
+                        tArr.push(this.allFoodDefines[k]);
+                    }
+                }
+            }
+            return tArr;
+        },
+        reverseGetFoodArrByArr:function(arr){
+            var tArr=[];
+            for(var i=0;i<arr.length;i++){
+                tArr.push(arr[i].id);
+            }
+            return tArr;
+        },
+        delfoodCompositionItem:function(itemid){  //删除菜品组合的item
+            for(var i=0;i<this.returnData.foodComposition.length;i++){
+                if(itemid==this.returnData.foodComposition[i]){
+                    this.returnData.foodComposition.splice(i,1);
+                }
+            }
+            this.returnData.foodCompositionArr=this.getFoodArrByArr(this.returnData.foodComposition);
+        },
+        delstuitInfoItem:function(itemid){ //删除套餐明细的模态框里的item
+            for(var i=0;i<this.returnData.stuitInfo.length;i++){
+                if(itemid==this.returnData.stuitInfo[i]){
+                    this.returnData.stuitInfo.splice(i,1);
+                }
+            }
+            this.returnData.stuitInfoArr=this.getFoodArrByArr(this.returnData.stuitInfo);
+        },
+        foodCompositionSureBtn:function(){ //菜品组合模态框的确定事件
+             this.returnData.foodCompositionArr=this.getFoodArrByArr(this.returnData.foodComposition);
+        },
+        stuitInfoSureBtn:function(){  //套餐明细的模态框的确认事件
+            console.log(567)
+            $(".customerThe_save").attr("data-dismiss","");
+             if(this.editstuitInfoStatus==1){
+                  this.temObj.checkFoods=this.returnData.stuitInfoArr;
+                  if(this.stuitInfoAddCheck()){
+                      this.stuitInfoSaveAfter.push(this.temObj)
+                  }
+             }
+             if(this.editstuitInfoStatus==0){
+                 this.temObj.checkFoods=this.returnData.stuitInfoArr;
+                 if(this.stuitInfoAddCheck()){
+                     this.stuitInfoSaveAfter[this.editstuitInfoIndex]=this.temObj;
+                 }
+             }
+
+        },
+        editstuitInfo:function(ind){  //编辑套餐明细
+             this.editstuitInfoStatus=0;
+             this.editstuitInfoIndex=ind;
+             this.returnData.stuitInfo=this.reverseGetFoodArrByArr(this.stuitInfoSaveAfter[this.editstuitInfoIndex].checkFoods);
+             this.returnData.stuitInfoArr=this.stuitInfoSaveAfter[this.editstuitInfoIndex].checkFoods;
+             this.temObj=this.stuitInfoSaveAfter[this.editstuitInfoIndex];
+        },
+        addstuitInfo:function(){  //新增套餐明细
+             this.temObj={
+                 name:'',  //默认分组名
+                 changeNum:'0',  //几选几
+                 checkFoods:[
+                     {
+                         id:'',
+                         name:'未选择菜品'
+                     }
+                 ]
+             }
+             this.editstuitInfoStatus=1;
+             this.returnData.stuitInfo=[];
+        },
+        delstuitInfo:function(ind){  //删除套餐明细
+            this.editstuitInfoStatus=-1;
+            this.editstuitInfoIndex=ind;
+            this.stuitInfoSaveAfter.splice(this.editstuitInfoIndex,1);
+        },
+        stuitInfoAddCheck:function(){
+            if(this.temObj.name!=''&&this.temObj.changeNum>0&&this.temObj.checkFoods.length>0&&this.temObj.changeNum<=this.temObj.checkFoods.length){
+                $(".customerThe_save").attr("data-dismiss","modal");
+                return true;
+            }
+            if(this.temObj.name==''){
+                alert("请输入分组名称");
+                return false;
+            }
+            if(this.temObj.changeNum<=0){
+                alert("请输入可选数量");
+                return false;
+            }
+            if(this.temObj.checkFoods.length<=0){
+                alert("请选择菜品");
+                return false;
+            }
+            if(this.temObj.changeNum>this.temObj.checkFoods.length){
+                alert("可选数量不能超过彩品数量");
+                return false;
+            }
+        },
+        upImg:function (inputThis,el,n) {    //上传预览图片
+            var files = inputThis.files;
+            var _this=this;
+            if (files[0] != null) {
+                if(files[0].type.indexOf('image')>=0){
+                    var obj = new FileReader();
+                    obj.readAsDataURL(files[0]);
+                    obj.onload = function () {
+                        $(el).attr("src", obj.result);
+                        if(n==1){
+                            _this.imgsrc=files[0];
+                        }
+                    }
+                    lrz(files[0])
+                            .then(function (rst) {
+                                // 处理成功会执行
+                                rst.file.name=rst.origin.name;
+                                $(el).attr("src", rst.base64);
+                                if(n==1){
+                                    _this.imgsrc=rst.file;
+                                }
+                            })
+                            .catch(function (err) {
+                                // 处理失败会执行
+                            })
+                            .always(function () {
+                                // 不管是成功失败，都会执行
+                            });
+
+                }else{
+                    alertErrors('请选择图片文件', 2000);
+                }
+
+            }
+        },
+        imageChangeValids:function(el){
+            var inputThis=document.getElementById("fileid");
+            this.upImg(inputThis,el,1);
+        },
+        getBriefCode:function(e){
+            var ss=$(e.target).ZHtoLetter();
+            this.returnData.briefCode=ss[0];
+        },
+        addOrDelTime:function(e){
+            console.log(this.returnData.specialTime.length)
+            if(this.returnData.specialTime.length<2){ //添加时间段
+                 var obj={
+                     startTime:'00:00',
+                     endTime:'00:00'
+                 };
+                this.returnData.specialTime.push(obj);
+                e.target.innerHTML='删除时间段';
+            }else{  //删除时间段
+                this.returnData.specialTime.splice(1,1);
+                e.target.innerHTML='添加时间段';
+            }
+        },
+        save:function(){  //保存
+            var _this=this;
+            var subFood=[];
+            var foods='';
+            if(this.returnData.daindanType=='0'){
+                foods=_this.returnData.foodComposition.join(",");
+            }else{
+                for(var i=0;i<this.stuitInfoSaveAfter.length;i++){
+                    var obj={}
+                    obj.name=this.stuitInfoSaveAfter[i].name;
+                    obj.changeNum=this.stuitInfoSaveAfter[i].changeNum;
+                    obj.foods='';
+                    for(var k=0;k<this.stuitInfoSaveAfter[i].checkFoods.length;k++){
+                        obj.foods+=this.stuitInfoSaveAfter[i].checkFoods[k].id+",";
+                    }
+                    if(obj.name!=''&&obj.changeNum>0&&obj.foods!=''){
+                        subFood.push(obj);
+                    }
+
+                }
+            }
+            var saleTime=[];
+            for(var i=0;i<this.returnData.specialTime.length;i++){
+                var str='';
+                str=this.returnData.specialTime[i].startTime+'-'+this.returnData.specialTime[i].endTime;
+                saleTime.push(str);
+            }
+            var obj={
+                name:_this.returnData.stuitName,
+                typeId:_this.returnData.caipinType,//分类
+                briefCode:_this.returnData.briefCode,//助记码
+                status:_this.returnData.isOn?1:0,   //是否立即上架
+                saleData:_this.returnData.supplyTime.join(','),        //供应时段
+                // subFood:subFood.length==0?"":JSON.stringify(subFood),
+                // foods:foods,
+                foodimg:_this.imgsrc,
+                price:_this.returnData.normalPrice,
+                memberPrice:_this.returnData.specialPrice,
+                saleTime:saleTime.join(',')   //特价时段
+            }
+            if(subFood.length==0)obj.foods=foods;else obj.subFood=subFood
+            if(this.backDataCheck(obj)){  //通过验证可以提交数据
+                var formData=new FormData();
+                console.log(obj)
+                for(var key in obj){
+                    if(key=='img'){
+                        formData.append(key,obj[key]);
+                    }else if(key=='subFood'){
+                        formData.append(key,JSON.stringify(obj[key]));
+                    }else{
+                        formData.append(key,obj[key]);
+                    }
+                }
+                this.$http.post(cyApi+'/add/suite',formData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'){
+                        location.href="foodGroup.html"
+                    }
+                    console.log(this.foodDefines)
+                })
+            }
+        },
+        backDataCheck:function(obj){
+             var checkArr=[{name:'name',msg:'套餐名称不能为空!'},{name:'typeId',msg:'套餐分类不能为空!'},{name:'saleTime',msg:'请选择供应时段!'},
+                 {name:'img',msg:'请选择菜品图片'},{name:'price',msg:'请填写正常售价价格!'},{name:'memberPrice',msg:'请填写时段特价价格!'}]
+             var flag=true;
+             for(var i=0;i<checkArr.length;i++){
+                 if(obj[checkArr[i].name]==''){
+                      flag=false;
+                      alert(checkArr[i].msg)
+                      return flag;
+                 }
+             }
+            return flag;
+        }
+    },
+    created:function(){
+        this.getInitCaipinTypeData();
+        this.getCtypeData(-1);
+    },
+    mounted:function(){
+
+    },
+    watch:{
+        'returnData.supplyTime':function(){
+            this.isFullsupplyTime=this.returnData.supplyTime.length==7?true:false;
+            console.log(this.returnData.supplyTime)
+        },
+        'returnData.stuitInfo':function(){
+            this.returnData.stuitInfoArr=this.getFoodArrByArr(this.returnData.stuitInfo);
+            console.log(this.returnData.stuitInfoArr);
+        }
+    }
+})
+</script>
+</body>
+</html>

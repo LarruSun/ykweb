@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <style>
+        .mge_main .mge_main_top{
+            margin-bottom: 33px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cysuitList">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">菜品管理</a>
+                    </li>
+                    <li>
+                        <a href="#">套餐组合</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_main">
+                        <div class="mge_main_top">
+                            <div class="mge_main_href ">
+                                <a href="group_package.html" class="btn btn-success a_bottom">新增套餐</a>
+                            </div>
+                            <div class="  mge_set ">
+                                <label for="text" class=" control-label  ">
+                                    <input type="text" placeholder="请输入套餐名称"/>
+                                    <a href="#" class="btn btn-primary a_bottom">搜索</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!--<div class="add_state0" style="  border-top: 1px solid #ddd;  margin-top: 34px;border-bottom: 0">-->
+                        <!--<label class="add_state_1">套餐分类：-->
+                        <!--<a href="#" class="red">全部(21)</a>-->
+                        <!--<a href="#" class="">A(2)</a>-->
+                        <!--<a href="#" class="">B(6)</a>-->
+                        <!--<a href="#" class="">C(5)</a>-->
+                        <!--<a href="#" class="">D(8)</a>-->
+                        <!--</label>-->
+                        <!--</div>-->
+                        <div class="add_state0" style="    border-bottom: 1px solid #ddd;margin-bottom: 20px;">
+                            <label class="add_state_1">套餐状态：
+                                <a href="#" class="red">全部({{nums.num0}})</a>
+                                <a href="#" class="">已上架({{nums.num1}})</a>
+                                <a href="#" class="">未上架({{nums.num2}})</a>
+
+                            </label>
+                        </div>
+                        <div class="button_all" style="margin-bottom: 9px;">
+                            <button type="button" class="btn btn-info a_bottom" data-toggle="modal" data-target="#myModal_shang">上架</button>
+                            <button type="button" class="btn btn-info a_bottom" data-toggle="modal" data-target="#myModal_xia">下架</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">
+                                        <label>
+                                            <input class="ace clickAll" type="checkbox">
+                                            <span class="lbl"></span>
+                                        </label></th>
+                                    <th class="center">套餐名称</th>
+                                    <th class="center">状态</th>
+                                    <th class="hidden-480 center">供应时段</th>
+                                    <th class="center">特价时间</th>
+                                    <th class="hidden-480 center">正常售价</th>
+                                    <th class="hidden-480 center">特价</th>
+                                    <th class="hidden-480 center">助记码</th>
+                                    <th class="hidden-480 center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in suits">
+                                    <td class="center" v-bind:name="item.id">
+                                        <label>
+                                            <input class="ace" type="checkbox">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td class="hidden-480 center">{{item.name}}</td>
+                                    <td class="center"><span class="label label-success" v-if="item.status==1">上架</span><span class="label label-warning" v-if="item.status==0">下架</span></td>
+                                    <td class="hidden-480 center">{{item.saleTime|getWeek}}</td>
+                                    <td class="center">{{item.saleTime}}</td>
+                                    <td class="center">{{item.price/100}}</td>
+                                    <td class="center">{{item.memberPrice/100}}</td>
+                                    <td class="center">{{item.briefCode}}</td>
+                                    <td class="center">
+                                        <a :href="'group_package.html?id=' + item.id">编辑</a>&nbsp;
+                                        <a href="#" data-toggle="modal" data-target="#myModal_dele">删除</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+    <!--删除套餐 start-->
+    <div class="modal fade" id="myModal_dele" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remove2">
+                        删除套餐
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="padding: 20px; font-size: 16px;">确定删除此套餐吗？</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--删除套餐 end-->
+    <!--上架 start-->
+    <div class="modal fade" id="myModal_shang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_re" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_re">
+                        上架套餐
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="padding: 20px; font-size: 16px;">确定上架此套餐吗？</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--上架 end-->
+    <!--下架 start-->
+    <div class="modal fade" id="myModal_xia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_xia" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_xia">
+                        下架套餐
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="padding: 20px; font-size: 16px;">确定下架此套餐吗？</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--下架 end-->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script>
+    new Vue({
+        el: "#main-container",
+        data: {
+            nums:{},
+            suits:{},
+            suite:{}
+        },
+        methods:{
+
+        },
+        filters: {
+            getWeek:function(data){
+
+                var weekArr=["周一","周二","周三","周四","周五","周六","周日"];
+                var v="";
+                var type=1;
+                if(data[0]!=""){
+                    for(var i=1;i<8;i++){
+                        for(var j=0;j<data.length;j++){
+                            if(data[j]==i){
+                                if(data[j-2]==i-1){
+                                    if(data[j-4]==i-2){
+                                        v=v.substring(0, v.length-3);
+                                    }
+                                    v+="至"+weekArr[i-1];
+                                }else{
+                                    if(type==1) {
+                                        v += weekArr[i-1];
+                                        type=0;
+                                    }
+                                    else{
+                                        v+="、"+weekArr[i-1];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return v;
+            }
+        },
+        watch:{
+
+        },
+        created:function() {
+            this.$http.post(cyApi+'/get/listSuites',{},{emulateJSON:true,credentials: true}).then(function(res){
+                if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                    console.log(res.data);
+                    this.suits = res.data.data.suits;
+                    this.nums = res.data.data.nums;
+                }
+            });
+        }
+    });
+
+</script>
+</body>
+</html>

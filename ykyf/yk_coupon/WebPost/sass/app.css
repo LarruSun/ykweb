@@ -1,0 +1,251 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+[v-cloak] {
+  display: none !important;
+}
+
+html, body, .swiper-container {
+  width: 100%;
+  height: 100%; }
+
+.swiper-container {
+  margin: 0 auto;
+  max-width: 640px; }
+
+.quanT1 .box-1 {
+  background: url("../images/bg.png");
+  position: relative; }
+  .quanT1 .box-1 .lt {
+    position: relative; }
+    .quanT1 .box-1 .lt img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      animation: big 2s linear alternate forwards; }
+  .quanT1 .box-1 .thz {
+    position: relative;
+    left: 0;
+    bottom: 0%;
+    right: 0;
+    width: 100%; }
+    .quanT1 .box-1 .thz img {
+      width: 100%; }
+  .quanT1 .box-1 .rb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; }
+    .quanT1 .box-1 .rb img {
+      width: 50%; }
+  .quanT1 .box-1 .logoBox {
+    margin-top: 16%;
+    width: 100%; }
+    .quanT1 .box-1 .logoBox .logoImg {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%; }
+    .quanT1 .box-1 .logoBox p {
+      width: 100%;
+      text-align: center; }
+    .quanT1 .box-1 .logoBox .tit {
+      font-size: 0.5rem;
+      color: #78394c;
+      font-weight: 500; }
+    .quanT1 .box-1 .logoBox .desc {
+      font-size: 0.7rem;
+      color: #78394c;
+      font-weight: 500; }
+  .quanT1 .box-1 .quan {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem; }
+    .quanT1 .box-1 .quan .item {
+      width: 100%;
+      height: 1.8rem;
+      background: url("../images/duang.png");
+      background-size: 100% 106%;
+      display: flex; }
+      .quanT1 .box-1 .quan .item a {
+        color: #d5cb40;
+        font-size: 0.52rem;
+        text-shadow: none;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 0.2rem 0.15rem 0.15rem 0.4rem;
+        font-weight: 100;
+        width: 1.2rem;
+        text-decoration: none; }
+      .quanT1 .box-1 .quan .item p {
+        box-sizing: border-box;
+        padding: 0.2rem 0rem 0rem 0rem;
+        width: 100%; }
+        .quanT1 .box-1 .quan .item p b {
+          width: 100%;
+          text-align: center;
+          display: inline-block;
+          font-size: 0.6rem;
+          color: #500304;
+          font-weight: 600; }
+        .quanT1 .box-1 .quan .item p span {
+          font-size: 0.4rem;
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          color: #702225; }
+    .quanT1 .box-1 .quan .poster-quan:nth-of-type(2) {
+      margin-left: 7%; }
+
+.quanT2 {
+  height: 100%; }
+  .quanT2 .box-1 {
+    background: url("../images/bbg2.png");
+    background-size: cover;
+    height: 93%;
+    box-sizing: border-box; }
+    .quanT2 .box-1 .topd {
+      display: flex;
+      justify-content: center; }
+      .quanT2 .box-1 .topd img {
+        width: 80%;
+        height: 50%; }
+    .quanT2 .box-1 .botd {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      height: 5.6rem; }
+      .quanT2 .box-1 .botd .outimg {
+        width: 100%;
+        position: absolute;
+        /* top:- px2Rem(120);*/
+        animation: rotate 2s ease-out  alternate forwards;
+        transform-origin: 50% 55.5%; }
+      .quanT2 .box-1 .botd .inimg {
+        width: 30%;
+        position: absolute;
+        /* top:- px2Rem(40);*/
+        top: 4rem;
+        left: 35%; }
+    .quanT2 .box-1 .logoBox {
+      margin-top: 16%;
+      width: 100%; }
+      .quanT2 .box-1 .logoBox .logoImg {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%; }
+      .quanT2 .box-1 .logoBox p {
+        width: 100%;
+        text-align: center; }
+      .quanT2 .box-1 .logoBox .tit {
+        font-size: 0.5rem;
+        color: #FFF;
+        font-weight: 500; }
+      .quanT2 .box-1 .logoBox .desc {
+        font-size: 0.7rem;
+        color: #FFF;
+        font-weight: 500;
+        margin-top: 3%; }
+    .quanT2 .box-1 .quan {
+      display: flex;
+      justify-content: center;
+      margin-top: 6%; }
+      .quanT2 .box-1 .quan .item {
+        position: relative;
+        width: 68%;
+        height: 2.26rem; }
+        .quanT2 .box-1 .quan .item .bgimg {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%; }
+        .quanT2 .box-1 .quan .item p {
+          position: absolute;
+          padding: 0.5rem;
+          box-sizing: border-box;
+          height: 100%;
+          align-items: baseline; }
+          .quanT2 .box-1 .quan .item p i {
+            font-style: normal;
+            color: #fb241f;
+            font-size: 0.6rem; }
+          .quanT2 .box-1 .quan .item p em {
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #fb241f; }
+          .quanT2 .box-1 .quan .item p span {
+            color: #f5c9aa;
+            position: absolute;
+            width: 100%;
+            margin-top: 16%;
+            font-size: 0.45rem;
+            padding-left: 0.2rem; }
+
+@keyframes big {
+  0% {
+    width: 100%; }
+  100% {
+    width: 50%; } }
+@keyframes rotate {
+  form {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+.music-c {
+  position: absolute;
+  background: url(../images/music.png);
+  background-size: contain;
+  width: 1.2rem;
+  height: 1.2rem;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: 6;
+  animation: cir 2s linear infinite; }
+
+@keyframes cir {
+  form {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+.music-note {
+  position: absolute;
+  background: url(../images/music.gif);
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  right: 0px;
+  top: 0px;
+  z-index: 2; }
+
+.swiper-slide:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: 0 auto;
+  width: 24px;
+  height: 18px;
+  background: url(../images/slide.png);
+  background-size: contain;
+  animation: showUpDown  1s linear infinite; }
+
+@keyframes showUpDown {
+  form {
+    bottom: 20px;
+    opacity: 1; }
+  to {
+    bottom: 30px;
+    opacity: 0; } }
+
+/*# sourceMappingURL=app.css.map */

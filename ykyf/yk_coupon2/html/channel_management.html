@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>优惠券</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/ace.min.css"/>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <link rel="stylesheet" href="../coupon_common/page/pagination.css">
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div id="app" v-cloak>
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar">
+                <ul class="nav nav-list">
+                    <li>
+                        <a href="index.html" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 首页 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-columns"></i>
+                            <span class="menu-text"> 代金券 </span>
+
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="Voucher_list.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    券列表
+                                </a>
+                            </li>
+                            <!--<li >-->
+                            <!--<a href="../html/promoting.html">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--推广的券-->
+                            <!--</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a href="../html/Voucher_record.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    领用记录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li>-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-columns"></i>-->
+                    <!--<span class="menu-text">别人的券</span>-->
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                    <!--<li>-->
+                    <!--<a href="../html/collect_stamps.html">-->
+                    <!--<i class="icon-double-angle-right"></i>-->
+                    <!--券列表-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="../html/collect_receive.html">-->
+                    <!--<i class="icon-double-angle-right"></i>-->
+                    <!--领用记录-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-columns"></i>
+                            <span class="menu-text">券海报</span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li class="active">
+                                <a href="../html/channel_management.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    海报列表
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="../html/channel_temp.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    海报模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+            </div>
+            <div class="main-content" id="tfqd_manage">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="../html/channel_management.html">券海报</a>
+                        </li>
+                        <li>
+                            <a href="#">海报列表</a>
+                        </li>
+                    </ul><!-- .导航 -->
+                </div>
+                <div class="page-content">
+                    <div class="row promoting">
+                        <a href="channel_temp.html" class="btn btn-success a_bottom"
+                           style="margin-top: 9px;float: left;margin-right: 23px;" >新建</a>
+                        <div class="create_list" style="margin-left: -12px;float: left;">
+                        <span>
+                             <input type="text" placeholder="请输入券海报名称" class="poster_name">
+                            <a href="#" class="btn btn-primary find_a" v-on:click="getPostersListByCondition">查找</a>
+                        </span>
+                        </div>
+                        <div class="add_state " style="margin-top: 55px;border-bottom: 0">
+                            <label class="add_state_1">海报状态：
+                                <a href="#" class="red selected poster_statu" statu_value="" v-on:click="getPostersListByCondition">全部({{app_allCount}})</a>
+                                <a href="#" class="poster_statu" statu_value="1" v-on:click="getPostersListByCondition">已上线({{app_onlineCount}})</a>
+                                <a href="#" class="poster_statu" statu_value="0" v-on:click="getPostersListByCondition">已下线({{app_offlineCount}})</a>
+                            </label>
+                        </div>
+                        <div class=" table-responsive">
+                            <table class="table  table-bordered table-hover center clickAll">
+                                <thead>
+                                <tr>
+                                    <th class="center">海报标题</th>
+                                    <th class="center">券数量</th>
+                                    <th class="center">使用模板</th>
+                                    <th class="center">创建时间</th>
+                                    <th class="center">浏览</th>
+                                    <th class="center">海报状态</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="poster in app_postersList">
+                                    <td class="center table_css">{{poster.posterName}}</td>
+                                    <td class="hidden-480 center table_css"><span style="margin-right: 10px">{{poster.couponsNum}}</span><a
+                                            href="#" data-toggle="modal" data-target="#myModal_choose_vip" v-on:click="getCouponsByIds(poster.posterName,poster.coupons)">查看</a></td>
+                                    <td class="hidden-480 center table_css">{{poster.templateName}}</td>
+                                    <td class="hidden-480 center table_css">{{poster.createTime}}</td>
+                                    <td class="hidden-480 center table_css">{{poster.pageView}}</td>
+                                    <td class="hidden-480 center table_css">
+
+                                        <span v-if="poster.statu == '1'">
+                                            <span class="label label-success" style="margin-right: 10px">已上线</span><a
+                                                href="#" data-toggle="modal" data-target="#myModal_2" v-on:click="updataClick(poster.id,'0')">下线</a>
+                                        </span>
+                                        <span v-else>
+                                            <span class="label label-default" style="margin-right: 10px">已下线</span><a
+                                                href="#" data-toggle="modal" data-target="#myModal_1" v-on:click="updataClick(poster.id,'1')">上线</a>
+                                        </span>
+
+                                    </td>
+                                    <td class="hidden-480 center table_css">
+                                        <a href="#" class="scan" v-on:click="setURL(poster.qrcode)">
+                                            <img src="../img/u73.png" data-toggle="modal" data-target="#myModal_rw"></a>
+                                        <!--<a class="aColor" href="coupons_posters.html?posterId=poster.id">编辑</a>-->
+                                        <a class="aColor" v-bind:href="'postersOne.html?posterId='+poster.id">编辑</a>
+                                        <a class="aColor" href="#" data-toggle="modal"
+                                           data-target="#myModal_delete" v-on:click="delClick(poster.id)">删除</a>
+                                        <!--<a class="aColor" href="#" >领取详情</a>-->
+                                    </td>
+                                </tr>
+                                <!--<tr class="selected">
+                                    <td class="center table_css">快活林2</td>
+                                    <td class="hidden-480 center table_css"><span style="margin-right: 10px">3</span><a href="#" data-toggle="modal" data-target="#myModal_choose_vip" >查看</a></td>
+                                    <td class="hidden-480 center table_css">节日彩旗</td>
+                                    <td class="hidden-480 center table_css">2017-07-08&nbsp;&nbsp;16:00</td>
+                                    <td class="hidden-480 center table_css">200</td>
+                                    <td class="hidden-480 center table_css"><span class="label label-default" style="margin-right: 10px">已下线</span><a href="#" data-toggle="modal" data-target="#myModal_1">上线</a> </td>
+                                    <td class="hidden-480 center table_css">
+                                        <a href="#" class="scan"><img src="../img/u73.png" data-toggle="modal" data-target="#myModal_rw"></a>
+                                        <a class="aColor" href="coupons_posters.html">编辑</a>
+                                        <a class="aColor" href="#" data-toggle="modal" data-target="#myModal_delete">删除</a>
+                                        &lt;!&ndash;<a class="aColor" href="#" data-toggle="modal" data-target="#myModal_choose_vip" >领取详情</a>&ndash;&gt;
+                                    </td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="media p_cssA">
+                            <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.main-container-inner -->
+    </div><!-- /.main-content -->
+
+
+    <!--二维码 modal start-->
+    <div class="modal fade" id="myModal_rw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw"
+         aria-hidden="true">
+        <div class="modal-dialog" style="    width: 410px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rw">
+                        二维码扫描
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height">
+                    <div class="scan_show">
+                        <div class="scan_main">
+                            <div class="scan_main_son">
+                                <p>扫一扫，在手机上查看并领取</p>
+                                <div id="code" style="display:none"></div>
+                                <img v-bind:src="downloadHref" width="200" id="save_img"/>
+                                <a v-bind:href="downloadHref" download="coupons_poster.png" id="save_href">下载二维码</a>
+                            </div>
+                            <div class="scan_main_son1" style="display:block">
+                                <p class="disable" disabled="disabled"><input id="url"
+                                                                              value="http://127.0.0.1:32767/start.html#p"
+                                                                              readonly style="border: none;"/></p><a
+                                    href="javascript:void(0)" v-on:click="copyUrl" class="btn btn-primary scan_a">复制</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--二维码 modal end-->
+    <!--删除 start-->
+    <div class="modal" id="myModal_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_delete">
+                        删除海报
+                    </h4>
+                </div>
+                <div class="modal-body center" style="">
+                    <p style="padding: 30px;font-size: 16px">是否删除此海报？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="delPosters">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--删除 end-->
+    <!--上线 start-->
+    <div class="modal" id="myModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_1">
+                        上线海报
+                    </h4>
+                </div>
+                <div class="modal-body center" style="">
+                    <p style="padding: 30px;font-size: 16px">是否上线此海报？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="updateStatu">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--上线 end-->
+    <!--下线 start-->
+    <div class="modal" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_2">
+                        下线海报
+                    </h4>
+                </div>
+                <div class="modal-body center" style="">
+                    <p style="padding: 30px;font-size: 16px">是否下线此海报？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="updateStatu">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--下线 end-->
+
+    <!--领取详情 start-->
+    <div class="modal" id="myModal_choose_vip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_choose_vip"
+         aria-hidden="true">
+        <div class="modal-dialog" style="width: 793px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_choose_vip">
+                        券详情
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <div style="text-align: left">
+                        <p>海报名称：<span style="margin-left: 31px">{{selectedPosterName}}</span></p>
+                    </div>
+                    <table class="table table-bordered table-responsive" style="margin-top: 8px;">
+                        <thead>
+                        <tr>
+                            <td class="center">券名称</td>
+                            <td class="center">领取次数</td>
+                            <td class="center">库存/总量</td>
+                            <td class="center">有效时间</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="coupons in app_couponsList">
+                            <td>
+                                <div class="table_cDiv">
+                                    <p class="table_cDiv_height">
+                                                <span>
+                                                    ￥<span class="table_cDiv_1">{{coupons.vouchers}}</span>
+                                                </span>
+                                        <span class="table_cDiv_2" v-if="coupons.lowestConsume != 0">满{{coupons.lowestConsume}}元可用</span>
+                                        <span class="table_cDiv_2" v-else>无限制</span>
+                                    </p>
+                                    <div class="table_cDiv_bottom">
+                                        <p class="table_cDiv_bottom_1">{{coupons.couponsName}}</p>
+                                        <p class="table_cDiv_bottom_3">
+                                            <span class="label label-warning" v-if="coupons.status==0">未开始</span>
+                                            <span class="label label-success" v-else-if="coupons.status==1">(进行中)</span>
+                                            <span class="label label-default" v-else>(已失效)</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{coupons.receiveNum}}</td>
+                            <td>{{coupons.countNum-coupons.receiveNum}}/{{coupons.countNum}}</td>
+                            <td>
+                                <p>{{coupons.startDate}} ~ {{coupons.endDate}}</p>
+                                <!--<p><span>周一至周五</span><span>15:00-19:00</span></p>-->
+                                <div class="table_time">
+                                    <p class="">{{coupons.useWeekDays}}</p>
+                                    <p class="">{{coupons.periodTime}}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--<tr>
+                            <td>
+                                <div class="table_cDiv">
+                                    <p class="table_cDiv_height" style="width:88.66px">
+                                                <span>
+                                                    ￥<span class="table_cDiv_1">10</span>
+                                                </span>
+                                        <span class="table_cDiv_2">无限制</span>
+                                    </p>
+                                    <div class="table_cDiv_bottom">
+                                        <p class="table_cDiv_bottom_1">快活林20元代金券</p>
+                                        <p class="table_cDiv_bottom_3">
+                                            <span class="label label-success">进行中</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>200/3000</td>
+                            <td>
+                                <p>2017/03/28-2016/09/01</p>
+                                <p><span>周一至周五</span><span>15:00-19:00</span></p>
+                            </td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--领取详情 end-->
+    <!--选择海报模板 s-->
+    <div class="modal fade myModal_pu" id="show2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount"
+         aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" style="width:993px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"> 选择海报模板</h4>
+                </div>
+                <div class="modal-body temp_main ">
+                    <div class="temp_qie">
+                        <p class="stort"><span></span> 模板市场</p>
+                        <div class="temp_t">
+                            <label class="add_state_1">应用场景：
+                                <a href="#" class="red">全部(11)</a>
+                                <a href="#">平时促销(2)</a>
+                                <a href="#">节日促销(3)</a>
+                                <a href="#">流行元素(4)</a>
+                                <a href="#">店庆(3)</a>
+                            </label>
+                        </div>
+                        <div class="temp_tt">
+                            <label class="add_state_1">券数量：
+                                <a href="#" class="red">全部(11)</a>
+                                <a href="#">单券(2)</a>
+                                <a href="#">2券(3)</a>
+                                <a href="#">3券(4)</a>
+                                <a href="#">4券(3)</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="temp_img " style="    height: 356px;">
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: block;">
+                                <a href="coupons_posters.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u105.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">单券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: none;">
+                                <a href="poster_two.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u107.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">双券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: none;">
+                                <a href="coupons_posters.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u105.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">单券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: none;">
+                                <a href="poster_two.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u107.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">双券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: none;">
+                                <a href="coupons_posters.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u105.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">双券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use_big">
+                            <div class="use_temp_yy" style="display: none;">
+                                <a href="poster_two.html" class="use_temp">使用模板</a>
+                            </div>
+                            <div class="temp_img_son">
+                                <img src="../img/u105.jpg" alt="">
+                                <div class="temp_explain">
+                                    <p style="font-size: 12px">圣诞节彩旗</p>
+                                    <div class="temp_label">
+                                        <span class="label label-warning">节日</span>
+                                        <span class="label label-warning">双券</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--选择海报模板 e-->
+
+</div><!--  app   end-->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../js/const.js"></script>
+
+<script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+<script src="../../resources/plugins/msgbox/msgbox.js"></script>
+<script src="../js/jquery.qrcode.min.ls.js"></script>
+<script src="../coupon_common/page/pagination.js"></script>
+
+<script>
+    /*$(function(){
+        $(".bj_bootstrap").click(function(){
+            $("#myModal_choose_vip").modal('hide');
+            console.log(11111);
+        })
+    })*/
+
+    new Vue({
+        el: '#app',
+        data: {
+            app_allCount: 0,//海报总数
+            app_onlineCount: 0,//上线总数
+            app_offlineCount: 0,//下线总数
+            app_postersList: '',//海报列表
+            downloadHref: '',//二维码
+            selectPostersId:'',//选中的海报id
+            changeStatu:'',//改变状态值
+            selectedPosterName:'',//选中的海报名称
+            app_couponsList:'',//优惠券列表
+            cur: 1,//默认第一页
+            all:1,//总页数
+            pageSize:10, //每页总条数
+        },
+        components: {   //分页
+            'vue-pagination': Vue.Pagination
+        },
+        methods: {
+            listen: function (data) {  //分页
+                 //console.log(data)
+                this.cur = data;
+                var _this=this;
+                var param={
+                    pageSize:_this.pageSize,
+                    page:data,
+                };
+                var statu = $(".selected").attr("statu_value");
+                if (statu != undefined && statu != "") {
+                    param.statu = statu;
+                }
+                var posterName = $(".poster_name").val();
+                if (posterName != "") {
+                    param.posterName = posterName;
+                }
+                this.getPosters(param);
+            },
+            getPostersListByCondition: function (e) {
+                var param = {};
+                if(e!=undefined){
+                    var dom = e.target;
+                    if($(dom).hasClass("poster_statu")){
+                        var aParent=$(dom).parent();
+                        var brother=aParent.children();
+                        brother.removeClass("red selected");
+                        $(dom).addClass("red selected");
+                    }
+                }
+
+                var statu = $(".selected").attr("statu_value");
+                if (statu != undefined && statu != "") {
+                    param.statu = statu;
+                }
+                var posterName = $(".poster_name").val();
+                if (posterName != "") {
+                    param.posterName = posterName;
+                }
+                this.getPosters(param);
+            },
+
+            getPosters:function(param){
+                this.$http.post(pathApi + "/web/coupon/get/getPostersList", param, {
+                    emulateJSON: true,
+                    credentials: true
+                }).then(function (res) {
+                    console.log(res);
+                    var data = res.data.data;
+                    if (data != null) {
+                        var posters = data.posters;
+                        this.app_allCount = data.allCount;
+                        this.app_onlineCount = data.onlineCount;
+                        this.app_offlineCount = data.offlineCount;
+                        this.app_postersList = posters.list;
+                        //var countAll = posters.countAll;//记录总条数
+                        this.all = posters.pageAll;//总页数
+                    }
+
+                });
+            },
+
+            delClick:function(postersId){
+                this.selectPostersId=postersId;
+            },
+
+            delPosters:function(){
+                this.$http.post(pathApi + "/coupons/coupon/delPosters", {id: this.selectPostersId}, {
+                    emulateJSON: true,
+                    credentials: true
+                }).then(function (res) {
+                    console.log(res);
+                    if(res.data.type=="success"){
+                        alertSuccess(res.data.message,2000);
+                        this.getPostersListByCondition();
+                    }else{
+                        alertErrors(res.data.message,2000);
+                    }
+                });
+            },
+
+            updataClick:function(postersId,changeStatu){
+                this.selectPostersId=postersId;
+                this.changeStatu=changeStatu;
+            },
+
+            updateStatu:function(){
+                this.$http.post(pathApi + "/coupons/coupon/updatePoster", {
+                    id: this.selectPostersId,
+                    statu:this.changeStatu
+                }, {
+                    emulateJSON: true,
+                    credentials: true
+                }).then(function (res) {
+                    console.log(res);
+                    if(res.data.type=="success"){
+                        alertSuccess(res.data.message,2000);
+                        this.getPostersListByCondition();
+                    }else{
+                        alertErrors(res.data.message,2000);
+                    }
+                });
+            },
+
+            getCouponsByIds:function(posterName,coupons){
+                this.selectedPosterName=posterName;
+                this.$http.post(pathApi + "/coupons/coupon/getCouponsByIds", {
+                    coupons: coupons
+                }, {
+                    emulateJSON: true,
+                    credentials: true
+                }).then(function (res) {
+                    console.log(res);
+                    var data=res.data.data;
+                    if(data!=null){
+                        this.app_couponsList=data.couponsList;
+                    }
+                });
+            },
+
+            setURL: function (obj) {
+                $("#url").val(obj);
+                $("#code").empty();
+                $("#code").qrcode({
+                    render: "canvas", //table方式
+                    width: 200, //宽度
+                    height: 200, //高度
+                    text: obj //任意内容
+                });
+                var canvas = document.getElementById("canvas");
+                var svaeHref = document.getElementById("save_href");
+                /*
+                 * 传入对应想要保存的图片格式的mime类型
+                 * 常见：image/png，image/gif,image/jpg,image/jpeg
+                 */
+                var img = document.getElementById("save_img");
+                this.downloadHref = canvas.toDataURL("image/png");
+                /*svaeHref.href = tempSrc;
+                img.src = tempSrc;*/
+            },
+
+            copyUrl: function () {
+                var $ = function (id) {
+                    return "string" == typeof id ? document.getElementById(id) : id;
+                };
+                var start, end, obj, data;
+                obj = $("url");
+                data = obj.value;
+                end = data.length;
+
+                if (-[1,]) {             //处理费IE浏览器
+                    obj.setSelectionRange(0, end);
+                    obj.focus();
+                    document.execCommand("Copy");
+                    alertSuccess("复制成功", 2000);
+
+                } else {
+                    if (window.clipboardData) {
+                        var flag = window.clipboardData.setData("text", data);
+                        if (flag == true) {
+                            alertSuccess("复制成功", 2000);
+                        } else {
+                            alertErrors("复制失败", 2000);
+                        }
+                    } else {
+                        alertDiv("您使用的浏览器不支持此复制功能，请使用Ctrl+C或鼠标右键。", false);
+                        obj.setSelectionRange(0, end);
+                        obj.focus();
+                        document.execCommand("Copy");
+                    }
+
+
+                }
+            }
+
+        },
+
+        created: function () {
+            var param = {};
+            this.getPosters(param);
+        }
+    });
+</script>
+</body>
+</html>

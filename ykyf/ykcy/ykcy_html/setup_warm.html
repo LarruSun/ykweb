@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css"/>
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_plugins/msgbox/msgbox.css">
+    <script src="../ykcy_resources/ykcy_plugins/msgbox/msgUtil.js"></script>
+    <script src="../ykcy_resources/ykcy_plugins/msgbox/msgbox.js"></script>
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar" sonpage="cyremind">
+
+            <sidebar></sidebar>
+
+        </div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">门店设置</a>
+                    </li>
+                    <li>
+                        <a href="#">提醒设置</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 setup_warm">
+                        <a href="#" type="button" class="btn btn-success a_bottom mge_main_new" data-toggle="modal" data-target="#myModal_add_bang" style="margin-top:12px;margin-bottom: 14px;">新增</a>
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                    <tr>
+                                        <th class="center" >姓名</th>
+                                        <th class="center" >手机</th>
+                                        <th class="center">微信昵称</th>
+                                        <th class="center">微信图像</th>
+                                        <th class="hidden-480 center">状态</th>
+                                        <th class="hidden-480 center">提醒</th>
+                                        <th class="hidden-480 center">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in remindList">
+                                    <td class="center line_heat">{{item.userName}}</td>
+                                    <td class="center line_heat">{{item.cellPhone}}</td>
+                                    <td class="center line_heat">{{item.weChatName}}</td>
+                                    <td class="center">
+                                        <div class="mgemen_td" style="    margin-right: 32px;">
+                                            <img v-bind:src="item.weChatImg" alt="" style="     width: 53px; margin-top: 12px;margin-left: 27px;  ">
+                                            <div style="clear: both"></div>
+                                        </div>
+                                    </td>
+                                    <td class="hidden-480 center line_heat"> <span class="label label-warning" v-if="item.status==0">待绑定</span><span class="label label-success" v-if="item.status==1">已绑定</span></td>
+                                    <td class="hidden-480 center line_heat" ><span >{{item.remindName}}&nbsp;</span></td>
+                                    <td class="center line_heat">
+                                        <a  data-toggle="modal" class="qrcode" v-on:click="getQrcode" ><img v-bind:name="item.id" src="../ykcy_images/ewm.png" width="20" alt=""/></a>&nbsp;
+                                        <a href="#" data-toggle="modal" v-on:click="edit" v-bind:name="item.id" >设置</a>&nbsp;
+                                        <a href="#" data-toggle="modal" v-on:click="del" v-bind:name="item.id">解绑</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+    <!--删除 start-->
+    <div class="modal fade" id="myModal_out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_out" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_out">
+                        微信解绑
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <h4>确定解绑此微信吗？</h4>
+                    <div class="user_1">
+                        <img v-bind:src="remind.weChatImg" alt="">
+                        <p>{{remind.weChatName}}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" v-on:click="delbound">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--删除 end-->
+    <!--新增 start-->
+    <div class="modal fade" id="myModal_add_bang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_out2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_out2">
+                        绑定提醒人
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <div class="scroll_name">
+                        <div class="">
+                            <label>
+                                <span class="lbl font_size">姓名：</span>
+                                <input placeholder="" maxlength="10" class="addUserName">
+                            </label>
+                        </div>
+                        <div class="" style="    margin-top: 18px;">
+                            <label>
+                                <span class="lbl font_size" >手机：</span>
+                                <input placeholder="" class="addCellPhone">
+                            </label>
+                        </div>
+                        <div class="" style="margin-top: 18px;margin-bottom: 39px;">
+                            <div style="    margin-left: 158px;">
+                                <p style="    float: left;">提醒项：</p>
+                                <div style="    float: left;margin-top: -3px;margin-left: 6px;">
+                                    <label for="text" class="control-label" style=" " v-for="(item,index) in remindTypes">
+                                        <input class="ace clickAll" type="checkbox" v-bind:name="item.id">
+                                        <span class="lbl" style="">{{item.remindName}}&nbsp;&nbsp;</span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="addRemind">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--新增 end-->
+    <!--解绑微信3 start-->
+    <div class="modal fade" id="myModal_out3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_out3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_out3">
+                        提醒人设置
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <div class="modal-body center">
+                        <div style="">
+
+                            <div style="margin-bottom: 36px; padding: 0 144px;" v-show="remind.wechatName!='' || remind.weChatImg">
+                                <img v-bind:src="remind.weChatImg" style="float: left;">
+                                <p style=" display: inline-block; margin-top: 33px;margin-left: 0px;font-size: 15px;">{{remind.weChatName}}</p>
+                            </div>
+                            <div style="margin-bottom: 36px; padding: 0 144px;" v-show="remind.wechatName==''&& !remind.weChatImg">
+                                <img src="../ykcy_images/user1.png" style="float: left;width: 90px;height: 90px;">
+                                <p style="display: inline-block; margin-top: 33px; margin-left: 0px; font-size: 15px;" id="editWXNAME">未绑定公众号</p>
+                            </div>
+                                <label> <span class="lbl font_size">姓名：</span>
+                                    <input placeholder="" class="editUserName" id="updateUserName" maxlength="10" v-bind:value="remind.userName"/>
+                                </label>
+
+
+                             <label> <span class="lbl font_size">手机：</span>
+                                        <input placeholder="" class="editCellPhone" id="updateCellPhone" v-bind:value="remind.cellPhone" />
+                                </label>
+                            <div>
+                                <label for="text" class="control-label" style=" " v-for="(item,index) in remindTypes">
+                                    <input class="ace clickAll updateCheck" type="checkbox" v-bind:value="item.id" v-model="remindType">
+                                    <span class="lbl" style="">{{item.remindName}}</span>&nbsp;&nbsp;
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="update">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--解绑微信3 end-->
+    <!--解绑微信4 start-->
+    <div class="modal fade" id="myModal_out4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_out4" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_out4">
+                        微信解绑
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <h4>确定解绑此微信吗？</h4>
+                    <div class="user_1">
+                        <img src="../images/small/user2.png" alt="">
+                        <p>爱吃饭的鱼</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--解绑微信4 end-->
+    <!--二维码 start-->
+    <div class="modal fade" id="myModal_er" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_o" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_o">
+                        提醒人设置
+                    </h4>
+                </div>
+                <div class="modal-body" style="padding: 20px 75px;">
+                    <div style="margin-bottom: 90px;">
+                        <div class="auth" v-show="wxthird.authorizerAppid!=''">
+                            <div id="qrcode" >
+                            </div>
+                            <p style="    margin-top: 43px;display: inline-block;margin-left: 36px;font-size: 17px;">请扫描左侧二维码进行绑定</p>
+                        </div>
+
+                        <div class="noauth" v-show="wxthird.authorizerAppid==''">
+                            <div id="" style="width:151px;height:151px">
+                                <img style="margin-top: 40px;margin-left: 35px;"  src="http://op.eaqul.com/rest/file/export/yy_service/serviceImg/rvice47a1e8f62141f583b43902c7f24">
+                            </div>
+                            <p style="margin-top: -101px;margin-left: 202px;font-size: 17px;">请先去易快微信接入服务进行授权再来绑定</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div style="    margin-bottom: 24px;">
+                        <div style="margin-left: 40px;float: left;">
+                           <!--<img v-bind:src="'https://open.weixin.qq.com/qr/code?username='wxNickName" alt="" width="110px"/>-->
+                            <img v-bind:src="'https://open.weixin.qq.com/qr/code?username='+wxNickName" alt="" width="110px"/>
+                            <p style="display: flex;margin-top: 12px;margin-left: -8px;">{{wxUserName}}</p>
+                        </div>
+                        <p style="margin-top: 14px;display: inline-block;margin-left: 78px;font-size: 16px;color: #999;">关注左侧公众号,才能有效绑定</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="reload">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="reload">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--二维码 end-->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+
+<script src="../ykcy_js/const.js"></script>
+
+<!-- 1111 -->
+<script src="../ykcy_js/tubiao.js"></script>
+<!-- 111111 -->
+<script src="../ykcy_js/pagination.js"></script>
+<script src="../ykcy_js/ywjs/setup_warm.js"></script>
+
+<script src="../ykcy_js/jquery.qrcode.min.ls.js"></script>
+
+<!--[if lt IE 9]>
+<![endif]-->
+<script>
+
+
+</script>
+</body>
+

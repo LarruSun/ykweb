@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="couponList" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+
+<div class="main-container" id="addCoupon" style="margin-left:10%;width:80%">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="couponList.html">优惠券</a>
+                </li>
+                <li>
+                    <a href="#" v-if='searchData.id'>编辑优惠券</a>
+
+                    <a href="#" v-else>添加优惠券</a>
+                </li>
+            </ul>
+
+            <ul class="breadcrumb" style="margin-left:70%">
+                    <li>
+                        <a href="couponList.html">返回优惠券列表</a>
+                    </li> 
+            </ul>
+        </div>
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+           
+
+
+            <div class="breadcrumbs">
+               
+
+
+                <div class="page-content">
+                    <p class="topTitle">优惠券基本信息</p>
+                    <table>
+                        <tr>
+                            <td>
+                                优惠券名称：
+                            </td>
+                            <td>
+                                <input v-model='searchData.couponsName'  type="text" placeholder=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                </td>
+                                <td style="font-size:12px;color:#aaa">
+                                   优惠券名称不能超过30个字
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>券类型：</td>
+                            <td>
+                                <label for="cashCoupon">代金券 
+                                    <input type="radio" id="cashCoupon" v-model='searchData.couponsType' value="1" name='voucher'>
+                                </label>
+
+                                <label for="coupon">折扣券 
+                                    <input type="radio" id="coupon" v-model='searchData.couponsType' value="2" name='voucher'>
+                                </label>
+                               
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                                <td>
+                                    <span v-if='searchData.couponsType==1'>面额：</span>
+                                    <span v-else>折扣额：</span>
+                                </td>
+                                <td v-if='searchData.couponsType==1'>
+                                    <input  type="number" v-model='vouchers'>元
+                                </td>
+                                <td v-else >
+                                    <input type="number" v-model='searchData.discount'>折
+                                </td>
+                        </tr>
+                        
+                        <tr>
+                                <td>
+                                </td>
+                                <td style="font-size:12px;color:#aaa">
+                                    <span v-if='searchData.couponsType==1'>单张优惠券金额额度，仅保留小数点后两位小数</span>
+                                    <span v-else>单张券折扣额度，请填写1-9.9之间的数字，精确到小数点后1位</span>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td>发放数量：</td>
+                                <td>
+                                    <input type="number" v-model='searchData.countNum'>张
+                                </td>
+                        </tr>
+
+                        <tr>
+                                <td>每人限领：</td>
+                                <td>
+                                    <input type="number" v-model='searchData.receiveLimit'>张
+                                </td>
+                        </tr>
+
+                        <tr>
+                                <td>
+                                </td>
+                                <td style="font-size:12px;color:#aaa">
+                                        用于限制每个会员领取此优惠券的数量，最小值为“1”
+                                </td>
+                        </tr>                
+                        <tr>
+                                <td>使用有效期：</td>
+                                <td>                 
+                                    <input class="form_datetime" id="wei_datetime2" type="date" v-model='startDate'/>
+                                    &nbsp;至&nbsp;
+                                    <input class="form_datetime" id="wei_datetime3" type="date" v-model='endDate'>          
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+                <div class="breadcrumbs">
+                        <div class="page-content">
+                            <p class="topTitle">优惠券应用范围</p>
+                            <table>                  
+                                <tr >
+                                    <td style="width:80px">适用门店：</td>
+                                    <td>
+                                        <label for="shop">全部门店 
+                                                <input type="radio" id="shop" value="0" v-model='searchData.adaptShop'>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>菜品范围：</td>
+                                    <td>
+                                
+        
+                                        <label for="dishes">全部菜品 
+                                                <input type="radio" id="dishes" value="0" v-model='searchData.foodRange'>
+                                        </label>
+                                        
+                                    </td>
+                                </tr>
+                            
+                                
+                            </table>
+                        </div>
+                </div>
+
+
+
+
+                <div class="breadcrumbs">
+                        <div class="page-content">
+                            <p class="topTitle">优惠券使用条件</p>
+                            <table>                  
+                                <tr >
+                                    <td style="width:120px;">使用限制：</td>
+                                    <td>
+                                        <label for="sing">不可与其他优惠同享
+                                                <input type="radio" value="1" v-model='searchData.useLimit' name="sing">
+                                        </label>     
+                                        <!-- <label for="sing">可与其他优惠同享
+                                                <input type="radio" value="2" v-model='searchData.useLimit' name="sing">
+                                        </label> -->
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>最小订单金额限制：</td>
+                                    <td>
+                                
+        
+                                        <label for="min">不限制 
+                                                <input type="radio" id="min" name='min' v-model='searchData.lowestConsume' value="0">
+                                        </label>
+
+                                        <label for="shopMan">购物满 
+                                                <input type="radio" id="shopMan" name='min'  v-model='searchData.lowestConsume' value="1">
+                                                
+                                                <span v-if='searchData.lowestConsume==1'>
+                                                    <input  style="width:50px;" type="number" v-model='lowestConsume'>元可用
+                                                </span>
+
+                                        </label>
+                                        
+                                    </td>
+                                    
+                                </tr>
+                            
+                                
+                            </table>
+                        </div>
+                </div>
+                
+                <div style="margin:auto;width:100px;">
+                        <a href="#" @click=submit() class="btn btn-primary a_bottom" style="width:100px;">提交</a> 
+                </div>
+
+            
+            
+            
+            </div>
+
+
+
+
+
+
+
+            
+
+
+        </div>
+
+
+
+
+
+   
+    </div><!-- /.main-container-inner -->
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/addCoupon.js"></script>
+</body>
+</html>

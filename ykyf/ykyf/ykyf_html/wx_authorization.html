@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微信公众号接入</title>
+    <style>
+         *{
+             margin:0;
+             padding:0;
+         }
+         html,body{
+             width:100%;
+             height:100%;
+         }
+        div{
+            width:100%;
+            margin:0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding-top:260px;
+        }
+        div dl{
+            text-align: center;
+        }
+        div dl a{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   <div>
+        <dl>
+            <dt>
+                <a href="" class="url"><img src="../ykyf_images/download.png" alt=""></a>
+            </dt>
+            <dd>
+                点击上面按钮简单一步授权
+            </dd>
+        </dl>
+   </div>
+</body>
+</html>
+<script src="../../resources/config.js"></script>
+<script src="../../resources/common/lib/jquery.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../ykyf_js/const.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            checked:false,
+            levels: [],//级别
+            status:[],//状态
+            province:'',//省
+            provinceSon:'',//市
+            listData:[],//表格数据
+            record:'',//记录
+            checkedSon_model:[],
+
+            signatureData:'',
+            signatureLogo:'',
+            Eqaccount:'',
+        },
+        methods:{
+            checkedAll:function(){
+                if(this.checked){
+                    this.checkedSon_model=false;
+                }else{
+                    this.checkedSon_model=true;
+                }
+            },
+            signature:function(){
+                if($(".table_all tbody tr td").find("input").prop("checked")==false){
+                    $(".signature").attr("data-target","#myModal_dataSelection")
+                }else{
+                    $(".signature").attr("data-target","#myModal_signature")
+                }
+            },
+            checkedSon:function(){
+            }
+        },
+        watch:{
+            "checkedSon_model":function(){
+                if(this.checkedSon_model.length==this.record){
+                    this.checked=true
+                }else{
+                    this.checked=false
+                }
+                //console.log(this.checkedSon_model)
+            }
+        },
+        created:function() {
+            var userId = location.search;
+            if (userId.indexOf("?") != -1) {
+                var str = userId.substr(1);
+                userId = str.split("=")[1];
+            }
+            console.log(userId);
+            this.$http.get(pathApi1+'/wx/weChat/authorizationWeChat?userId='+userId,{emulateJSON:true,credentials: true}).then(function(res){
+                console.log(res);
+                console.log(res.data.data);
+                var url = "https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid="+res.data.data.componentAppid+"&pre_auth_code="+res.data.data.code+"&redirect_uri="+res.data.data.url+"&auth_type=1";
+                $(".url").attr("href",url);
+            });
+
+        }
+    });
+</script>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <script src="../../resources/config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div id="orderDetailBody">
+    <div class="navbar navbar-default" id="navbar">
+        <headd></headd>
+    </div>
+    <div class="main-container" id="main-container" v-cloak>
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" >
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar" sonpage="eatIn">
+                <sidebar></sidebar>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="eatIn.html">堂食订单</a>
+                        </li>
+                        <li>
+                            <a href="eatInOrderDetail.html">订单详情</a>
+                        </li>
+                    </ul><!-- .导航 -->
+                </div>
+                <div class="page-content">
+                    <p class="title">订单详情</p>
+                    <div class="step">
+                        <el-steps :active="orderStatus" >
+                            <el-step :title="item.title" :description="item.description" :status="item.status" v-for="item in items"></el-step>
+                        </el-steps>
+                    </div>
+                    <div style="border-bottom:1px dashed #5a5a5a;padding-bottom: 10px">
+                        <table class="table-info">
+                            <tbody>
+                                <tr>
+                                    <td>订单编号: {{ data.orderNO }}</td>
+                                    <td>付款方式: {{ data.orderInfo }}</td>
+                                    <td>买家留言: {{ data.remark }}</td>
+                                </tr>
+                                <tr>
+                                    <td>订单类型: {{ data.orderType == 'TSCATERING' ? '堂食订单' : '外卖订单'}}</td>
+                                    <td>桌台号: {{ data.orderName }}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>流水编号: {{ eaqulSeq }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: flex;justify-content: flex-end;margin-top: 20px;"  v-if="refundData.length <= 0 && orderStatus != 1">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">退款</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table  class="table  table-bordered table-hover center table_all table_css">
+                            <thead>
+                            <tr>
+                                <th class="center">菜品名称</th>
+                                <th class="center">做法/规格</th>
+                                <th class="center">价格(元)</th>
+                                <th class="center">数量</th>
+                                <th class="center">小计(元)</th>
+                                <th class="center">状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected" v-for="item in list">
+                                <td class="center">{{ item.commodityName }}</td>
+                                <td class="center">{{ item.tech }}</td>
+                                <td class="center">{{ (item.price * 0.01).toFixed(2) }}</td>
+                                <td class="center">{{ item.prodNum }}</td>
+                                <td class="center">{{ (item.prodAllPrice * 0.01).toFixed(2) }}</td>
+                                <td class="center">{{ '已完成' }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: right">
+                        <div class="money">
+                            <span>总计金额：</span>
+                            <span>￥{{ (sum * 0.01).toFixed(2) }}</span>
+                        </div>
+                        <div class="money" v-if="data.summaryOrderDiscounts">
+                            <span>优惠方式： </span>
+                            <span>{{ data.summaryOrderDiscounts[0].detial }}</span>
+                        </div>
+                        <div class="money" v-if="data.summaryOrderDiscounts">
+                            <span>优惠金额： </span>
+                            <span>￥{{ (data.summaryOrderDiscounts[0].discountmoney * 0.01).toFixed(2) }}</span>
+                        </div>
+                        <div class="money">
+                            <span>支付金额： </span>
+                            <span>￥{{ (data.payTotal * 0.01).toFixed(2) }}</span>
+                        </div>
+                        <div v-if="refundData.length > 0">
+                            <div class="money" v-for="item in refundData">
+                                <span>已退款： </span>
+                                <span style="color: #ff0000;">￥{{ (item.refundAmount * 0.01).toFixed(2) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">退款操作</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 18px;font-weight: 600">可退款余额: {{ (data.payTotal * 0.01).toFixed(2) }}元</p>
+                    <!-- <p style="font-size: 18px;font-weight: 600;color:red">已支付达达骑手费用: {{zifundSum}} 元</p> -->
+                    <div class="form-group">
+                        <label>退款金额:</label>
+                        <input type="number" placeholder="请输入退款金额" v-model="refundSum">元
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary a_bottom" @click="refund">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .title{
+        font-size: 18px;
+        padding-bottom:10px;
+        border-bottom: 1px solid #5a5a5a;
+    }
+    .step{
+        width: 70%;
+        margin:30px auto;
+    }
+    .table-info{
+        width: 100%;
+        font-size: 14px;
+    }
+    .btn{
+        padding: 2px 10px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    .table-responsive{
+        margin-top: 20px;
+    }
+    .money>span{
+        display: inline-block;
+        width: 100px;
+        font-size: 14px;
+    }
+    .form-group>label{
+        width: 80px;
+    }
+</style>
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/eatInOrderDetail.js"></script>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微信小程序</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../smallroutine_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/bootstrap.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../smallroutine_css/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/jquery.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/bootstrap.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/ace.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue-resource.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgUtil.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <div>
+                <ul class="nav nav-list">
+                    <li  class="active">
+                        <a href="" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 小程序管理 </span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="../smallroutine_index.html" class="smallroutine_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="home_set.html" class="home_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    主页设置
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="wechat_shipu.html" class="smallroutine_template">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">小程序管理</a>
+                    </li>
+                    <li>
+                        <a href="#">小程序模板</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row temp_xinjian">
+                    <!--<div class="col-sm-12 temp_newxj">-->
+                        <!--<div class="temp_newxj_title"><img src="../images/small/her.png" alt=""/><span>请选择以下模板来制作你的小程序主页</span></div>-->
+                    <!--</div>-->
+                    <div class="add_state0" style="     margin-top: 12px; margin-bottom: 8px;">
+                        <label class="add_state_1">行业分类：
+                            <a href="#" class="red" style="margin-left: 12px;" value="" v-on:click="search">全部({{allTemplateNum}})</a>
+                            <a v-for="templateType in templateTypeList" href="#" class="" style="margin-left: 12px;" v-bind:value="templateType.typeId" v-on:click="search">{{templateType.typeName}}({{templateType.count}})</a>
+                        </label>
+                    </div>
+                    <div class="temp_newxj_main">
+
+                            <div class="temp_newxj_son" v-for="template in templateList">
+                                <div class="temp_border">
+                                    <img v-bind:src="template.showImg" alt="" style="width:260px;height:410px"/>
+                                    <div class="temp_span media">
+                                        <p class="pull-left"  style="font-size: 14.4px;text-align: center;width: 135px;display: block;justify-content: flex-start;box-sizing: border-box;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{template.typeName}}-{{template.template_name}}</p>
+                                        <a v-bind:href="template.url+'?templateId='+template.id"
+                                           class="btn btn-primary a_bottom pull-right" v-bind:data-templateid = "template.id">使用</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <!--<div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 餐饮美食-单门店001</p>
+                                    <a href="SingleStore.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 餐饮美食-多门店001</p>
+                                    <a href="wechat_newTemp.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left"> 零售商超-风格1</p>
+                                    <a href="wechat_set_page.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_newxj_son">
+                            <div class="temp_border">
+                                <img src="../smallroutine_images/shop_1.png" alt=""/>
+                                <div class="temp_span media">
+                                    <p class="pull-left">零售商超-风格2</p>
+                                    <a href="wechat_set_pageTwo.html" class="btn btn-primary a_bottom pull-right">使用</a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div style="clear: both;"></div>
+                    </div>
+                </div><!-- /.col -->
+            </div>
+            <div class="page-footer ">
+                <div class="content_based" >
+                    <a  href="javascript:void(0)" style="">
+                        <p style="">
+                            <img src="../smallroutine_images/logo_new2.png" alt="" width="25" />
+                            <img src="../smallroutine_images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--添加推荐 start-->
+<div class="modal" id="myModal_fake" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_choose" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >请选择菜品</h4>
+            </div>
+            <div class="modal-body" >
+                <div class="create_list" style=" margin-bottom: 15px;">
+                    <label class=" activity_pula" style="margin-right: 12px">菜品名称：
+                        <select size="1" name="" aria-controls="sample-table-2" class="dataTable_select">
+                            <option value="全部" selected="selected">全部</option>
+                            <option value="全部">全部</option>
+                        </select>
+                    </label>
+                    <label class=" activity_pula"  style="margin-right: 12px">状态：
+                        <select size="1" name="" aria-controls="sample-table-2" class="dataTable_select">
+                            <option value="全部" selected="selected">全部</option>
+                            <option value="全部">全部</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="text" placeholder="请输入菜品名称">
+                        <a href="#" class="btn btn-primary " style="padding: 0px 21px; border-radius: 2px;margin-left: 14px;margin-top: -4px;">搜索</a>
+                    </label>
+                </div>
+                <table class="table  table-bordered table-hover center ">
+                    <thead>
+                    <tr>
+                        <th class="center">菜品名称</th>
+                        <th class="center">菜品分类</th>
+                        <th class="center">状态</th>
+                        <th class="center">售价</th>
+                        <th class="center">出品部门</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="selected">
+                        <td class="center table_css">
+                            <label class="jiequ">
+                                <input class="ace " type="radio" name="hh" >
+                                <span class="lbl " >红烧牛肉</span>
+                            </label>
+                        </td>
+                        <td class="center table_css">湘菜小炒</td>
+                        <td class="hidden-480 center table_css "><span class="label label-success">上架</span></td>
+                        <td class="hidden-480 center table_css">36</td>
+                        <td class="hidden-480 center table_css">厨房</td>
+                    </tr>
+                    <tr class="selected">
+                        <td class="center table_css">
+                            <label class="jiequ">
+                                <input class="ace " type="radio" name="hh" >
+                                <span class="lbl " >农家小炒肉</span>
+                            </label>
+                        </td>
+                        <td class="center table_css">湘菜小炒</td>
+                        <td class="hidden-480 center table_css "><span class="label label-success">上架</span></td>
+                        <td class="hidden-480 center table_css">36</td>
+                        <td class="hidden-480 center table_css">厨房</td>
+                    </tr>
+                    <tr class="selected">
+                        <td class="center table_css">
+                            <label class="jiequ">
+                                <input class="ace " type="radio" name="hh" >
+                                <span class="lbl " >香干小炒</span>
+                            </label>
+                        </td>
+                        <td class="center table_css">湘菜小炒</td>
+                        <td class="hidden-480 center table_css "><span class="label label-success">上架</span></td>
+                        <td class="hidden-480 center table_css">36</td>
+                        <td class="hidden-480 center table_css">厨房</td>
+                    </tr>
+                    <tr class="selected">
+                        <td class="center table_css">
+                            <label class="jiequ">
+                                <input class="ace " type="radio" name="hh" >
+                                <span class="lbl " >香干小炒</span>
+                            </label>
+                        </td>
+                        <td class="center table_css">湘菜小炒</td>
+                        <td class="hidden-480 center table_css "><span class="label label-success">上架</span></td>
+                        <td class="hidden-480 center table_css">36</td>
+                        <td class="hidden-480 center table_css">厨房</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary choose_true_2"  data-dismiss="modal">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--添加推荐 end-->
+<script src="../smallroutine_js/const.js"></script>
+<script>
+    new Vue({
+        el: '#main-container',
+        data: {
+            pathVue:pathVue,
+            templateList:'',
+            templateTypeList:'',
+            allTemplateNum:0,
+        },
+        methods:{
+            search(e){
+              var param={};
+              var dom=e.target;
+              $(dom).parent().children().removeClass("red");
+              $(dom).addClass("red");
+              param.typeId=$(dom).attr("value");
+              this.getPageData(param);
+            },
+
+            getPageData(param){
+                this.$http.post(pathApi+"/smallroutine/smallRoutine/getTemplatesListByTypeNameAndTypeId",param,
+                    {emulateJSON:true,credentials: true}).then(function(res){
+                    debugger;
+                    console.log(res);
+                    var data=res.data.data;
+                    if(data!=null){
+                        this.templateList=data.templateList;
+                        this.templateTypeList=data.templateTypeList;
+                        this.allTemplateNum=data.allTemplateNum;
+                    }else{
+                        alertErrors("服务异常，请稍后重试...",2000);
+                    }
+
+                });
+            }
+        },
+
+        created:function() {
+            var param={};
+            this.getPageData(param);
+        }
+    });
+</script>
+</body>
+</html>

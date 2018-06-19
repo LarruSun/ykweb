@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <!--<link href="vip/css/member.css" rel="stylesheet" />-->
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <link rel="stylesheet" href="../css/pagination.css" />
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .pagination{
+            position: absolute;
+            right: 20px;
+            bottom: -6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+    <div id="appBody">
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar">
+                <ul class="nav nav-list">
+                    <!--<li class="">
+                        <a href="../index.html" >
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 首页 </span>
+                        </a>
+                    </li>-->
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe62b;</i>
+                            <span class="menu-text"> 客户关系管理 </span>
+
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li class="active">
+                                <a href="clients.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    客户列表
+                                </a>
+                            </li>
+
+                            <!-- <li >
+                                 <a href="management.html" class="active">
+                                     <i class="icon-double-angle-right"></i>
+                                     会员管理
+                                 </a>
+                             </li>
+                             <li  >
+                                 <a href="fans_management.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     粉丝管理
+                                 </a>
+                             </li>-->
+                             <li  class="">
+                                 <a href="members_home.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     会员主页
+                                 </a>
+                             </li>
+                            <!--<li >
+                                <a href="label.html" class="active">
+                                    <i class="icon-double-angle-right"></i>
+                                    标签管理
+                                </a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe6b4;</i>
+                            <span class="menu-text"> 卡管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li >
+                                <a href="card_type.html">
+                                    <i class="icon-double-angle-right"></i>
+                                    等级卡管理
+                                </a>
+                            </li>
+                            <li >
+                                <a href="get_record.html" >
+                                    <i class="icon-double-angle-right"></i>
+                                    领取记录
+                                </a>
+                            </li>
+                            <!--<li >
+                                <a href="wechaVipCard.html" >
+                                    <i class="icon-double-angle-right"></i>
+                                    微信会员卡
+                                </a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe694;</i>
+                            <span class="menu-text">积分管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="integal_set.html" class="active">
+                                    <i class="icon-double-angle-right"></i>
+                                    积分设置
+                                </a>
+                            </li>
+                            <li >
+                                <a href="integal_record.html" class="active">
+                                    <i class="icon-double-angle-right"></i>
+                                    积分记录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe607;</i>
+                            <span class="menu-text">储值管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li >
+                                <a href="store_value.html"  class="active">
+                                    <i class="icon-double-angle-right"></i>
+                                    储值设置
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="balance_record.html" class="active">
+                                    <i class="icon-double-angle-right"></i>
+                                    余额记录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe64b;</i>
+                            <span class="menu-text"> 活动管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li >
+                                <a href="recharge_discounts.html" class="dropdown-toggle">
+                                    <i class="icon-desktop"></i>
+                                    <span class="menu-text"> 充值优惠 </span>
+
+                                </a>
+                            </li>
+                            <li >
+                                <a href="integral_convert.html" class="dropdown-toggle">
+                                    <i class="icon-desktop"></i>
+                                    <span class="menu-text"> 积分兑换 </span>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    <!--<li >
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe61e;</i>
+                            <span class="menu-text"> 数据统计 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li >
+                                <a href="expense_calendar.html" >
+                                    <i class="icon-double-angle-right"></i>
+                                    消费记录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="#">客户关系管理</a>
+                        </li>
+                        <li>
+                            <a href="#">客户列表</a>
+                        </li>
+                    </ul><!-- .breadcrumb -->
+                </div>
+                <div class="page-content" style="min-width: 1086px;padding: 8px 20px 50px;position: relative;">
+                    <div class="row">
+                        <div class="col-sm-12 addcar" id="clients">
+                            <div class="addcar_one">
+                                <a href="#" class="btn btn-success a_bottom" data-toggle="modal" data-target="#myModal_customer">新增客户</a>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 mge_set" style="margin-top: 15px;">
+                                <label for="text" class=" control-label  ">客户来源：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="" v-model="param.platformCode">
+                                        <option value="">全部</option>
+                                        <option value="WX">微信公众号</option>
+                                        <option value="OFFLINE">手工录入</option>
+                                        <option value="SMALLROUTINE">微信小程序</option>
+                                        <option value="COUPON">优惠券领取</option>
+                                    </select>
+                                </label>
+                                <label for="text" class=" control-label  " style="    margin-left: 27px;">客户身份：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="    width: 97px;" v-model="param.isVIP">
+                                        <option value="">全部</option>
+                                        <option value="1">会员</option>
+                                        <option value="0">非会员</option>
+                                    </select>
+                                </label>
+                                <!--<label for="text" class=" control-label  " style="    margin-left: 27px;">购&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="    width: 97px;">
+                                        <option value="all">全部</option>
+                                        <option value="all">0</option>
+                                        <option value="all">1+</option>
+                                        <option value="all">2+</option>
+                                        <option value="all">3+</option>
+                                        <option value="all">4+</option>
+                                        <option value="all">5+</option>
+                                        <option value="all">10+</option>
+                                        <option value="all">15+</option>
+                                        <option value="all">20+</option>
+                                        <option value="all">30+</option>
+                                        <option value="all">50+</option>
+                                    </select>
+                                </label>-->
+                                <label for="text" class=" control-label  ">
+                                    <input type="text" placeholder="请输入手机号或名称" v-model="param.phone">
+                                    <a href="#" class="btn btn-info a_bottom" @click="search">搜索</a>
+                                </label>
+                            </div>
+                            <!--<div class="add_state0" style="    border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;margin-bottom: 12px; margin-top: 55px;" >
+                                <a href="#" class="btn btn-primary a_bottom" data-toggle="modal" data-target="#myModal_addcar">发短信</a>
+                            </div>-->
+                            <div class="table-responsive">
+                                <table  class="table  table-bordered table-hover center table_all table_css">
+                                    <thead>
+                                    <tr>
+                                        <th class="center">
+                                            <label>
+                                                <input class="ace clickAll" type="checkbox">
+                                                <span class="lbl"></span>
+                                            </label></th>
+                                        <th class="center">姓名</th>
+                                        <th class="center">手机号</th>
+                                        <!--<th class="hidden-480 center">微信昵称</th>-->
+                                        <th class="center">购次</th>
+                                        <th class="hidden-480 center">积分</th>
+                                        <th class="hidden-480 center">来源</th>
+                                        <th class="hidden-480 center">客户身份</th>
+                                        <th class="hidden-480 center">创建时间</th>
+                                        <th class="hidden-480 center">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="selected" v-for="item in list" v-cloak>
+                                        <td class="center">
+                                            <label>
+                                                <input class="ace" type="checkbox">
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </td>
+                                        <td class="hidden-480 center">{{item.userName}}</td>
+                                        <td class="center">{{item.phone}}</td>
+                                        <td class="center">{{'暂空'}}</td>
+                                        <td class="center">{{item.integral || '0'}}</td>
+                                        <td class="center">{{item.platformName}}</td>
+                                        <td class="center">{{item.isVIP ? '会员' : '非会员'}}</td>
+                                        <td class="center">{{item.createDate}}</td>
+                                        <td class="center">
+                                            <a :href="'customer_details.html?id=' + item.id" >详情</a>&nbsp;
+                                            <a href="#"  data-toggle="modal" data-target="#myModal_integral">给积分</a>&nbsp;
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- /.main-content -->
+                    <div class="pagination">
+                        <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div><!-- /.main-container-inner -->
+            </div><!--/.main-container-->
+        </div>
+        <!--footer s-->
+        <div class="page-footer footer_scroll" style=" ">
+            <div class="content_based" style=" ">
+                <a id="toMiitbeian" href="javascript:void(0)" style="">
+                    <p style=" ">
+                        <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                        <img src="../images/img/name.png" alt="" width="71"></p>
+                </a>
+            </div>
+        </div>
+        <!--footer e-->
+        <!--置顶图标 start-->
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+        <!--置顶图标 end-->
+    </div><!--.main-container-->
+    <!--新建客户 modal start-->
+    <div class="modal fade" id="myModal_customer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+        <div class="modal-dialog" style="    ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" >
+                        新建客户
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height" >
+                    <div class="scan_show2">
+                        <div class="holds_top_son2 client_vip" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 33px;"><span style="color: red;">*</span>&nbsp;客户身份：</p>
+                            <div class="pag" style="float: left">
+                                <label class="ace_block" style="margin-right: 21px">
+                                    <input name="form-field-radio" class="ace ace_1" type="radio"  value="0" v-model="formData.isVIP">
+                                    <span class="lbl">非会员</span>
+                                </label>
+                                <label class="ace_block">
+                                    <input name="form-field-radio" class="ace ace_1" type="radio" value="1" v-model="formData.isVIP">
+                                    <span class="lbl">会员</span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="holds_top_son2" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 60px;"><span style="color: red;">*</span>&nbsp;姓名：</p>
+                            <div class="pag" style="float: left">
+                                <label class="ace_block" style="margin-right: 41px">
+                                    <input  class="ace ace_1" type="text" v-model="formData.userName">
+                                    <span class="lbl"></span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="holds_top_son2" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 47px;"><span style="color: red;">*</span>&nbsp;手机号：</p>
+                            <div class="pag" style="float: left">
+                                <label class="ace_block" style="margin-right: 41px">
+                                    <input  class="ace ace_1" type="number" v-model="formData.phone">
+                                    <span class="lbl"></span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="holds_top_son2 holds_block" style="margin-bottom: 3px;display: none">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 47px;"><span style="color: red;">*</span>&nbsp;会员卡：</p>
+                            <div class="pag" style="float: left">
+                                <label for="text" class=" control-label  " style="">
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="width: 163px;" v-model="formData.carddefinedId">
+                                        <option v-for="item in cardList" :value="item.id">{{item.name}}</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="holds_top_son2" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 59px;">&nbsp;&nbsp;&nbsp;性别：</p>
+                            <div class="pag" style="float: left">
+                                <label class="ace_block" style="margin-right: 21px">
+                                    <input name="form-field-rado" class="ace ace_1" type="radio" value="男" v-model="formData.sex">
+                                    <span class="lbl">男</span>
+                                </label>
+                                <label class="ace_block">
+                                    <input name="form-field-rado" class="ace ace_1" type="radio" value="女" v-model="formData.sex">
+                                    <span class="lbl">女</span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <!--<div class="holds_top_son2" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 46px;">&nbsp;&nbsp;&nbsp;微信号：</p>
+                            <div class="pag" style="float: left">
+                                <label class="ace_block" style="margin-right: 41px">
+                                    <input  class="ace ace_1" type="text" name="client-wechat">
+                                    <span class="lbl"></span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>-->
+                        <div class="holds_top_son2" style="margin-bottom: 3px">
+                            <p class="pag_mia" style="float: left;margin-top: 3px;margin-right: 59px;">&nbsp;&nbsp;&nbsp;备注：</p>
+                            <div class="pag" style="float: left">
+                                <textarea name="client-remark" cols="30" rows="3" v-model="formData.remark">最多可输300字</textarea>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal" @click="addClient">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--新建客户 modal end-->
+    <!--加标签 modal start-->
+    <div class="modal fade" id="myModal_label" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rwa" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rwa">
+                        添加标签
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height" style="    height: 145px;">
+                    <div class="scan_show_label" style="    margin-top: 33px;">
+                        <div class="scan_main center ">
+                            <label style="margin-right: 31px">
+                                <input class="ace clickAll" type="checkbox">
+                                <span class="lbl">标签</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--加标签 modal end-->
+    <!--给积分 modal start-->
+    <div class="modal fade" id="myModal_integral" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rw">
+                        积分
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height" style="    height: 145px;">
+                    <div class="scan_show_integral" style="    margin-top: 33px;">
+                            <label class="ace_block" style="">
+                                <input  class="ace ace_1" type="text" style="width:245px" placeholder="请输入需要添加的积分数(可以为负数)">
+                                <span class="lbl"></span>
+                            </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+<!--加标签 modal end-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../myjs/const.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../myjs/clients.js"></script>
+
+
+<script type="text/javascript">
+    $(function(){
+        var num1;
+        var arr= $(".scan_show2 .client_vip .pag label input");
+        var len= $(".scan_show2 .client_vip .pag label input").length;
+        for(var i=0;i<len;i++){
+            arr[i].index=i;
+            arr[i].onclick=function(){
+                num1=this.index;
+                console.log(num1);
+                if(num1==0){
+                    $(".scan_show2 .holds_block").hide();
+                }
+                if(num1==1){
+                    $(".scan_show2 .holds_block").show();
+                }
+            };
+        }
+
+    });
+
+
+</script>
+</body>
+</html>

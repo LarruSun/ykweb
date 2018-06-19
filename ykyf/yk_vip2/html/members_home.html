@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+    <script src="../../resources/plugins/lrz/dist/lrz.bundle.js"></script>
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        .scan_show{
+            position: absolute;
+            right: 34px;
+            top: 17px;
+            top: 9px\0;
+            border: 1px solid #999;
+            border-radius: 5px;
+            background: #fff;
+            width: 318px;
+        }
+
+        .scan_show .scan_main{ }
+        .scan_show .scan_main .scan_main_son{  }
+        .scan_show .scan_main .scan_main_son p{
+            padding: 12px;
+            font-size: 12px;
+            color: #999;
+        }
+        .scan_show .scan_main .scan_main_son a{
+            display: inherit;
+            margin-top: 13px;
+            margin-bottom: 12px;
+            color: #0070ff;
+        }
+        .scan_show .scan_main .scan_main_son1{
+            position: relative;
+            margin-bottom: 21px;
+            margin-left: -54px;
+            margin-top: 29px;
+        }
+        .scan_show .scan_main .scan_main_son1 p{
+            padding: 8px;
+            border-top: 1px solid #ded3d3;
+            border-bottom: 1px solid #c5bdbd;
+            border-left: 1px solid #ccbcbc;
+            display: initial;
+
+            color: #777373;
+        }
+        .scan_show .scan_main .scan_main_son1 a{
+            /*padding: 2.5px 8px;*/
+            padding: 3px 8px;
+            position: absolute;
+            border-radius: 2px;
+            right: 15px;
+            top: -8px;
+            top: 1px\0;
+        }
+        .modal-body_height{
+            height: 392px;
+            height:400px\0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div id="memberHomeBody">
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!--<li class="">
+                    <a href="../index.html" >
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>-->
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe62b;</i>
+                        <span class="menu-text"> 客户关系管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="clients.html">
+                                <i class="icon-double-angle-right"></i>
+                                客户列表
+                            </a>
+                        </li>
+
+                        <!-- <li >
+                             <a href="management.html" class="active">
+                                 <i class="icon-double-angle-right"></i>
+                                 会员管理
+                             </a>
+                         </li>
+                         <li  >
+                             <a href="fans_management.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 粉丝管理
+                             </a>
+                         </li>-->
+                         <li  class="active" >
+                             <a href="members_home.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 会员主页
+                             </a>
+                         </li>
+                        <!--<li >
+                            <a href="label.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                标签管理
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe6b4;</i>
+                        <span class="menu-text"> 卡管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="card_type.html">
+                                <i class="icon-double-angle-right"></i>
+                                等级卡管理
+                            </a>
+                        </li>
+                        <li >
+                            <a href="get_record.html" >
+                                <i class="icon-double-angle-right"></i>
+                                领取记录
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="wechaVipCard.html" >
+                                <i class="icon-double-angle-right"></i>
+                                微信会员卡
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe694;</i>
+                        <span class="menu-text">积分管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="integal_set.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分设置
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe607;</i>
+                        <span class="menu-text">储值管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li >
+                            <a href="store_value.html"  class="active">
+                                <i class="icon-double-angle-right"></i>
+                                储值设置
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="balance_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                余额记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!--<li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe61e;</i>
+                        <span class="menu-text"> 数据统计 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="expense_calendar.html" >
+                                <i class="icon-double-angle-right"></i>
+                                消费记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">客户关系管理</a>
+                    </li>
+                    <li>
+                        <a href="#">会员主页</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px;">
+                <!--<div class="row " v-cloak>
+                    <div class="col-sm-12 temp_jr">
+                        <div>
+                            <div class="memberCenter_head">
+                                <div class="col-sm-4 Center_head_body">
+                                    <div class="Center_head">
+                                        <img src="../images/img/logo_bb.jpg" alt="" width="50">
+                                        <div class="Center_head_main">
+                                            <p>{{formData.title!=null?formData.title:会员中心}}</p>
+                                            <p>创建时间：{{formData.createTime | formartDate}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="Center_head_2">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="Center_head_3">
+                                        <a href="#" data-toggle="modal" data-target="#myModal_rw"><img src="../images/img/u73.png" alt=""></a>
+                                        <a href="temp_bj2.html">&nbsp;&nbsp;链接</a>
+                                    </div>
+                                </div>
+                                <div style="clear: both"></div>
+                            </div>
+                        </div>
+                        <div class="temp_left col-sm-4">
+                            <div class="jr_1" style="border: 1px solid #ddd">
+                                <div class="arch_head ">
+                                    <img src="../images/img/arch_img.png" alt="" class="img-responsive">
+                                    <p class="arch_p holds_her" >{{formData.title}}</p>
+                                </div>
+                                <div class="hhl_b">
+                                    <div class="arch_hmain_first kojer" style="">
+                                        <div class="arch_nbiao">
+                                            <div class="jr_title te_jar_back">
+                                                <div class="jr_title_pos">
+                                                    <div class=" Center_head_body">
+                                                        <div class="Center_head" style="display: flex;padding: 13px 13px 0px;margin-bottom: 12px">
+                                                            <div style=" width:50px;overflow: hidden;border-radius: 25px;margin-bottom: 11px;    margin-top: 4px;">
+                                                                <img src="../images/img/songj.png" class="img-responsive" alt="" width="">
+                                                            </div>
+                                                            <div class="Center_head_main">
+                                                                <p>松江</p>
+                                                                <p>12398578549</p>
+                                                            </div>
+                                                            <div class="Center_head_3" style="    margin-left: 65px;margin-top: 9px;">
+
+                                                                <a href="#" style="color: #fff;text-decoration: none">&nbsp;&nbsp;黄金卡</a>
+                                                                <a href="#" ><img src="../images/img/u73.png" alt="" style="margin-left: 22px;"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+
+                                                    </div>
+                                                </div>
+                                                <div class="temp_massages">
+                                                    <div class="temp_massages_son separate0">
+                                                        <p>￥23.00</p>
+                                                        <p>余额</p>
+                                                    </div>
+                                                    &lt;!&ndash;<div class="temp_massages_son separate1">
+                                                        <p>8000</p>
+                                                        <p>积分</p>
+                                                    </div>&ndash;&gt;
+                                                    <div class="temp_massages_son separate2">
+                                                        <p>6</p>
+                                                        <p>优惠券</p>
+                                                    </div>
+                                                    &lt;!&ndash;<div class="temp_massages_son separate3">
+                                                        <p>2</p>
+                                                        <p>消费次数</p>
+                                                    </div>&ndash;&gt;
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" te_jar_img_B" style="position: relative;display: none;">
+                                        <img  id="imgid" src="../images/img/other_1.png" alt="" width="333" height="177"/>
+                                        <div class="arch_nbiao" style="    position: absolute;top: 0;">
+                                            <div class="jr_title" style="background: rgba(109, 143, 220, 0)">
+                                                <div class="jr_title_pos">
+                                                    <img   src="../images/img/logo_1.png" alt="" width="56">
+                                                    <p>NO.123456789</p>
+                                                    <p>WS张二狗<img src="../images/img/man(1).png"></p>
+                                                </div>
+                                                <div class="temp_massages">
+                                                    <div class="temp_massages_son separate">
+                                                        <p>￥23.00</p>
+                                                        <p>余额</p>
+                                                    </div>
+                                                    <div class="temp_massages_son separate">
+                                                        <p>8000</p>
+                                                        <p>积分</p>
+                                                    </div>
+                                                    <div class="temp_massages_son separate">
+                                                        <p>6</p>
+                                                        <p>优惠券</p>
+                                                    </div>
+                                                    <div class="temp_massages_son separate">
+                                                        <p>2</p>
+                                                        <p>消费次数</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jr_title_2" style="height: 410px">
+                                    <div class="media separate" v-show="formData.funcs.indexOf('3') >= 0">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            会员卡
+                                        </a>
+                                        <span class="pull-right"><span style="margin-right: 32px">2张</span>></span>
+                                    </div>
+                                    <div class="media separate" v-show="formData.funcs.indexOf('4') >= 0">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            会员活动
+                                        </a>
+                                        <span class="pull-right"><span style="margin-right: 32px">2个</span>></span>
+                                    </div>
+                                    <div class="media separate" v-show="formData.funcs.indexOf('5') >= 0">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            订单
+                                        </a>
+                                        <span class="pull-right">></span>
+                                    </div>
+                                    <div class="media separate" v-show="formData.funcs.indexOf('6') >= 0">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            在线充值
+                                        </a>
+                                        <span class="pull-right">></span>
+                                    </div>
+                                    <div class="media separate" v-show="formData.funcs.indexOf('7') >= 0">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            交易记录
+                                        </a>
+                                        <span class="pull-right">></span>
+                                    </div>
+                                    <div class="media separate" v-show="formData.funcs.indexOf('8') >= 0" style="margin-top: 7px;padding: 12px 12px;background: #fff;">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="">
+                                            个人信息
+                                        </a>
+                                        <span class="pull-right">></span>
+                                    </div>
+                                    <div class="media separate9 separate_other" style="margin-top: 9px;padding: 12px 12px;background: #fff;" v-if="formData.iscustom">
+                                        <a href="#" class="pull-left">
+                                            <img src="../images/img/top_pay.png" alt="" v-if="!imgUrl">
+                                            <img :src="imgUrl" alt="" v-if="imgUrl">
+                                            <span class="custom_icona">{{ formData.customTitle || '自定义' }}</span>
+                                        </a>
+                                        <span class="pull-right">></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_right col-sm-7">
+                            <p class="temp_Rtitle">基本信息</p>
+                            &lt;!&ndash;<div class="temp_right_mi">&ndash;&gt;
+                                &lt;!&ndash;<p>商家简称：<span>老金电子</span></p>&ndash;&gt;
+                            &lt;!&ndash;</div>&ndash;&gt;
+                            &lt;!&ndash;<div class="temp_right_mi2">&ndash;&gt;
+                                &lt;!&ndash;<p>商家LOGO：</p>&ndash;&gt;
+                                &lt;!&ndash;<div class="temp_right_m">&ndash;&gt;
+                                    &lt;!&ndash;<img src="../images/img/lgm.jpg" alt="" width="100">&ndash;&gt;
+                                    &lt;!&ndash;<p class="sadee">&ndash;&gt;
+                                        &lt;!&ndash;如需修改以上信息，请去<a href="#" class="aColor">商家设置</a>里设置&ndash;&gt;
+                                    &lt;!&ndash;</p>&ndash;&gt;
+                                &lt;!&ndash;</div>&ndash;&gt;
+                            &lt;!&ndash;</div>&ndash;&gt;
+                            <div class="holds_top_son2">
+                                <p class="pag_mia"><span style="color: red;">*</span>&nbsp;页面名称：</p>
+                                <div class="pag">
+                                    <label for="text" class=" control-label  ">
+                                        <input type="text" class="holds_name"  v-model="formData.title">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="holds_top_son2">
+                                <p class="pag_mia"><span style="color: red;">*</span>&nbsp;行业类型：</p>
+                                <div class="pag">
+                                    <label class="ace_block">
+                                        <input name="form-field-radio" class="ace ace_1" type="radio" value="CY" v-model="formData.type">
+                                        <span class="lbl">餐饮行业</span>
+                                    </label>
+                                    <br/>
+                                    <label class="ace_block">
+                                        <input name="form-field-radio" class="ace ace_1" type="radio" value="LS" v-model="formData.type">
+                                        <span class="lbl">零售行业</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="holds_top_gn">
+                                <p class="temp_Rtitle">功能增减</p>
+                                <div class="function_button" style="border: 1px solid #ddd;padding: 12px;background: #e7e8eb;margin-left: 0">
+                                    <label >
+                                        <input type="checkbox" class="ace" checked="checked" disabled="disabled">
+                                        <span class="lbl" style="color:#999">余额</span>
+                                    </label>
+                                    <label hidden>
+                                        <input type="checkbox" class="ace" checked="checked"  disabled="disabled">
+                                        <span class="lbl" style="color:#999">积分</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" checked="checked" disabled="disabled">
+                                        <span class="lbl" style="color:#999">优惠券</span>
+                                    </label>
+                                    <label hidden>
+                                        <input type="checkbox" class="ace" checked="checked" disabled="disabled">
+                                        <span class="lbl" style="color:#999">消费次数</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="3" v-model="formData.funcs">
+                                        <span class="lbl">会员卡</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="4" v-model="formData.funcs">
+                                        <span class="lbl">会员活动</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="5" v-model="formData.funcs">
+                                        <span class="lbl">订单</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="6" v-model="formData.funcs">
+                                        <span class="lbl">在线充值</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="7" v-model="formData.funcs">
+                                        <span class="lbl">交易记录</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="ace" value="8" v-model="formData.funcs">
+                                        <span class="lbl">个人信息</span>
+                                    </label>
+                                </div>
+                            </div>
+                            &lt;!&ndash;<div class="custom">
+                                <p class="temp_Rtitle">自定义图标</p>
+                                <div class="custom_mian">
+                                    <div class="custom_hide" v-if="formData.iscustom">
+                                        <div class="media">
+                                            <p class="pull-left">图标一</p>
+                                            <a href="#" class="pull-right custom_dele" @click="deleteIcon">删除</a>
+                                        </div>
+                                        <div class="custom_name">
+                                            <p class="pag_mia">图标名称：</p>
+                                            <div class="pag">
+                                                <label for="text" class=" control-label  ">
+                                                    <input type="text" class="custom_icona_val2" v-model="formData.customTitle">
+                                                    <span class="haha2">0</span>/5
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="Cright_two_1">
+                                            <p>图标图片</p>
+                                            <div class="top_up_img">
+                                                <p>图片建议尺寸:200像素*200像素</p>
+                                                <img v-if="imgUrl" :src="imgUrl" alt="" width="50">
+                                                <div class="p2">
+                                                    <a href="#" class="">上传 <input type="file" @change="bindImg"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="custom_name">
+                                            <p class="pag_mia">点击跳转：</p>
+                                            <div class="pag">
+                                                <label for="text" class=" control-label">
+                                                    <span>http://</span>
+                                                    <input type="text" class="" v-model="formData.customUrl">
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <a href="#" class="add_custom" v-if="!formData.iscustom" @click="formData.iscustom = true">添加自定义图标</a>
+                                </div>&ndash;&gt;
+                                <div class="toWhere" style="    margin-top: 45px;">
+                                    <button href="#" class="btn btn-primary a_bottom" @click="save">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>&lt;!&ndash; /.main-content &ndash;&gt;-->
+                <div style="position: absolute;transform: translate(-50%,-50%);top: 50%;left: 50%;">
+                    <img src="../images/img/dev.png" alt="">
+                    <p class="text-center">开发中...</p>
+                </div>
+            </div><!-- /.main-container-inner -->
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+</div><!--.main-container-->
+<!--二维码 modal start-->
+<div class="modal fade" id="myModal_rw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+    <div class="modal-dialog" style="    width: 410px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_rw">
+                    二维码扫描
+                </h4>
+            </div>
+            <div class="modal-body center modal-body_height">
+                <div class="scan_show">
+                    <div class="scan_main">
+                        <div class="scan_main_son">
+                            <p>扫一扫，在手机上查看并领取</p>
+                            <img src="../images/img/ewm.png"  width="200"/>
+                            <a href="#">下载二维码</a>
+                        </div>
+                        <div class="scan_main_son1" style="display:block">
+                            <p class="disable" disabled="disabled" style="display:inline-block\0;">http://127.0.0.1:32767/start.html#p</p><a href="#" class="btn btn-primary scan_a">复制</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--二维码 modal end-->
+</div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../myjs/const.js"></script>
+<script src="../myjs/memberHome.js"></script>
+<script type="text/javascript">
+    //选择Logo
+    function imageChangeValids(fileId,saveImgId)
+    {
+        //判断上传图片大小问题
+        var f = document.getElementById(fileId).files;
+        if(f[0]!=null)
+        {
+            var fileSize = 0;
+            fileSize = Math.round(f[0].size*100/(1024 * 1024))/100;
+            if(parseFloat(fileSize)>parseFloat(0.5)){
+
+                alertErrors("图片大小不能超过2M",2000);
+//		    	resetFileInput($("#upImg_bts01"));
+
+                return;
+            }else{
+                //上次修改时间  f[0].lastModifiedDate 名称  f[0].name 大小 字节  f[0].size 类型  f[0].type
+// 		    $("#"+fileNameId).val(f[0].name);
+                var obj=new FileReader();
+                obj.readAsDataURL(f[0]);
+                obj.onload=function(){
+                    $("#"+saveImgId).attr("src",obj.result);
+                    $("#"+fileId).change(function(){imageChangeValids(fileId,saveImgId)});
+
+
+
+                }
+            }
+        }else
+        {
+            alertErrors("文件格式选择错误,请重新选择",2000);
+            $("#"+saveImgId).attr("src","./resources/images/frame/user_logo.png")
+        }
+    }
+    $(function(){
+        var num2;
+        var num1;
+        var index_1=$(".separate");
+        var length_1=$(".separate").length;
+
+
+        var index_=$(".function_button label input");
+        var length_=$(" .function_button label input").length;
+        for(var i=0;i<length_;i++){
+            index_[i].index=i;
+            index_[i].onclick=function(){
+                num2=this.index;
+                var ts=index_1.get(num2);
+                if($(this).prop('checked')){
+                    $(ts).show();
+                }else{
+                    $(ts).hide();
+                }
+
+            }
+        };
+        for(var j=0;j<length_1;j++){
+            index_1[j].index=j;
+            index_1[j].onclick=function(){
+                num1=this.index;
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

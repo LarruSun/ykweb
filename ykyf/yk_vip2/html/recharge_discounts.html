@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <!--<link href="vip/css/member.css" rel="stylesheet" />-->
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../js/boot/bootstrap-datetimepicker.css" />
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="../images/img/logo.png" width="25px" alt="会员管理" />
+                    会员管理
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="../avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!--<li class="">
+                    <a href="../index.html" >
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe62b;</i>
+                        <span class="menu-text"> 客户关系管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="clients.html">
+                                <i class="icon-double-angle-right"></i>
+                                客户列表
+                            </a>
+                        </li>
+
+                        <!--<li >
+                            <a href="management.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                会员管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="fans_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                粉丝管理
+                            </a>
+                        </li>-->
+                        <li  class="">
+                            <a href="members_home.html">
+                                <i class="icon-double-angle-right"></i>
+                                会员主页
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="label.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                标签管理
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe6b4;</i>
+                        <span class="menu-text"> 卡管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="card_type.html">
+                                <i class="icon-double-angle-right"></i>
+                                等级卡管理
+                            </a>
+                        </li>
+                        <li >
+                            <a href="get_record.html" >
+                                <i class="icon-double-angle-right"></i>
+                                领取记录
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="wechaVipCard.html" >
+                                <i class="icon-double-angle-right"></i>
+                                微信会员卡
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe694;</i>
+                        <span class="menu-text">积分管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="integal_set.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分设置
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integal_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe607;</i>
+                        <span class="menu-text">储值管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li >
+                            <a href="store_value.html"  class="active">
+                                <i class="icon-double-angle-right"></i>
+                                储值设置
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="balance_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                余额记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="active">
+                            <a href="recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!--<li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe61e;</i>
+                        <span class="menu-text"> 数据统计 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="expense_calendar.html" >
+                                <i class="icon-double-angle-right"></i>
+                                消费记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">活动管理</a>
+                    </li>
+                    <li>
+                        <a href="#">充值优惠</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px">
+                <div class="row promoting" >
+                    <div class="create_list">
+                        <a href="#" class="up btn btn-success a_bottom" data-toggle="modal" data-target="#myModal_activity">新建活动</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 "  style="margin-left: -12px">
+                        <label for="text" class=" control-label  ">有效期：
+                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2">
+                                <option value="up">全部</option>
+                                <option value="up">未开始</option>
+                                <option value="up">进行中</option>
+                                <option value="up">已失效</option>
+                            </select>
+                        </label>
+                        <label for="text" class=" control-label  ">
+                            <input type="text" placeholder="请输入活动名称">
+                            <a href="#" class="btn btn-info a_bottom">查找</a>
+                        </label>
+                    </div>
+                    <div class="add_state " style="    margin-top: 54px;">
+                        <label class="add_state_1">活动状态：
+                            <a href="#" class="red">全部(11)</a>
+                            <a href="#">草稿(3)</a>
+                            <a href="#">已启动(7)</a>
+                            <a href="#">已停止(1)</a>
+                        </label>
+                    </div>
+                    <div class="toWhere" style="margin: 12px 0">
+                        <a href="#" class="up btn btn-info a_bottom" data-toggle="modal" data-target="#myModal_start">启动</a>
+                        <a href="#" class="up btn btn-info a_bottom" data-toggle="modal" data-target="#myModal_stop">停止</a>
+                    </div>
+                    <div class=" table-responsive">
+                        <table class="table  table-bordered table-hover center clickAll">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input class="ace " type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label></th>
+                                <th class="center">活动名称</th>
+                                <th class="center">活动状态</th>
+                                <th class="center">有效期</th>
+                                <th class="center">参与人数</th>
+                                <th class="center">充值金额</th>
+                                <th class="center">实收金额</th>
+                                <th class="center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">十一充值大优惠</td>
+                                <td class="hidden-480 center "><span class="label label-warning">草稿</span></td>
+                                <td class="hidden-480 center table_css">2017-09-19<br><span style="color:#f89406;">(未开始)</span></td>
+                                <td class="hidden-480 center table_css">29</td>
+                                <td class="hidden-480 center table_css">10000</td>
+                                <td class="hidden-480 center table_css">8000</td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="aColor" href="#" data-toggle="modal" data-target="#myModal_alter">修改</a>
+                                    <a class="aColor" href="recharge_record.html">记录</a>
+                                </td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">八一充值大优惠</td>
+                                <td class="hidden-480 center "><span class="label label-success">已启动</span></td>
+                                <td class="hidden-480 center table_css">2017-09-19<br><span style="color: red;">(过期)</span></td>
+                                <td class="hidden-480 center table_css">29</td>
+                                <td class="hidden-480 center table_css">10000</td>
+                                <td class="hidden-480 center table_css">7500</td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="aColor" href="#" data-toggle="modal" data-target="#myModal_alter">修改</a>
+                                    <a class="aColor" href="recharge_record.html">记录</a>
+                                </td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="center table_css">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                <td class="center table_css">春节充值大优惠</td>
+                                <td class="hidden-480 center "><span class="label label-danger">已停止</span></td>
+                                <td class="hidden-480 center table_css">2017-09-19</td>
+                                <td class="hidden-480 center table_css">23</td>
+                                <td class="hidden-480 center table_css">12000</td>
+                                <td class="hidden-480 center table_css">8400</td>
+                                <td class="hidden-480 center table_css">
+                                    <a class="aColor" href="#" data-toggle="modal" data-target="#myModal_alter">修改</a>
+                                    <a class="aColor" href="recharge_record.html">记录</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+</div><!--.main-container-->
+<!--新建活动 modal start-->
+<div class="modal fade" id="myModal_activity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_activity" aria-hidden="true">
+    <div class="modal-dialog" style="    width: 820px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_activity">
+                    新建活动
+                </h4>
+            </div>
+            <div class="modal-body  modal-body_height" >
+                <div class="radio" style="    margin-top: -6px;">
+                    <label>
+                        <span class="lbl ">活动名称：</span>
+                    </label>
+                    <input  class="loe_hk10 i_input" style="margin-left: 51px;" placeholder="请输入活动名称">
+                </div>
+                <div class="order_show" style="    margin-left: 20px;">
+                    <label class="voucher_time">有效期：
+                        <input class="form_datetime" id="wei_datetime" value="请选择日期" type="text" style="    margin-left: 65px;">
+                        &nbsp;至&nbsp;
+                        <input class="form_datetime" id="wei_datetime1" value="请选择日期" type="text">
+                    </label>
+                </div>
+                <div style=" margin-top: 1px; margin-left: 33px;">
+                    <a href="#" class=" i_add add_top" >添加</a>
+                </div>
+                <div class="table-responsive i_dele" style="margin-top: 8px;margin-left: 32px;">
+                    <table  class="table  table-bordered  center"  style="width:698px;">
+                        <thead><tr>
+                            <th class="center">充值上限</th>
+
+                            <th class="center ">充值下限</th>
+                            <th class="center ">赠送比例</th>
+
+                            <th class="center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody  id="table">
+                         <tr>
+                            <td class="nmax top_up">100</td>
+                            <td class="nmin top_down">50</td>
+                            <td><span class="top_ratio">2</span>%</td>
+                             <td>
+                                <a href="#" class="lj acolor alter2">修改</a>&nbsp;&nbsp;
+                                <a href="#"  class="acolor true_2">确定</a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--新建活动 modal end-->
+<!--修改活动 modal start-->
+<div class="modal fade" id="myModal_alter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_activity" aria-hidden="true">
+    <div class="modal-dialog" style="    width: 820px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_alter">
+                    修改活动
+                </h4>
+            </div>
+            <div class="modal-body  modal-body_height" >
+                <div class="radio" style="    margin-top: -6px;">
+                    <label>
+                        <span class="lbl ">活动名称：</span>
+                    </label>
+                    <input  class="loe_hk10 i_input" style="margin-left: 51px;" placeholder="请输入活动名称">
+                </div>
+                <div class="order_show" style="    margin-left: 20px;">
+                    <label class="voucher_time">有效期：
+                        <input class="form_datetime" id="wei_datetime" value="请选择日期" type="text" style="    margin-left: 65px;">
+                        &nbsp;至&nbsp;
+                        <input class="form_datetime" id="wei_datetime1" value="请选择日期" type="text">
+                    </label>
+                </div>
+                <div class="radio" style=" margin-top: 21px;">
+                    <label>
+                        <span class="lbl ">会员级别：</span>
+                    </label>
+                    <div class="container i_container">
+                        <p class="choose_optional" >可选级别</p>
+                        <ul class="data-list1" id="lList1">
+                            <li>金卡</li>
+                            <li>银卡</li>
+                            <li>钻石卡</li>
+                        </ul>
+                        <div class="button-box ">
+                            <a href="#" class="i_add_1 " id="add1">添 加&nbsp;></a>
+                            <a href="#"  class=" i_add_1" id="remove1"><&nbsp;删 除</a>
+                        </div>
+                        <p class="choose_optional_none">已选级别</p>
+                        <ul class="data-list1" id="rList1">
+                        </ul>
+                    </div>
+                </div>
+                <div style=" margin-top: 1px; margin-left: 33px;">
+                    <a href="#" class=" i_add " data-toggle="modal" data-target="#myModal_i">添加</a>
+                </div>
+                <!--<div class="table-responsive i_dele" style="margin-top: 8px;margin-left: 32px;">-->
+                <!--<table id="table" class="table table-striped table-bordered table-hover center"  style="width:698px;">-->
+                <!--<tr>-->
+                <!--<th class="center">充值上限</th>-->
+
+                <!--<th class="center">充值下限</th>-->
+                <!--<th class="center">赠送比例</th>-->
+
+                <!--<th class="center">操作</th>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12%</td>-->
+                <!--<td>-->
+                <!--<a href="#" class="lj acolor">删除</a>&nbsp;&nbsp;-->
+                <!--<a href="#" data-toggle="modal" data-target="#myModal_up_pp" class="acolor">修改</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12%</td>-->
+                <!--<td>-->
+                <!--<a href="#" class="lj acolor">删除</a>&nbsp;&nbsp;-->
+                <!--<a href="#" data-toggle="modal" data-target="#myModal_up_pp" class="acolor">修改</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--</table>-->
+                <!--</div>-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--修改活动 modal end-->
+<!--给积分 modal start-->
+<div class="modal fade" id="myModal_integral" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_rw">
+                    积分
+                </h4>
+            </div>
+            <div class="modal-body center modal-body_height" style="    height: 145px;">
+                <div class="scan_show_integral" style="    margin-top: 33px;">
+                    <label class="ace_block" style="">
+                        <input  class="ace ace_1" type="text" style="width:245px" placeholder="请输入需要添加的积分数(可以为负数)">
+                        <span class="lbl"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--给积分 modal end-->
+<!--启动 modal start-->
+<div class="modal fade" id="myModal_start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_start">
+                    活动启动
+                </h4>
+            </div>
+            <div class="modal-body center modal-body_height" style="height: 145px;">
+                <div class="scan_show_integral" style="    margin-top: 13px;">
+                    <p>活动名称：<span style="margin-left: 12px">开店三周年老客户回馈</span></p>
+                    <p style="margin-left: -78px">活动类型：<span style="margin-left: 12px">充值优惠</span></p>
+                    <p style="font-size: 16px">确认开启吗？</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--启动 modal end-->
+<!--停止 modal start-->
+<div class="modal fade" id="myModal_stop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_stop">
+                    活动停止
+                </h4>
+            </div>
+            <div class="modal-body center modal-body_height" style="height: 145px;">
+                <div class="scan_show_integral" style="    margin-top: 13px;">
+                    <p>活动名称：<span style="margin-left: 12px">开店三周年老客户回馈</span></p>
+                    <p style="margin-left: -78px">活动类型：<span style="margin-left: 12px">充值优惠</span></p>
+                    <p style="font-size: 16px">确认停止吗？</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--停止 modal end-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/time.js"></script>
+<script type="text/javascript">
+    var lest=[]; //总记录
+    var num1=[50,100];
+    lest.push(num1);
+    function check(start,end){
+        start=new Number(start);
+        end=new Number(end);
+        console.log(lest);
+        for(var i=0;i<lest.length;i++){
+            console.log(lest[i][0])
+            if(lest[i][0]<=start&&lest[i][1]>=start){
+                return false;
+            }
+            if(lest[i][0]<=end&&lest[i][1]>=end){
+                return false;
+            }
+            for(var j=start;j<=end;j++){
+                if(lest[i][0]<=j&&lest[i][1]>=j){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+
+
+    $(function(){                 //添加
+        var html=' <tr>' +
+                    '<td>' +
+                        '<input type="text" class="top_up" style="width:84px;"/>' +
+                    '</td>' +
+                    ' <td>' +
+                        '<input type="text"  class="top_down" style="width:84px;"/>' +
+                    '</td>' +
+                    '<td>' +
+                         '<input type="text"  class="top_ratio" style="width:84px;"/>%' +
+                    '</td>' +
+                    ' <td>' +
+                        '<a href="#"  class=" lj acolor dele">删除</a>&nbsp;&nbsp; ' +
+                        '<a href="#"  class="true_">确定</a>' +
+                    '</td> ' +
+                   '</tr>';
+        $(".add_top").bind('click',function(){
+                $(html).appendTo($("#table"));
+                otherTrue_();
+                otherdele()
+        });
+    });
+    function otherTrue_(){                  //添加后的确定
+        $(".true_").bind('click',function(){
+            debugger;
+            var $opop=$("input[class='top_up']").val();//JSON.parse($(".top_up").val());
+            var $opop2=$("input[class='top_down']").val();//JSON.parse($(".top_down").val());
+            var $opop3=$("input[class='top_ratio']").val();//JSON.parse($(".top_ratio").val());
+            if($opop3>100){
+                alert("赠送比例应在0-100之间");
+                return false;
+            }
+            if(!check($opop2,$opop)){
+                alert("区间错误");
+                return false;
+            }
+            if($opop<$opop2){
+                alert("上线不能小于下线");
+                return false;
+            }
+            var html2=' <tr>' +
+                    '<td class="nmax">'+$opop +'</td>' +
+                    '<td class="nmin">'+$opop2+'</td>' +
+                    '<td>'+$opop3+'%'+'</td>' +
+                    ' <td>' +
+                    '<a href="#" class="lj acolor dele">删除</a>&nbsp;&nbsp; ' +
+                    '<a href="#"  class="acolor alter">修改</a>&nbsp;&nbsp;' +
+                    '</td> ' +
+                    '</tr>';
+            $(this).parent().parent().remove();
+            $(html2).appendTo($("#table"));
+            var num=[$opop2,$opop];
+            lest.push(num);
+            otherdele();
+            $('.alter').bind('click',function(){            //添加后的修改
+                debugger;
+                var html3=' <tr>' +
+                        '<td>' +
+                        '<input type="text" class="top_up" value='+$opop+' style="width:84px;"/>' +
+                        '</td>' +
+                        ' <td>' +
+                        '<input type="text"  class="top_down" value='+$opop2+' style="width:84px;"/>' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text"  class="top_ratio" value='+$opop3+' style="width:84px;"/>%' +
+                        '</td>' +
+                        ' <td>' +
+                        '<a href="#" class="lj acolor dele">删除</a>&nbsp;&nbsp; ' +
+                        '<a href="#"  class="true_">确定</a>' +
+                        '</td> ' +
+                        '</tr>';
+                $(html3).appendTo($("#table"));
+                $(this).parent().parent().remove();
+                $(".dele").bind('click',function(){
+                    $(this).parent().parent().remove()
+                })
+                otherTrue_();
+            });
+        });
+    }
+    function otherdele(){                      //添加后的删除
+        $(".dele").bind('click',function(){
+            $(this).parent().parent().remove()
+        })
+    }
+
+    $(function() {
+        $(".alter2").click(function (){
+            var $opop=$(".top_up").html();
+            var $opop2=$(".top_down").html();
+            var $opop3=$(".top_ratio").html();
+            var html3 = ' <tr>' +
+                    '<td>' +
+                    '<input type="text" class="top_up nmax" placeholder=' + $opop + ' style="width:84px;"/>' +
+                    '</td>' +
+                    ' <td>' +
+                    '<input type="text"  class="top_down nmin" placeholder=' + $opop2 + ' style="width:84px;"/>' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text"  class="top_ratio" placeholder=' + $opop3 + ' style="width:84px;"/>%' +
+                    '</td>' +
+                    ' <td>' +
+//                    '<a href="#" class="lj acolor dele">删除</a>&nbsp;&nbsp; ' +
+                    '<a href="#"  class="true_2">确定</a>' +
+                    '</td> ' +
+                    '</tr>';
+            $(html3).appendTo($("#table"));
+            $(this).parent().parent().remove();
+//            $(".dele").bind('click', function () {
+//                $(this).parent().parent().remove()
+//            })
+            $(".true_2").bind('click',function(){
+                var $opop=$(".top_up").val();
+                var $opop2=$(".top_down").val();
+                var $opop3=$(".top_ratio").val();
+                var html2=' <tr>' +
+                        '<td class="nmax">'+$opop +'</td>' +
+                        '<td class="nmin">'+$opop2+'</td>' +
+                        '<td>'+$opop3+'%'+'</td>' +
+                        ' <td>' +
+                        '<a href="#"  class="true_2">确定</a>' +
+                        '<a href="#"  class="acolor alter2">修改</a>&nbsp;&nbsp;' +
+                        '</td> ' +
+                        '</tr>';
+                var that=$(this);
+                isCanadd($opop,$opop2,$opop3,that);
+                function isCanadd(num1,num2,num3,that){             //判断是否可以添加
+                    var siblings=that.parent().parent().siblings();
+                    var objArr=[];
+                    for(var i=0;i<siblings.length;i++){
+                        var obj={};
+                        //console.log($(siblings[i]).find(".nmax"));
+                        obj.max=JSON.parse($(siblings[i]).find(".nmax").html());
+                        obj.min=JSON.parse($(siblings[i]).find(".nmin").html());
+                        objArr.push(obj);
+                    }
+                    bubbleSort(objArr);
+                    var flag=true;
+                    if($opop<$opop2){
+                        alert("上线不能小于下线");
+                        return ;
+                    }else{
+                        if($opop3<0||$opop3>100){
+                            alert("赠送比例应在0-100之间");
+                            return ;
+                        }else{
+                            flag=false;
+                        }
+                    }
+
+                    if(!flag){
+                        var obj={};
+                        obj.min=num2;
+                        obj.max=num1;
+
+                        if($opop>$opop2){
+                            $(html2).appendTo($("#table"));
+                        }else{
+                            alert("无法添加新数据")
+                        }
+                    }
+                }
+                $(this).parent().parent().remove();
+            });
+        })
+    })
+</script>
+</body>
+</html>

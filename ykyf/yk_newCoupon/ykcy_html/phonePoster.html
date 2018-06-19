@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="sharecontent" data-msg-img="你的缩略图地址" data-msg-title="你的标题" data-msg-content="你的简介" data-msg-callBack="" data-line-img="你的缩略图地址" data-line-title="你的标题" data-line-callBack=""/> -->
+    <meta name="sharecontent" data-msg-img="" data-msg-title="" data-msg-content="" data-msg-callBack="" data-line-img="" data-line-title="" data-line-callBack=""/>
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <!-- <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" /> -->
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <!-- <link rel="stylesheet" href="../ykcy_css/pagination.css" /> -->
+
+    <link rel="stylesheet" href="../ykcy_css/phoneview.css" />
+
+    <!-- <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css"> -->
+
+    <script src="../../resources/config.js"></script>
+    <script src="../ykcy_js/flexible.js"></script>
+
+    <!-- <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script> -->
+</head>
+<body>
+
+<div class="main-container" id="phonePoster">
+
+        <div class="main-container-inner" >
+            
+                <div class="breadcrumbs" style="padding:0px;">
+                   <!-- 小程序显示 -->
+                    <div  id="xiaochengxuView">
+                        <!-- <div class="viewtop"> -->
+                            <!-- <img src="../ykcy_images/arch_img.png" alt="" class="img-responsive"> -->
+                            <!-- <span>{{posterName}}</span> -->
+                        <!-- </div> -->
+
+                        <div v-if='!isShow' class="loading">
+                            <img  src="../ykcy_images/loading.gif" alt="">
+                        </div>
+
+                        
+                        <div class="viweBody" :style="{backgroundImage: 'url(' + wxImgUrl + ')'}">
+                            <div class="cont">
+                                <div class="contTop">
+                                    <div v-if='wxselectList.length != 0' v-for='(item) in wxselectList' :style='wxselectList.length==1?"left:36%;top:40%":""'>
+                                        <p v-if='item.couponsType==1'>¥{{(item.vouchers*0.01).toFixed(2)}}</p>
+                                        <p v-else>{{item.discount}}折</p>
+                                        <p v-if='item.couponsType==1'>优惠抵扣</p>
+                                        <p v-else>折扣抵扣</p>
+                                    </div>
+                                </div>
+
+                                <div class="contCenter">
+                                    <img src="../ykcy_images/font.png" alt=""><br/>
+                                    <img class="viewEwm" :src="smallroutineQrcode" v-if='smallroutineQrcode' alt="">
+                                    <img v-else src="./../ykcy_images/ewm.jpg"  class="viewEwm"  alt="" style="border: 1px dashed #aaa;width:100px;height:100px;"  />
+
+                                </div>
+                                
+                                
+                                <div class="contBottom">
+                                    <div class="viewTitle" :style='copywrite==""?"margin-top:40px":""'>
+                                        <img v-bind:src="wxBusinessLogo" alt="" class="viewlog">
+                                        {{wxNickName}}
+                                    </div>
+                                    <div class="viewBom" v-if='copywrite!=""'>
+                                        <p>
+                                            {{copywrite}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 提交显示 -->
+     
+
+            
+                </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    </div><!-- /.main-container-inner -->
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+<script src="../ykcy_js/const.js"></script>
+<!-- <script src="../ykcy_js/pagination.js"></script> -->
+<!-- <script src="../../resources/plugins/lrz/dist/lrz.bundle.js"></script> -->
+
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<!-- <script src="../ykcy_js/joinCoupon.js"></script> -->
+
+<script src="../ykcy_js/phonePoster.js"></script>
+</body>
+</html>

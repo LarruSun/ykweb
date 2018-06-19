@@ -1,0 +1,563 @@
+body{
+  font-family: "Microsoft YaHei"!important;
+}
+/*public css*/
+.order_list_activ{
+  border: 1px solid #6fb3e0!important;
+  color: #666!important;
+}
+.red_active{
+  color: red;
+}
+//全屏 s
+.page-content{
+  width: 95%!important;
+  margin-left: 14px!important;
+  margin-top: 14px!important;
+}
+.main-container:after{
+  background-color: #e7e8eb!important;
+}
+.sidebar:before{
+  background-color: #ffffff!important;
+}
+.sidebar-collapse{
+  background-color: #438eb9!important;
+}
+// e
+//s
+.page-footer{
+  position: fixed;
+  bottom: 19px;left: 50%;
+  .content_based{
+    text-align: center;
+    padding: 0px 13px 1px;
+    margin-bottom: -22px;
+    a{
+      text-decoration: none;
+      color: #666;
+      p{
+        margin-top: 14px;
+        display: inline-block;
+        img{
+          margin-right: 7px;
+        }
+      }
+    }
+  }
+}
+
+//e
+.a_bottom{
+  padding:0 22px!important;
+  margin-top: -4px;
+  border-radius: 2px;
+}
+
+// top_up s
+.str_one{
+  padding: 5px;
+  margin-left: 56px;
+  p{
+    font-size: 14px;
+  }
+  p:nth-child(1){
+    span{
+      margin-left: 38px;
+      color: #666;
+    }
+  }
+  p:nth-child(2){
+    span:nth-child(1){
+      margin-left: 30px;
+      color: #666;
+    }
+    span:nth-child(2){
+      margin-left: 30px;
+      color: #ff4e4e;
+    }
+  }
+  p:nth-child(3){
+    span{
+      margin-left: 64px;
+    }
+  }
+  .srtw{
+    p:nth-child(1){
+      display: inline-block;
+    }
+    label:nth-child(2){
+      margin-right: 21px;
+      margin-left: 37px;
+    }
+    label:nth-child(3){
+
+    }
+    p:nth-child(4){
+      margin-left: 99px;
+      span{
+        color: #ff4e4e;
+      }
+    }
+  }
+}
+.str_one2{
+  padding: 5px;
+  margin-left: 56px;
+}
+// top_up e
+// set_send s
+.myModal_set_one{
+  margin-left: 58px;
+  .scroll_name{
+    .scroll_1{
+      margin-top: 28px;
+      .rq{
+        margin-right: 36px;
+      }
+    }
+    .scroll_2{
+      margin-bottom: 12px;
+      p{
+        display: inline-block;
+        margin-right: 30px;
+      }
+    }
+    .scroll_3{
+      margin-bottom: 12px;
+      p{
+        display: inline-block;
+        margin-right: 31px;
+      }
+    }
+    .scroll_4{
+      display: inline-block;
+      p{
+        display: inline-block;
+        margin-right: 44px;
+      }
+    }
+  }
+}
+
+// set_send e
+/*public css end*/
+.index{
+  .index_main{
+    padding: 12px 0;
+    .index_main_e{
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      .index_main_left{
+        border: 1px solid #ddd;
+        padding: 8px;
+        .main_left{
+          margin-left: 29px;
+          margin-top: 16px;
+          margin-bottom: 27px;
+          p:nth-child(1){
+            display: inline-block;
+            /* font-weight: 700; */
+            font-size: 15px;
+          }
+          p:nth-child(2){
+            display: inline-block;
+            margin-left: 18px;
+            img{
+              margin-top: -4px;
+            }
+
+          }
+          a{
+            display: block;
+            margin-left: 124px;
+            text-decoration: none;
+          }
+        }
+      }
+      .index_main_left2{
+        border: 1px solid #ddd;
+        padding: 8px;
+        .main_left{
+          margin-left: 29px;
+          margin-top: 16px;
+          margin-bottom: 27px;
+          .peiw{
+            display: inline-block;
+            font-size: 15px;
+          }
+          .hehu{
+            display: flex;
+            p{
+              display: inline-block;
+              font-size: 15px;
+            }
+            a{
+              margin-left: 29px;
+              display: block;
+              text-decoration: none;
+            }
+          }
+          .zjes{
+            margin-left: 86px;
+            margin-top: 15px;
+            margin-bottom: -17px;
+          }
+        }
+      }
+      .index_main_right{
+        border: 1px solid #ddd;
+        margin-left: 15px;
+        width: 48%;
+        height: 112px;
+        .main_left2{
+          padding: 8px;
+          margin-bottom: 53px;
+          margin-top: 14px;
+          .yulan{
+            font-size: 15px;
+            float: left;
+            margin-right: 17px;
+          }
+          .main_left_sms{
+            border: 1px solid #ddd;
+            background: #e9eaef;
+            float: left;
+            padding: 12px;
+            margin-top: -7px;
+            color: #666;
+            box-shadow: 2px 0px 13px #999;
+            /* margin-top: -36px; */
+            width: 378px;
+          }
+        }
+      }
+      .signature{
+        border: 1px solid #ddd;
+        margin-top: 12px;
+        padding: 10px 38px;
+        .signature_p{
+          font-size: 15px;
+        }
+        .signature_ul{
+          color: #999;
+        }
+      }
+    }
+    .sms_active{
+      margin-top: 12px;
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      .sms_active_body{
+        padding: 12px;
+        margin-left: 34px;
+        .sms_active_son{
+          float: left;
+          text-align: center;
+          margin-right: 14%;
+          p:nth-child(1){
+            font-size: 14px;
+          }
+          p:nth-child(2){
+            font-size: 13px;
+            margin-top: -7px;
+          }
+        }
+        .sms_active_son:nth-child(1){
+          p:nth-child(1){
+            font-size: 21px;
+            color: red;
+          }
+          p:nth-child(2){
+            font-size: 13px;
+            margin-top: -7px;
+          }
+        }
+        .sms_active_son:nth-child(5){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+/****************************************************index end****************************************************/
+.sms_set{
+  .index_prompt{
+    padding: 9px 20px;
+    margin-bottom: 12px;
+    background: #e0eaf6;
+    .temp_newxj_title{
+      font-size: 14px;
+      color: #222;
+      margin-left: -12px;
+      img{
+        margin-top: -2px;
+        margin-right: 1px;
+      }
+    }
+  }
+  .sms_set_main{
+    margin-top: 61px;
+    .popover_member{
+      input{
+        margin-top: -28px;
+        margin-left: 78px;
+      }
+    }
+  }
+  .sms_set_active{
+    border: 1px solid #f1f3f5;
+    margin-left: 77px;
+    margin-top: 13px;
+    width: 414px;
+    height: 218px;
+    padding: 12px;
+    background: #f0f2f9;
+    .main_left_sms{
+      border: 1px solid #ddd;
+      background: #e9eaef;
+      float: left;
+      padding: 12px;
+      color: #666;
+      box-shadow: 2px 0px 13px #999;
+      margin-top: 0px;
+      width: 378px;
+      p{
+
+      }
+    }
+  }
+  a{
+    display: inline-block;
+    margin-top: 27px;
+    margin-left: 91px;
+  }
+}
+/****************************************************SMS_set end****************************************************/
+.sms_topUp{
+  padding: 12px;
+  display: flex;
+  .main_left{
+    border: 1px solid #ddd;
+    padding: 16px;
+    width: 331px;
+    margin-right: 9px;
+    .main_left_one{
+      margin-bottom: 12px;
+      label{
+        .rq{
+          margin-right: 27px;
+        }
+        input{
+
+        }
+      }
+    }
+    .main_left_one2{
+      margin-bottom: 12px;
+      label{
+        select{
+          width: 140px;
+        }
+      }
+    }
+    .main_left_one3{
+      label{
+        select{
+          margin-left: 28px;
+        }
+      }
+    }
+    .main_left_a{
+      margin: 16px 0px;
+      a{
+
+      }
+    }
+  }
+  .main_left_right{
+    border: 1px solid #ddd;
+    padding: 0;
+    float: right;
+    .main_function{
+      .media{
+        background: #f4f5f9;
+        padding: 5px 0 0 16px;
+        .pull-left{
+
+        }
+      }
+      .main_function_body{
+        margin-top: 16px;
+        margin-left: 50px;
+        margin-bottom: 6px;
+        .tool{
+          border: 1px solid #ddd;
+          float: left;
+          margin-right: 14px;
+          text-align: center;
+          padding: 9px 6px;
+          width: 30%;
+          margin-bottom: 14px;
+          background: #f5f5f5;
+          a{
+            display: block;
+            color: #666;
+            text-decoration: none;
+            .gt{
+              color: red;
+            }
+            hr{
+              margin-top: 7px;
+              margin-bottom: 7px;
+              border-top: 1px dashed #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/****************************************************sms_topUp end****************************************************/
+.order_list{
+  margin-top: 12px;
+  .order_time{
+    margin-left: 121px;
+    margin-right: 12px;
+    margin-top: -49px;
+    .order_showAll{
+      float: left;
+      .order_show{
+        margin-right: 12px;
+      }
+    }
+    .order_bo{
+      float: left;
+      margin-left: 14px;
+      margin-top: 5px;
+      a{
+        border: 1px solid #ddd;
+        padding: 3px 6px;
+        border-radius: 4px;
+        margin-right: 9px;
+        color: #ddd;
+        text-decoration: none;
+      }
+      a:nth-child(1){
+        border: 1px solid #ddd;
+        padding: 3px 6px;
+        border-radius: 4px;
+        margin-right: 9px;
+        color: #ddd;
+        text-decoration: none;
+      }
+    }
+  }
+  .mge_set{
+    margin-bottom: 15px;
+    margin-top: 16px;
+    label{
+      margin-right: 30px;
+    }
+    label:nth-child(2){
+      select{
+        width: 89px;
+      }
+    }
+  }
+  .add_state0{
+    margin-top: 34px;
+    border-bottom: 1px solid #ddd;
+    padding: 13px 0px;
+    margin-left: 12px;
+    label{
+      a{
+        text-decoration: none;
+        margin-right: 20px;
+      }
+    }
+  }
+  .table_css{
+    //margin-left: 12px;
+    tbody{
+      tr{
+        td{
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+/***************************************************************************order_list end****************/
+.sms_send{
+  .index_prompt{
+    padding: 9px 20px;
+    margin-bottom: 12px;
+    background: #e0eaf6;
+    .temp_newxj_title{
+      font-size: 14px;
+      color: #222;
+      img{
+        margin-top: -2px;
+        margin-right: 4px;
+      }
+      span{
+
+      }
+    }
+  }
+  .send_top{
+    border: 1px solid #ddd;
+    padding-right: 0;
+    .send_title{
+      background: #eff3f8;
+      padding: 9px 0px 1px 16px;
+      margin-left: -15px;
+    }
+    .send_main{
+      margin-top: 17px;
+      margin-left: 38px;
+      .send_son{
+        width: 20%;
+        border: 1px solid #ddd;
+        padding: 3px 12px;
+        float: left;
+        margin-right: 32px;
+        margin-bottom: 12px;
+        .send_name{
+          color: #666;
+        }
+
+      }
+    }
+  }
+  .send_middle{
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    padding-right: 0;
+    .send_title{
+      background: #eff3f8;
+      padding: 9px 0px 1px 16px;
+      margin-left: -15px;
+    }
+    .send_main{
+      margin-top: 17px;
+      margin-left: 38px;
+      .send_son{
+        width: 20%;
+        border: 1px solid #ddd;
+        padding: 3px 12px;
+        float: left;
+        margin-right: 32px;
+        margin-bottom: 12px;
+        .send_name{
+          color: #666;
+        }
+      }
+    }
+  }
+}
+/***************************************************************************sms_send end****************/
+
+
+

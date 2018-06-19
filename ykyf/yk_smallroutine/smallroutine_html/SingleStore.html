@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微信小程序</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../smallroutine_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/bootstrap.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../smallroutine_css/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/jquery.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/bootstrap.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/ace.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue-resource.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgUtil.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgbox.js"></script>
+    <style>
+
+        .up-section{
+            float: left;margin-right: 20px;
+        }
+        .up-img{
+            height: 50px;
+        }
+        .img-name-p{
+            width: 65px;
+            margin-left: 49px;
+        }
+
+        .p1 {
+            line-height: 32px;
+        }
+        .p1 span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .p1 .choseColor {
+            position: relative;
+            display: inline-block;
+        }
+        .p1 .choseColor .bColor {
+            width: 128px;
+            height: 30px;
+            display: inline-block;
+            border: 1px solid #dcdcdd;
+            background: url("../img/b.png") center right no-repeat;
+        }
+        .p1 .choseColor .bColor span {
+            width: 30px;
+            height: 28px;
+            background: #7e95c5;
+            float: left;
+        }
+        .p1 .choseColor .colorList {
+            position: absolute;
+            border: 1px solid #dcdcdd;
+            background: #fff;
+        }
+        .p1 .choseColor .colorList span {
+            width: 20px;
+            height: 20px;
+            background: #0000ff;
+        }
+        .wechat_set_4 {
+            margin-top: 18px;
+        }
+        .wechat_set_4 .pag_mia {
+            float: left;
+            margin-top: 5px;
+            margin-right: 41px;
+        }
+
+        .carousel-control{
+            top:35%!important
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <div>
+                <ul class="nav nav-list">
+                    <li  class="active">
+                        <a href="" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 小程序管理 </span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="../smallroutine_index.html" class="smallroutine_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="home_set.html" class="home_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    主页设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wechat_shipu.html" class="smallroutine_template">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="wechat_href.html">主页设置</a>
+                    </li>
+                    <li>
+                        <a href="#">新建主页</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row" id="singleStore">
+                    <div class="col-sm-12  singleStore" style="min-width: 999px;">
+                        <div class="singleStore_phone_left col-sm-4" style="">
+                            <div class="singleStore_phone">
+                                <div class="singleStore_head" style="width: 348px;margin-left: 1px;">
+                                    <div class="conversion_css" v-bind:style="{background:backData.themeColor}">
+                                        <p class="menu_title eat-in text_for" style="  ">{{backData.pageName}}</p>
+                                    </div>
+                                </div>
+                                <div class="wechat_main" style="">
+                                    <div class="wechat_address " v-bind:style="{background:backData.themeColor}">
+                                        <img src="../smallroutine_images/dress.png" style=""/>
+                                        <p style="">深圳市福田区彩田路彩虹新都4栋305</p>
+                                        <img src="../smallroutine_images/zuo.png" alt="" style="   ">
+                                    </div>
+                                    <div class="wechat_temp_imgA" style="">
+                                        <div class="wechat_temp_imgA_main">
+                                            <div id="myCarousel" class="carousel slide" style="height:336px;">
+                                                <!-- 轮播（Carousel）指标 -->
+                                                <!-- 轮播（Carousel）项目 -->
+                                                <div class="carousel-inner" style="height: 100%;">
+
+                                                    <div class="item active" v-if="imgUrlArr.length==0 && slideImg.length==0" style="height: 100%;">
+                                                        <img  src="../smallroutine_images/z1.png"   alt="First slide" class="itemOne" style="width: 100%;height:100%">
+                                                    </div>
+
+                                                    <div v-for="(item,index) in imgUrlArr" v-bind:class="[{active:index==0?'active':''}, 'item']" style="height: 100%;">
+                                                        <img v-bind:src="item"   alt="First slide" class="itemOne" style="width: 100%;height:100%">
+                                                    </div>
+
+                                                    <div v-for="(item,index) in slideImg" v-bind:class="[{active:index==0&&imgUrlArr.length==0?'active':''}, 'item']" style="height: 100%;">
+                                                        <img v-bind:src="item.base64"   alt="First slide" class="itemOne" style="width: 100%;height:100%">
+                                                    </div>
+
+                                                </div>
+                                                <!-- 轮播（Carousel）导航 -->
+                                                <a class="carousel-control left" href="#myCarousel"  style="bottom: auto;"
+                                                   data-slide="prev">&lsaquo;
+                                                </a>
+                                                <a class="carousel-control right" href="#myCarousel" style="bottom: auto;"
+                                                   data-slide="next">&rsaquo;
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="OrderButton" style="">
+                                        <div class="OrderButton_a" v-bind:style="{background:backData.btnColor}">
+                                            <a href="#" v-bind:style="{color:backData.btnFontColor}">开始点餐</a>
+                                        </div>
+                                    </div>
+                                    <div class="demonstrate" style="">
+                                        <div class="demonstrate_main" v-bind:style="{background:backData.areaColor}">
+                                            <div class="demonstrate_son" style="">
+                                                <img v-if="backData.areaIcon1!=''" v-bind:src="backData.areaIcon1"   alt="First slide" class="itemOne imgid areaIcon1"  id="imgid" style="width:48px;height:48px">
+                                                <img v-else src="../smallroutine_images/S1.png"   alt="First slide" class="itemOne imgid areaIcon1"  id="imgid" style="width:48px;height:48px">
+                                                <p class="exhibition_text" >{{backData.areaName1}}</p>
+                                            </div>
+                                            <div class="demonstrate_son" style="">
+                                                <img v-if="backData.areaIcon2!=''" v-bind:src="backData.areaIcon2"   alt="First slide" class="itemOne areaIcon2"  id="imgid2" style="width:48px;height:48px">
+                                                <img v-else src="../smallroutine_images/H2.png"   alt="First slide" class="itemOne areaIcon2"  id="imgid2" style="width:48px;height:48px">
+                                                <p class="exhibition_text2">{{backData.areaName2}}</p>
+                                            </div>
+                                            <div class="demonstrate_son" style="">
+                                                <img v-if="backData.areaIcon3!=''" v-bind:src="backData.areaIcon3"   alt="First slide" class="itemOne areaIcon3"  id="imgid3" style="width:48px;height:48px">
+                                                <img v-else src="../smallroutine_images/D3.png"   alt="First slide" class="itemOne areaIcon3"  id="imgid3" style="width:48px;height:48px">
+                                                <p class="exhibition_text3">{{backData.areaName3}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="clear: both"></div>
+                                </div>
+                                <div class="wechat_footer">
+                                    <div class="wechat_footer_active">
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/icon1.png" alt=""/>
+                                            <p>首页</p>
+                                        </div>
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/ddd.png" alt=""/>
+                                            <p>订单</p>
+                                        </div>
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/www.png" alt=""/>
+                                            <p>我的</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wechat_phone_right col-sm-7">
+                            <div class="wechat_phone_main">
+                                <div class="wechat_title">基本信息</div>
+                                <div class="wechat_set_3">
+                                    <p class="pag_mia">主页名称：</p>
+                                    <div class="pag">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" class="title_name" v-model="backData.pageName" placeholder="请输入门店名称">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son1" style="">
+                                    <p class="Cright_mP" style="">主题颜色：</p>
+                                    <div class="p1 Cright_mP_choose" style="">
+                                        <div class="choseColor" style=""><span class="bColor" v-on:click='choseColor(1)'><span v-bind:style="{background:backData.themeColor}"></span></span>
+                                            <div class="colorList" v-show="isShowColorList1">
+                                                <span v-for='item in bgColor' v-bind:style="{background:item.bgColor}" v-bind:value="item.bgColor" v-on:click="setthemeColor(item)"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_4">
+                                    <p class="ler">轮播图：</p>
+                                    <div class="temp_right_m">
+                                        <div class="weChat_img_list list_child_mR20 z_photo upimg-div fileid_a" style="">
+                                            <section class="up-section fl" v-for="item in imgUrlArr">
+                                                <img class="up-img" v-bind:src="item">
+                                                <p class="img-name-p" v-on:click="delImgUrlItem(item)">删除</p>
+                                            </section>
+                                            <section class="up-section fl" v-for="item in slideImg">
+                                                <img class="up-img" v-bind:src="item.base64">
+                                                <p class="img-name-p" v-on:click="delslideImgItem(item)">删除</p>
+                                            </section>
+                                            <div class="updatePicOfBussess z_file fl"  style="position: relative" v-if="slideImg.length+imgUrlArr.length<3">
+                                                <img src="../smallroutine_images/add_new.png" class="add-img" style="">
+                                                <input type="file" name="file" v-on:change="upslideImg('',$event)" id="file" unselectable="on" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="">
+                                            </div>
+                                            <div class="z_photo upimg-div clear">
+
+                                            </div>
+                                        </div>
+                                        <p class="sadee">
+                                            建议3张尺寸400x400图片
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_5">
+                                    <p class="ler">按钮：</p>
+                                    <div class="push_button">
+                                        <div class="push_button_main">
+                                            <p class="push_button_mainP" style="">背景颜色：</p>
+                                            <div class="p1 push_button_choose" style="">
+                                                <div class="choseColor" style=""><span class="bColor" v-on:click='choseColor(2)'><span v-bind:style="{background:backData.btnColor}"></span></span>
+                                                    <div class="colorList" v-show="isShowColorList2">
+                                                        <span v-for='item in bgColor' v-bind:style="{background:item.bgColor}" v-bind:value="item.bgColor" v-on:click="setbtnColor(item)"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="push_button_main2">
+                                            <p class="push_button_mainP" style="">字体颜色：</p>
+                                            <div class="p1 push_button_mainP_choose" style="">
+                                                <div class="choseColor" style=""><span class="bColor" v-on:click='choseColor(3)'><span v-bind:style="{background:backData.btnFontColor}"></span></span>
+                                                    <div class="colorList" v-show="isShowColorList3">
+                                                        <span v-for='item in fontColor' v-bind:style="{background:item}" v-bind:value="item" v-on:click="setbtnFontColor(item)"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_6">
+                                    <p class="ler">特色区域：</p>
+                                    <div class="ler_ns">
+                                        <p class="ler_nsP" style="">背景颜色：</p>
+                                        <div class="p1 characteristic" style="">
+                                            <div class="choseColor" style=""><span class="bColor" v-on:click='choseColor(4)'><span v-bind:style="{background:backData.areaColor}"></span></span>
+                                                <div class="colorList" v-show="isShowColorList4">
+                                                    <span v-for='item in bgColor' v-bind:style="{background:item.bgColor}" v-bind:value="item.bgColor" v-on:click="setareaColor(item)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="exhibition">
+                                        <div class="exhibition_son">
+                                            <div class="exhibition_son_img">
+                                                <a href="#" style="position: relative">
+                                                    <img v-if="backData.areaIcon1!=''" v-bind:src="backData.areaIcon1" class="imgid areaIcon1" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <img v-else src="../smallroutine_images/S1.png" class="imgid areaIcon1" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <input id="upareaIcon1"  class="fileid" v-on:change="upareaIcon1('.areaIcon1',$event)" type="file" style="width: 48px;height: 48px;left: 0;top: -13px;position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                                </a>
+                                            </div>
+                                            <label for="text" class=" control-label  ">
+                                                <input type="text" class="exhibition_name" v-model='backData.areaName1'>
+                                            </label>
+
+                                        </div>
+                                        <div class="exhibition_son">
+                                            <div class="exhibition_son_img">
+                                                <a href="#" style="position: relative">
+                                                    <img v-if="backData.areaIcon2!=''" v-bind:src="backData.areaIcon2" class="imgid areaIcon2" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <img v-else src="../smallroutine_images/H2.png" class="imgid areaIcon2" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <input id="fileid2"  class="fileid2" v-on:change="upareaIcon2('.areaIcon2',$event)" type="file" style="width: 48px;height: 48px;left: 0;top: -13px;position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                                </a>
+                                            </div>
+                                            <label for="text" class=" control-label  ">
+                                                <input type="text" class="exhibition_name2" v-model='backData.areaName2'>
+                                            </label>
+                                        </div>
+                                        <div class="exhibition_son">
+                                            <div class="exhibition_son_img">
+                                                <a href="#" style="position: relative">
+                                                    <img v-if="backData.areaIcon3!=''" v-bind:src="backData.areaIcon3" class="imgid areaIcon3" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <img v-else src="../smallroutine_images/D3.png" class="imgid areaIcon3" alt="" style="width:48px;height:48px;padding: 0;"  />
+                                                    <input id="fileid3"  class="fileid3" v-on:change="upareaIcon3('.areaIcon3',$event)" type="file" style="width: 48px;height: 48px;left: 0;top: -13px;position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                                </a>
+                                            </div>
+                                            <label for="text" class=" control-label  ">
+                                                <input type="text" class="exhibition_name3" v-model='backData.areaName3'>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_ment" style="margin-top: 15px; ">
+                                    <p class="ler">选择门店：</p>
+                                    <div class="pag_label2 pag_label" style=" ">
+                                        <label v-for="shop in shopList">
+                                            <input class="ace " type="radio" name="hh" data-type="-1" v-bind:value="shop.shopId" v-model="backData.shopId">
+                                            <span class="lbl">{{shop.branch_name}}</span>
+                                        </label>
+                                        <!--<label>
+                                            <input class="ace " type="radio" name="hh" data-type="0">
+                                            <span class="lbl">岗厦店</span>
+                                        </label>
+                                        <label>
+                                            <input class="ace " type="radio" name="hh" data-type="1">
+                                            <span class="lbl">新州店</span>
+                                        </label>
+                                        <label>
+                                            <input class="ace " type="radio" name="hh"  data-type="2">
+                                            <span class="lbl">南昌中山路店</span>
+                                        </label>
+                                        <label>
+                                            <input class="ace " type="radio" name="hh"  data-type="3">
+                                            <span class="lbl">南昌中山路店</span>
+                                        </label>
+                                        <label>
+                                            <input class="ace " type="radio" name="hh" data-type="3">
+                                            <span class="lbl">上海宾馆店</span>
+                                        </label>-->
+
+                                    </div>
+                                </div>
+
+                                <div class="fotter_bottom">
+                                    <a v-if="pageId!=''" href="#" class="btn btn-primary a_bottom" v-on:click="editHomePage">确定</a>
+                                    <a v-else href="javascript:void(0);" class="btn btn-primary a_bottom" v-on:click="addHomePage">确定</a>
+                                    <a href="javascript:void(0);" class="btn btn-primary a_bottom" v-on:click="cancle">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer ">
+                <div class="content_based" >
+                    <a  href="javascript:void(0)" style="">
+                        <p style="">
+                            <img src="../smallroutine_images/logo_new2.png" alt="" width="25" />
+                            <img src="../smallroutine_images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../smallroutine_js/const.js"></script>
+<script src="../smallroutine_js/lrz.bundle.js"></script>
+<script>
+    var bgColor=[
+        {
+            "bgColor":"#306be9",
+            "sonColor":["#ffffff","#b5caf9","#073598","#3d3d3d","#011b54"]
+        },
+        {
+            "bgColor":"#D05D5D",   //"#e8504a",
+            "sonColor":["#ffffff","#fdaaa7","#bf0d06","#5c0501","#333333"]
+        },
+        {
+            "bgColor":"#5ac1dc",
+            "sonColor":["#ffffff","#9be6f9","#0486a8","#005065","#333333"]
+        },
+        {
+            "bgColor":"#E5AB40",    //"#f7b722",
+            "sonColor":["#ffffff","#fbe2a6","#bc8402","#664802","#333333"]
+        },
+        {
+            "bgColor":"#5eb760",
+            "sonColor":["#ffffff","#e4e0e0","#037205","#666666","#333333"]
+        },
+        {
+            "bgColor":"#464646",
+            "sonColor":["#ffffff","#e4e0e0","#DAB578","#D05D5D","#5eb760"]
+        }
+    ];
+    new Vue({
+        el: '#singleStore',
+        data: {
+            pathVue:pathVue,
+            pageId:'',
+            templateId:'',
+            template:'',
+            shopList: '',
+
+            bgColor:bgColor,
+            backData:{
+                pageName:'首页', //主页名称
+                themeColor:'#D05D5D', //主题颜色
+                imgUrl:'',  //轮播图文件地址
+                btnColor:'#E5AB40',  //按钮颜色
+                btnFontColor:'#FFFFFF', //字体颜色
+                areaColor:'#464646',   //特色区域背景颜色
+                areaIcon1:'',  //区域图标1
+                areaName1:'快速到达',  //区域名称1
+                areaIcon2:'',  //区域图标2
+                areaName2:'会员折扣',  //区域名称2
+                areaIcon3:'',  //区域图标3
+                areaName3:'优惠多多',  //区域名称3
+                shopId:''     //门店id
+            },
+            slideImg:[],     //轮播图文件
+            imgUrlArr:[],//轮播图文件地址集
+            areaIconFile1:'',  //区域图标1文件
+            areaIconFile2:'',  //区域图标2文件
+            areaIconFile3:'',  //区域图标3文件
+
+            isShowColorList1:false,
+            isShowColorList2:false,
+            isShowColorList3:false,
+            isShowColorList4:false,
+            fontColor:[],
+            active:''
+        },
+        methods:{
+            choseColor:function(n){
+                if(n==1){
+                    this.isShowColorList1=this.isShowColorList1?false:true;
+                }
+                if(n==2){
+                    this.isShowColorList2=this.isShowColorList2?false:true;
+                }
+                if(n==3){
+                    this.isShowColorList3=this.isShowColorList3?false:true;
+                }
+                if(n==4){
+                    this.isShowColorList4=this.isShowColorList4?false:true;
+                }
+            },
+            setthemeColor:function(item){
+                this.backData.themeColor=item.bgColor;
+                this.choseColor(1);
+            },
+            setbtnColor:function(item){
+                this.backData.btnColor=item.bgColor;
+                this.fontColor=item.sonColor;
+                this.choseColor(2);
+            },
+            setbtnFontColor:function(item){
+                this.backData.btnFontColor=item;
+                this.choseColor(3);
+            },
+            setareaColor:function(item){
+                this.backData.areaColor=item.bgColor;
+                this.choseColor(4);
+            },
+            upareaIcon1:function(el,event){
+                this.upImg(event.target,el,1);
+            },
+            upareaIcon2:function(el,event){
+                this.upImg(event.target,el,2);
+            },
+            upareaIcon3:function(el,event){
+                this.upImg(event.target,el,3);
+            },
+            upslideImg:function(el,event){
+                this.upImg(event.target,el,4);
+            },
+            delslideImgItem:function(item){
+                for(var i=0;i<this.slideImg.length;i++){
+                    if(item==this.slideImg[i]){
+                        this.slideImg.splice(i,1);
+                    }
+                }
+            },
+            delImgUrlItem:function(item){
+                for(var i=0;i<this.imgUrlArr.length;i++){
+                    if(item==this.imgUrlArr[i]){
+                        this.imgUrlArr.splice(i,1);
+                    }
+                }
+            },
+            upImg: function (inputThis,el,n) {    //上传预览图片
+                var files = inputThis.files;
+                var _this=this;
+                for(var i=0;i<files.length;i++){
+                    if (files[i] != null) {
+                        if(files[i].type.indexOf('image')>=0){
+                            var obj = new FileReader();
+                            obj.readAsDataURL(files[i]);
+                            obj.onload = function () {
+                                $(el).attr("src", obj.result);
+                                if(n==1){
+                                    _this.areaIconFile1=files;
+                                }
+                                if(n==2){
+                                    _this.areaIconFile2=files;
+                                }
+                                if(n==3){
+                                    _this.areaIconFile3=files;
+                                }
+                                // if(n==4){
+                                //     _this.slideImg.push(files);
+                                // }
+                            }
+                            lrz(files[i],{type:'image/png'})
+                                .then(function (rst) {
+                                    // 处理成功会执行
+                                    rst.file.name=rst.origin.name;
+                                    rst.file.type= "image/png";
+
+                                    $(el).attr("src", rst.base64);
+
+                                    if(n==1){
+                                        //_this.areaIconFile1=rst;
+                                        _this.areaIconFile1=files;
+                                    }
+                                    if(n==2){
+                                        //_this.areaIconFile2=rst;
+                                        _this.areaIconFile2=files;
+                                    }
+                                    if(n==3){
+                                        //_this.areaIconFile3=rst;
+                                        _this.areaIconFile3=files;
+                                    }
+                                    if(n==4){
+                                        _this.slideImg.push(rst);
+                                        //_this.slideImg.push(files);
+                                        console.log(_this.slideImg);
+                                    }
+                                    console.log(rst);
+                                })
+                                .catch(function (err) {
+                                    // 处理失败会执行
+                                })
+                                .always(function () {
+                                    // 不管是成功失败，都会执行
+                                });
+
+                        }else{
+                            alertErrors('请选择图片文件', 2000);
+                        }
+
+                    }
+                }
+            },
+
+            cancle:function(){
+                window.history.back();
+            },
+
+            getAddPageData: function (param) {
+                this.$http.post(pathApi + "/web/smallRoutineWeb/get/getAddPageData", param,
+                    {emulateJSON: true, credentials: true}).then(function (res) {
+                    //debugger;
+                    console.log(res);
+                    if(res.data.type=="fail"){
+                        alertErrors(res.data.message,2000);
+                    }else{
+                        var data = res.data.data;
+                        if (data != null) {
+                            this.shopList = data.shopList;
+                            this.template = data.template;
+                            if(this.shopList=='' || this.shopList==null ||this.shopList.length<1){
+                                alertErrors("暂未找到您的外卖门店，请先设置您的外卖门店...",2000);
+                            }
+                        }else{
+                            alertErrors("服务异常，请稍后刷新重试...",2000);
+                        }
+                    }
+                });
+            },
+            getEditPageData: function (param) {
+                this.$http.post(pathApi + "/web/smallRoutineWeb/get/getEditPageData", param,
+                    {emulateJSON: true, credentials: true}).then(function (res) {
+                    debugger;
+                    console.log(res);
+                    if(res.data.type=="fail"){
+                        alertErrors(res.data.message,2000);
+                    }else{
+                        var data = res.data.data;
+                        if (data != null) {
+                            this.shopList = data.shopList;
+                            this.template = data.template;
+                            this.backData = data.tmepPageVal;
+                            this.imgUrlArr=this.backData.imgUrl.split(",");
+                        }else{
+                            alertErrors("服务异常，请稍后刷新重试...",2000);
+                        }
+                    }
+
+                });
+            },
+            //保存前 获取页面基本数据
+            getBaseParam:function(){
+                var param = {};
+                param.templateId = this.templateId;
+                param.pageName = this.backData.pageName;
+                param.themeColor = this.backData.themeColor;
+                param.btnColor = this.backData.btnColor;
+                param.btnFontColor = this.backData.btnFontColor;
+                param.areaColor = this.backData.areaColor;
+                param.areaIcon1 = this.backData.areaIcon1;
+                param.areaName1 = this.backData.areaName1;
+                param.areaIcon2 = this.backData.areaIcon2;
+                param.areaName2 = this.backData.areaName2;
+                param.areaIcon3 = this.backData.areaIcon3;
+                param.areaName3 = this.backData.areaName3;
+                param.shopId = this.backData.shopId;
+                if(param.pageName==''){
+                    alertErrors("请输入主页名称",2000);
+                    return false;
+                }
+                if(param.areaName1=='' || param.areaName2=='' || param.areaName3==''){
+                    alertErrors("请输入特色区名称",2000);
+                    return false;
+                }
+                if(param.shopId==''){
+                    alertErrors("请选择适用门店",2000);
+                    return false;
+                }
+
+                param.imgUrl=this.imgUrlArr.join(",");
+
+                if(this.slideImg.length>0){
+                    for(var i=0;i<this.slideImg.length;i++){
+                       param['slideImg'+(i+1)]=this.slideImg[i].file;
+                    }
+                }
+
+                if(this.areaIconFile1!=''){
+                    //param.areaIconFile1=this.areaIconFile1.file;
+                    param.areaIconFile1=this.areaIconFile1[0];
+                }
+                if(this.areaIconFile2!=''){
+                    //param.areaIconFile2=this.areaIconFile2.file;
+                    param.areaIconFile2=this.areaIconFile2[0];
+                }
+                if(this.areaIconFile3!=''){
+                    //param.areaIconFile3=this.areaIconFile3.file;
+                    param.areaIconFile3=this.areaIconFile3[0];
+                }
+                return param;
+            },
+            //数据form格式化处理
+            setFormData:function(param){
+                var formData = new FormData();
+                for(var i in param){
+                    //console.log(param[i].name)
+                    if (param[i].name!=undefined && param[i].name!=null)
+                        formData.append(i,param[i],param[i].name);
+                    else
+                        formData.append(i,param[i]);
+                }
+                return formData
+            },
+            //新增首页
+            addHomePage: function () {
+                debugger;
+                var param=this.getBaseParam();
+                console.log(param);
+                if(param==false)
+                    return false;
+                var formData=this.setFormData(param);
+                //return false;
+                alertLoading("正在保存中，请稍后...",60000);
+                this.$http.post(pathApi + "/web/smallRoutineWeb/add/addHomePage", formData,
+                    {emulateJSON: true, credentials: true}).then(function (res) {
+                    console.log(res);
+                    alertHide();
+                    if (res.data.type == "success") {
+                        alertSuccess(res.data.message, 2000);
+                        location.href="home_set.html";
+                    } else {
+                        alertErrors(res.data.message, 2000);
+                    }
+                });
+            },
+            //编辑首页
+            editHomePage: function () {
+                debugger;
+                var param=this.getBaseParam();
+                if(param==false)
+                    return false;
+                param.pageId=this.pageId;
+                console.log(param);
+                var formData=this.setFormData(param);
+                console.log(formData);
+                alertLoading("正在保存中，请稍后...",60000);
+                this.$http.post(pathApi + "/web/smallRoutineWeb/edit/editHomePage", formData,
+                    {emulateJSON: true, credentials: true}).then(function (res) {
+                    console.log(res);
+                    if (res.data.type == "success") {
+                        alertSuccess(res.data.message, 2000);
+                        location.href="home_set.html";
+                    } else {
+                        alertErrors(res.data.message, 2000);
+                    }
+                });
+            },
+
+            uploadImg:function(imgUrl,uploadImgArr){
+                var obj={};
+                obj.imgUrl=imgUrl;
+                if(uploadImgArr.length>0){
+                    for(var i=0;i<uploadImgArr.length;i++){
+                        obj['file'+(i+1)]=uploadImgArr[i].file;
+                    }
+                }
+                debugger;
+                console.log(obj);
+                //return false;
+                var formData = new FormData();
+                for(var i in obj){
+                    console.log(obj[i]);
+                    if (obj[i].name!=null)
+                        formData.append(i,obj[i],obj[i].name);
+                    else
+                        formData.append(i,obj[i]);
+                }
+                this.$http.post(pathApi + "/web/smallRoutineWeb/add/addImages", formData,
+                    {emulateJSON: true, credentials: true}).then(function (res) {
+                    console.log(res);
+                    if (res.data.type == "success") {
+                        imgUrl=res.data.data;
+                        return imgUrl;
+                    } else {
+
+                    }
+                });
+            },
+
+        },
+
+        created:function() {
+            var param = {};
+            var getParam = location.search;
+            if (getParam.indexOf('?') != -1) {
+                var str = getParam.substr(1);
+                if (str.indexOf("&") != -1) {
+                    var param1 = str.split("&")[0];
+                    var param2 = str.split("&")[1];
+                    var key1 = param1.split("=")[0];
+                    var value1 = param1.split("=")[1];
+                    var key2 = param2.split("=")[0];
+                    var value2 = param2.split("=")[1];
+                    param[key1] = value1;
+                    param[key2] = value2;
+                    this.pageId = param.pageId;
+                    this.templateId = param.templateId;
+                    this.getEditPageData(param);
+                } else {
+                    if(str.split("=")[0]!="templateId"){
+                        location.href="wechat_shipu.html";
+                    }
+                    param.templateId = str.split("=")[1];
+                    this.templateId = param.templateId;
+                    this.getAddPageData(param);
+                }
+            }
+        }
+
+
+    });
+
+</script>
+</body>
+</html>

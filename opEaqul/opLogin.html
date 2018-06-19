@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>易快云服管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="opEaqul_common/opEaqul_common_images/logo_new2.png" type="images/logo.png">
+    <link href="opEaqul_common/opEaqul_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="opEaqul/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="opEaqul_common/opEaqul_common_css/ace.min.css" />
+    <link rel="stylesheet" href="opEaqul/css/indexS.css" />
+    <link rel="stylesheet" href="opEaqul_common/opEaqul_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="opEaqul_common/opEaqul_common_css/city/pagination.css" />
+</head>
+<body style="background-image: url(opEaqul_common/opEaqul_common_images/9.jpg);background-repeat: no-repeat;background-size: 100% auto;">
+<!--header e-->
+<div class="container login" id="app">
+    <div class="row">
+        <!--login s-->
+        <div class="col-lg-12 col-sm-12 col-md-12 login_main">
+            <div class="login_box">
+                <div class="login_title">
+                    <div class="login_title_left">
+                        <img src="opEaqul_common/opEaqul_common_images/logo_left.png" alt="">
+                    </div>
+                    <p class="login_title_name" style="">易快云服管理系统</p>
+                    <div class="login_title_left">
+                        <img src="opEaqul_common/opEaqul_common_images/logo_left.png" alt="">
+                    </div>
+                </div>
+                <div class="form-group login_css ">
+                    <div  class=" login_label">
+                        <p>
+                            <img src="opEaqul_common/opEaqul_common_images/account_1.png" alt="">
+                        </p>
+                    </div>
+                    <input type="text" class="login_input phoneNumber" placeholder="请输入账号" v-model="logging">
+                    <span class="login_po login_po1"></span>
+                </div>
+                <div class="form-group login_css">
+                    <div class="control-label login_label">
+                        <p style="background: #ffb848;">
+                            <img src="opEaqul_common/opEaqul_common_images/lock_1.png" alt="">
+                        </p>
+
+                    </div>
+                    <input type="password" class=" login_input login_password" placeholder="请输入密码"  v-model="cryptogram">
+                    <span class="login_po  login_po2" ></span>
+                </div>
+                <div class="form-group form-group_button" style="">
+                    <a href="#"  class=" btn btn-primary enter a_bottom" @click="getdataBypageId()">登录</a>
+                </div>
+            </div>
+        </div>
+        <!--login e-->
+    </div>
+</div>
+<script src="opEaqul/js/const.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/jquery-1.9.1.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/ace-extra.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/bootstrap.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/ace.min.js"></script>
+<!--<script src="../../opEaqul_common/opEaqul_common_js/jquery.min.js"></script>-->
+<script src="opEaqul_common/opEaqul_common_js/jquery-ui.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/vue.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/vue-resource.min.js"></script>
+<script src="opEaqul_common/opEaqul_common_js/cookie.js"></script>
+<!--省市区 start-->
+<script src="opEaqul_common/opEaqul_plugins/city/distpicker.data.js"></script>
+<script src="opEaqul_common/opEaqul_plugins/city/distpicker.js"></script>
+<script src="opEaqul_common/opEaqul_plugins/city/main.js"></script>
+<!--省市区 end-->
+<!--分页 start-->
+<script src="opEaqul_common/opEaqul_plugins/page/pagination.js"></script>
+<!--分页 end-->
+<script src="opEaqul/js/pageJs/login.js"></script>
+<script>
+
+</script>
+</body>
+</html>

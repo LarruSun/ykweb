@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微信小程序</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../smallroutine_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/bootstrap.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../smallroutine_resources/smallroutine_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../smallroutine_css/index.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/jquery.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/bootstrap.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/ace.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_lib/vue-resource.min.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgUtil.js"></script>
+    <script src="../smallroutine_resources/smallroutine_plugins/msgbox/msgbox.js"></script>
+    <style>
+        .fake_img_box{
+            margin-top: 34px;
+        }
+        .fake{
+            position: relative;
+            text-align: center;
+            float: left;
+            margin-right: 12px;
+        }
+        .fake_img{
+            height: 63px;
+            width: 63px;
+            border: 1px solid #ddd;
+        }
+        .herty_css{
+            position: absolute;
+            top: -11px;
+            right: -7px;
+            border: 1px solid #555;
+            border-radius: 50%;
+            color: #fff;
+            background: #666;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            text-decoration: none;
+        }
+        .wechat_shop_show{
+            width: 140px;
+        }
+        .up-section{
+            float: left;margin-right: 20px;
+        }
+        .up-img{
+            height: 50px;
+        }
+        .img-name-p{
+            width: 65px;
+            margin-left: 49px;
+        }
+
+
+
+        .wechat_shop_data{
+            display: flex;
+            width: 100%;
+        }
+        .wechat_left{
+            margin-right: 10px;
+        }
+        .wechat_left img{
+            width: 68px;
+            height: 68px;
+        }
+        .wechat_right{
+            width: 100%;
+        }
+        .wechat_right_ong{
+
+        }
+        .ment_name{
+            font-size: 14px;
+        }
+        .ment_delivery{
+            padding: 2px 2px;
+            background: #4d92ce;
+            color: #eee;
+            border-radius: 3px;
+        }
+        .wechat_right_two{
+            margin-top: -7px;
+        }
+        .wechat_right_two>.ment_name{
+            color: #666;
+            margin-bottom: 0;
+            font-size: 13px;
+        }
+        .wechat_right_two>.ment_name span:nth-child(1){
+            margin-left: 33px;
+        }
+        .ment_delivery2{
+            margin-right: 1px;
+            color: #666;
+            font-size: 13px;
+        }
+        .wechat_right_three{
+            margin-top: -7px;
+            margin-bottom: 0;
+        }
+        .ment_name3{
+            color: #666;
+            font-size: 13px;
+        }
+        .wechat_right_four{
+            margin-top: -7px;
+            border-top: 1px #999 dashed;
+        }
+        .zhzh ,.qqq{
+            font-size: 12px;
+            color: #999;
+        }
+        .p1 {
+            line-height: 32px;
+        }
+        .p1 span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .p1 .choseColor {
+            position: relative;
+            display: inline-block;
+        }
+        .p1 .choseColor .bColor {
+            width: 128px;
+            height: 30px;
+            display: inline-block;
+            border: 1px solid #dcdcdd;
+            background: url("../img/b.png") center right no-repeat;
+        }
+        .p1 .choseColor .bColor span {
+            width: 30px;
+            height: 28px;
+            background: #7e95c5;
+            float: left;
+        }
+        .p1 .choseColor .colorList {
+            position: absolute;
+            border: 1px solid #dcdcdd;
+            background: #fff;
+        }
+        .p1 .choseColor .colorList span {
+            width: 20px;
+            height: 20px;
+            background: #0000ff;
+        }
+        .wechat_set_4 {
+            margin-top: 18px;
+        }
+        .wechat_set_4 .pag_mia {
+            float: left;
+            margin-top: 5px;
+            margin-right: 41px;
+        }
+        .pag_label {
+            margin-left: 111px;
+        }
+        .pag_label label {
+            margin-bottom: 25px;
+            width: 136.62px;
+        }
+        .pag_label p {
+            color: #999;
+            font-size: 12px;
+            margin-top: -16px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <div>
+                <ul class="nav nav-list">
+                    <li  class="active">
+                        <a href="" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> 小程序管理 </span>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="../smallroutine_index.html" class="smallroutine_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="home_set.html" class="home_set">
+                                    <i class="icon-double-angle-right"></i>
+                                    主页设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wechat_shipu.html" class="smallroutine_template">
+                                    <i class="icon-double-angle-right"></i>
+                                    小程序模板
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="wechat_href.html">主页设置</a>
+                    </li>
+                    <li>
+                        <a href="#">新建主页</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-sm-12 wechat_re2" style="    min-width: 999px;">
+                        <div class="wechat_phone_left col-sm-4" style="min-width: 373px;width: 380px;">
+                            <div class="wechat_phone">
+                                <div class="wechat_phone_head">
+                                    <div class="conversion_css" style="height:47.72px ;background: #d05d5d;display: block;max-width: 100%;">
+                                        <p class="menu_title eat-in text_for" style=" margin-top:0;margin-left:0;position: absolute;top: 35px;left: 0; ">天湘府</p>
+                                    </div>
+                                </div>
+                                <div class="wechat_main" style=" height: 615px;">
+                                    <div class="wechat_address conversion_css" style="display: flex;margin-top: -1px;background: #d05d5d;">
+                                        <img src="../smallroutine_images/dress.png" style=" width: 19px;height: 19px;margin-left: 4px;"/>
+                                        <p style="color: #fff;">深圳市福田区彩田路彩虹新都4栋305</p>
+                                        <img src="../smallroutine_images/dsj.png" alt="" style="    height: 10px;width: 12px; margin-top: 6px;margin-left: 3px;">
+                                    </div>
+                                    <div class="wechat_temp_imgA" style="margin-top: -1px">
+                                        <div>
+                                            <img  id="imgid" src="../smallroutine_images/z4.png" alt="" height="108" width="100%"/>
+                                        </div>
+                                    </div>
+                                    <div class="wechat_temp_1">
+                                        <div class="wechat_sogo">
+                                            <img src="../smallroutine_images/u9.jpg" alt=""/>
+                                        </div>
+                                        <div class="wechat_title">
+                                            <div class="wechat_title2">
+                                                <p>天湘府</p>
+                                                <p>餐饮美食</p>
+                                            </div>
+                                            <div class="wechat_classify" style="margin-left: 93px;margin-top: -30px;">
+                                                <div class="classify" style="width: 163.72px;height:19px;overflow: hidden">
+                                                    <p class="separate">湘菜小炒</p>
+                                                    <p class="separate">营养煨汤</p>
+                                                    <p class="separate">美味小食</p>
+                                                </div>
+                                                <div style="clear: both;"></div>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div class="wechat_temp_2">
+                                        <div class="wechat_shop">
+                                            <p class="haha" style="text-align: center;font-size: 15px;">--------------------门店列表--------------------</p>
+                                            <div class="wechat_shop_box" style=";overflow: auto;"><!--height: 384px-->
+                                                <div class="wechat_shop_img wechat_shop_01" style="border-bottom: 1px solid #999; padding-bottom: 12px;margin-bottom: 12px" >
+                                                    <div class="wechat_shop_data">
+                                                        <div class="wechat_left">
+                                                            <img src="../smallroutine_images/z2.png" alt="">
+                                                        </div>
+                                                        <div class="wechat_right">
+                                                            <div class="media wechat_right_ong">
+                                                                <p class="ment_name pull-left">天湘府(<span class="ment_choose">龙鳞山庄店</span>)</p>
+                                                                <p class="ment_delivery pull-right">可配送</p>
+                                                            </div>
+                                                            <div class="media wechat_right_two">
+                                                                <p class="ment_name pull-left">￥20<span>￥5</span></p>
+                                                                <p class="ment_delivery2 pull-right">1.3千米</p>
+                                                            </div>
+                                                            <div class="media wechat_right_three">
+                                                                <p class="ment_name3 pull-left"><span>起送价</span><span style="    margin-left: 22px;">配送费</span></p>
+                                                            </div>
+                                                            <div class="wechat_right_four">
+                                                                <div class="zhzh">
+                                                                    <img src="../smallroutine_images/zzz.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>会员折扣</span>
+                                                                </div>
+                                                                <div class="qqq">
+                                                                    <img src="../smallroutine_images/qqq.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>下单返券</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="wechat_shop_img wechat_shop_02" style="border-bottom: 1px solid #999; padding-bottom: 12px;margin-bottom: 12px">
+                                                    <div class="wechat_shop_data">
+                                                        <div class="wechat_left">
+                                                            <img src="../smallroutine_images/z2.png" alt="">
+                                                        </div>
+                                                        <div class="wechat_right">
+                                                            <div class="media wechat_right_ong">
+                                                                <p class="ment_name pull-left">天湘府(<span class="ment_choose1">岗厦店</span>)</p>
+                                                                <p class="ment_delivery pull-right">可配送</p>
+                                                            </div>
+                                                            <div class="media wechat_right_two">
+                                                                <p class="ment_name pull-left">￥20<span>￥5</span></p>
+                                                                <p class="ment_delivery2 pull-right">1.3千米</p>
+                                                            </div>
+                                                            <div class="media wechat_right_three">
+                                                                <p class="ment_name3 pull-left"><span>起送价</span><span style="    margin-left: 22px;">配送费</span></p>
+                                                            </div>
+                                                            <div class="wechat_right_four">
+                                                                <div class="zhzh">
+                                                                    <img src="../smallroutine_images/zzz.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>会员折扣</span>
+                                                                </div>
+                                                                <div class="qqq">
+                                                                    <img src="../smallroutine_images/qqq.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>下单返券</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="wechat_shop_img wechat_shop_03" style="border-bottom: 1px solid #999; padding-bottom: 12px;margin-bottom: 12px" >
+                                                    <div class="wechat_shop_data">
+                                                        <div class="wechat_left">
+                                                            <img src="../smallroutine_images/z2.png" alt="">
+                                                        </div>
+                                                        <div class="wechat_right">
+                                                            <div class="media wechat_right_ong">
+                                                                <p class="ment_name pull-left">天湘府(<span class="ment_choose2">新洲店</span>)</p>
+                                                                <p class="ment_delivery pull-right" style="background: #999">不在配送范围</p>
+                                                            </div>
+                                                            <div class="media wechat_right_two">
+                                                                <p class="ment_name pull-left">￥20<span>￥5</span></p>
+                                                                <p class="ment_delivery2 pull-right">1.3千米</p>
+                                                            </div>
+                                                            <div class="media wechat_right_three">
+                                                                <p class="ment_name3 pull-left"><span>起送价</span><span style="    margin-left: 22px;">配送费</span></p>
+                                                            </div>
+                                                            <div class="wechat_right_four">
+                                                                <div class="zhzh">
+                                                                    <img src="../smallroutine_images/zzz.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>会员折扣</span>
+                                                                </div>
+                                                                <div class="qqq">
+                                                                    <img src="../smallroutine_images/qqq.png" alt="" style="width: 16px; height: 16px;margin-right: 3px;"><span>下单返券</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+
+                                    <div style="clear: both"></div>
+                                </div>
+                                <div class="wechat_footer">
+                                    <div class="wechat_footer_active">
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/icon1.png" alt=""/>
+                                            <p>首页</p>
+                                        </div>
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/icon2.png" alt=""/>
+                                            <p>订单</p>
+                                        </div>
+                                        <div class="wechat_footer_msg">
+                                            <img src="../smallroutine_images/icon2.png" alt=""/>
+                                            <p>我的</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wechat_phone_right col-sm-7">
+                            <div class="wechat_phone_main">
+                                <div class="wechat_title">基本信息</div>
+                                <div class="wechat_set_3">
+                                    <p class="pag_mia">主页名称：</p>
+                                    <div class="pag">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" class="holds_name" value="天湘府">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son1" style="margin-top: 7px;">
+                                    <p style="float: left;margin-top: 5px;margin-right: 42px;">标题颜色：</p>
+                                    <div class="p1" style="line-height: 32px;">
+                                        <div class="choseColor" style="position: relative;display: inline-block;"><span class="bColor"><span></span></span>
+                                            <div class="colorList" style="display: none">
+                                                <span style="    background-color:#7e95c5"></span>
+                                                <span style="background-color: rgba(184, 206, 52, 0.88)"></span>
+                                                <span style="    background-color: rgba(123, 63, 37, 0.79)"></span>
+                                                <span style="background:#2e8965;"></span>
+                                                <span style="background:#4ebc30;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_1">
+                                    <p>商家简称：<span>天湘府</span></p>
+                                </div>
+                                <div class="wechat_set_2">
+                                    <p class="ler">商家LOGO：</p>
+                                    <div class="temp_right_m">
+                                        <img src="../smallroutine_images/u9.jpg" alt="" width="65">
+                                        <p class="sadee">
+                                            如需修改以上信息，请去<a href="#" class="aColor">商家设置</a>里设置
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="wechat_title">菜单1-首页</div>
+                                <div class="wechat_set_4">
+                                    <p class="ler">标题图片：</p>
+                                    <div class="temp_right_m">
+
+                                        <div class="weChat_img_list list_child_mR20 z_photo upimg-div fileid_a" style="position: relative">
+                                            <div class="updatePicOfBussess z_file fl"  style="position: relative;float: left;">
+                                                <img src="../smallroutine_images/add_new.png" class="add-img" style="width: 44px;height: 44px;border:none;">
+                                                <input type="file" name="file" id="file" unselectable="on" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="">
+                                            </div>
+                                            <div class="z_photo upimg-div clear">
+
+                                            </div>
+                                        </div>
+                                        <p class="sadee">
+                                            建议尺寸800x400
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_4" style="">
+                                    <p class="pag_mia">分类显示：</p>
+                                    <div class="pag_label1 pag_label" style="    border: 1px solid #ddd;padding: 12px 12px;">
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked">
+                                            <span class="lbl">湘菜小炒</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked">
+                                            <span class="lbl">营养煨汤</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked">
+                                            <span class="lbl">美味小食</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" >
+                                            <span class="lbl">特色炖菜</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" >
+                                            <span class="lbl">酒水饮料</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace">
+                                            <span class="lbl">河鲜水产</span>
+                                        </label>
+                                        <p>最多只能选择3个</p>
+                                    </div>
+                                </div>
+                                <div class="wechat_set_ment" style="margin-top: 15px; ">
+                                    <div style="display: flex;">
+                                        <p class="pag_mia" style="margin-right: 41px;">门店列表：</p>
+                                        <div class="jiequ_all">
+                                            <label class="jiequ">
+                                                <input class="ace " type="radio" name="hh" checked="checked">
+                                                <span class="lbl ">全部门店</span>
+                                            </label>
+                                            <label class="jiequ" style="margin-left: 12px">
+                                                <input class="ace " type="radio" name="hh">
+                                                <span class="lbl ">部分门店</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="pag_label2 pag_label" style=" display: none;   border: 1px solid #ddd;padding: 12px 12px;">
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked" data-type="-1">
+                                            <span class="lbl">龙岭山庄店</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked" data-type="0">
+                                            <span class="lbl">岗厦店</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" checked="checked" data-type="1">
+                                            <span class="lbl">新州店</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace"  data-type="2">
+                                            <span class="lbl">南昌中山路店</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace"  data-type="3">
+                                            <span class="lbl">南昌中山路店</span>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="ace" data-type="3">
+                                            <span class="lbl">上海宾馆店</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="fotter_bottom">
+                                    <a href="#" class="btn btn-primary a_bottom">确定</a>
+                                    <a href="#" class="btn btn-primary a_bottom">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer ">
+                <div class="content_based" >
+                    <a  href="javascript:void(0)" style="">
+                        <p style="">
+                            <img src="../smallroutine_images/logo_new2.png" alt="" width="25" />
+                            <img src="../smallroutine_images/name.png" alt="" width="71"/>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../smallroutine_js/const.js"></script>
+<script>
+    function changeLR(txt1,txt2){
+        $(txt1).bind('keyup',function(){
+            var cc=$(this).val();
+            $(txt2).html(cc);
+            //console.log(cc);
+        })
+    }
+    changeLR(".holds_name",".text_for");
+
+
+    $(function(){
+        $(".p1 .choseColor .bColor").click(function(){
+            $(this).next().show();
+            var that=$(this);
+            $(".p1 .choseColor .colorList span").click(function(){
+                $(this).parent().hide();
+                var bg=$(this).css("background-color");
+                that.children("span").css("background-color",bg);
+                $(".conversion_css").css("background-color",bg);
+            })
+        });
+    });
+
+
+
+
+    //分类选择菜品
+    $(function(){
+        var menuInput=document.querySelectorAll(".pag_label1 label input");
+        function getHtmlArrToShow(str,arr){
+            var html_='';
+            for(var i=0;i<arr.length;i++){
+                html_+='<p class="separate">' + arr[i] +'</p>&nbsp;';
+            }
+            $(str).html(html_);
+        }
+        var getMwnuToShow=function (maxNum){
+            var num=0;
+            for(var i=0;i<menuInput.length;i++){
+                menuInput[i].onclick=function(){
+                    var htmlArr=[];
+                    $(menuInput).each(function(i,o){
+                        if($(o).prop("checked")){
+                            htmlArr.push($(o).next().html());
+                        }
+                    })
+                    if(htmlArr.length>maxNum){
+                        alert("最多添加三个");
+                        $(this).removeAttr("checked");
+                    }else{
+                        getHtmlArrToShow(".classify",htmlArr);
+                    }
+                }
+            }
+        }(3);
+    })
+$(function(){
+    var menuInput=document.querySelectorAll(".pag_label2 label input");
+    for(var i=0;i<menuInput.length;i++){
+        menuInput[i].onclick=function(){
+            var type=$(this).data("type")-0;
+            var obj={};
+            obj.type=type;
+            if(type==-1){
+                if($(this).prop("checked")==true){
+                    $(".wechat_shop_01").show()
+                }
+                else if($(this).prop("checked")==false){
+                    $(".wechat_shop_01").hide()
+                }
+            }
+            if(type==0){
+                if($(this).prop("checked")==true){
+                    $(".wechat_shop_02").show()
+                }
+                else if($(this).prop("checked")==false){
+                    $(".wechat_shop_02").hide()
+                }
+            }
+            if(type==1){
+                if($(this).prop("checked")==true){
+                    $(".wechat_shop_03").show()
+                }
+                else if($(this).prop("checked")==false){
+                    $(".wechat_shop_03").hide()
+                }
+            }
+        }
+    }
+})
+
+
+    $(function(){
+        $(".jiequ_all input").each(function(i) {
+            $(this).bind('click', {index:i}, function(e){
+                console.log('my index is ' + e.data.index);
+                //console.log(e);
+                if(e.data.index==0){
+                    $(".pag_label2").hide()
+                }else{
+                    $(".pag_label2").show()
+                }
+            });
+        });
+    })
+
+
+    //上传商家图片(最多上传三个)
+    $(function(){
+        var maxNum=3;
+        var delParent;
+        var defaults = {
+            fileType         : ["jpg","png","bmp","jpeg"],   // 上传文件的类型
+            fileSize         : 1024 * 1024 * 10                  // 上传文件的大小 10M
+        };
+        /*点击图片的文本框*/
+        $(".file").change(function(){
+            var idFile = $(this).attr("id");
+            var file = document.getElementById(idFile);
+            var imgContainer = $(this).parents(".z_photo"); //存放图片的父亲元素
+            var fileList = file.files; //获取的图片文件
+            console.log(fileList+"======filelist=====");
+            var input = $(this).parent();//文本框的父亲元素
+            var imgArr = [];
+            //遍历得到的图片文件
+            var numUp = imgContainer.find(".up-section").length;
+            var totalNum = numUp + fileList.length;  //总的数量
+            if(fileList.length > maxNum || totalNum > maxNum ){
+                alert("上传图片数目不可以超过3个，请重新选择");  //一次选择上传超过3个 或者是已经上传和这次上传的到的总数也不可以超过3个
+            }
+            else if(numUp < maxNum){
+                fileList = validateUp(fileList);
+                for(var i = 0;i<fileList.length;i++){
+                    var imgUrl = window.URL.createObjectURL(fileList[i]);
+                    imgArr.push(imgUrl);
+                    var $section = $("<section class='up-section fl loading'>");
+                    imgContainer.prepend($section);
+                    var $span = $("<span class='up-span'>");
+                    $span.appendTo($section);
+                    var $img = $("<img class='up-img up-opcity'>");
+                    $img.attr("src",imgArr[i]);
+                    $img.appendTo($section);
+                    var $p = $("<p class='img-name-p'>").on("click",function(event){
+                        event.preventDefault();
+                        event.stopPropagation();
+                        delParent = $(this).parent();
+                        var numUp = delParent.siblings().length;
+                        console.log(numUp);
+                        if(numUp < maxNum){
+                            delParent.parent().find(".z_file").show();
+                        }
+                        delParent.remove();
+                        $(".z_file").show();
+                    });
+                    $p.html("删除").appendTo($section);
+                    var $input = $("<input id='taglocation' name='taglocation' value='' type='hidden'>");
+                    $input.appendTo($section);
+                    var $input2 = $("<input id='tags' name='tags' value='' type='hidden'/>");
+                    $input2.appendTo($section);
+
+
+                }
+            }
+            setTimeout(function(){
+                $(".up-section").removeClass("loading");
+                $(".up-img").removeClass("up-opcity");
+            },450);
+            numUp = imgContainer.find(".up-section").length;
+            if(numUp >= maxNum){
+                $(this).parent().hide();
+            }
+            //input内容清空
+            $(this).val("");
+        });
+
+        function validateUp(files){
+            var arrFiles = [];//替换的文件数组
+            for(var i = 0, file; file = files[i]; i++){
+                //获取文件上传的后缀名
+                var newStr = file.name
+
+                        .split("").reverse().join("");
+                alert(newStr);
+                if(newStr.split(".")[0] != null){
+                    var type = newStr.split(".")[0].split("").reverse().join("");
+
+                    console.log(type+"===type===");
+                    if(jQuery.inArray(type, defaults.fileType) > -1){
+                        // 类型符合，可以上传
+                        if (file.size >= defaults.fileSize) {
+                            alert(file.size);
+                            alert('您这个"'+ file.name
+
+                                    +'"文件大小过大');
+                        } else {
+                            // 在这里需要判断当前所有文件中
+                            arrFiles.push(file);
+                        }
+                    }else{
+                        alert('您这个"'+ file.name
+
+                                +'"上传类型不符合');
+                    }
+                }else{
+                    alert('您这个"'+ file.name
+
+                            +'"没有类型, 无法识别');
+                }
+            }
+            return arrFiles;
+        }
+
+    })
+
+
+    $(function(){
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="../css/orderInfo.css">
+    <link rel="stylesheet" href="../js/msgbox/msgbox.css">
+    <title>堂食订单详情</title>
+</head>
+<body>
+  <section id="app" v-cloak>
+       <section class="sec1 disf_c">
+           <section>
+               <section>流水号：{{orderInfo.sonOrder.currentOrderNum}}</section>
+               <section>订单编号：{{orderInfo.orderNO}}</section>
+           </section>
+           <section class="textRed">
+               <span v-if="orderInfo.afterSaleOrders.length>0">{{afterStatus[orderInfo.afterSaleOrders[0].afterSaleStatus]}}</span>
+               <span v-else>{{orderStatus[orderInfo.status]}}</span>
+           </section>
+       </section>
+    <!--  <section class="sec2">
+          <section><span>送货时间</span>   <b>2分30秒</b></section>
+          <section><span>期望时间</span>   <b>立即送达</b></section>
+      </section>-->
+      <section class="sec3">
+          <section>桌台号 ：<b>{{orderInfo.orderName}}</b></section>
+          <section>用餐人数 ：<b>{{orderInfo.sonOrder.cyUseNum}}人</b></section>
+          <section>订单备注 ：<b>{{orderInfo.remark}}</b></section>
+      </section>
+      <section class="sec4">
+          <section class="sec_tit"><span><img src="../images/cai.png" alt="">菜品详情</span><span class="right45">数量</span><span>单价</span></section>
+           <section class="sec_box" v-for="item in foodList">
+                 <section class="sec_obx_item">
+                     <section class="disf_c"><b>{{item.commodityName}}</b><span class="text99 right45">x{{item.prodNum}}</span><span class="text99">￥{{item.price*0.01 | price}}</span></section>
+                     <section><span class="textRed">{{item.tech}}</span></section>
+                 </section>
+           </section>
+          <!--<section class="calc_tot">合计&nbsp;:&nbsp;{{orderInfo.soTotal*0.01}}</section>-->
+      </section>
+      <section class="sec5" v-if="orderInfo.sonOrder.surcharge">
+          <section v-for="surcharge in listSurcharge"><span class="text99">{{surcharge.surchargeName}}</span><span class="text99">￥{{surcharge.total*0.01 | price}}</span></section>
+      </section>
+      <section class="sec6">
+           <section>优惠：￥{{orderInfo.soTotal*0.01-orderInfo.payTotal*0.01 | price}} &nbsp;<span class="font16"> 合计:</span> <span class="textRed font16">￥{{orderInfo.payTotal*0.01 | price}}</span></section>
+      </section>
+      <!--<section class="sec7">
+          <section><span class="width60">配送地址：</span><b>{{orderInfo.userName}} {{orderInfo.phone}}</b></section>
+          <section><span class="width60"></span><b>{{orderInfo.address}}</b></section>
+      </section>-->
+      <!--<section class="bot">
+          <section class="wid_100" v-if="orderInfo.afterSaleOrders.length>0
+          && orderInfo.afterSaleOrders.afterSaleStatus=='applyStatus'" v-on:click="returnOrder">退单</section>
+
+          <section class="noPad" v-if="orderInfo.status == 'NONRECEIVEORDER'">
+              <section class="wid_40" v-on:click="returnOrder">拒绝</section>
+              <section class="wid_60" v-on:click="accept">接单</section>
+          </section>
+
+      </section>-->
+  </section>
+</body>
+<script src="../../resources/common/lib/jquery.min.js"></script>
+<!--<script src="../../resources/common/lib/jquery-1.9.1.min.js"></script>-->
+<script src="../js/flexible.js"></script>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/vue-router.min.js"></script>
+<script src="../js/msgbox/msgbox.js"></script>
+<script src="../js/msgbox/msgUtil.js"></script>
+<script src="../../resources/config.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/tsOrderInfo.js"></script>
+</html>

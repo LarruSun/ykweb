@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css"/>
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <!-- 左侧 -->
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cyfoodList">
+
+            <sidebar></sidebar>
+
+        </div>
+
+        <!-- 右侧 -->
+        <div class="main-content">
+            <!-- .导航 -->
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">菜品管理</a>
+                    </li>
+                    <li>
+                        <a href="#">菜品列表</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 导航下部 -->
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_main">
+                        <!-- 新增菜品部分 -->
+                        <div class="col-xs-12 col-sm-12 mge_set">
+                            <a v-bind:href="'foodList_add.html?shopId='+shopId" type="button" class="btn btn-success a_bottom mge_main_new" style="margin: 0;">新增菜品</a>
+                            <div style="float: right">
+                                <label for="text" class=" control-label  ">菜品分类：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="    width: 97px;" class="typeId">
+                                        <option value="">全部</option>
+                                        <option v-for="(item,index) in types" v-bind:value="item.id">{{item.name}}</option>
+                                    </select>
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for="text" class=" control-label  ">出品部门：
+                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" style="    width: 97px;" class="departmentId">
+                                        <option value="">全部</option>
+                                        <option v-for="(item,index) in depts" v-bind:value="item.id">{{item.deptName}}</option>
+                                    </select>
+                                </label>
+                                <label for="text" class=" control-label  ">
+                                    <input type="text" class="foodName"/>
+                                    <a href="javascript:void(0)" class="btn btn-info a_bottom" v-on:click="seach">搜索</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 菜品状态部分 -->
+                        <div class="add_state1" style="    border-bottom: 1px solid #dddddd;    margin-bottom: 24px; margin-top: 48px;border-top: 1px solid #ddd;">
+                            <label class="add_state_2">菜品状态：
+                                <a href="javascript:void(0)" class="red" name="" v-on:click="statuSeach">全部({{nums.num0}})</a>
+                                <a href="javascript:void(0)" class="" name="1" v-on:click="statuSeach">已上架({{nums.num1}})</a>
+                                <a href="javascript:void(0)" class="" name="0" v-on:click="statuSeach">未上架({{nums.num2}})</a>
+                                <!--<a href="javascript:void(0)" class="" name="2" v-on:click="statuSeach">已沽清({{nums.num3}})</a>-->
+                            </label>
+                        </div>
+                        <!-- 上下架部分 -->
+                        <div class="button_all" style="margin-bottom: 12px;">
+                            <a type="button" class="btn btn-primary a_bottom" v-on:click="zhiman">置满</a>
+                            <a type="button" class="btn btn-primary a_bottom" v-on:click="guqing">沽清</a>
+                            <a type="button" class="btn btn-primary a_bottom" v-on:click="up">上架</a>
+                            <a type="button" class="btn btn-primary a_bottom" v-on:click="down">下架</a>
+                        </div>
+                        <!-- 菜品详情的部分 -->
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center" style="    width: 38px;">
+                                        <label>
+                                            <input class="ace clickAll" type="checkbox" v-model="checkedArr">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </th>
+                                    <th class="center" style="    width: 209px;">菜品名称</th>
+                                    <th class="center">状态</th>
+                                    <th class="center">菜品类型</th>
+                                    <th class="hidden-480 center">分类</th>
+                                    <th class="hidden-480 center">库存/最大</th>
+                                    <th class="hidden-480 center">出品部门</th>
+                                    <th class="hidden-480 center">助记码</th>
+                                    <th class="hidden-480 center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in foodDefines" v-bind:name="item.id">
+                                    <td class="center line_heat">
+                                        <label>
+                                            <input class="ace clickson" type="checkbox" v-model="checkedArr" v-bind:value="item.id">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td class="center">
+                                        <div class="mgemen_td" style="margin-right: 32px;display: flex;align-items: center;">
+                                            <img v-bind:src="item.img" alt="" style=" float: left;width:56px;height:56px;">
+                                            <div class="mgemen_tson" style="margin-left:10px;">
+                                                <p style="margin-top: 12px;display: inline-block;text-overflow:  ellipsis;white-space:  nowrap;overflow:  hidden;width: 100px;">{{item.name}}</p>
+                                                <p><span style="color: red;margin-top: -19px">￥{{item.price/100}}<span v-if="item.foodsize>1">起</span></span></p>
+
+                                            </div>
+                                            <div style="clear: both"></div>
+                                        </div>
+                                    </td>
+                                    <td class="hidden-480 center line_heat"> <span class="label label-success" v-if="item.status==1">上架</span><span class="label label-warning" v-if="item.status==0">下架</span><span class="label label-important" v-if="item.status==2">沽清</span></td>
+                                    <td class="hidden-480 center line_heat">{{item.foodStyle}}</td>
+                                    <td class="center line_heat">{{item.type}}</td>
+                                    <td class="center line_heat">{{item.currentCount}}/{{item.maxCount}}</td>
+                                    <td class="center line_heat">{{item.department}}</td>
+                                    <td class="center line_heat">{{item.briefCode}}</td>
+                                    <td class="center line_heat">
+                                        <a v-bind:href="item.id|getEditHref"> 编辑</a>&nbsp;
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal_dele" v-bind:name="item.id" v-on:click="getId">删除</a>
+
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="pull-right">
+                        <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+    <!--置满 start-->
+    <div class="modal fade" id="myModal_zhiman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remove2">
+                        置满确认
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">确认置满此菜品吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" name="3" v-on:click="editStatus">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--置满 end-->
+    <!--沽清 start-->
+    <div class="modal fade" id="myModal_guqing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remove">
+                        沽清确认
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">确认沽清此菜品吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" name="2" v-on:click="editStatus">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--沽清 end-->
+    <!--上架 start-->
+    <div class="modal fade" id="myModal_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remov" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remov">
+                        上架确认
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">确认上架此菜品吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" name="1" v-on:click="editStatus">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--上架 end-->
+    <!--下架 start-->
+    <div class="modal fade" id="myModal_down" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remo">
+                        下架确认
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">确认下架此菜品吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" name="0" v-on:click="editStatus">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--下架 end-->
+    <!--删除 start-->
+    <div class="modal fade" id="myModal_dele" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rem" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rem">
+                        删除确认
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">确认删除此菜品吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" v-on:click="del">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--删除 end-->
+    <!--必选 start-->
+    <div class="modal fade" id="myModal_check" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_check" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_check">
+                       请先选中一个菜品
+                    </h4>
+                </div>
+                <div class="modal-body center">
+                    <p style="    padding: 20px; font-size: 16px;">请先选中一个菜品</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--必选 end-->
+    <!-- 会员价 start-->
+    <div class="modal fade" id="myModal_price" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_re" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_re">
+                        会员价格
+                    </h4>
+                </div>
+                <div class="modal-body ">
+                    <div class="price_vip">
+                        <div>
+                            <p style="    font-size: 14px;">菜品名称:<span style="margin-left: 18px;">农家小炒肉</span></p>
+                        </div>
+                        <div>
+                            <p class="title_vip" style="float: left;margin-top: 3px;">
+                                优惠方式:
+                            </p>
+                            <div class="VIP_p" style="    margin-left: 75px;margin-top: 10px;margin-bottom: 10px;">
+                                <label style="    margin-right: 12px;">
+                                    <input name="form-field-r" class="ace" type="radio" checked="checked">
+                                    <span class="lbl">减价</span>
+                                </label>
+                                <!--<label>-->
+                                <!--<input name="form-field-r" class="ace" type="radio">-->
+                                <!--<span class="lbl">指定价格</span>-->
+                                <!--</label>-->
+                            </div>
+                        </div>
+                        <div class="table-responsive table-price">
+                            <div class="table_1">
+                                <table class="table  table-bordered  center table_all table_css ">
+                                    <thead>
+                                    <tr>
+                                        <th class="center">正常售价</th>
+                                        <th class="center">钻石卡</th>
+                                        <th class="center">黄金卡</th>
+                                        <th class="center">白银卡</th>
+                                        <th class="center">普通卡</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="selected">
+                                        <td class="center" style="line-height: 26px;">899.00</td>
+                                        <td class="center">
+                                            <label for="text" class=" control-label">减
+                                                <input type="text" style="width:57px">
+                                                <span class="lbl">元</span>
+                                            </label>
+                                        </td>
+                                        <td class="center">
+                                            <label for="text" class=" control-label">减
+                                                <input type="text" style="width:57px">
+                                                <span class="lbl">元</span>
+                                            </label>
+                                        </td>
+                                        <td class="center">
+                                            <label for="text" class=" control-label">减
+                                                <input type="text" style="width:57px">
+                                                <span class="lbl">元</span>
+                                            </label>
+                                        </td>
+                                        <td class="center">
+                                            <label for="text" class=" control-label">减
+                                                <input type="text" style="width:57px">
+                                                <span class="lbl">元</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!--<div class="table_2" style="display: none">-->
+                            <!--<table class="table  table-bordered  center table_all table_css " >-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                            <!--<th class="center">正常售价</th>-->
+                            <!--<th class="center">钻石卡</th>-->
+                            <!--<th class="center">黄金卡</th>-->
+                            <!--<th class="center">白银卡</th>-->
+                            <!--<th class="center">普通卡</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                            <!--<tr class="selected">-->
+                            <!--<td class="center" style="line-height: 26px;">899.00</td>-->
+                            <!--<td class="center">-->
+                            <!--<label for="text" class=" control-label">-->
+                            <!--<input type="text" style="width:57px">-->
+                            <!--<span class="lbl">元</span>-->
+                            <!--</label>-->
+                            <!--</td>-->
+                            <!--<td class="center">-->
+                            <!--<label for="text" class=" control-label">-->
+                            <!--<input type="text" style="width:57px">-->
+                            <!--<span class="lbl">元</span>-->
+                            <!--</label>-->
+                            <!--</td>-->
+                            <!--<td class="center">-->
+                            <!--<label for="text" class=" control-label">-->
+                            <!--<input type="text" style="width:57px">-->
+                            <!--<span class="lbl">元</span>-->
+                            <!--</label>-->
+                            <!--</td>-->
+                            <!--<td class="center">-->
+                            <!--<label for="text" class=" control-label">-->
+                            <!--<input type="text" style="width:57px">-->
+                            <!--<span class="lbl">元</span>-->
+                            <!--</label>-->
+                            <!--</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                            <!--</table>-->
+                            <!--</div>-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--会员价 end-->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="js/poblic.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+<script>
+    new Vue({
+        el: "#main-container",
+        data: {
+            statusData:{},//暂存的所有数据
+            types:{},//类型
+            depts:{},//部门
+            boxPrice:0,//餐盒费
+            checked:false,
+            shopId:location.href.split("=")[1],
+            foodDefineId:'',
+            foodDefines:{},//菜品列表
+            nums:[0,0,0,0],//数量
+            imgsrc:"../ykcy_images/camera.png",
+            all:"1",
+            cur:"1",
+            checkedArr:[] //选中的input的id值
+        },
+        components: {   //分页
+            'vue-pagination': Vue.Pagination
+        },
+        methods:{
+            listen: function (data) {  //分页
+                // console.log(data)
+                this.cur = data;
+                this.seach(data);
+            },
+            statuSeach:function(e){
+                $(".red").removeClass("red");
+                $(e.target).addClass("red");
+                this.seach(1);
+            },
+            seach:function(page){
+                if(page==undefined){
+                    page=1;
+                }
+                var serchdata={
+                    page:page,
+                    status:$(".red").attr("name"),
+                    typeId:$(".typeId").val(),
+                    foodName:$(".foodName").val(),
+                    shopId:this.shopId,
+                    departmentId:$(".departmentId").val()
+                }
+                this.$http.post(cyApi+'/get/listFoodsByShopId',serchdata,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        console.log(res.data.data);
+                        this.foodDefines = res.data.data.foodDefines;
+                        this.nums = res.data.data.nums;
+                        this.depts = res.data.data.depts;
+                        this.types = res.data.data.types;
+                        this.all=res.body.data.pageAll;
+                    }
+                });
+            },
+            zhiman:function(){
+                var isCanZhiMan = this.checkedArr.length>0?true:false;
+                if(isCanZhiMan){  //谈可以置满的弹窗
+                    $("#myModal_zhiman").modal('show')
+                }else{ //谈没有元素的弹窗
+                    $("#myModal_check").modal('show')
+                }
+            },
+            guqing:function(){
+                var isCanZhiMan = this.checkedArr.length>0?true:false;
+                if(isCanZhiMan){  //谈可以置满的弹窗
+                    $("#myModal_guqing").modal('show')
+                }else{ //谈没有元素的弹窗
+                    $("#myModal_check").modal('show')
+                }
+            },
+            up:function(){
+                var isCanZhiMan = this.checkedArr.length>0?true:false;
+                if(isCanZhiMan){  //谈可以置满的弹窗
+                    $("#myModal_up").modal('show')
+                }else{ //谈没有元素的弹窗
+                    $("#myModal_check").modal('show')
+                }
+            },
+            down:function(){
+                var isCanZhiMan = this.checkedArr.length>0?true:false;
+                if(isCanZhiMan){  //谈可以置满的弹窗
+                    $("#myModal_down").modal('show')
+                }else{ //谈没有元素的弹窗
+                    $("#myModal_check").modal('show')
+                }
+            },
+            getId:function(e){
+
+                this.foodDefineId = $(e.target).attr("name");
+            },
+            del:function(){
+                this.$http.post(cyApi+'/del/foodDefine',{"id":this.foodDefineId},{emulateJSON:true,credentials: true}).then(function(res){
+                    console.log(res)
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }
+                });
+            },
+            editStatus:function(e){
+                var ids = "";
+                $(".clickson").each(function () {
+                    if($(this).prop("checked")){
+                        ids+=($(this).parent().parent().parent().attr("name")+",");
+                    }
+                })
+                this.$http.post(cyApi+'/edit/foodDefineStatus',{"ids":ids,"status":$(e.target).attr("name")},{emulateJSON:true,credentials: true}).then(function(res){
+                    console.log(res)
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        location.reload(true)
+                    }
+                });
+            }
+        },
+        filters: {
+            data: function (input) {
+                var d = new Date(input);
+                var year = d.getFullYear();
+                var month = d.getMonth() + 1;
+                var day = d.getDate() < 10 ? '0' + d.getDate() : '' + d.getDate();
+                var hour = d.getHours();
+                var minutes = d.getMinutes();
+                var seconds = d.getSeconds();
+                return year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
+            },
+            getEditHref:function(val){
+                return 'foodList_add.html?shopId='+location.href.split("=")[1]+'&id=' + val;
+            }
+        },
+        watch:{
+
+        },
+        created:function() {
+
+            this.seach(1);
+        }
+    });
+</script>
+</body>
+</html>

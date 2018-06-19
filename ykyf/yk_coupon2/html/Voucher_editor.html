@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../js/boot/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li  class="active">
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <!--<li >-->
+                            <!--<a href="../html/promoting.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--推广的券-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li >-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="icon-columns"></i>-->
+                        <!--<span class="menu-text">别人的券</span>-->
+                        <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_stamps.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--券列表-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_receive.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--领用记录-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content" >
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="Voucher_list.html">券列表</a>
+                    </li>
+                    <li>
+                        <a href="#">券编辑</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row voucher_create" >
+                    <div class="col-sm-4 inleft iframe temp_box " style="width:351px">
+                        <div data-role="page" id="yhQuan_temp2" class="voucher_Cleft">
+                            <div class="con con_1 con_2 con_3 con_4" >
+                                <div class="con_box">
+                                    <h2 class="create_text">稻香村庆八一大酬宾10元代金券</h2>
+                                    <div class="quan_set">
+                                        <p class="p1"><b class=" create_text_2">10</b><i class="zhe_zhe">元</i>
+                                            <span class="create_djq">代金券</span>
+                                            <span class="tongyon">通用</span></p>
+                                        <p class="p_color p2 manman" style="display: none">满<span class="create_text_3">100</span>元可用</p>
+                                        <p class="p_color manman2" >无限制</p>
+                                    </div>
+                                    <div class="canUseTime">
+                                        <dl>
+                                            <dt>可用时间:</dt>
+                                            <dd>
+                                                <span class="manage_create_time">
+                                                    2016.9.14
+                                                </span>
+                                                至
+                                                <span class="manage_create_time2">2016.10.24</span>
+                                                ,<span class="time_all">周一至周三，周五至周六</span><i class="show_span" style="display: none;font-style: normal;"> <span  class="time_time">18 :00</span>
+                                                至
+                                                <span  class="time_time1">22:00</span>&nbsp;&nbsp;</i><span style="display: none" class="show_time">,<span  class="time_time2">18:00</span>至<span  class="time_time3">22:00</span></span></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="imgBox">
+                                        <img src="../img/yuhui.png" alt="">
+                                    </div>
+                                    <div class="titBox">
+                                        <div class="titName">稻香村 (南新店) <img class="phone" src="../img/tel.png" alt=""></div>
+                                        <dl>
+                                            <dt>最近:深圳中心店</dt>
+                                            <dd>900米 | 广东深深圳市福田区同心路2号 <img src="../img/location.png" alt=""></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="info_see">
+                                        <p><span class="">使用说明</span> <a href="#">详细 ></a></p>
+                                        <p><span>更多使用门店</span> <a href="#">查看 ></a></p>
+                                    </div>
+                                    <div class="get_btn">
+                                        <a href="#">立即领取</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 voucher_Cright">
+                        <div class="voucher_Cright_son1">
+                            <div class="Cright_main">
+                                <p class="Cright_title">
+                                    基本信息
+                                </p>
+                                <div class="Cright_main_son1">
+                                    <p>券颜色：</p>
+                                    <div class="p1">
+                                        <div class="choseColor"><span class="bColor"><span></span></span>
+                                            <div class="colorList" style="display: none">
+                                                <span style="    background-color:#7e95c5"></span>
+                                                <span style="background-color: rgba(184, 206, 52, 0.88)"></span>
+                                                <span style="    background-color: rgba(123, 63, 37, 0.79)"></span>
+                                                <span style="background:#2e8965;"></span>
+                                                <span style="background:#4ebc30;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son2">
+                                    <p>券名称：</p>
+                                    <div class="voucher_text">
+                                        <label for="text" class=" control-label voucher_text_label">
+                                            <input type="text"  class="create_val" placeholder="">&nbsp;<span class="chiosed">0</span>/9
+                                        </label>
+                                        <p>建议填写代金券“减免金额”及自定义内容，描述卡券提供的具体优惠</p>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son3">
+                                    <p>券面额：</p>
+                                    <div class="voucher_text1">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" class="create_val_2">&nbsp;元
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son4">
+                                    <p class="none_p">使用条件：</p>
+                                    <div class="chengr">
+                                        <label class=" tongyong">
+                                            <input name="form-field-radio" class="ace " type="radio" checked="checked">
+                                            <span class="lbl">无限制</span>
+                                        </label>
+                                        <br>
+                                        <label class="jianm">
+                                            <input name="form-field-radio" class="ace " type="radio" >
+                                            <span class="lbl">满减</span>
+                                        </label>
+                                        <p class="expense" style="display: none">
+                                            <span class="lbl">消费满</span>
+                                            <input type="text" class="create_val_3">可用
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son5">
+                                    <p>券总量：</p>
+                                    <div class="voucher_as">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" >&nbsp;张
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son6">
+                                    <p>领取限制：<span><br>&nbsp;&nbsp;&nbsp;&nbsp;选填</span></p>
+                                    <div class="voucher_lq">
+                                        <label for="text" class=" control-label  ">
+                                            <input type="text" >&nbsp;张/人
+                                        </label>
+                                        <p>每个用户领券上限；如不填则默认为1</p>
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son7">
+                                    <p>有效期：</p>
+                                    <div class="voucher_time">
+                                        <input class="form_datetime" type="text" id="wei_datetime" value="" >
+                                        &nbsp;-&nbsp;
+                                        <input class="form_datetime" type="text" id="wei_datetime1"  value="">
+                                    </div>
+                                </div>
+                                <div class="Cright_main_son8">
+                                    <p class="use_p">可用时段</p>
+                                    <div class="voucher_otherTime">
+                                        <label class="control_time2">
+                                            <input name="form-field-radio2" class="ace " type="radio" checked="checked">
+                                            <span class="lbl">全部时段</span>
+                                        </label>
+                                        <br>
+                                        <label class="control_time2">
+                                            <input name="form-field-radio2" class="ace " type="radio">
+                                            <span class="lbl">部分时段</span>
+                                        </label>
+                                    </div>
+                                    <div class="timeOther" style="display: none">
+                                        <p class="control_time">
+                                            <span class="width100"></span>
+                                            <span>日期：</span>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span  class="lbl">周一</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span class="lbl">周二</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span class="lbl">周三</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span class="lbl">周四</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span class="lbl">周五</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" class="input ace">
+                                                <span class="lbl">周六</span>
+                                            </label>
+                                            <label>
+                                                <input  class="input ace" type="checkbox">
+                                                <span class="lbl">周日</span>
+                                            </label>
+                                        </p>
+                                        <p class="height22">
+                                            <span class="width100"></span>
+                                            <a href="#">添加时间段</a>
+                                        </p>
+
+                                        <div class="nextShow" style="display: none">
+                                            <div class="nextShow_p">
+                                                <span class="width100"></span>
+                                                <b href="#">时间&nbsp;</b>
+                                                <div class="jar_label jar_la">
+                                                    <label>
+                                                        <input class="voucher_time_data" type="text" placeholder="">&nbsp;-&nbsp;
+                                                        <input  class="height30 voucher_time_data1" type="text">
+                                                    </label>
+                                                </div>
+                                                <div  class="jar_label2 jar_la">
+                                                    <label style="" class="time_val_3">
+                                                        <input class="height30 voucher_time_data2" type="text" >&nbsp;-&nbsp;
+                                                        <input class="height30 voucher_time_data3" type="text">
+                                                    </label>
+                                                </div>
+                                                <div class="jar_a">
+                                                    <a href="javascript:void(0)" class="addTime2 voucher_addtine">添加时间段</a>&nbsp;
+                                                    <a href="javascript:void(0)" class="delTime voucher_addtine">删除时间段</a>
+                                                </div>
+                                                <div style="clear: both;">
+
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="nextShow_p_2">
+                                                <span class="width165"></span>
+                                                <p class="color999">请使用24小时制输入时间格式如：11:00-14:30</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Cright_main_two">
+                                <p class="Cright_title">
+                                    优惠详情
+                                </p>
+                                <div class="Cright_two_1">
+                                    <p>封面图片</p>
+                                    <div class="top_up_img">
+                                        <p>图片建议尺寸:850像素*350像素,大小不超过2M</p>
+                                        <div class="p2">
+                                            <a href="#" class="">上传 <input type="file"></a>
+                                            <br>
+                                            <img src="../img/yuhui.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Cright_two_2">
+                                    <p>封面简介</p>
+                                    <div class="cover">
+                                        <label for="text" class=" control-label" >
+                                            <input type="text" placeholder="请输入封面图片的简介内容">&nbsp;0/12
+                                        </label>
+                                    </div>
+                                </div>
+                                <div  class="Cright_two_3">
+                                    <p>使用场景</p>
+                                    <div class="scene">
+                                        <label>
+                                            <input class="ace scene_input" type="checkbox">
+                                            <span class="lbl">&nbsp;全部</span>
+                                        </label>
+                                        <div class="scene_son">
+                                            <label>
+                                                <input class="ace scene_son_input" type="checkbox">
+                                                <span class="lbl">&nbsp;线下门店</span>
+                                            </label>
+                                            <label>
+                                                <input class="ace  disabled" type="checkbox" disabled="disabled">
+                                                <span class="lbl">&nbsp;线上点餐</span>
+                                            </label>
+                                            <label>
+                                                <input class="ace  " type="checkbox" disabled="disabled">
+                                                <span class="lbl disabled" style="color: #999;">&nbsp;线上商城</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p5">
+                                    <p>适用门店</p>
+                                    <div class="pmd">
+                                        <label>
+                                            <input type="radio" name="md" class="ace" checked="checked">
+                                            <span class="lbl">全部门店适用</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio"  class="ace" name="md">
+                                            <span class="lbl">指定门店适用</span>
+                                        </label>
+                                    </div>
+                                    <div class="addCon" style="display: none">
+                                        <table style="display: none">
+                                            <thead><tr><th>门店名称</th><th>地址</th><th>操作</th></tr></thead>
+                                            <tbody>
+                                            <tr><td>彩虹新都1栋</td><td>福华三路与彩田交界处</td><td><img src="../img/del.png" alt=""></td></tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="addMD"><a href="#" data-toggle="modal" data-target="#myModal">添加适用门店</a></p>
+                                    </div>
+                                </div>
+                                <div  class="Cright_two_4">
+                                    <p>同步发布至：</p>
+                                    <div class="tb_weixin">
+                                        <label>
+                                            <input class="ace " type="checkbox">
+                                            <span class="lbl">&nbsp;微信卡券(包)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="p3" style="display: none">
+                                    <div class="box">
+                                        <div class="addRK">
+                                            <a href="javascript:void(0)">添加自定义入口</a>
+                                            <br/>
+                                            <p>可配置图文消息,货架,网页链接用户可查看详情或领取更多卡券。</p>
+                                            <br/>
+                                        </div>
+                                        <div style="display: none">
+                                            <p><span class="width112">入口一</span><a href="javascript:void(0)" class="del">删除</a></p>
+                                            <p><span class="width112">入口名称</span><input type="text" class="tbwx_default_val"></p>
+                                            <p><span class="width112">引导语<i>(选填)</i></span><input type="text" class="tbwx_default_val_1"></p>
+                                            <p class="pp"><span class="width112">点击跳转</span><label><input type="radio" name="infType" checked>图文消息</label><label><input type="radio" name="infType">卡券货架</label><label><input type="radio" name="infType">网页链接</label><label><input type="radio" name="infType">跳转自定义功能</label></p>
+                                            <div>
+                                                <p class="chioseFile"><span class="width112">图文消息</span><span class="up">上传图文消息</span></p>
+                                                <p class="chioseFile" style="display: none"><span class="width112">卡券货架</span><span class="up">选择卡券货架</span></p>
+                                                <p class="chioseFile" style="display: none"><span class="width112">网页链接</span>http//<input type="url"></p>
+                                                <p class="chioseFile" style="display: none"><span class="width112">网页链接</span>http//<input type="url"><br/>
+                                                    <label style="    margin-left: 112px;"><input type="radio" name="wdc">微点餐</label><label><input type="radio" name="wdc">空中商城</label><label><input type="radio" name="wdc">微会员</label><label><input type="radio" name="wdc">微活动</label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="toWhere">
+                                    <a href="Voucher_list.html" class="btn btn-primary">确认</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<!-- 模态框（Modal） -->
+<div class="modal Voucher_cModal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" >
+                    选择门店
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p class="p_input"><input type="text" placeholder="输入门店名称"><a href="#"></a></p>
+                <div class="mditem">
+                    <table >
+                        <thead><tr><th><label><input type="checkbox">门店名称</label></th><th>地址</th></tr></thead>
+                        <tbody>
+                        <tr><td><label><input type="checkbox"><b>彩虹新都1栋</b></label></td><td>福华三路与彩田交界处</td></tr>
+                        <tr><td><label><input type="checkbox"><b>彩虹新都1栋</b></label></td><td>福华三路与彩田交界处</td></tr>
+                        <tr><td><label><input type="checkbox"><b>彩虹新都1栋</b></label></td><td>福华三路与彩田交界处</td></tr>
+                        </tbody>
+                    </table>
+                    <p>没有门店信息,<a href="#">请前往设置</a></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span style="float: left">已选<b class="chiosed">1</b>家,共 <b class="total">1</b>家</span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script src="../js/const.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/time.js"></script>
+<script>
+
+</script>
+</body>
+</html>

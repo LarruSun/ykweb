@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="couponList" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+
+
+<div class="main-container" id="addCoupon" style="margin-left:10%;width:80%">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">优惠券</a>
+                </li>
+                <li>
+                    <a href="#">积分兑券设置</a>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+           
+
+
+            <div class="breadcrumbs">
+                <div class="page-content">
+                    <p class="topTitle">优惠券兑换条件</p>
+                    <table>
+                        
+                        
+                        <tr>
+                            <td >
+                                所需积分：
+                            </td>
+                            <td>
+                                <input name='searchOrder' type="number" placeholder="" v-model='integer'/> 分
+                            </td>
+                        </tr>
+                        
+                        
+                        <tr>
+                                <td>
+                                </td>
+                                <td style="color:#aaa">兑换优惠券所需的积分数量</td>
+                        </tr>
+                        
+                        
+
+                        <tr>
+                            <td>兑换时间：</td>
+                            <td>
+                                <label for="noTime">无限期 
+                                    <input type="radio" id="noTime" value='1' name='qx' v-model='exchangeLimit'>
+                                </label>
+                                <label for="noTime1">限期 
+                                    <input type="radio" id="noTime1" value='2' name='qx' v-model='exchangeLimit'>
+                                </label>
+                            </td>
+                        </tr>
+
+                                               
+                        <tr v-if='exchangeLimit==2'>
+                            <td></td>
+                            <td>
+                                <input class="form_datetime" id="wei_datetime2" type="date" v-model='startDate'>
+                                
+                            </td>
+                            <td>至 </td>
+                            <td>
+                                <input class="form_datetime" id="wei_datetime3" type="date" v-model='endDate'>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td style="color:#aaa" colspan="3">在兑换时间内，红包才能正常兑换，否则红包不可兑换</td>
+                        </tr>      
+     
+                    </table>
+                </div>
+
+
+
+                <div style="margin:auto;width:100%;">
+                        <a href="#" @click='sureSubmit()' class="btn btn-primary a_bottom" style="margin-left:40%">提交</a> 
+                        <a href="launchList.html"  class="btn btn-primary a_bottom" style="margin-left:5%">返回列表</a> 
+
+
+           
+                </div>
+
+            
+
+
+
+
+                   
+            </div>
+     
+
+
+
+        </div>
+
+
+
+
+
+
+        <!-- 成功弹框 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header cancelmessage">
+                            <h1>提醒</h1>
+                            <h1>成功加入【积分兑券】券列表！</h1 >
+    
+                            <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                            
+                            <button  class="btn btn-primary"  @click='alertSuccess("操作成功",1000)' data-dismiss="modal">确定</button>
+                            <button  class="btn btn-default" data-dismiss="modal">查看列表</button>
+                        </div>
+                    
+                    </div>
+                </div>
+        </div>
+
+
+
+      
+
+
+        
+
+   
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/IntegralChange.js"></script>
+</body>
+</html>

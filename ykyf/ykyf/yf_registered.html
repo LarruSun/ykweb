@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>易快首页</title>
+    <link rel="shortcut icon" href="../resources/common/images/yklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../resources/common/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../resources/common/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../resources/plugins/msgbox/msgbox.css">
+    <!-- <link rel="stylesheet" href="css/jquery-ui.min.css" />-->
+    <!--  <link rel="stylesheet" href="css/font-awesome.min.css" />-->
+    <link rel="stylesheet" href="ykyf_css/yf_index.css" />
+    <script src="../resources/config.js"></script>
+    <script src="../resources/common/lib/jquery.min.js"></script>
+    <script src="../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../resources/plugins/msgbox/msgbox.js"></script>
+    <script src="../resources/common/lib/bootstrap.min.js"></script>
+    <script src="../resources/common/lib/vue.min.js"></script>
+    <script src="../resources/common/lib/vue-resource.min.js"></script>
+</head>
+<body>
+<!--header s-->
+<div class=" col-lg-12 col-sm-12 col-md-12 " style="border-bottom:1px solid #ddd;">
+    <div class="container  index_header" style="border-bottom:0px">
+        <div class="index_left navbar-left">
+            <a href="../yf_index.html" style="    display: flex;text-decoration: none">
+                <img src="../resources/common/images/logo.png" alt="" class="img-responsive logo_img">
+                <div class="logo_message">
+                    <p class="logo_p">易快智能云服务平台</p>
+                </div>
+            </a>
+        </div>
+        <div class="navbar-right">
+            <div class="header_right">
+                <a href="console_login.html">控制台</a>
+                <a href="yf_login.html" style="background:#fff; color: #428bca;">登录</a>
+                <a href="yf_registered.html" class="" style="background: #428bca; color: #fff;">注册</a>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--header e-->
+<div class="container">
+    <div class="row signin">
+        <div class="col-lg-12 col-sm-12 col-md-12 signin_main">
+            <!--注册 s-->
+            <div class="forget_password" id="register">
+                <div class="media" style="text-align: center;font-size: 18px;border-bottom: 1px solid #ddd; padding-bottom: 7px;margin-bottom: 24px;">
+                    <p class="" style="color: #666;margin-bottom:0;display: inline-block">免费注册</p>
+                    <a href="yf_login.html" class="pull-right" style="font-size: 14px;margin-top: 5px;">已有账号</a>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="exampleInputName" class="col-sm-3 login_label" >企业简称：</label>
+                    <input type="text" class="form-control col-sm-7 login_input verify_1" v-model="reshortName" id="exampleInputName" placeholder="请输入企业简称">
+                    <span class="login_po login_po3_1"></span>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="target" class="col-sm-3 login_label" style="width:116px;">省/市/区：</label>
+                    <div class="city_chose" id="target" data-toggle="distpicker">
+                        <select  class="province" ></select>
+                        <select  class="city" ></select>
+                        <select  class="area"></select>
+                    </div>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="exampleInputName3" class="col-sm-3 login_label">手机号：</label>
+                    <input type="text" class="form-control col-sm-7 login_input phoneNumber"  v-model="rephone" id="exampleInputName3" placeholder="请输入手机号">
+                    <span class="login_po login_po1" style="right:-175px"></span>
+                </div>
+                <div class="form-group login_css" style=" justify-content: flex-start;margin-left: 116px;">
+                    <input type="text" class="form-control verify_3" v-model="revaliCode" placeholder="" style="height: 36px;border-radius: 0;width: 130px;margin-right: 12px;">
+                    <img src="../resources/common/images/u17.png" alt="" class="valiImg3" v-on:click="getvaliCode" style="height: 36px;width:96px;">
+                    <span class="login_po login_po3_3" style="right: -150px;"></span>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="smsVerifyCode" class="col-sm-3 login_label" style="width: 118px;">短信验证：</label>
+                    <input type="text" class="form-control col-sm-7 login_input verify_4" v-model="remsgCode"  placeholder="请输入短信验证码" style="height: 36px;border-radius: 0;width: 144px;margin-right: 12px;" name="smsVerifyCode" id="smsVerifyCode">
+                    <a class="btn btn-primary a_bottom" v-on:click="getfomsgCode" style="width:73px;height: 36px;margin-left: 12px;padding: 0 19px;border: 0;line-height: 35px;">获取</a>
+                    <span class="login_po login_po3_4"></span>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="exampleposs4" class="col-sm-3 login_label">联系人：</label>
+                    <input type="text" v-model="recontact" class="form-control col-sm-7 login_input verify_5" id="exampleposs4" placeholder="">
+                    <span class="login_po login_po3_5"></span>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="examplepos" class="col-sm-3 login_label">设置密码：</label>
+                    <input type="password" v-model="repwd" class="form-control col-sm-7 login_input pwd1" id="examplepos" placeholder="">
+                    <span class="login_po login_po5" style="right: -115px;"></span>
+                </div>
+                <div class="form-group login_css ">
+                    <label for="examplepos2" class="col-sm-3 login_label">确认密码：</label>
+                    <input type="password" v-model="reconpwd" class="form-control col-sm-7 login_input pwd2" id="examplepos2" placeholder="">
+                    <span class="login_po login_po5"  style="right: -115px;"></span>
+                </div>
+                <div class="checkbox login_checkbox" style="margin-left: 135px;">
+                        <input type="checkbox" name="agree" id="blankCheckbox" value="0" v-model="checked">
+                        <label v-on:clcik="isAgree" style="font-size:12px;padding-left:0;" for="blankCheckbox" class="control-label">我已阅读并接受<span><a href="#" target="_blank">《易快云服注册协议》</a></span></label>
+                </div>
+                <div class="form-group" style="margin-top: 38px;">
+                    <button type="submit" class="col-sm-12 btn btn-primary" v-on:click="registerSubmit" :disabled="!checked">注册</button>
+                </div>
+            </div>
+            <!--注册 e-->
+        </div>
+    </div>
+</div>
+<script src="../resources/common/lib/distpicker.data.js"></script>
+<script src="../resources/common/lib/distpicker.js"></script>
+<script src="ykyf_js/const.js"></script>
+<script src="ykyf_js/tool.js"></script>
+<script src="ykyf_js/yf_registered.js"></script>
+</body>
+</html>

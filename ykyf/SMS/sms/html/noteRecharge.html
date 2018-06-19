@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>短信充值</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../sms_common/sms_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../sms_common/sms_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../sms_common/sms_common_css/city/pagination.css" />
+
+    <script src="../../../resources/config.js"></script>
+    <link rel="stylesheet" href="../../sms_common/sms_plugins/msgbox/msgbox.css">
+    <script src="../../sms_common/sms_plugins/msgbox/msgUtil.js"></script>
+    <script src="../../sms_common/sms_plugins/msgbox/msgbox.js"></script>
+
+    <script src="../../sms_common/sms_common_js/jquery-1.9.1.min.js"></script>
+    <script src="../../sms_common/sms_common_js/jquery.qrcode.min.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li class="">
+                    <a href="../../login.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">短信管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/noteTest.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信测试
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="../html/noteRecharge.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信充值
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/noteRecord.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信记录
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/noteSend.html">
+                                <i class="icon-double-angle-right"></i>
+                                发送设置
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">短信管理</a>
+                    </li>
+                    <li>
+                        <a href="#">短信充值</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="app" v-cloak>
+                <div class="row">
+                    <div class="col-sm-12 sms_topUp">
+                        <div class="col-sm-3 col-xs-12 main_left">
+                            <div class="main_left_one">
+                                <label>
+                                    <span class="rq">自动充值</span>
+                                    <input name="switch-field-1" class="ace ace-switch" type="checkbox" id="isAutoReCharge">
+                                    <span class="lbl"></span>
+                                </label>
+                            </div>
+                            <div class="main_left_one2">
+                                <label class=" activity_pula">剩余条数少于：
+                                    <select size="1" name="" aria-controls="sample-table-2" class="dataTable_select" v-model="selectAutoBuy">
+                                        <option value="" >请选择</option>
+                                        <option value="100" selected="selected">100条</option>
+                                        <option value="200" selected="selected">200条</option>
+                                        <option value="500" selected="selected">500条</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="main_left_one3">
+                                <label class=" activity_pula">自动充值：
+                                   <select size="1" name="" aria-controls="sample-table-2" class="dataTable_select" v-model="selectPrice">
+                                        <option value="" >请选择</option>
+                                        <option v-for="item in smsPriceList" v-bind:value="item.id" >{{item.num}}条/{{item.total}}元</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="main_left_a">
+                                <a href="#" class="btn btn-primary a_bottom" v-on:click="saveAutoRecharge">保存</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 main_left_right" style="   ">
+                            <div class="main_function">
+                                <div class="media" style="">
+                                    <p class="pull-left ">手动充值</p>
+                                </div>
+                                <div class="main_function_body">
+                                    <div class="tool" v-for="item in smsPriceList" v-bind:value="item.id"  v-on:click="showRecharge(item.id,item.num,item.total,item.price)">
+                                        <a href="#" data-toggle="modal" data-target="#myModal_order">
+                                            <span class="gt">{{item.num}}条</span>
+                                            <hr/>
+                                            <span>￥{{item.total}}({{item.price}}/条)</span>
+                                        </a>
+                                    </div>
+
+                                    <div style="clear: both;"></div>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive"  id="dataShow"  style="padding: 12px;">
+                        <p>充值记录</p>
+                        <table class="table table-bordered center"  id="table">
+                            <thead>
+                                <tr>
+                                <th style="text-align: center;">充值时间</th>
+                                <th style="text-align: center;">数量</th>
+                                <th style="text-align: center;">金额</th>
+                                <th style="text-align: center;">操作员</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr  v-for="item in rechargeRecordArr">
+                                <td>{{item.buyDate}}</td>
+                                <td>{{item.buySum}}</td>
+                                <td>{{item.buyAmount}}</td>
+                                <td>{{item.operator}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+
+
+                </div>
+                <div class="page-footer ">
+                    <div class="content_based" >
+                        <a  href="javascript:void(0)" style="">
+                            <p style="">
+                                <img src="../../sms_common/sms_common_images/logo_new2.png" alt="" width="25" />
+                                <img src="../../sms_common/sms_common_images/name.png" alt="" width="71"/>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+                <!--确认订单 start-->
+                <div class="modal fade" id="myModal_order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    确认订单
+                                </h4>
+                            </div>
+                            <div class="modal-body ">
+                                <div class="str_one" style="padding: 5px;margin-left: 56px;">
+                                    <p>订单类型 <span>短信购买</span></p>
+                                    <p>单价/数量 <span>￥<b id="priceBuy">0.06</b>/条</span><span><b id="numBuy">3000</b>条</span></p>
+                                    <p>金额 <span>￥<b id="totalBuy">180.00</b></span></p>
+                                    <input style="display:none" id="idBuy">
+                                    <div class="srtw">
+                                        <p>支付方式</p>
+                                        <label class="" style="margin-right: 21px;">
+                                            <input name="form-field-radi" class="ace" type="radio" value="0" checked="checked" v-on:click="rechargeType(0)">
+                                            <span class="lbl">账户余额</span>
+                                        </label>
+                                        <label class="" style="margin-right: 21px;">
+                                            <input name="form-field-radi" class="ace" type="radio" value="1"  v-on:click="rechargeType(1)">
+                                            <span class="lbl">微信支付</span>
+                                        </label>
+                                        <p>账户余额 <span>￥<b class="bamount"></b></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary "  data-toggle="modal"
+                                        id="submitTop" v-on:click="smsRechargeTop" data-dismiss="modal">
+                                    确认
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--确认订单 end-->
+                <!--next step start-->
+                <div class="modal fade" id="show2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+                    <div class="modal-dialog" style="    width: 683px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabe">
+                                    订单支付
+                                </h4>
+                            </div>
+                            <div class="modal-body ">
+                                <div class="str_one2" style="padding: 5px;margin-left: 56px;">
+                                    <p >应付金额 <span style="border: 1px solid #7f6aff;margin-left: 41px;padding: 4px 12px;color: #666;"><b id="buyTotal">180.0</b></span></p>
+                                    <div class="srtw2">
+                                        <p style="    margin-top: 20px;">微信支付</p>
+                                        <div id="qrcode123"  style="    margin-top: -32px;margin-left: 90px;display: inline-block;"> </div>
+                                          <!-- <img src="../images/small/u171.png" alt=""  style="    margin-top: -32px;margin-left: 90px;"/>-->
+                                        <div style="    float: right;margin-top: 14px;">
+
+                                            <img src="../images/small/saom.png" alt="" style="    margin-bottom: 12px;"/>
+                                            <p style="    color: #666;">微信/支付宝扫码支付，成功后自动完成订购</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="reSearchRecord">支付完成</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--next step end-->
+                <!--数据选择 start-->
+                <div class="modal fade" id="myModal_dataSelection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_dataSelection">
+                                    提示
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">至少选择一条数据！</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--数据选择 end-->
+
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../../sms_common/sms_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../sms_common/sms_common_js/ace-extra.min.js"></script>
+<script src="../../sms_common/sms_common_js/bootstrap.min.js"></script>
+<script src="../../sms_common/sms_common_js/ace.min.js"></script>
+<script src="../../sms_common/sms_common_js/jquery-ui.min.js"></script>
+<script src="../../sms_common/sms_common_js/vue.min.js"></script>
+<script src="../../sms_common/sms_common_js/vue-resource.min.js"></script>
+<script src="../../sms_common/sms_common_js/cookie.js"></script>
+<!--分页 start-->
+<script src="../../sms_common/sms_plugins/page/pagination.js"></script>
+<script src="../../sms_common/sms_common_js/jquery.qrcode.min.js"></script>
+<!--分页 end-->
+<!--<script src="../js/noteRecord.js"></script>-->
+<script src="../js/const.js"></script>
+<script src="../js/jsPlugins.js"></script>
+<script src="../js/noteRecharge.js"></script>
+
+<script>
+
+</script>
+</body>
+</html>

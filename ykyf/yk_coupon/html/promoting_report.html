@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <!--<li class="active">-->
+                            <!--<a href="../html/promoting.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--推广的券-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li >-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="icon-columns"></i>-->
+                        <!--<span class="menu-text">别人的券</span>-->
+                        <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_stamps.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--券列表-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_receive.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--领用记录-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content promoting_report">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="promoting.html">正在推广</a>
+                    </li>
+                    <li>
+                        <a href="#">推广报表</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row voucherss">
+                    <div class="col-sm-12 col-xs-12 mem_top">
+                        <div class="mem_left col-sm-3">
+                            <div class="card_box">
+                                <div class="card_box_left">
+                                    <p>￥<span class="huew_num">50</span></p>
+                                    <p>满100元可用</p>
+                                </div>
+                                <div class="card_box_right">
+                                    <img src="../img/tG.png" alt="" style="position: absolute;top: 1px; width: 77px;right: 1px;opacity: 0.7;">
+                                    <p class="huew">顺德渔村50元代金券</p>
+                                    <hr>
+                                    <div class="card_time">
+                                        <p><span class="huew_time">2016.12.08-2016.12.9</span><br><span class="label label-success">进行中</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="mem_left memleft_1 col-sm-3 ">
+                            <div class="voucher_set">
+                                <p class="">推广设置</p>
+                                <p class="">推广总量:&nbsp;&nbsp;&nbsp;&nbsp;200/500</p>
+                                <p class="">佣金规则:&nbsp;&nbsp;&nbsp;&nbsp;核销数*0.1</p>
+                                <p class="">推广时间:&nbsp;&nbsp;&nbsp;&nbsp;2016.12.08</p>
+                            </div>
+                        </div>
+                        <div class="mem_left col-sm-3 memleft_us ">
+                            <div class="voucher_set2">
+                                <div class="center voucher_set_qd" style="margin-left: -86px;">
+                                    <p class="voucher_set_p" style=" margin-top: 25px;">
+                                        <img src="../img/temp_qd.png" alt="">
+                                    <p class="voucher_set_p2" style="display: inherit;margin-top: -47px;margin-left: 79px;font-size: 20px;">5</p>
+                                    <br>
+                                    <br>
+                                    <p class="center voucher_set_p3" style=" display: inherit;margin-top: -31px;margin-left:3px;">收藏次数</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="op_table">
+                        <span>
+                            <input type="text" placeholder="请输入收藏方名称">&nbsp;&nbsp;
+                             <a href="#" class=" btn-primary">查找</a>
+                        </span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table  table-bordered table-hover center clickAll">
+                            <thead>
+                            <tr >
+                                <th class="center">收藏方</th>
+                                <th class="center">收藏时间</th>
+                                <th class="center">核销/领取</th>
+                                <th class="center">消费金额</th>
+                                <th class="center">实收金额</th>
+                                <th class="center">应付佣金</th>
+                                <th class="center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>美食部落</td>
+                                <td>XXX-XX-XX</td>
+                                <td>0/199</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>￥200</td>
+                                <td><a href="#" class="aColor"  data-toggle="modal" data-target="#myModal_choose_vip">领取详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>吃货小分队</td>
+                                <td>XXX-XX-XX</td>
+                                <td>88/199</td>
+                                <td>￥2008</td>
+                                <td>￥1990</td>
+                                <td>￥490</td>
+                                <td><a href="#" class="aColor"  data-toggle="modal" data-target="#myModal_choose_vip">领取详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>啪啪圈1</td>
+                                <td>XXX-XX-XX</td>
+                                <td>88/199</td>
+                                <td>￥2008</td>
+                                <td>￥1990</td>
+                                <td>￥490</td>
+                                <td><a href="#" class="aColor"  data-toggle="modal" data-target="#myModal_choose_vip">领取详情</a></td>
+                            <tr>
+                                <td>啪啪圈1</td>
+                                <td>XXX-XX-XX</td>
+                                <td>88/199</td>
+                                <td>￥2008</td>
+                                <td>￥1990</td>
+                                <td>￥490</td>
+                                <td><a href="#" class="aColor"  data-toggle="modal" data-target="#myModal_choose_vip">领取详情</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--领取详情 start-->
+<div class="modal" id="myModal_choose_vip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_choose_vip" aria-hidden="true">
+    <div class="modal-dialog" style="width: 793px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_choose_vip">
+                    领取详情
+                </h4>
+            </div>
+            <div class="modal-body center">
+                <div style="text-align: left">
+                    <p>海报名称：<span style="margin-left: 31px">快活林1</span></p>
+                </div>
+                <table class="table table-bordered table-responsive" style="margin-top: 8px;">
+                    <thead>
+                    <tr>
+                        <td class="center">客户名</td>
+                        <td class="center">手机号</td>
+                        <td class="center">券名称</td>
+                        <td class="center">发券方</td>
+                        <td class="center">领取时间</td>
+                        <td class="center">使用时间</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>XXX</td>
+                        <td>18587755252</td>
+                        <td>快活林20元代金券</td>
+                        <td>快活林</td>
+                        <td>2017/03/28&nbsp;&nbsp;16:32</td>
+                        <td>2017/05/28&nbsp;&nbsp;16:32</td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td>18587755252</td>
+                        <td>快活林20元代金券</td>
+                        <td>快活林</td>
+                        <td>2017/03/28&nbsp;&nbsp;16:32</td>
+                        <td>2017/05/28&nbsp;&nbsp;16:32</td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td>18587755252</td>
+                        <td>快活林20元代金券</td>
+                        <td>快活林</td>
+                        <td>2017/03/28&nbsp;&nbsp;16:32</td>
+                        <td>2017/05/28&nbsp;&nbsp;16:32</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--领取详情 end-->
+<!--.main-container-->
+<script src="../js/const.js"></script>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+</body>
+</html>

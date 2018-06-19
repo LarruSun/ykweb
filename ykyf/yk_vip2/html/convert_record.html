@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <!--<link href="vip/css/member.css" rel="stylesheet" />-->
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <!--<link rel="stylesheet" href="../css/ace-ie.min.css" />-->
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="../images/img/logo.png" width="25px" alt="会员管理" />
+                    会员管理
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="../avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!-- <li class="">
+                     <a href="../index.html" >
+                         <i class="icon-desktop"></i>
+                         <span class="menu-text"> 首页 </span>
+                     </a>
+                 </li>-->
+                 <li>
+                     <a href="#" class="dropdown-toggle">
+                         <i class="Hui-iconfont">&#xe62b;</i>
+                         <span class="menu-text"> 客户关系管理 </span>
+
+                         <b class="arrow icon-angle-down"></b>
+                     </a>
+                     <ul class="submenu">
+                         <li class="">
+                             <a href="clients.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 客户列表
+                             </a>
+                         </li>
+
+                         <!--<li >
+                             <a href="management.html" class="active">
+                                 <i class="icon-double-angle-right"></i>
+                                 会员管理
+                             </a>
+                         </li>
+                         <li>
+                             <a href="fans_management.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 粉丝管理
+                             </a>
+                         </li>-->
+                         <li  class="">
+                             <a href="members_home.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 会员主页
+                             </a>
+                         </li>
+                         <!--<li >
+                             <a href="label.html" class="active">
+                                 <i class="icon-double-angle-right"></i>
+                                 标签管理
+                             </a>
+                         </li>-->
+                     </ul>
+                 </li>
+                 <li >
+                     <a href="#" class="dropdown-toggle">
+                         <i class="Hui-iconfont">&#xe6b4;</i>
+                         <span class="menu-text"> 卡管理 </span>
+                         <b class="arrow icon-angle-down"></b>
+                     </a>
+                     <ul class="submenu">
+                         <li >
+                             <a href="card_type.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 等级卡管理
+                             </a>
+                         </li>
+                         <li >
+                             <a href="get_record.html" >
+                                 <i class="icon-double-angle-right"></i>
+                                 领取记录
+                             </a>
+                         </li>
+                         <!-- <li >
+                              <a href="wechaVipCard.html" >
+                                  <i class="icon-double-angle-right"></i>
+                                  微信会员卡
+                              </a>
+                          </li>-->
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle">
+                          <i class="Hui-iconfont">&#xe694;</i>
+                          <span class="menu-text">积分管理 </span>
+                          <b class="arrow icon-angle-down"></b>
+                      </a>
+                      <ul class="submenu">
+                          <li>
+                              <a href="integal_set.html" class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  积分设置
+                              </a>
+                          </li>
+                          <li >
+                              <a href="integal_record.html" class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  积分记录
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle">
+                          <i class="Hui-iconfont">&#xe607;</i>
+                          <span class="menu-text">储值管理 </span>
+                          <b class="arrow icon-angle-down"></b>
+                      </a>
+
+                      <ul class="submenu">
+                          <li >
+                              <a href="store_value.html"  class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  储值设置
+                              </a>
+                          </li>
+
+                          <li>
+                              <a href="balance_record.html" class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  余额记录
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                <!--<li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!-- <li >
+                     <a href="#" class="dropdown-toggle">
+                         <i class="Hui-iconfont">&#xe61e;</i>
+                         <span class="menu-text"> 数据统计 </span>
+                         <b class="arrow icon-angle-down"></b>
+                     </a>
+                     <ul class="submenu">
+                         <li >
+                             <a href="expense_calendar.html" >
+                                 <i class="icon-double-angle-right"></i>
+                                 消费记录
+                             </a>
+                         </li>
+                     </ul>
+                 </li>-->
+             </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="integral_convert.html">积分兑换</a>
+                    </li>
+                    <li>
+                        <a href="#">兑换记录</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px">
+                <div class="row promoting" style="margin-top:12px">
+                    <div class="col-xs-12 col-sm-12 "  style="margin-left: -12px;margin-bottom: 12px">
+                        <label for="text" class=" control-label  ">
+                            <input type="text" placeholder="请输入会员名或手机号">
+                            <a href="#" class="btn btn-info a_bottom">查找</a>
+                        </label>
+                    </div>
+                    <div class=" table-responsive">
+                        <table class="table  table-bordered table-hover center clickAll">
+                            <thead>
+                            <tr>
+                                <th class="center">参与时间</th>
+                                <th class="center">会员名称</th>
+                                <th class="center">会员手机</th>
+                                <th class="center">参与时间</th>
+                                <th class="center">兑换场景</th>
+                                <th class="center">消耗积分</th>
+                                <th class="center">转储金额</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected">
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">张三</td>
+                                <td class="hidden-480 center table_css">18825874587</td>
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">线下门店</td>
+                                <td class="hidden-480 center table_css">2000</td>
+                                <td class="hidden-480 center table_css">￥15</td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">李三</td>
+                                <td class="hidden-480 center table_css">18825874587</td>
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">微信公众号</td>
+                                <td class="hidden-480 center table_css">2230</td>
+                                <td class="hidden-480 center table_css">￥18</td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">王三</td>
+                                <td class="hidden-480 center table_css">18825874587</td>
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">微信公众号</td>
+                                <td class="hidden-480 center table_css">2230</td>
+                                <td class="hidden-480 center table_css">￥80</td>
+                            </tr>
+                            <tr class="selected">
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">赵三</td>
+                                <td class="hidden-480 center table_css">18825874587</td>
+                                <td class="hidden-480 center table_css">2017-09-19&nbsp;&nbsp;16:34</td>
+                                <td class="hidden-480 center table_css">微信公众号</td>
+                                <td class="hidden-480 center table_css">2023</td>
+                                <td class="hidden-480 center table_css">￥10</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+</div><!--.main-container-->
+<!--给积分 modal start-->
+<div class="modal fade" id="myModal_integral" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_rw">
+                    积分
+                </h4>
+            </div>
+            <div class="modal-body center modal-body_height" style="    height: 145px;">
+                <div class="scan_show_integral" style="    margin-top: 33px;">
+                    <label class="ace_block" style="">
+                        <input  class="ace ace_1" type="text" style="width:245px" placeholder="请输入需要添加的积分数(可以为负数)">
+                        <span class="lbl"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--给积分 modal end-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+
+<script type="text/javascript">
+</script>
+</body>
+</html>

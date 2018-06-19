@@ -1,0 +1,1472 @@
+body {
+  font-family: "微软雅黑" !important;
+}
+[v-cloak] {
+  display: none !important;
+}
+/*public css*/
+.order_list_activ {
+  border: 1px solid #6fb3e0!important;
+  color: #666!important;
+}
+.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+  vertical-align: middle;
+}
+.disable {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.65;
+  text-decoration: none;
+  color: #999;
+}
+.disable:hover {
+  text-decoration: none;
+  color: #999;
+}
+.red_active {
+  color: red;
+}
+.page-content {
+  width: 95%!important;
+  margin-left: 14px!important;
+  margin-top: 14px!important;
+  min-height: 518px;
+}
+.main-container:after {
+  background-color: #e7e8eb!important;
+}
+.sidebar:before {
+  background-color: #ffffff!important;
+}
+.sidebar-collapse {
+  background-color: #438eb9!important;
+}
+.page-footer {
+  text-align: center;
+  margin-top: 2%;
+}
+.page-footer .content_based {
+  text-align: center;
+  padding: 0px 13px 1px;
+  margin-bottom: -22px;
+}
+.page-footer .content_based a {
+  text-decoration: none;
+  color: #666;
+}
+.page-footer .content_based a p {
+  margin-top: 14px;
+  display: inline-block;
+}
+.page-footer .content_based a p img:nth-child(1) {
+  margin-right: 7px;
+}
+.a_bottom {
+  padding: 0 22px!important;
+  margin-top: -4px;
+  border-radius: 2px;
+}
+.scan_show {
+  position: absolute;
+  right: 34px;
+  top: 17px;
+  top: 9px\0;
+  border-radius: 5px;
+  background: #fff;
+  width: 318px;
+}
+.scan_show .scan_main .scan_main_son p {
+  padding: 12px;
+  font-size: 12px;
+  color: #999;
+}
+.scan_show .scan_main .scan_main_son a {
+  display: inherit;
+  margin-top: 13px;
+  margin-bottom: 12px;
+  color: #0070ff;
+}
+.scan_show .scan_main .scan_main_son1 {
+  position: relative;
+  margin-bottom: 21px;
+  margin-left: -54px;
+  margin-top: 29px;
+}
+.scan_show .scan_main .scan_main_son1 p {
+  padding: 8px;
+  border-top: 1px solid #ded3d3;
+  border-bottom: 1px solid #c5bdbd;
+  border-left: 1px solid #ccbcbc;
+  display: initial;
+  color: #777373;
+}
+.scan_show .scan_main .scan_main_son1 a {
+  /*padding: 2.5px 8px;*/
+  padding: 3px 8px;
+  position: absolute;
+  border-radius: 2px;
+  right: 15px;
+  top: -8px;
+  top: 1px\0;
+}
+.modal-body_height {
+  height: 392px;
+  height: 400px\0;
+}
+.temp_recipe .recipe_new {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+.temp_recipe .memberCenter_head {
+  border: 1px solid #ddd;
+  margin-left: 12px;
+  box-shadow: 1px 1px 14px #ddd;
+  padding: 21px 1px;
+}
+.temp_recipe .memberCenter_head .Center_head_body {
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+.temp_recipe .memberCenter_head .Center_head_body .Center_head {
+  float: left;
+}
+.temp_recipe .memberCenter_head .Center_head_body .Center_head .Center_head_main {
+  float: right;
+  margin-left: 12px;
+  margin-top: -1px;
+}
+.temp_recipe .memberCenter_head .Center_head_body .Center_head .Center_head_main p:nth-child(1) {
+  font-size: 16px;
+}
+.temp_recipe .memberCenter_head .Center_head_body .Center_head .Center_head_main p:nth-child(2) {
+  font-size: 12px;
+}
+.temp_recipe .memberCenter_head .Center_head_2 {
+  margin-top: 26px;
+  margin-left: 88px;
+}
+.temp_recipe .memberCenter_head .Center_head_2 p {
+  font-size: 15px;
+}
+.temp_recipe .memberCenter_head .Center_head_3 {
+  margin-top: 22px;
+  float: right;
+  margin-right: 73px;
+}
+.temp_recipe .memberCenter_head .Center_head_3 a {
+  text-decoration: none;
+}
+.temp_recipe .toWhere_1 {
+  margin-left: 12px;
+}
+.temp_recipe .table-responsive_1 {
+  margin-left: 24px;
+  padding-right: 12px;
+  margin-top: 24px;
+}
+.wechat_audit {
+  padding: 12px 26px;
+}
+.wechat_audit .audit_main .audit_one {
+  margin-bottom: 10px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_title {
+  background: #f5f6f9;
+  padding: 12px;
+  font-size: 15px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body {
+  padding: 12px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_one_son {
+  margin-bottom: 15px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_one_son p:nth-child(1) {
+  float: left;
+  margin-right: 29px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_one_son p:nth-child(2) {
+  float: left;
+  margin-right: 30px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_two p {
+  margin-bottom: 15px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_two p span {
+  margin-left: 16px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_three p {
+  margin-bottom: 15px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_three p span {
+  margin-left: 16px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_four p {
+  margin-bottom: 15px;
+}
+.wechat_audit .audit_main .audit_one .audit_one_body .wechat_four p span {
+  margin-left: 16px;
+}
+.wechat_audit .audit_main .audit_two .audit_one_title {
+  background: #f5f6f9;
+  padding: 12px;
+  font-size: 15px;
+}
+.wechat_audit .audit_main .audit_two .audit_one_body {
+  padding: 12px;
+}
+.wechat_audit .audit_main .audit_two .audit_one_body .wechat_two p {
+  margin-bottom: 15px;
+}
+.wechat_audit .audit_main .audit_two .audit_one_body .wechat_two p span {
+  margin-left: 29px;
+}
+.wechat_audit .audit_main .audit_two .audit_one_body .wechat_three p span {
+  margin-left: 16px;
+}
+.wechat_audit .audit_main .audit_two a {
+  margin-left: 93px;
+}
+.Sprogram_Settings .Sprogram_Settings_one {
+  margin-bottom: 12px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_left {
+  width: 34%;
+  border: 1px solid #ddd;
+  height: 130px;
+  float: left;
+  padding: 12px;
+  margin-right: 15px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_left img {
+  width: 50px;
+  float: left;
+  margin-right: 13px;
+  margin-top: 25px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_left .wechat_massage {
+  margin-left: 2px;
+  float: left;
+  margin-top: 25px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_left .wechat_massage p:nth-child(1) {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_left .wechat_massage p:nth-child(1) span:nth-child(2) {
+  color: #00aeef;
+  margin-left: 19px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right {
+  width: 63%;
+  border: 1px solid #ddd;
+  height: 130px;
+  float: right;
+  padding: 12px 17px 12px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_img {
+  margin-top: 22px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_img img {
+  width: 50px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_massa {
+  margin-left: -12%;
+  margin-top: 22px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_massa p:nth-child(1) {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_set {
+  margin-bottom: 6px;
+  font-size: 15px;
+  margin-top: 22px;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_set a:nth-child(1) {
+  display: block;
+  text-decoration: none;
+}
+.Sprogram_Settings .Sprogram_Settings_one .wechat_right .wechat_er img {
+  width: 100px;
+}
+.Sprogram_Settings .Sprogram_Settings_two {
+  margin-bottom: 12px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_title {
+  padding: 9px 20px 9px 10px;
+  margin-bottom: 12px;
+  background: #e0eaf6;
+  font-size: 14px;
+  color: #222;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main1 {
+  padding: 0 12px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main1 p:nth-child(1) {
+  display: inline-block;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main1 p:nth-child(2) {
+  display: inline-block;
+  margin: 0 18px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main1 a {
+  text-decoration: none;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main2 {
+  padding: 0 12px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main2 p:nth-child(1) span {
+  margin-left: 22px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main2 p:nth-child(2) span {
+  margin-left: 35px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main2 p:nth-child(3) span {
+  margin-left: 35px;
+}
+.Sprogram_Settings .Sprogram_Settings_two .wechat_main2 p:nth-child(4) span {
+  margin-left: 35px;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_title {
+  padding: 9px 20px 9px 10px;
+  margin-bottom: 12px;
+  background: #e0eaf6;
+  font-size: 14px;
+  color: #222;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_pay1 {
+  padding: 1px 12px;
+  color: #999;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_pay2 {
+  padding: 1px 12px;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_pay2 p:nth-child(1) span {
+  margin-left: 35px;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_pay2 p:nth-child(2) span {
+  margin-left: 23px;
+}
+.Sprogram_Settings .Sprogram_Settings_three .wechat_pay2 a {
+  text-decoration: none;
+}
+.temp_xinjian .temp_newxj {
+  padding: 9px 20px;
+  margin-bottom: 12px;
+  background: #e0eaf6;
+}
+.temp_xinjian .temp_newxj .temp_newxj_title img {
+  margin-top: -2px;
+  margin-right: 4px;
+}
+.temp_xinjian .temp_newxj .temp_newxj_title span {
+  font-size: 14px;
+  color: #222;
+}
+.temp_xinjian .temp_newxj_main .temp_newxj_son {
+  border: 1px solid #cfd0d7;
+  margin-top: 14px;
+  width: 326px;
+  padding: 15px 0px;
+  float: left;
+  margin-right: 21px;
+}
+.temp_xinjian .temp_newxj_main .temp_newxj_son .temp_border img {
+  margin-left: 31px;
+}
+.temp_xinjian .temp_newxj_main .temp_newxj_son .temp_border .temp_span {
+  padding: 0 33px;
+  margin-top: 20px;
+}
+.temp_xinjian .temp_newxj_main .temp_newxj_son .temp_border .temp_span p:nth-child(1) {
+  margin-top: 15px;
+}
+.temp_xinjian .temp_newxj_main .temp_newxj_son .temp_border .temp_span a {
+  margin-top: 12px;
+}
+/***************************************************************************temp_xinjian  end****************/
+.wechat_re {
+  min-width: 999px;
+}
+.wechat_re .wechat_phone_left {
+  min-width: 373px;
+}
+.wechat_re .wechat_phone_left .wechat_phone {
+  width: 350px;
+  margin-top: 20px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_phone_head .menu_title {
+  height: 19px;
+  color: #fff;
+  font-size: 14.4px;
+  margin-top: -29px;
+  margin-left: 3px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0px 99px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main {
+  border: 1px solid #ddd;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 {
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  padding: 9px;
+  position: relative;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_sogo {
+  float: left;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_sogo img {
+  width: 49px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title {
+  float: left;
+  margin-top: -2px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 {
+  margin-left: 12px;
+  width: 134px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 p:nth-child(1) {
+  font-size: 16px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 p:nth-child(2) {
+  display: inline-block;
+  border: 1px solid #da281e;
+  font-size: 13px;
+  padding: 0 7px;
+  border-radius: 3px;
+  color: #666;
+  margin-left: 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify {
+  margin-left: 12px;
+  margin-top: 0px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .menu_title {
+  float: left;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .classify {
+  float: left;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .classify p {
+  display: inline-block;
+  color: #999;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_phone_logo {
+  position: absolute;
+  right: 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_phone_logo img {
+  width: 30px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address {
+  margin-top: 63px;
+  margin-left: 12px;
+  margin-bottom: -7px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address p {
+  display: inline-block;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address p span {
+  margin-left: 17px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 {
+  padding: 0 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .wechat_shop_img {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .wechat_shop_img img {
+  width: 63px;
+  height: 63px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 {
+  padding: 0 12px;
+  margin-top: 13px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .takeOut .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .takeOut .takeOut_message {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .takeOut .takeOut_message .takeOut_message1 p:nth-child(1) {
+  font-weight: 600;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_4 {
+  margin-top: 13px;
+  padding: 0 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_4 .wechat_dish .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_4 .wechat_dish .wechat_dish_img {
+  display: flex;
+  justify-content: flex-start;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_4 .wechat_dish .wechat_dish_img img {
+  width: 74px;
+  height: 74px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 {
+  margin-top: 13px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity {
+  padding: 0 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main {
+  margin-left: 28px;
+  margin-bottom: 20px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 {
+  margin-bottom: 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_left {
+  border: 1px solid #ddd;
+  float: left;
+  padding: 11px 11px 13px 11px;
+  text-align: center;
+  background: #009688;
+  color: #000;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right {
+  border: 1px solid #ddd;
+  float: left;
+  margin-left: -1px;
+  padding: 5px 16px 14px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(1) {
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 9px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(2) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(3) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 {
+  margin-top: 12px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_left {
+  border: 1px solid #ddd;
+  float: left;
+  padding: 11px 11px 13px 11px;
+  text-align: center;
+  background: #009688;
+  color: #000;
+  font-size: 15px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right {
+  border: 1px solid #ddd;
+  float: left;
+  margin-left: -1px;
+  padding: 5px 16px 14px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(1) {
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 9px;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(2) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(3) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re .wechat_phone_left .wechat_footer {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+}
+.wechat_re .wechat_phone_left .wechat_footer .wechat_footer_active {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 6px 10px 5px 10px;
+}
+.wechat_re .wechat_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg img {
+  width: 21px;
+}
+.wechat_re .wechat_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg p {
+  margin-bottom: 0;
+}
+.wechat_re .wechat_phone_right {
+  margin-top: 3px;
+  margin-left: 22px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main {
+  margin-top: 12px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_title {
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 11px;
+  margin-top: 12px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_1 {
+  margin-top: 12px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_1 p span {
+  margin-left: 48px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_2 .ler {
+  float: left;
+  margin-top: 5px;
+  margin-right: 13px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m {
+  margin-top: 16px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m img {
+  width: 65px;
+  margin-left: 17px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m .sadee {
+  float: none;
+  margin-left: 105px;
+  color: #999;
+  margin-top: 11px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_3 {
+  margin-top: 16px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_3 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_4 {
+  margin-top: 18px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_4 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_4 .pag_label {
+  margin-left: 111px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_4 .pag_label label {
+  margin-bottom: 25px;
+  width: 136.62px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_4 .pag_label p {
+  color: #999;
+  font-size: 12px;
+  margin-top: -16px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 {
+  margin-top: 21px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp2 {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign {
+  margin-top: 43px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box {
+  display: inline-block;
+  position: relative;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box img {
+  width: 83px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box .sign_dele {
+  position: absolute;
+  top: -11px;
+  right: -7px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  color: #fff;
+  background: #666;
+  width: 20px;
+  text-align: center;
+  line-height: 20px;
+  text-decoration: none;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_add {
+  margin-left: 16px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 .coupon {
+  margin-left: 21px;
+}
+.wechat_re .wechat_phone_right .wechat_phone_main .fotter_bottom {
+  margin-left: 106px;
+  margin-top: 32px;
+}
+.wechat_re2 {
+  min-width: 999px;
+}
+.wechat_re2 .wechat_phone_left {
+  min-width: 373px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone {
+  width: 350px;
+  margin-top: 20px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_phone_head .menu_title {
+  height: 19px;
+  color: #fff;
+  font-size: 14.4px;
+  margin-top: -29px;
+  margin-left: 3px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0px 99px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main {
+  height: 489px;
+  border: 1px solid #ddd;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 {
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  padding: 9px;
+  position: relative;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin-top: -41px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_sogo {
+  float: left;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_sogo img {
+  width: 60px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title {
+  float: left;
+  margin-top: -2px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 {
+  margin-left: 12px;
+  width: 122px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 p:nth-child(1) {
+  color: #fff;
+  font-size: 19px;
+  margin-bottom: 0px;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_title2 p:nth-child(2) {
+  display: inline-block;
+  border: 1px solid #da281e;
+  font-size: 13px;
+  padding: 0 7px;
+  border-radius: 3px;
+  color: #666;
+  margin-left: 0px;
+  margin-top: 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify {
+  margin-left: 12px;
+  margin-top: 0px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .menu_title {
+  float: left;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .classify {
+  float: left;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_title .wechat_classify .classify p {
+  display: inline-block;
+  color: #999;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_phone_logo {
+  position: absolute;
+  right: 12px;
+  top: 49px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_phone_logo img {
+  width: 30px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address {
+  margin-top: 75px;
+  margin-left: 12px;
+  margin-bottom: -7px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address p {
+  display: inline-block;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_1 .wechat_address p span {
+  margin-left: 17px;
+  color: red;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 {
+  padding: 0 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .wechat_shop_img {
+  display: flex;
+  justify-content: space-between;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_2 .wechat_shop .wechat_shop_img img {
+  width: 63px;
+  height: 63px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 {
+  padding: 0 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .wechat_shop .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .wechat_shop .wechat_shop_img {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_3 .wechat_shop .wechat_shop_img img {
+  width: 63px;
+  height: 63px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 {
+  margin-top: 13px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity {
+  padding: 0 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .haha {
+  text-align: center;
+  font-size: 15px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main {
+  margin-left: 28px;
+  margin-bottom: 20px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 {
+  margin-bottom: 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_left {
+  border: 1px solid #ddd;
+  float: left;
+  padding: 11px 11px 13px 11px;
+  text-align: center;
+  background: #009688;
+  color: #000;
+  font-size: 15px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right {
+  border: 1px solid #ddd;
+  float: left;
+  margin-left: -1px;
+  padding: 5px 16px 14px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(1) {
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 9px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(2) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son1 .activity_son_right p:nth-child(3) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 {
+  margin-top: 12px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_left {
+  border: 1px solid #ddd;
+  float: left;
+  padding: 11px 11px 13px 11px;
+  text-align: center;
+  background: #009688;
+  color: #000;
+  font-size: 15px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right {
+  border: 1px solid #ddd;
+  float: left;
+  margin-left: -1px;
+  padding: 5px 16px 14px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(1) {
+  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 9px;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(2) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re2 .wechat_phone_left .wechat_phone .wechat_main .wechat_temp_5 .activity .activity_main .activity_son2 .activity_son_right p:nth-child(3) {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+}
+.wechat_re2 .wechat_phone_left .wechat_footer {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+}
+.wechat_re2 .wechat_phone_left .wechat_footer .wechat_footer_active {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 6px 10px 5px 10px;
+}
+.wechat_re2 .wechat_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg img {
+  width: 21px;
+}
+.wechat_re2 .wechat_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg p {
+  margin-bottom: 0;
+}
+.wechat_re2 .wechat_phone_right {
+  margin-top: 3px;
+  margin-left: 22px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main {
+  margin-top: 12px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_title {
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 11px;
+  margin-top: 12px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_1 {
+  margin-top: 12px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_1 p span {
+  margin-left: 48px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_2 .ler {
+  float: left;
+  margin-top: 5px;
+  margin-right: 13px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m {
+  margin-top: 16px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m img {
+  width: 65px;
+  margin-left: 17px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_2 .temp_right_m .sadee {
+  float: none;
+  margin-left: 105px;
+  color: #999;
+  margin-top: 11px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_3 {
+  margin-top: 16px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_3 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .ler {
+  float: left;
+  margin-top: 5px;
+  margin-right: 13px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m {
+  margin-top: 16px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a {
+  position: relative;
+  display: inline-block;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a img {
+  width: 65px;
+  margin-left: 29px;
+  cursor: pointer;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a input {
+  width: 65px;
+  height: 51px;
+  font-size: 13px;
+  line-height: 21px;
+  overflow: hidden;
+  color: #999;
+  opacity: 0;
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  left: 17px;
+  bottom: -19px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .sadee {
+  float: none;
+  margin-left: 105px;
+  color: #999;
+  margin-top: 11px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 {
+  margin-top: 21px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp2 {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign {
+  margin-top: 43px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box {
+  display: inline-block;
+  position: relative;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box img {
+  width: 83px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_box .sign_dele {
+  position: absolute;
+  top: -11px;
+  right: -7px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  color: #fff;
+  background: #666;
+  width: 20px;
+  text-align: center;
+  line-height: 20px;
+  text-decoration: none;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp3 .sign .sign_add {
+  margin-left: 16px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 {
+  margin-top: 19px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-left: 106px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 .coupon {
+  margin-left: 21px;
+  margin-top: 15px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 .coupon .coupon_click {
+  width: 139.88px;
+  margin-bottom: 12px;
+  float: left;
+  position: relative;
+  margin-right: 23px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 .coupon .coupon_click p {
+  margin-bottom: 0;
+  border: 1px solid #ddd;
+  padding: 2px 12px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .wechat_set_5 .pag_temp4 .coupon .coupon_click a {
+  position: absolute;
+  top: -6px;
+  right: -7px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  color: #fff;
+  background: #666;
+  width: 15px;
+  text-align: center;
+  line-height: 12px;
+  text-decoration: none;
+  height: 15px;
+}
+.wechat_re2 .wechat_phone_right .wechat_phone_main .fotter_bottom {
+  margin-left: 106px;
+  margin-top: 32px;
+}
+.singleStore {
+  min-width: 999px;
+}
+.singleStore .singleStore_phone_left {
+  min-width: 373px;
+  width: 380px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone {
+  width: 350px;
+  margin-top: 20px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .singleStore_head .conversion_css {
+  height: 47.72px ;
+  background: #d05d5d;
+  display: block;
+  max-width: 100%;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .singleStore_head .conversion_css .menu_title {
+  height: 19px;
+  color: #fff;
+  font-size: 14.4px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0px 99px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0;
+  margin-left: 0;
+  position: absolute;
+  top: 35px;
+  left: 0;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main {
+  height: 528px;
+  border: 1px solid #ddd;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .wechat_address {
+  margin-bottom: -7px;
+  display: flex;
+  margin-top: -1px;
+  background: #d05d5d;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .wechat_address img {
+  width: 19px;
+  height: 19px;
+  margin-left: 4px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .wechat_address p {
+  color: #fff;
+  display: inline-block;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .wechat_address img {
+  height: 17px;
+  width: 17px;
+  margin-top: 2px;
+  margin-left: 3px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .wechat_temp_imgA {
+  margin-top: 4px;
+  padding: 6px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .OrderButton {
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 6px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .OrderButton .OrderButton_a {
+  border-radius: 5px;
+  background-color: #e5ab40;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .OrderButton .OrderButton_a a {
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.55555556;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  color: #fff;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .demonstrate {
+  padding: 0 6px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .demonstrate .demonstrate_main {
+  display: flex;
+  justify-content: space-between;
+  background: #464646;
+  text-align: center;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-bottom: 9px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .demonstrate .demonstrate_main .demonstrate_son {
+  width: 33.3333%;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .demonstrate .demonstrate_main .demonstrate_son img {
+  width: 48px;
+  height: 48px;
+}
+.singleStore .singleStore_phone_left .singleStore_phone .wechat_main .demonstrate .demonstrate_main .demonstrate_son p {
+  margin-bottom: 0;
+  font-size: 0.6333rem;
+  color: #dab578;
+}
+.singleStore .singleStore_phone_left .wechat_footer {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+}
+.singleStore .singleStore_phone_left .wechat_footer .wechat_footer_active {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 6px 10px 5px 10px;
+}
+.singleStore .singleStore_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg img {
+  width: 21px;
+}
+.singleStore .singleStore_phone_left .wechat_footer .wechat_footer_active .wechat_footer_msg p {
+  margin-bottom: 0;
+}
+.singleStore .wechat_phone_right {
+  margin-top: 3px;
+  margin-left: 22px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main {
+  margin-top: 12px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_title {
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 11px;
+  margin-top: 12px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_3 {
+  background: #eff3f8;
+  padding-left: 9px;
+  padding-top: 6px;
+  margin-top: 16px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_3 .pag_mia {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .Cright_main_son1 {
+  margin-top: 7px;
+  background: #eff3f8;
+  padding-left: 9px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .Cright_main_son1 .Cright_mP {
+  float: left;
+  margin-top: 5px;
+  margin-right: 41px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .Cright_main_son1 .p1 {
+  line-height: 32px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .Cright_main_son1 .p1 .choseColor {
+  position: relative;
+  display: inline-block;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 {
+  padding-top: 0px;
+  margin-top: 16px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .ler {
+  float: left;
+  margin-right: 26px;
+  margin-left: 12px;
+  margin-top: 24px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m {
+  background: #eff3f8;
+  padding-left: 9px;
+  padding-top: 13px;
+  margin-top: 16px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a {
+  display: flex;
+  position: relative;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a img {
+  width: 65px;
+  margin-left: 29px;
+  cursor: pointer;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .fileid_a input {
+  width: 65px;
+  height: 51px;
+  font-size: 13px;
+  line-height: 21px;
+  overflow: hidden;
+  color: #999;
+  opacity: 0;
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  left: 31px;
+  bottom: 21px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_4 .temp_right_m .sadee {
+  float: none;
+  margin-left: 105px;
+  color: #999;
+  margin-top: -2px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 {
+  background: #eff3f8;
+  padding-left: 9px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 .ler {
+  float: left;
+  margin-top: 5px;
+  margin-right: 64px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 .push_button .push_button_main {
+  display: flex;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 .push_button .push_button_main .push_button_mainP {
+  float: left;
+  margin-top: 5px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 .push_button .push_button_main2 {
+  display: flex;
+  margin-left: 103px;
+  margin-top: 24px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_5 .push_button .push_button_main2 .push_button_mainP {
+  float: left;
+  margin-top: 5px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 {
+  margin-top: 22px;
+  background: #eff3f8;
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 8px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .ler {
+  float: left;
+  margin-top: 5px;
+  margin-right: 38px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .ler_ns .ler_nsP {
+  float: left;
+  margin-top: 5px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .exhibition {
+  margin-top: 21px;
+  margin-left: 106px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .exhibition .exhibition_son {
+  display: flex;
+  margin-bottom: 12px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .exhibition .exhibition_son .exhibition_son_img img {
+  width: 48px;
+  height: 48px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_6 .exhibition .exhibition_son label {
+  margin-top: 9px;
+  margin-left: 16px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_ment {
+  margin-top: 15px;
+  background: #eff3f8;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_ment .ler {
+  padding-left: 12px;
+  float: left;
+  margin-top: 5px;
+  margin-right: 38px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .wechat_set_ment .pag_label2 {
+  padding: 12px 12px;
+  margin-left: 116px;
+}
+.singleStore .wechat_phone_right .wechat_phone_main .fotter_bottom {
+  margin-left: 106px;
+  margin-top: 32px;
+}

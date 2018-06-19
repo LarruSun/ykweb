@@ -1,0 +1,432 @@
+.table tbody > tr > td {
+  border-top: 0!important;
+}
+.wechat_main .bg_add {
+  width: 322px;
+  float: left;
+}
+.wechat_main .bg_add .bg_1 {
+  border: 1px solid #e6e6e7;
+  background-color: #efefef;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .img_titlePhone {
+  width: 398px;
+  margin-left: -3px;
+  margin-top: -5px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 {
+  position: relative;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul {
+  background-color: #55BD47;
+  padding-left: 21px;
+  list-style: none;
+  padding: 74px 8px;
+  border: 1px solid #fff;
+  border-radius: 13px;
+  margin-top: 10px;
+  margin-right: 23px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(1) {
+  margin-top: -66px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(1) .mship_card {
+  position: relative;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(1) .mship_card .media-heading {
+  color: #fff;
+  text-align: left;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(1) .mship_card .media-heading .media-object {
+  position: absolute;
+  right: 12px;
+  top: 3px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(2) .mship_card_1 .mship_card_1_1 {
+  color: #fff;
+  position: absolute;
+  bottom: 22px;
+  left: 38px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .wechat_titlePhone .mship_1 ul li:nth-child(2) .mship_card_1 .mship_card_1_2 {
+  color: #fff;
+  position: absolute;
+  bottom: 22px;
+  right: 46px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .accordion-style1 {
+  margin: 57px 0px 200px -4px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .accordion-style1 .panel .pl_1 {
+  width: 270px;
+  height: 27px;
+  margin-top: 11px;
+  font-size: 16px;
+  color: #666;
+  line-height: 21px;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 30px;
+}
+.wechat_main .bg_add .bg_1 .bg_2 .accordion-style1 .panel .pl_2 {
+  display: block;
+  margin-top: -35px;
+  margin-left: 238px;
+}
+.wechat_main .mship_responsive {
+  min-width: 583px;
+  border: 1px solid rgba(224, 224, 224, 0.73);
+  margin-left: 18px;
+  margin-top: 14px;
+  background-color: rgba(89, 102, 119, 0.05);
+  border-radius: 3px;
+}
+.wechat_main .mship_responsive .mship {
+  margin-top: 14px;
+}
+.wechat_main .mship_responsive .mship > .bg_1 > .bg_2 > img {
+  width: 396px;
+  margin-left: -3px;
+  margin-top: -5px;
+}
+.wechat_main .mship_responsive .mship_1 {
+  position: relative;
+}
+.wechat_main .mship_responsive .mship_1 ul {
+  background-color: #55BD47;
+}
+.wechat_main .mship_responsive .mship_card {
+  position: relative;
+}
+.wechat_main .mship_responsive .mship_card p {
+  color: #fff;
+  text-align: left;
+}
+.wechat_main .mship_responsive .mship_card img {
+  position: absolute;
+  right: 12px;
+  top: 3px;
+}
+.wechat_main .mship_responsive .mship_card_1 .mship_card_1_1 {
+  color: #fff;
+  position: absolute;
+  bottom: 22px;
+  left: 38px;
+}
+.wechat_main .mship_responsive .mship_card_1 .mship_card_1_2 {
+  color: #fff;
+  position: absolute;
+  bottom: 22px;
+  right: 46px;
+}
+.wechat_main .mship_responsive .mship_right {
+  margin: 57px 0px 200px -4px;
+}
+.wechat_main .mship_responsive .mship_right_p {
+  display: block;
+  margin-top: -25px;
+  border: 1px solid #f56974;
+  margin-left: 129px;
+  width: 60px;
+  color: #f56974;
+  font-size: 12px;
+}
+.wechat_main .mship_responsive .points {
+  margin-left: 116px;
+}
+.wechat_main .mship_responsive .dump {
+  margin-top: -30px;
+  margin-left: 188px;
+}
+.wechat_main .mship_responsive .pl_text {
+  display: block;
+  margin-left: 238px;
+  height: 20px;
+  line-height: 18px;
+}
+.wechat_main .mship_responsive #span1 select {
+  width: 120px;
+  margin: 12px 104px;
+}
+.wechat_main .mship_responsive .span_1 {
+  padding: 39px;
+  margin-bottom: 135px;
+}
+.wechat_main .mship_responsive .span_1 button {
+  margin-bottom: 24px;
+}
+.wechat_main .mship_responsive .span_1 span,
+.wechat_main .mship_responsive .mship_color {
+  color: #999;
+}
+.wechat_main .mship_responsive .mship_alert {
+  margin-left: 47px;
+}
+.wechat_main .mship_responsive .mship_span {
+  font-size: 16px;
+  margin-right: 50px;
+}
+.wechat_main .mship_responsive .mship_http {
+  color: #999;
+  font-size: 17px;
+}
+.wechat_main .mship_responsive .mship_right_drow {
+  margin-top: 14px;
+  margin-left: 83px;
+}
+.wechat_main .mship_responsive .mship_drow {
+  padding-top: 24px;
+}
+.wechat_main .mship_responsive .mship_door {
+  margin-left: 100px;
+  margin-top: -24px;
+}
+.wechat_main .mship_responsive .mship_button {
+  text-align: center;
+  margin-top: 120px;
+}
+.wechat_main .mship_responsive .modal-body1 {
+  margin: 40px 138px;
+}
+.wechat_main .mship_responsive .modal-body1 input {
+  width: 256px;
+}
+.wechat_main .mship_responsive .selected_1 {
+  display: none;
+}
+.wechat_main .mship_responsive .vb_1 {
+  min-height: 652px;
+}
+.wechat_main .mship_responsive .vip_wei {
+  margin-left: 29px;
+}
+.wechat_main .mship_responsive .panel-title_1 {
+  text-align: left;
+  color: #000;
+}
+.wechat_main .mship_responsive .panel-title_2 {
+  text-align: right;
+  margin-top: -13px;
+}
+.wechat_main .mship_responsive .radio_2 {
+  margin-left: 16px;
+}
+.wechat_main .mship_responsive .bg_4 {
+  margin-top: -58px;
+  margin-left: 56px;
+}
+.wechat_main .mship_responsive .cord {
+  margin-left: -2px;
+  width: 380px;
+  margin-left: 13px;
+  width: 351px;
+  height: 198px;
+  border: 1px solid #999;
+  border-radius: 37px;
+  margin-top: 25px;
+}
+.wechat_main .mship_responsive .img_1 {
+  margin-left: 12px;
+  position: absolute;
+  left: 222px;
+  top: 6px;
+}
+.wechat_main .mship_responsive .media-list {
+  padding-left: 21px;
+  list-style: none;
+  padding: 74px 8px;
+  border: 1px solid #fff;
+  border-radius: 13px;
+  margin-top: 10px;
+  margin-right: 23px;
+}
+.wechat_main .mship_responsive .media:first-child {
+  margin-top: -66px;
+}
+.wechat_main .mship_responsive .select_file {
+  width: 80px;
+  height: 37px;
+  display: block;
+  border-radius: 6px;
+  margin-left: 59px;
+  position: relative;
+}
+.wechat_main .mship_responsive .select_file a {
+  width: 84px;
+  height: 29px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-left: 40px;
+}
+.wechat_main .mship_responsive .select_file input {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 3px;
+  left: 42px;
+  width: 100%;
+  height: 24px;
+  z-index: 100;
+  cursor: pointer;
+  font-size: 100px\9;
+}
+.wechat_main .mship_responsive .pl_1 {
+  width: 270px;
+  height: 27px;
+  margin-top: 11px;
+  font-size: 16px;
+  color: #666;
+  line-height: 21px;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 30px;
+}
+.wechat_main .mship_responsive .pl_2 {
+  display: block;
+  margin-top: -35px;
+  margin-left: 238px;
+}
+.wechat_main .mship_responsive .pl_4 {
+  text-align: left;
+  margin: 29px 33px;
+  font-size: 18px;
+  color: #000;
+}
+.wechat_main .mship_responsive .pl_buttom {
+  margin-top: 42px;
+}
+.wechat_main .mship_responsive .pl_buttom_1 {
+  margin-left: -119px;
+}
+.wechat_main .mship_responsive .loe_hk10_3 {
+  width: 500px;
+  height: 100px;
+  border: 1px solid #CCC;
+  font-size: 14px;
+  color: #000;
+}
+.wechat_main .mship_responsive .title_1 {
+  color: #fff;
+  text-align: left;
+  margin-top: 9px;
+  font-size: 16px;
+}
+.wechat_main .mship_responsive .bg_a {
+  background-color: #efefef;
+}
+.bg_right {
+  float: left;
+  margin-left: 89px;
+  margin-top: 12px;
+}
+.bg_right_p {
+  padding: 12px 0px;
+  font-size: 17px;
+  color: #999;
+}
+.bg_right_span {
+  margin-left: 78px;
+}
+.bg_right_span1 {
+  margin-left: 78px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span2 {
+  margin-left: 34px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span3 {
+  margin-left: 71px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span4 {
+  width: 29px;
+  border: 1px solid #55bd47;
+  height: 20px;
+  margin-top: -46px;
+  margin-left: 126px;
+  background: #55bd47;
+}
+.bg_right_span5 {
+  margin-left: 78px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span6 {
+  margin-left: 46px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span7 {
+  margin-left: 62px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span8 {
+  margin-left: 62px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span9 {
+  margin-left: 57px;
+  color: #000;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  width: 334px;
+  height: 42px;
+  line-height: 37px;
+}
+.bg_right_span9_1 {
+  margin-left: 41px;
+  color: #999;
+}
+.bg_right_span_1 {
+  margin-left: 130px;
+  color: #000;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  width: 334px;
+  height: 42px;
+  line-height: 37px;
+  margin-top: -6px;
+}
+.bg_right_span_2 {
+  margin-left: 61px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span_2_1 {
+  margin-left: 41px;
+  color: #999;
+}
+.bg_right_span_3 {
+  margin-left: 62px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span_4 {
+  margin-left: 62px;
+  color: #000;
+  font-size: 15px;
+}
+.bg_right_span_5 {
+  margin-left: 62px;
+  color: #000;
+  font-size: 15px;
+}
+.vip_wei {
+  margin-left: 29px;
+  margin-top: 26px;
+}

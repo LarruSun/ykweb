@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/VIP_index.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="VIP_IntegralRecord" style="margin-top:20px;">
+
+        <sidebar></sidebar>
+
+</div>
+
+
+
+<div class="main-container" id="VIP_IntegralRecord" style="margin-left:10%">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">积分管理</a>
+                </li>
+                <li>
+                    <a href="#">积分记录</a>
+                </li>
+            </ul>
+
+            <ul class="breadcrumb" style="margin-left:70%">
+                    <li>
+                        <a href="VIP_setIntegral.html">返回积分设置</a>
+                    </li> 
+            </ul>
+        </div>
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+
+
+
+              
+
+
+        <div class="page-content">
+
+            <!-- 搜索 -->
+            <div class="page-content">
+
+                                <label for="text" class="control-label" style="margin-left:50px;"><span>卡号</span>
+                                        <input name='searchOrder' type="text" placeholder="卡号" v-model='searchData.cardNo'/>
+                                </label>
+
+
+                                <label class="voucher_time" style="margin-left:50px;">操作日期：
+                                    <input class="form_datetime" id="wei_datetime2" type="date" v-model="startTime">
+                                    &nbsp;至&nbsp;
+                                    <input class="form_datetime" id="wei_datetime3" type="date" v-model="endTime">
+                                </label>
+
+
+                                <label for="text" class="control-label .col-xs-6 .col-md-4" style="margin-left:50px;">操作人：
+                                    <select size="1" name="sample-table-2_orderType" aria-controls="sample-table-2" v-model='searchData.userId'>
+                                        <option value="">全部</option>
+                                        <option v-for='item in orderSM' :value="item.userId">{{item.userName}}</option>
+                                    </select>
+                                </label>
+
+
+            
+            
+            </div>
+
+
+            <div class="page-content">
+
+                            <div class="order_show" style="text-align:right">
+                                <label for="text" class=" control-label" style="margin:20px 50px 50px 0px;">
+                                        <a  class="btn btn-info a_bottom" @click='search()'>搜索</a>
+                                </label>
+                            </div>
+
+            </div>
+
+        </div>
+
+
+
+
+            
+        <!-- 表格 -->
+        <div class="table-responsive" style="width:85%;margin-left:6%;margin-bottom:50px;">
+
+                <table  class="table  table-bordered table-hover center table_all table_css">
+                    <thead>
+                    <tr>
+                        <th class="center">操作时间</th>
+                        <th class="center">会员名称</th>
+                        <th class="hidden-480 center">卡号</th>
+                        <th class="hidden-480 center">积分数</th>
+                        <th class="hidden-480 center">剩余积分数</th>
+                        <th class="hidden-480 center">操作说明</th>
+                        <th class="hidden-480 center">操作人</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="selected" v-for="order in orderList">
+                        <td class="hidden-480 center">{{order.createTime}} </td>
+                        <td class="center">{{order.userName}}</td>
+                        <td class="hidden-480 center">{{order.cardNo}} </td>
+                        <td class="center">{{order.integralChange}}</td>
+                        <td class="center">{{order.total}}</td>
+                        <td class="center">{{order.ruleName}}</td>
+                        <td class="center">{{order.name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <!-- 分页 -->
+                <div class="media p_cssA">
+                    <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                    <div class="pull-right">
+                        <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+
+
+        </div>
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/VIP_IntegralRecord.js"></script>
+</body>
+</html>

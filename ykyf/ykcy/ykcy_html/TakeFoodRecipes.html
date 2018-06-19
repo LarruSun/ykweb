@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cybills">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">外卖菜谱</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_camp">
+                        <!--<div class="mge_camp_aup">
+                            <a href="#" type="button" class="btn btn-success a_bottom" data-toggle="modal" v-on:click="getBill" >新增菜谱</a>
+                        </div>-->
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">菜谱名称</th>
+                                    <th class="center">菜品数量</th>
+                                    <th class="center">菜品分类</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="item in list">
+                                    <td class="center">{{item.name}}</td>
+                                    <td class="center">{{item.foodCount}}</td>
+                                    <td class="center">{{item.foodTypeCount}}</td>
+                                    <td class="center">
+                                        <a  class="" data-toggle="modal" data-target="#myModal_EditMenu" @click="getBill(item.id)">编辑</a>&nbsp;
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+    <!--编辑菜谱 start-->
+    <div class="modal fade" id="myModal_EditMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top:0">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_EditMenu">
+                        编辑菜谱
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="scroll_name ">
+                        <div class="newRecipe">
+                            <div v-for="item in foodList" style="display: flex;flex-wrap: wrap;" v-if="item.cyFoodDefineList.length > 0">
+                                <label style="width: 100px;">{{ item.name }}</label>
+                                <div class="food-list">
+                                    <div v-for="food in item.cyFoodDefineList">
+                                        <label>
+                                            <input class="ace check_son" type="checkbox" :value="food.id" v-model="foodListId">
+                                            <span class="lbl">{{ food.name }}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" @click="save">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--编辑菜谱 end-->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+</body>
+<style>
+    .food-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        flex: 1;
+    }
+    .food-list>div{
+        margin-right: 20px;
+    }
+</style>
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/takeFoodRecipes.js"></script>
+</html>

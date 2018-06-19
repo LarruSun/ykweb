@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/VIP_index.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+
+<div class="sidebar" id="sidebar" sonpage="VIP_gradeList" style="margin-top:20px;">
+
+        <sidebar></sidebar>
+
+</div>
+
+<div class="main-container" id="VIP_gradeList" style="margin-left:10%;">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">会员等级</a>
+                </li>
+                <li>
+                    <a href="#">列表</a>
+                </li>
+            </ul>     
+            <ul class="breadcrumb" style="margin-left:70%">
+                <li>
+                    <a href="VIP_addGread.html?flag=add">添加会员等级</a>
+                </li>  
+            </ul>
+        </div>
+
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+           
+            
+            <!-- 导航条 -->
+            <!-- <div class="breadcrumbs" id="breadcrumb">
+                <a href="VIP_customerList.html"  style="margin-left:20px">客户列表</a>
+                <a href="VIP_gradeList.html"  style="margin-left:20px;background:#428BCA;color:#fff">会员等级列表</a>
+                <a href="VIP_setIntegral.html"  style="margin-left:20px;">积分管理</a> 
+            </div> -->
+    
+
+
+
+
+                <div id="fuelux-wizard" class="row-fluid tiShi" data-target="#step-container">
+                        <p class="iconfont icon-shiyongxuzhi" style="margin:0 10px 20px 0px">&nbsp; 温馨提示：</p>
+                        <div style='padding-left:50px'>
+                            <p>会员等级按照商家设置的最低消费金额自动升级</p>
+                            <p>用户的累计消费达到最低消费值就会改变会员等级</p>
+                            <p>若删除会员卡等级，等级下绑定的用户的等级会重新计算，请谨慎操作</p>      
+                        </div> 
+                </div>
+
+
+
+        
+
+
+
+            
+            <!-- 表格 -->
+            <div class="table-responsive" style="width:85%;margin-left:8%;margin-bottom:50px;">
+
+                    <table  class="table  table-bordered table-hover center table_all table_css">
+                        <thead>
+                        <tr>
+                            <th class="center">等级</th>
+                            <th class="hidden-480 center">等级名称</th>
+                            <th class="hidden-480 center">最低消费</th>
+                            <th class="hidden-480 center">会员折扣</th>
+                            <th class="hidden-480 center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="selected" v-for="order in orderList">
+                            <td class="hidden-480 center">{{order.level}} </td>
+                            <td class="hidden-480 center">{{order.name}} </td>
+                            <td class="center">{{(order.minConsumeAmount *0.01).toFixed(2)}}</td>
+                            <td class="center">{{order.discount}}</td>
+
+
+                            <td class="center">
+                                <a @click='edit(order)' href="#">编辑</a>
+                                <a data-toggle="modal" href="#" data-target="#delete" @click='delet(order)'>删除</a>
+                                <!-- <a v-bind:href="'order_xiang2.html?orderId='+order.id+'&shopId='+shopId">作废</a> -->
+                                <!-- <a href="#" class="xqnum">1</a> -->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!-- 分页 -->
+                    <div class="media p_cssA">
+                        <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 删除弹框 -->           
+                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header cancelmessage">
+                                <h1>提醒</h1>
+                                <h2 style="margin:50px 0 50px 0;text-align:center">若删除该会员卡等级，已绑定该等级的用户，将重新计算会员卡等级，是否确认删除！</h3>
+        
+                                <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                
+                                <button  class="btn btn-primary" data-dismiss="modal" @click='sureDelete()'>确定</button>
+                                <button   class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+
+
+                 
+
+
+ 
+            </div>
+
+
+
+
+
+   
+        </div><!-- /.main-container-inner -->
+
+
+        
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/VIP_gradeList.js"></script>
+</body>
+</html>

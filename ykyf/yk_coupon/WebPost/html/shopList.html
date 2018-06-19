@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>适用门店</title>
+    <link rel="stylesheet" href="../sass/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="../sass/jquery.mobile.icons-1.4.2.min.css">
+    <link rel="stylesheet" href="../sass/common.css">
+    <script src="../../../resources/config.js"></script>
+</head>
+<body>
+<div data-role="page" id="goodsList" v-cloak>
+    <div data-role="content" class="content">
+        <div class="list" v-for="item in shopList">
+            <dl>
+                <dt>{{item.branch_name}}&nbsp;<span></span></dt>
+                <dd>{{item.address}}<img src="../images/position.png" alt=""></dd>
+            </dl>
+            <b><img src="../images/phone.png" v-on:click="phoneCall(item.telephone)"  alt=""></b>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../js/jquery.mobile-1.4.2.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script src="../../js/vue-resource.min.js"></script>
+<script src="../../js/const.js"></script>
+<script src="../js/ywjs/shopList.js"></script>
+</body>
+</html>

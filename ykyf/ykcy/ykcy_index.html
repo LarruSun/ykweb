@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="ykcy_resources/ykcy_libcss/ace.min.css" />
+
+    <link rel="stylesheet" href="ykcy_css/index.css" />
+    <script src="../resources/config.js"></script>
+</head>
+<body>
+<!-- 头部导航条 -->
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<!-- 身体 -->
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+
+        <div class="main-content" style="margin-left: 0;">
+
+            <div class="page-content" style="width: 83%!important;margin-left: 7.5%!important;margin-top: 14px!important;" id="app">
+                <div class="row ">
+                    <div class="col-sm-12">
+                        <div class="land_index">
+
+                            <div class="land_top">
+                                <div class="land_son_left">
+                                    <img v-bind:src="user.businessLogo" alt="" class="land_img"/>
+                                    <div class="land_user">
+                                        <div class="pul">{{user.nickName}}</div>
+                                        <div class="pult">
+                                            <img src="ykcy_images/certi.png" alt="" />
+                                            <p>已认证</p>
+                                        </div>
+                                        <br />
+                                        <p class="land_zhang">账号：<span>{{user.loginName}}</span></p>
+                                    </div>
+                                    <div class="land_son_right">
+                                        <label type="text" class=" control-label  ">
+                                            <input type="text" placeholder="搜索门店" class="branch_name">
+                                            <a href="#" class="btn btn-info a_bottom" v-on:click="seach()">搜索</a>
+                                        </label>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </div>
+                            </div>
+
+                            <div class="land_fotter">
+                                <div class="col-sm-12 toWhere">
+                                    <!--<a href="land_new.html" class="btn btn-success">新建门店</a>-->
+                                </div>
+                                <div class="land_fotter_main col-sm-12">
+                                    <div class="land_fotter_messess col-sm-4" v-for="(item,index) in shopData">
+                                        <a v-bind:href="'ykcy_html/foodList.html?shopId='+item.id">
+                                            <div class="land_fotter_img">
+                                                <img src="ykcy_images/dp60.png" alt=""  width="60"/>
+                                                <div class="land_title">
+                                                    <p>{{item.business_name}}({{item.branch_name}})</p>
+                                                    <br />
+                                                    <p>门店：<span>{{item.province}}{{item.city}}{{item.district}}{{item.address}}</span></p>
+                                                </div>
+                                                <div class="span_a">
+                                                    <span class="label label-warning" style="position: absolute;right: 12px;top: 18px;">&nbsp;&nbsp;&nbsp;餐饮&nbsp;&nbsp;&nbsp;</span>
+                                                </div>
+                                                <div class="land_a">
+                                                    <!--<a href="#">修改</a>
+                                                    <a href="#">删除</a>-->
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="clear: both"></div>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+</div><!--.main-container-->
+<script src="ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<!--<script src="js/ace-extra.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ace.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>-->
+
+
+<!--<script src="js/poblic.js"></script>-->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="../resources/common/lib/vue.min.js"></script>
+<script src="../resources/common/lib/vue-resource.min.js"></script>
+<script src="../resources/common/lib/vue-router.min.js"></script>
+<script src="ykcy_js/const.js"></script>  
+<script src="ykcy_js/cy_index.js"></script>
+
+</body>
+

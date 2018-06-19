@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="shortcut icon" href="../../resources/common/images/yklogo.png" type="image/x-icon">
+    <!--<link rel="stylesheet" href="../../resources/common/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="resources/common/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="../../resources/common/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykyf_css/common.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+    <link rel="stylesheet" href="../ykyf_css/index_new.css">
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div id="wrap" class="index_new">
+     <div id="head">
+         <headd></headd>
+     </div>
+    <div class="main main_box" id="indApp">
+        <div class="content_based clear_fix">
+            <!--
+            左边导航换成HTML
+             -->
+            <div class="side_left float_l" id="leftNav" sonpage="nav_index">
+               <!-- <leftban></leftban>-->
+                <!-- <h3 class="slide_title slide_titles list_index leftTiT selected"><a href="index_new.html">首页</a></h3>
+                <h3 class="slide_title slide_titles list_serve leftTiT">功能与服务</h3>
+                <ul class="slide_main">
+                    <li class="on leftTiT"><a href="javascript:;">我的服务</a></li>
+                    <li class="on leftTiT"><a href="javascript:;">服务商城</a></li>
+                </ul>
+                <h3 class="slide_title slide_titles list_facility">设备管理</h3>
+                <ul class="slide_main">
+                    <li class="on leftTiT"><a href="javascript:;">我的设备</a></li>
+                    <li class="on leftTiT"><a href="#">设备商城</a></li>
+                </ul>
+                <h3 class="slide_title slide_titles list_account">我的帐户</h3>
+                <ul class="slide_main">
+                    <li class="on leftTiT"><a href="javascript:;">帐户总览</a></li>
+                    <li class="on leftTiT"><a href="javascript:;">交易记录</a></li>
+                </ul>
+                <h3 class="slide_title slide_titles list_set leftTiT">设置</h3>
+                <ul class="slide_main">
+                    <li class="on leftTiT"><a href="merchant_set.html">商家设置</a></li>
+                    <li class="on leftTiT"><a href="javascript:;">系统设置</a></li>
+                    <li class="on leftTiT"><a href="javascript:;">门店管理</a></li>
+                </ul>
+                <h3 class="slide_title slide_titles list_message leftTiT">我的消息</h3> -->
+            </div>
+
+            <div class="main_content float_r">
+                <div class="clear_fix new_index_box">
+                    <!-- 用户信息 start -->
+                    <!--<div id="ind_userInfo">-->
+                        <userinfo></userinfo>
+                    <!--</div>-->
+
+                    <!-- 用户信息 end -->
+                    <!--<div class="index_new_item_type index_new_item float_r">-->
+                        <!--<div class="item_title">热门服务<a href="serve_new.html" class="more color_04b0f7">更多></a></div>-->
+                        <!--<ul class="new_item_type clear_fix">-->
+                            <!--<li>-->
+                                <!--<div class="item_type_ico">-->
+                                    <!--<img src="../ykyf_images/item_type_ico01.png">-->
+                                <!--</div>-->
+                                <!--<p>餐饮管理</p>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<div class="item_type_ico">-->
+                                    <!--<img src="../ykyf_images/item_type_ico02.png">-->
+                                <!--</div>-->
+                                <!--<p>支付管理</p>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<div class="item_type_ico">-->
+                                    <!--<img src="../ykyf_images/item_type_ico03.png">-->
+                                <!--</div>-->
+                                <!--<p>会员管理</p>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<div class="item_type_ico">-->
+                                    <!--<img src="../ykyf_images/item_type_ico04.png">-->
+                                <!--</div>-->
+                                <!--<p>短信管理</p>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <hotservers> </hotservers>
+                </div>
+                <!-- 状态列表 start -->
+                <div class="new_index_box">
+                    <ul class="index_new_typeList clear_fix">
+                        <li>
+                            <a href="javascript:;">
+                                <h3>￥<span>{{bAmount}}</span></h3>
+                                <span>待提现余额</span>
+                            </a>
+                        </li>
+                        <li>
+                            <h3>0</h3>
+                            <span>待发货订单</span>
+                        </li>
+                        <li>
+                            <h3>0</h3>
+                            <span>维权订单</span>
+                        </li>
+                        <li>
+                            <h3>0</h3>
+                            <span>我的关注</span>
+                        </li>
+                        <li>
+                            <h3>0</h3>
+                            <span>关注我</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 状态列表 end -->
+                <div class="new_index_box clear_fix">
+                    <div class="index_new_message float_l">
+                        <div class="item_title">公告消息</div>
+                        <ul>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【微店经验谈】微店小白成长记</a></span>
+                                <img src="../ykyf_images/hot_ico.png">
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【谨防骗局】防诈骗的”四个凡是“</a></span>
+                                <img src="../ykyf_images/hot_ico.png">
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【新功能】微店小白成长记</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">11.11专供好货，轻松开单！</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【新功能】优惠券助力双十一</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">买家版搜索基本准入规则</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">服务市场致大家的公开值</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【新功能】店铺会员上线啦</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">店铺装修助你备战双十一</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">【征集令】双十一创意营销方案大赛</a></span>
+                            </li>
+                            <li>
+                                <span class="mew_message_data float_r">2016/11/21   19：00</span>
+                                <span class="mew_message_text"><a href="#">买家版新版发布，全新首页新流量</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="index_new_activity_list float_r">
+                        <a href="#"><img src="../ykyf_images/activity_list1.png" alt=""></a>
+                        <h3>如何更好的使用易快平台！</h3>
+                        <a href="#"><img src="../ykyf_images/activity_list2.png" alt=""></a>
+                        <h3>小伙伴们都喜欢他们！</h3>
+                        <a href="#"><img src="../ykyf_images/activity_list3.png" alt=""></a>
+                        <h3>看看其他小伙伴们都在做啥！</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup_bg indpopup_bg"></div>
+        <div class="popup" id="gotoRenzheng" style="width: 550px;">
+            <div class="popup_top">
+                <span class="popup_close" v-on:click="changeLeval"></span>
+                <b class="popup_title">请填写基本信息</b>
+            </div>
+            <div class="popup_main">
+                <div class="popup_txt align_center">请前去认证。申请认证的商家福利多多，其他商家可直接搜索到你并关注，可参与平台活动，与分销商互动。</div>
+            </div>
+            <div class="popup_bottom align_center">
+                <input type="submit" value="稍后认证" v-on:click="changeLeval">
+                <input type="reset" value="去认证" v-on:click="changeLeval"  >
+            </div>
+        </div>
+
+    </div>
+
+  <div id="foot">
+      <foot></foot>
+  </div>
+</div>
+
+<script src="../../resources/common/lib/jquery.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../ykyf_js/const.js"></script>
+<script src="../ykyf_js/index_new.js"></script>
+
+<script src="../ykyf_js/tool.js"></script>
+
+<script>
+    leftBan();
+</script>
+</body>
+</html>

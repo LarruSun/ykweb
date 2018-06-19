@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css">
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="applyForList">
+
+            <sidebar></sidebar>
+
+        </div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">订单管理</a>
+                    </li>
+                    <li>
+                        <a href="#">售后申请记录</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 apply_for" id="applyForList">
+                        <div class="col-xs-12 col-sm-12 mge_set">
+                            <label for="text" class=" control-label " style="display: none">申请类型：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="afterSaleType">
+                                    <option value="all">全部</option>
+                                    <option value="JUSTREFUND">仅退款</option>
+                                    <option value="REFUNDANDGOODS">退款退货</option>
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label  ">订单来源：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="channelName">
+                                    <option value="all">全部</option>
+                                    <option value="all">小程序</option>
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label  ">
+                                <input type="text" placeholder="请输入售后编号" v-model="orderNo"/>
+                                <a class="btn btn-info a_bottom" v-on:click="getInitData">搜索</a>
+                            </label>
+                        </div>
+
+                        <div class="tabbable" style="margin-left: 12px;    margin-top: 56px;">
+                            <ul class="nav nav-tabs" id="myTab">
+                                <li v-bind:class="index==0?'active':''" v-for="(item,index) in nums" v-on:click="seachByStatus(item)">
+                                    <a data-toggle="tab" href="#home">
+                                        {{item.name}}
+                                        <span class="badge badge-danger">{{item.num}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane active">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all table_css" style="margin-left: 0">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected" v-for="(item,index) in orderList">
+                                                <td class="center">{{index+1}}</td>
+                                                <td class="hidden-480 center">{{item.userName}}{{item.phone}}</td>
+                                                <td class="center">{{(item.soTotal*0.01).toFixed(2)}}</td>
+                                                <td class="hidden-480 center">{{(item.payTotal*0.01).toFixed(2)}}</td>
+                                                <td class="center">{{item.afterSaleOrders[0].afterSaleDate | data}}</td>
+                                                <td class="center"><span v-bind:class="handleData(item.afterSaleOrders[0].afterSaleStatus).hclass">{{handleData(item.afterSaleOrders[0].afterSaleStatus).status_msg}}</span></td>
+                                                <td class="center">{{orderTypes[item.orderType]}}</td>
+                                                <td class="center">小程序</td>
+                                                <td class="center"><a v-bind:href="'order_xiang3.html?orderId='+item.id+'&shopId='+shopId">详情</a></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+<!--                                <div id="profile" class="tab-pane ">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">65</td>
+                                                <td class="hidden-480 center">65</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label label-important">申请售后</span></td>
+                                                <td class="center">堂食自助</td>
+                                                <td class="center">易快联盟平台</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="shShow" class="tab-pane">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">54</td>
+                                                <td class="hidden-480 center">50</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label label-info">已审核</span></td>
+                                                <td class="center">堂食点餐</td>
+                                                <td class="center">自有公众号</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="dtkShow" class="tab-pane">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">78</td>
+                                                <td class="hidden-480 center">78</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label label-warning">待退款</span></td>
+                                                <td class="center">外卖配送</td>
+                                                <td class="center">自有公众号</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="ytkShow" class="tab-pane">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">43</td>
+                                                <td class="hidden-480 center">40</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label label-success">已退款</span></td>
+                                                <td class="center">外卖自提</td>
+                                                <td class="center">饿了么</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="nshShow" class="tab-pane">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">65</td>
+                                                <td class="hidden-480 center">60</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label">审核不通过</span></td>
+                                                <td class="center">外卖配送</td>
+                                                <td class="center">饿了么</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="qshShow" class="tab-pane">
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all ">
+                                            <thead>
+                                            <tr>
+                                                <th class="center">序号</th>
+                                                <th class="center">顾客</th>
+
+                                                <th class="hidden-480 center">订单金额</th>
+                                                <th class="center">实收金额</th>
+                                                <th class="hidden-480 center">申请时间</th>
+                                                <th class="hidden-480 center">状态</th>
+                                                <th class="hidden-480 center">订单类型</th>
+                                                <th class="hidden-480 center">订单来源</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="center">1</td>
+                                                <td class="hidden-480 center">林冲12387954875</td>
+                                                <td class="center">65</td>
+                                                <td class="hidden-480 center">60</td>
+                                                <td class="center">2016/06/12&nbsp;15:30</td>
+                                                <td class="center"><span class="label label-inverse">售后取消</span></td>
+                                                <td class="center">外卖配送</td>
+                                                <td class="center">饿了么</td>
+                                                <td class="center"><a href="order_xiang3.html">详情</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="media p_cssA">
+                                <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                                <div class="pull-right">
+                                    <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+<script src="../ykcy_js/applyForList.js"></script>
+</body>
+</html>

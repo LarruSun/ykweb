@@ -1,0 +1,200 @@
+body{
+
+}
+.a_bottom{
+  padding: 0 22px!important;
+  margin-top: -4px;
+  border-radius: 2px;
+}
+.font_width{
+  width:110px!important;
+}
+.table>tbody>tr>td{
+  vertical-align: middle;
+}
+//public css end
+
+.myModal_sign{//商户管理-商户信息管理/商户审核管理
+  .signature{
+    .signature_son{
+      display: flex;
+      margin-bottom: 12px;
+      .signature_title{
+        width: 115px;
+        font-size: 15px;
+        //display: flex;
+        //align-items: center;
+      }
+      .signature_main{
+        margin-left: 36px;
+        p{
+
+        }
+        img{
+          width: 320px;
+          height: 200px;
+        }
+        label{
+          margin-right: 12px;
+        }
+        textarea{
+
+        }
+      }
+    }
+  }
+}
+//员工管理-运营管理
+  .operationsManagement_F{
+    padding-left: 55px;
+    .operationsManagement_son{
+      margin-bottom: 12px;
+      label{
+        .font_width{
+          width:110px!important;
+          display: inline-block;
+        }
+        input{
+
+        }
+      }
+    }
+
+}
+//弹框css end
+
+.MerchantManagement{
+  .MerchantManagement_choose{
+    margin-bottom: 18px;
+    display: flex;
+    label{
+      margin-right: 12px;
+    }
+  }
+  .MerchantManagement_bottom{
+    margin-bottom: 18px;
+  }
+  .p_cssA{
+    ul{
+      margin: 0;
+    }
+  }
+}
+//服务信息管理 新增
+.serviceManagement{
+  .modal-body{
+    .services{
+      margin-bottom: 12px;
+      display: flex;
+      p{
+        margin-bottom: 0;
+        width: 110px;
+        display: flex;
+        align-items: center;
+      }
+      div{
+          label{
+            input{
+              width: 260px;
+            }
+            select{
+              width: 260px;
+            }
+          }
+      }
+    }
+    .servicesBox_add{
+    }
+    .featuresAdd{
+      text-align: left;
+    }
+  }
+}
+
+//login
+.login{
+  width: 32%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  background: #000;
+  filter: alpha(opacity = 50);
+  border: 1px solid #000;
+  padding: 0;
+.login_main{
+  .login_box{
+    .login_title{
+      display: flex;
+      justify-content: space-between;
+      filter: alpha(opacity = 50);
+      border: 1px solid #000;
+      align-items: center;
+      padding: 15px 10px;
+      text-align: center;
+      line-height: 20px;
+      background: #2E363F;
+      color: #e8e8e8;
+      .login_title_left{
+        img{
+
+        }
+      }
+      .login_title_name{
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+    }
+    .login_css{
+      justify-content: center;
+      display: flex;
+      padding: 20px 0;
+      margin-bottom: 0px;
+      .login_label{
+        margin-right: 4px;
+        p{
+          padding: 9px 9px;
+          color: #fff;
+          width: 48px;
+          height: 34px;
+          display: flex;
+          justify-content: center;
+          background: #28b779;
+          text-align: center;
+          margin-bottom: 0;
+          img{
+
+          }
+        }
+
+      }
+      input{
+        height: 34px;
+        margin-bottom: 0px;
+        border: 0px;
+        display: inline-block;
+        width: 75%;
+        line-height: 28px;
+      }
+      span{
+
+      }
+    }
+    .form-group_button{
+      margin-top: 13px;
+      text-align: center;
+      padding: 14px 20px 15px;
+      margin-bottom: 0;
+      background: none;
+      border-top: 1px solid #3f4954;
+      a{
+        padding: 3px 92px !important;
+        margin-top: -4px;
+        border-radius: 2px;
+        background: #5bb75b!important;
+        border-color: #5bb75b;
+      }
+    }
+  }
+}
+}

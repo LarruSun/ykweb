@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../coupon_common/msgbox/msgbox.css">
+    <script src="../coupon_common/msgbox/msgUtil.js"></script>
+    <script src="../coupon_common/msgbox/msgbox.js"></script>
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li  class="active">
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content" id="manage_tbwx">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="Voucher_list.html">优惠券管理</a>
+                    </li>
+                    <li>
+                        <a href="#">微信</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-sm-4 inleft">
+                        <div class="iframe">
+                            <div class="top"><img src="../img/top.png" alt=""></div>
+                            <div class="box">
+                                <div class="box_top">
+                                    <dl>
+                                        <dt><img v-bind:src="user.businessLogo" alt=""></dt>
+                                        <dd>{{user.nickName}}</dd>
+                                    </dl>
+                                    <h3 class="wei_text_h3">{{couponsInfo.couponsName}}</h3>
+                                    <p class="use"><span>使用</span></p>
+                                    <p class="color999 manman" v-if="couponsInfo.limitLowestConsumeType!=0"><span>使用条件:</span>消费满<span class="wei_text" style="color:#999">{{couponsInfo.lowestConsume}}</span>元可用</p>
+                                    <p class="p_color manman2" v-if="couponsInfo.limitLowestConsumeType==0"><span>使用条件:</span><span style="color:#999;margin-left: 4px;">无限制</span></p>
+                                    <p class="color999"><span>可用时间:</span>
+                                        <span class="wei_time"> {{couponsInfo.startDate}}</span>
+                                        -
+                                        <span class="wei_time2"> {{couponsInfo.endDate}}</span>
+                                        ,
+                                        <span class="time_all" v-if="couponsInfo.effectiveTimeType==0">全部</span>
+                                        <span class="time_all" v-if="couponsInfo.effectiveTimeType==1">
+                                                    {{couponsInfo.useWeekDays}} {{couponsInfo.periodTime}}
+                                         </span>
+
+                                    </p>
+                                    <div class="pic">
+                                        <img src="../img/yuhui.png" alt="" v-if="!couponsInfo.couponsImg">
+                                        <img v-bind:src="couponsInfo.couponsImg" alt="" v-else>
+                                        <p>{{couponsInfo.remark}}</p>
+                                    </div>
+                                    <div class="info_see">
+                                        <p><span>适用门店</span> <a href="#">&gt;</a></p>
+                                        <p><span>公众号</span> <a href="#"> &gt;</a></p>
+                                    </div>
+                                </div>
+                                <div id="accordion" class="accordion-style1 panel-group mship_right">
+                                    <div id="clone_boxL">
+                                        <div class="panel panel-default clone_idL0 templateL" >
+                                            <div class="Voucher_leftModal">
+                                                <p  class="pl_1 the_Custom">自定义入口（选填）</p>
+                                                <p class="pl_2 pl_text" >
+                                                    <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--左模板二-->
+                                    <div class="clone_boxL_2"  style="display: none ;">
+                                        <div class="panel panel-default clone_idL0 templateL" >
+                                            <div class="Voucher_leftModal2">
+                                                <p  class="pl_1 pl_2 the_Custom2">自定义入口（选填）</p>
+                                                <p class="pl_2 pl_text2"  >
+                                                    <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--左模板二end-->
+                                    <!--左模板三-->
+                                    <div class="clone_boxL_3"  style="display: none ;">
+                                        <div class="panel panel-default clone_idL0 templateL" >
+                                            <div class="Voucher_leftModal3">
+                                                <p  class="pl_1 pl_3 the_Custom3">自定义入口（选填）</p>
+                                                <p class="pl_2 pl_text3"  >
+                                                    <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--左模板三end-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 inright">
+                        <div style="display: block;" id="span_2">
+                            <!--模板右边-->
+                            <div id="clone_boxR">
+                                <table class="table table-condensed table-responsive clone_idR0" id="tab_clone">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="radio">
+                                                <label >
+                                                    <span class="lbl font_size" >入口一：</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="radio mship_alert">
+                                                <label style="    margin-right: 41px;">
+                                                    <span class=" font_size" >入口名称：</span>
+                                                </label>
+                                                <input name=""  class="the_Custom_val" id="rkmc"  placeholder="" >
+                                                <span class="mship_color1">0</span>/5
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="radio">
+                                                <label>
+                                                    <span class="lbl font_size" >引导语（选填）：</span>
+                                                </label>
+                                                <input  class="guide"  style="resize: none;" id="ydy"  placeholder="">
+                                                <span class="mship_color4">0</span>/6
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="radio skip">
+                                                <label>
+                                                    <span class="lbl  font_size" >点击跳转：</span>
+                                                </label>
+
+                                                <label style="margin-left: 46px;">
+                                                    <input name="form-field-radio2" type="radio"   class="ace" value="1"  >
+                                                    <span class="lbl">图文消息</span>
+                                                </label>
+
+                                                <label>
+                                                    <input name="form-field-radio2" type="radio"   checked="checked" class="ace" value="2"  >
+                                                    <span class="lbl">网页链接</span>
+                                                </label>
+                                                <label>
+                                                    <input name="form-field-radio2" type="radio"   class="ace" value="3"  >
+                                                    <span class="lbl">跳转自定义功能</span>
+                                                </label>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="skip_show">
+                                                <div class="radio span3" style="display:none" >
+                                                    <label style=" margin-right: 46px;">
+                                                        <span class="lbl mship_span">图文消息：</span>
+                                                    </label>
+                                                    <button class="out_1">选择图文消息</button>
+                                                </div>
+                                                <div class="radio span5" style="display:block" >
+                                                    <label style="    margin-right: 45px;">
+                                                        <span class="lbl mship_span">网页链接：</span>
+                                                    </label>
+                                                    <span class="mship_http" id="url">http://</span>
+                                                    <input type="text">
+                                                </div>
+                                                <div class="radio span6" style="display: none;" >
+                                                    <label style="    margin-right: 45px;">
+                                                        <span class="lbl mship_span">网页链接：</span>
+                                                    </label>
+                                                    <span class="mship_http">http://</span>
+                                                    <input type="text" placeholder="">
+                                                    <div class="mship_right_drow" style="    margin-left: 74px;">
+                                                        <label style="margin-left: 46px;">
+                                                            <input name="form-field-radio3" class="ace" value="ok1" onclick="" checked="checked" type="radio">
+                                                            <span class="lbl">微点餐</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" class="ace" value="ok1" onclick="" checked="checked" type="radio">
+                                                            <span class="lbl">微会员</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" class="ace" value="ok1" onclick="" checked="checked" type="radio">
+                                                            <span class="lbl">空中商城</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" class="ace" value="ok1" onclick="" checked="checked" type="radio">
+                                                            <span class="lbl">微活动</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--模板二-->
+
+                        </div>
+                        <div class="toWhere" style="margin-left:20px">
+                            <a href="#" v-on:click="submitWx" class="  btn btn-info">提交审核</a>
+                            <a href="../html/Voucher_record.html" class=" btn btn-info" >取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/ywjs/Voucher_bj.js"></script>
+</body>
+</html>

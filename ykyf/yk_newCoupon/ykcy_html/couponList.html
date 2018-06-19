@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+
+
+</head>
+
+<body style="background:#fff;overflow-x:hidden">
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="couponList" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+
+<div class="main-container" style="margin-left:10%;width:1300px" id="couponList" >
+
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs" style="border-bottom:1px solid #ccc">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="#">优惠券</a>
+                </li>
+                <li>
+                    <a href="#">优惠券列表</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+            <!-- 导航条 -->
+            <!-- <div class="breadcrumbs" id="breadcrumb">
+                <a href="couponList.html"  style="margin-left:20px;background:#428BCA;color:#fff">优惠券列标</a>
+                <a href="launchList1.html"  style="margin-left:20px">券投放列表</a>
+                <a href="collarRecord.html"  style="margin-left:20px;">领用记录</a> 
+            </div> -->
+
+            <!-- 步骤进度条 -->
+            <div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
+                    <i class="iconfont icon-shiyongxuzhi" style="margin:0 5px 0 50px"></i>如何使用优惠券：
+                    <ul class="wizard-steps">
+                        <li data-target="#step1" class="active" >
+                            <span class="step">1</span>
+                            <span class="title">制券</span>      
+                        </li>
+                        <li data-target="#step5" class="active" >
+                            <span class="step">2</span>
+                            <span class="title">投放</span>
+
+                        </li>
+                        <li data-target="#step6" class="active">
+                                <span class="step">3</span>
+                            <span class="title">核销</span>
+                            <!-- <p>2017-5-18 15：25</p> -->
+                        </li>
+                    </ul>
+            </div>
+
+            <!-- 搜索 -->
+            <div class="col-xs-12 order_list"  style="margin-left:4%">
+                <label for="text"><span>关键字</span>
+                    <input name='searchOrder' type="text" placeholder="优惠券名称" v-model='searchData.couponsName'/>
+                </label>
+                <label>有效期
+                    <input class="form_datetime" id="wei_datetime2" type="date" v-model="startTime">
+                    &nbsp;至&nbsp;
+                    <input class="form_datetime" id="wei_datetime3" type="date" v-model="endTime">
+                </label>
+                <label for="text">状态
+                    <select size="1" name="sample-table-2_orderType" aria-controls="sample-table-2" v-model='searchData.statu'>
+                        <option value="">全部</option>
+                        <option value="1">正常</option>
+                        <option value="2">已失效</option>
+                        <option value="3">已删除</option>
+                        <!--TradeTypeCodeEnum-->
+                    </select>
+                </label>
+            </div>
+            <div  class="col-xs-12 order_list lsatSeach">
+                    <label for="text">投放状态
+                        <select size="1" name="sample-table-2_payType" aria-controls="sample-table-2"  v-model='searchData.putStatu'>
+                            <option value="">全部</option>
+                            <option value="1">已投放</option>
+                            <option value="2">待投放</option>
+                            <!--PayType-->
+                        </select>
+                    </label>
+                    <label for="text">券类型
+                        <select size="1" name="sample-table-2_payType" aria-controls="sample-table-2" v-model='searchData.couponsType'>
+                            <option value="">全部</option>
+                            <option value="1">代金券</option>
+                            <option value="2">折扣券</option>
+
+                            <!--PayType-->
+                        </select>
+                    </label>
+                    <label for="text">
+                        <a  class="btn btn-info a_bottom" @click='search()'>搜索</a>
+                    </label>
+            </div>
+
+            <!-- 表格 -->
+            <div class="table-responsive" style="width: 85%; margin: auto;">
+                    <a href="addCoupon.html" style="margin:50px 0 50px 50px" class="btn btn-info a_bottom" @click='search()'>新建优惠券</a>
+
+                    <table  class="table  table-bordered table-hover center table_all table_css">
+                        <thead>
+                        <tr>
+                            <th class="center">名称</th>
+                            <th class="hidden-480 center">券类型</th>
+                            <th class="hidden-480 center">面额</th>
+                            <th class="hidden-480 center">有效期</th>
+                            <th class="hidden-480 center">投放状态</th>
+                            <th class="hidden-480 center">发放数/领取数/使用数</th>
+                            <th class="hidden-480 center">券状态</th>
+                            <th class="hidden-480 center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="selected" v-for="order in orderList">
+                            <td class="hidden-480 center">{{order.couponsName}} </td>
+                            <td class="hidden-480 center">
+                                <span v-if='order.couponsType==1'>代金券</span>
+                                <span v-else>折扣券</span> </td>
+                            <td class="center">
+                                <span v-if='order.couponsType==1'>¥{{(order.vouchers*0.01).toFixed(2)}}</span>
+                                <span v-else>{{order.discount}}折</span>
+                            </td>
+                            <td class="center" style="line-height:20px;">       
+                                <p>{{order.startDate }}</p>
+                                <p>{{order.endDate }}</p>
+                            </td>
+                            <td class="center">
+                                    <span v-if='order.putStatu==1'>已投放</span>
+                                    <span v-else>待投放</span>
+                            </td>
+                            <td class="center">
+                                <!-- <span v-if='order.countNum'>{{order.countNum}}/</span>
+                                <span v-else>0/</span> -->
+                                <span>{{order.countNum}}/</span>
+
+                               <!--  
+                                <span  v-if='order.receiveNum'></span>>{{order.receiveNum}}/</span>
+                                <span v-else>0/</span> -->
+                                <span>{{order.receiveNum}}/</span>
+
+                                
+                                <!-- <span v-if='order.useNum'>{{order.useNum}}</span>
+                                <span v-else>0</span> -->
+                                <span>{{order.useNum}}</span>
+
+                            </td>
+                            <td class="center">
+                                <span v-if='order.statu==1'>正常</span>
+                                <span v-else-if='order.statu==2'>已失效</span>
+                                <span v-else>已删除</span>
+                                <!-- {{order.statu}} -->
+                            </td>
+
+                            <td class="center" style="line-height: 20px;">
+                                
+                                <!-- 仅券状态为正常时才显示且； -->
+                                <a :href='"launchList.html?id="+order.id' v-if='order.statu==1'>投放</a>
+                               
+                                <!-- 所有状态 -->
+                                <a :href='"couponOrder1.html?id="+order.id'>查看</a>
+                                
+                                <!-- 仅投放状态为已投放 v-if='order.putStatu==1'-->
+                                <a :href='"distribution.html?id="+order.id' v-if='order.putStatu==1'>已发放</a><br/>
+                                
+                                <!-- 券状态是正常 且 待投放时才出现 -->
+                                <a  :href='"addCoupon.html?id="+order.id'  v-if='order.statu==1 && order.putStatu==2'>编辑</a>
+
+                                <!-- 不等于已失效已删除 -->
+                                <a  @click = 'id=order.id;' data-toggle="modal" href="#" data-target="#toVoid" v-if='order.statu!=2 && order.statu!=3'>作废</a>
+                                
+                                <!-- 券状态为已失效时才显示。 -->
+                                <a  @click = 'id=order.id;' data-toggle="modal" href="#" data-target="#delete" v-if='order.statu==2'>删除</a>
+                               
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!-- 分页 -->
+                    <div class="media p_cssA">
+                        <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="searchData.pageNum" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 删除弹框 -->           
+                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header cancelmessage">
+                                <h1>提醒</h1>
+                                <h1>确定删除此优惠券数据吗？</h1 >
+        
+                                <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                
+                                <button  class="btn btn-primary" data-dismiss="modal" @click='suerDelet(3)'>确定</button>
+                                <button  class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- 作废弹框 -->           
+                 <div class="modal fade" id="toVoid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header cancelmessage">
+                                    <h1>提醒</h1>
+                                    <h4 style="text-align:center;margin:50px 0 80px 0;">确认作废该优惠券吗？作废后优惠券将失效，并不可恢复。</h4>
+                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                    <button  class="btn btn-primary" data-dismiss="modal" @click='suerDelet(2)'>确定</button>
+                                    <button   class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+   
+        </div><!-- /.main-container-inner -->
+
+</div><!-- /.main-content -->
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/couponList.js"></script>
+</body>
+</html>

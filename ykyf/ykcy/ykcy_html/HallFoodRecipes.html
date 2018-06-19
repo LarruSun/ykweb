@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">堂食菜谱</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_camp">
+                        <div class="mge_camp_aup">
+                            <a href="#" type="button" class="btn btn-success a_bottom" data-toggle="modal" data-target="#myModal_newRecipe">新增菜品</a>
+                        </div>
+                        <div class="mge_set">
+                            <label for="text" class=" control-label  ">
+                                <input type="text" placeholder="请输入菜谱名称"/>
+                                <a href="#" class="btn btn-primary a_bottom">搜索</a>
+                            </label>
+                        </div>
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">菜谱名称</th>
+                                    <th class="center">状态</th>
+                                    <th class="center">创建人</th>
+                                    <th class="center">创建时间</th>
+                                    <th class="center">菜品数量</th>
+                                    <th class="center">菜品分类</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected">
+                                    <td class="center">默认菜谱</td>
+                                    <td class="center"><span class="label label-success">启用</span></td>
+                                    <td class="center">系统</td>
+                                    <td class="center">2017-12-15&nbsp;23:59:59</td>
+                                    <td class="center">12</td>
+                                    <td class="center">3</td>
+                                    <td class="center">
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_EditMenu">编辑</a>&nbsp;
+                                    </td>
+                                </tr>
+                                <tr class="selected">
+                                    <td class="center">春季菜谱</td>
+                                    <td class="center"><span class="label label-default">停用</span></td>
+                                    <td class="center">王二</td>
+                                    <td class="center">2017-12-15&nbsp;23:59:59</td>
+                                    <td class="center">13</td>
+                                    <td class="center">4</td>
+                                    <td class="center">
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_EditMenu">编辑</a>&nbsp;
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_RemoveMenu">删除</a>&nbsp;
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_enableMenu">启用</a>&nbsp;
+                                    </td>
+                                </tr>
+                                <tr class="selected">
+                                    <td class="center">秋季菜谱</td>
+                                    <td class="center"><span class="label label-default">停用</span></td>
+                                    <td class="center">王二</td>
+                                    <td class="center">2017-12-15&nbsp;23:59:59</td>
+                                    <td class="center">15</td>
+                                    <td class="center">4</td>
+                                    <td class="center">
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_EditMenu">编辑</a>&nbsp;
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_RemoveMenu">删除</a>&nbsp;
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_enableMenu">启用</a>&nbsp;
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--新增菜谱 start-->
+<div class="modal fade" id="myModal_newRecipe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+    <div class="modal-dialog" style="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_newRecipe">
+                    新增菜谱
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroll_name ">
+                    <div class="">
+                        <label>
+                            <span class="lbl font_size">菜谱名称：</span>
+                            <input placeholder="春季菜谱">
+                        </label>
+                    </div>
+                    <div class="newRecipe" style="">
+                        <div style="margin-top: 20px;" class="newRecipe1">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">江淮小吃</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;" class="newRecipe2">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">湘菜小炒</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;"  class="newRecipe3">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">营养汤粉</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--新增菜谱 end-->
+<!--编辑菜谱 start-->
+<div class="modal fade" id="myModal_EditMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2" aria-hidden="true">
+    <div class="modal-dialog" style="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_EditMenu">
+                    编辑菜谱
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroll_name ">
+                    <div class="">
+                        <label>
+                            <span class="lbl font_size">菜谱名称：</span>
+                            <input placeholder="春季菜谱">
+                        </label>
+                    </div>
+                    <div class="newRecipe" style="">
+                        <div style="margin-top: 20px;" class="newRecipe1">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">江淮小吃</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;" class="newRecipe2">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">湘菜小炒</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;"  class="newRecipe3">
+                            <div class="">
+                                <label style="">
+                                    <input class="ace clickAll" type="checkbox">
+                                    <span class="lbl">营养汤粉</span>
+                                </label>
+                            </div>
+                            <div style="margin-left: 90px;margin-top: -30px;background: #eeeeee;" class="check_son_body">
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                                <label style="    margin-left: 14px;">
+                                    <input class="ace check_son" type="checkbox">
+                                    <span class="lbl">青菜竹笋</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--编辑菜谱 end-->
+<!--删除菜谱 start-->
+<div class="modal fade" id="myModal_RemoveMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove222" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_RemoveMenu">
+                    删除菜谱
+                </h4>
+            </div>
+            <div class="modal-body center">
+                <p style="padding: 17px;font-size: 17px;">确定删除此菜谱吗</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary group_Pac" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--删除菜谱 end-->
+<!--启用菜谱 start-->
+<div class="modal fade" id="myModal_enableMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove222" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_enableMenu">
+                    启用菜谱
+                </h4>
+            </div>
+            <div class="modal-body center">
+                <p style="padding: 17px;font-size: 17px;">确定启用此菜谱吗</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary group_Pac" data-dismiss="modal">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--启用菜谱 end-->
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script>
+
+</script>
+</body>
+</html>

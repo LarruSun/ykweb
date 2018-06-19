@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div id="tableList">
+    <div class="navbar navbar-default" id="navbar">
+        <headd></headd>
+    </div>
+    <div class="main-container" id="main-container" v-cloak>
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" >
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar" sonpage="tableList">
+                <sidebar></sidebar>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a>门店设置</a>
+                        </li>
+                        <li>
+                            <a href="eatInOrderDetail.html">桌台列表</a>
+                        </li>
+                    </ul><!-- .导航 -->
+                </div>
+                <div class="page-content">
+                    <div class="tips">
+                        <p>1. 请先添加餐区, 再添加桌台</p>
+                        <p>2.
+                            <span><i class="fa fa-cog icon"></i>编辑</span>
+                            <span><i class="fa fa-remove icon"></i>删除</span>
+                            <span><i class="fa fa-exchange icon"></i>桌号排序</span>
+                        </p>
+                    </div>
+                    <div class="eat-area">
+                        <span>餐区:</span>
+                        <div class="area-item" @click="checkedArea('all')" :class="indexArea == 'all' ? 'area-item-active' : '' " style="cursor: pointer">全部</div>
+                        <div class="area-item" v-for="(item,index) in eatArea" :class="indexArea == index ? 'area-item-active' : '' ">
+                            <span @click="checkedArea(index,item.id)">{{ item.name }}</span>
+                            <i class="fa fa-cog" :class="indexArea == index ? 'area-item-active' : '' " @click="showModal('addArea','修改餐区',item.id)" data-toggle="modal" data-target="#myModal"></i>
+                            <i class="fa fa-remove" :class="indexArea == index ? 'area-item-active' : '' " @click="showModal('deleteArea','删除餐区',item.id)" data-toggle="modal" data-target="#myModal"></i>
+                            <i class="fa fa-exchange" :class="indexArea == index ? 'area-item-active' : '' " @click="showModal('sortArea','桌号排序',item.id)" data-toggle="modal" data-target="#myModal"></i>
+                        </div>
+                        <div class="add-area" @click="showModal('addArea','添加餐区')" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></div>
+                    </div>
+                    <div class="operate-wrap">
+                        <button type="button" class="btn btn-primary" @click="showModal('addTable','添加桌台')" data-toggle="modal" data-target="#myModal">新增桌台</button>
+                        <button type="button" class="btn btn-primary" @click="clearTable">一键清台</button>
+                        <div style="float: right">
+                            <input type="text" placeholder="请输入桌号或桌台别名" v-model="deskName">
+                            <button type="button" class="btn btn-primary" @click="getTable">搜索</button>
+                        </div>
+                    </div>
+                    <div class="area-status">
+                        <span>桌台状态 : </span>
+                        <span :class="status === '' ? 'area-status-active' : ''" @click="checkStatus('')">全部 : ({{statusNum['all']}})</span>
+                        <span :class="status === '0' ? 'area-status-active' : '' " @click="checkStatus('0')">空台 : ({{statusNum['0']}})</span>
+                        <span :class="status === '1' ? 'area-status-active' : '' "  @click="checkStatus('1')">开台 : ({{statusNum['1']}})</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table  class="table  table-bordered table-hover center table_all table_css">
+                            <thead>
+                                <tr>
+                                    <th class="center">桌台号</th>
+                                    <th class="hidden-480 center">桌台别名</th>
+                                    <th class="hidden-480 center">用餐人数</th>
+                                    <th class="hidden-480 center">餐区</th>
+                                    <th class="hidden-480 center">状态</th>
+                                    <th class="hidden-480 center">创建时间</th>
+                                    <th class="hidden-480 center">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="selected" v-for="item in tableList">
+                                    <td class="hidden-480 center">{{ item.deskNum }}</td>
+                                    <td class="center">{{ item.deskName }}</td>
+                                    <td class="center">{{ item.mealsNum }}</td>
+                                    <td class="center">{{ item.areaName }}</td>
+                                    <td class="center">{{ item.status == '0' ? '空台' : '开台' }}</td>
+                                    <td class="center">{{ item.createTime }}</td>
+                                    <td class="center">
+                                        <a @click="showModal('qrCord','二维码',item.id)" data-toggle="modal" data-target="#myModal"><i class="fa fa-qrcode"></i></a>
+                                        <a @click="showModal('addTable','编辑桌台',item.id)" data-toggle="modal" data-target="#myModal">编辑</a>
+                                        <a @click="showModal('deleteTable','删除桌台',item.id)" data-toggle="modal" data-target="#myModal">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen" style="text-align: right"></vue-pagination>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">{{modalTitle}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--添加餐区-->
+                        <div v-if="saveKey == 'addArea'">
+                            <div class="form-group">
+                                <label>餐区名:</label>
+                                <input type="text" v-model="form.name">
+                            </div>
+                            <div class="form-group">
+                                <label>排序:</label>
+                                <input type="number" v-model="form.orderNum" placeholder="默认999">(最小值1,最大值999)
+                            </div>
+                            <p>请输入1-999数字，数字越大餐区排名越靠前</p>
+                        </div>
+                        <!--桌号排序-->
+                        <div v-if="saveKey == 'sortArea'">
+                            <p style="font-size: 18px;font-weight: 600">餐区：大厅</p>
+                            <p>请在排序输入框内输入1-999数字，数字越大排名越靠前</p>
+                            <div class="table-responsive">
+                                <table  class="table  table-bordered table-hover center table_all table_css">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">排序(最小值1,最大值999)</th>
+                                            <th class="center">桌号</th>
+                                            <th class="center">创建时间</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="selected" v-for="item in sortTableList">
+                                            <td class="center">
+                                                <input type="number" style="width: 100px;text-align: center" v-model="item.orderNum">
+                                            </td>
+                                            <td class="center">{{ item.deskNum }}</td>
+                                            <td class="center">{{ item.createTime }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div v-if="saveKey == 'deleteArea' || saveKey == 'deleteTable'">
+                            <p style="font-size: 18px;font-weight: 600;color: #ff0000;text-align: center">确认删除吗?</p>
+                        </div>
+                        <div v-if="saveKey == 'qrCord'" class="qrCord">
+                            <p>
+                                <span>餐区: {{ qrCodeData.areaName }}</span>
+                                <span>桌号: {{ qrCodeData.deskNum }}</span>
+                            </p>
+                            <div class="center" style="font-size: 20px">
+                                <p><b>二维码: </b></p>
+                                <img :src="qrCodeData.smallroutineImg" alt="">
+                                <p style="margin-top: 10px;">
+                                    <button type="button" class="btn btn-primary a_bottom" @click="downloadQrCord(qrCodeData.smallroutineImg)">下载二维码</button>
+                                    <button type="button" class="btn btn-primary a_bottom" @click="downloadQrCordTemplate(qrCodeData.smallroutineImg)">下载模板二维码</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div v-if="saveKey == 'addTable'">
+                            <div class="form-group">
+                                <label>桌号:</label>
+                                <input type="text" v-model="form.deskNum">
+                            </div>
+                            <div class="form-group">
+                                <label>餐区:</label>
+                                <select v-model="form.areaId">
+                                    <option :value="item.id" v-for="item in eatArea">{{ item.name }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>用餐人数:</label>
+                                <select v-model="form.mealsNum">
+                                    <option :value="item" v-for="item in peopleNum">{{item}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>桌台别名:</label>
+                                <input type="text" v-model="form.deskName">
+                            </div>
+                            <div class="form-group">
+                                <label>桌台排序:</label>
+                                <input type="number" v-model="form.orderNum" placeholder="默认999">(最小值1,最大值999)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary a_bottom" @click="save">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .tips{
+        font-size: 16px;
+        padding:10px;
+    }
+    .tips>p:last-child>span{
+        margin-right: 20px;
+    }
+    .icon{
+        font-size: 18px;
+        margin:0 10px;
+        color: #4186B0;
+    }
+    .eat-area{
+        position: relative;
+        max-height: 170px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 14px;
+        padding: 15px 50px 0 15px;
+        border-radius: 4px;
+        border: 1px solid rgb(221, 221, 221);
+    }
+    .eat-area>span{
+        font-weight: 600;
+        line-height: 36px;
+        margin: 0 30px 10px 0;
+        cursor: pointer;
+    }
+    .eat-area>div:hover{
+        background-color: #ECF2F6;
+    }
+    .area-item{
+        height:36px;
+        line-height: 36px;
+        margin-right:15px;
+        margin-bottom:15px;
+        padding: 0 10px;
+        border-radius: 4px;
+        border: 1px solid rgb(221, 221, 221);
+    }
+    .area-item-active{
+        color: #fff !important;
+        background-color: #4186B0;
+    }
+    .area-item-active:hover{
+        background-color: #4186B0 !important;
+    }
+    .area-item i {
+        font-size: 18px;
+        margin-left: 5px;
+        cursor: pointer;
+        color: #4186B0;
+    }
+    .area-item span{
+        cursor: pointer;
+    }
+    .add-area{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 4px;
+        border: 1px solid rgb(221, 221, 221);
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+    }
+    .operate-wrap{
+        margin: 20px 0 10px;
+    }
+    .btn{
+        padding: 2px 10px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    .area-status{
+        padding: 10px 20px;
+        border: 1px solid rgb(221, 221, 221);
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .area-status>span{
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .area-status-active{
+        color: #ff0000;
+    }
+    .form-group>label{
+        width: 80px;
+    }
+    .form-group>select{
+        width: 163px;
+    }
+    .table-responsive{
+        max-height: 410px;
+        overflow: auto;
+    }
+    .qrCord>p:first-child{
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 0 20px;
+    }
+    .qrCord img{
+        width: 200px;
+        height: inherit;
+        margin-top: 10px;
+    }
+</style>
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../../yk_vip/js/pagination.js"></script>
+<script src="../ykcy_js/tableList.js"></script>
+</html>

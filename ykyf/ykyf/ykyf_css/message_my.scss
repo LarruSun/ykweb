@@ -1,0 +1,19 @@
+.link_nav {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.message_page .main_content{padding:0 20px;}
+.message_page .main_content tr{cursor:pointer;}
+.content_table_list_hover tr:hover td{background:#f4f5f9;}
+
+.content_table_list_bg {
+  padding-right: 74px;
+  position: relative;
+}
+.content_table_list{border:1px solid #ccc;width:100%;}
+.content_table_list thead td{background:#f4f5f9;}
+.content_table_list td{line-height:40px;border-bottom:1px solid #ccc;border-color:#ccc;}
+.content_table_list .content_table_list_type{padding-left:25px;position:relative;}
+.content_table_list .no_read .content_table_list_type:before{content:"";display:block;width:5px;height:5px;border-radius:50px;position:absolute;left:15px;background:#EB3546;top:50%;margin-top:-2px;}
+.content_table_list_bg:after{padding-right:54px;position: absolute;top:50%;right:20px;content:"";display:block;width:8px;height:8px;background:url(../images/frame/table_list_bg.png) no-repeat center center/8px auto;margin-top:-4px;}

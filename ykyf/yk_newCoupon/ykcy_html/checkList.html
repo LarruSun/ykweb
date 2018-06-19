@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<style>
+</style>
+<body style="background:#fff;overflow-x:hidden">
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="launchList1" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+
+<div class="main-container" id="checkList" style="margin-left:15%;width:1300px;">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs" style="border-bottom:1px solid #ccc">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="launchList1.html">优惠券</a>
+                </li>
+                <li>
+                    <a href="#">【{{flag | putMethodFilter}}】券列表</a>
+                </li>
+            </ul>
+            <ul class="breadcrumb" style="margin-left:70%">
+                <li>
+                    <a href="launchList1.html">返回优惠券投放列表</a>
+                </li> 
+            </ul>
+        </div>
+        <div class="main-container-inner" style="width:1000px;margin:auto">
+            <!-- 搜索 -->
+            <div   style="margin-left:3%;">
+                <label for="text">关键字
+                    <input type="text" ref="keywords" placeholder="请输入序列码"/>
+                </label>
+                <label class="voucher_time">有效期：
+                    <input class="form_datetime" id="wei_datetime2" type="date" ref="startDate" v-model='startTime'>
+                    &nbsp;至&nbsp;
+                    <input class="form_datetime" id="wei_datetime3" type="date" ref="endDate" v-model='endTime'>
+                </label>
+               
+            </div>
+            <div   style="border-bottom:1px solid #ccc;margin:0 0 100px 3%">
+                <label for="text" class="control-label" >券状态：
+                        <select size="1" ref="status" name="sample-table-2_payType" aria-controls="sample-table-2">
+                            <option value="">全部</option>
+                            <option value="1">正常</option>
+                            <option value="2">已失效</option>
+                        </select>
+                </label>
+                <label for="text" class="control-label">券类型：
+                        <select size="1" ref="type" name="sample-table-2_payType" aria-controls="sample-table-2">
+                            <option value="">全部</option>
+                            <option value="1">代金券</option>
+                            <option value="2">折扣券</option>
+                        </select>
+                </label>
+                <a class="btn btn-info a_bottom" @click='search()' style="margin:50px 5% 50px 80px">搜索</a>
+            </div>
+            <!-- 表格 -->
+            <div style="width:100%;margin:auto;margin-top:100px;" class="table-responsive">
+                    <table  class="table  table-bordered table-hover center table_all table_css" >
+                        <thead>
+                        <tr>
+                            <th class="center">券类型</th>
+                            <th class="hidden-480 center">名称</th>
+                            <th class="hidden-480 center">面额</th>
+                            <th class="hidden-480 center">有效期</th>
+                            <th class="hidden-480 center">发放数/领取数/使用数</th>
+                            <th class="hidden-480 center">券状态</th>
+                            <th class="hidden-480 center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="selected" v-for="order in orderList">
+                                <td class="hidden-480 center">
+                                    <span v-if='order.couponsType==1'>代金券</span>
+                                    <span v-else>折扣券</span>
+                                </td>
+                                <td class="hidden-480 center">{{order.couponsName}}</td>
+                                <td class="center">
+                                    <span v-if='order.couponsType==1'>¥{{(order.vouchers*0.01).toFixed(2)}}</span>
+                                    <span v-else>{{order.discount}}折</span>
+                                </td>
+                                <td class="center">{{ order.startDate }}~{{ order.endDate }} </td>
+                                <td class="center">{{order.countNum | judge}}/{{ order.receiveNum | judge}}/{{ order.useNum | judge}}</td>
+                                <td class="center">
+                                    <span v-if='order.statu==1'>正常</span>
+                                    <span v-else>已移除</span>
+                                </td>
+                                <td class="center" style="position:relative">
+                                    <a :href='"couponOrder.html?flag=look&id="+order.id'>查看</a>
+                                    <a :href='"sendingCoupons.html?id="+order.id' data-target="#remove" v-if='flag=="hysq"'>再次派送</a>
+                                    <a href="#" data-toggle="modal" @click="getData(order)" :data-putid="order.putId" data-target="#remove" v-if='flag!="hysq"'>移除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 分页 -->
+                    <div class="media p_cssA">
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+                    </div>
+                    
+                    <!-- 到店领券弹框 --> 
+                    <div class="modal fade" id="remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header cancelmessage">
+                                    <h1>提醒</h1>
+                                    <h1>确定要移除此到店领券数据吗？</h1 >
+                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                    <button class="btn btn-primary" data-dismiss="modal" @click='alertSuccess("操作成功",1000)'>确定</button>
+                                    <button @click='alertInfo("操作已经取消",1000)' class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div><!-- /.main-content -->
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+<script src="../ykcy_js/checkList.js"></script>
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+</body>
+</html>
+
+
+

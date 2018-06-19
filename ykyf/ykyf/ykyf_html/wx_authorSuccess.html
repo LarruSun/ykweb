@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微信公众号接入</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+            background:#d6dbdd;
+            box-sizing: border-box;
+            padding-top:100px;
+        }
+        .msgBox{
+            background: #fff;
+            border-radius: 3px;
+            text-align: center;
+            width:500px;
+            min-height: 160px;
+            margin:0 auto;
+            padding-top:30px;
+        }
+        dl dd{
+             font-size: 18px;
+        }
+        p{
+            margin-top: 20px;
+            font-size:14px;
+        }
+        a{
+            color:#69aef4;
+        }
+        em{
+            color:#ff0000;
+            font-size: 16px;
+            font-weight: 600;
+            margin-right:6px;
+        }
+    </style>
+</head>
+<body>
+ <div class="msgBox" id="msgBox">
+      <dl>
+          <dt>
+              <img v-if="msg.status=='success'" src="../ykyf_images/sucess.png" alt="">
+              <img v-if="msg.status=='fail'" src="../ykyf_images/fail.jpg" alt="">
+          </dt>
+          <dd>{{msg.text}}</dd>
+      </dl>
+     <p><em class="countdown">5</em>秒后窗口自动跳转,<a href="javascript:;" v-on:click="jumpUrl">点击这里</a>立即跳转</p>
+ </div>
+</body>
+<script src="../../resources/config.js"></script>
+<script src="../../resources/common/lib/jquery.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../ykyf_js/const.js"></script>
+<script>
+    /*var timerc=6; //全局变量
+    function countdown(){
+        if(timerc > 0){
+            --timerc; //时间变量自增1
+            if(timerc == 0){
+                jumpUrl();
+                return;
+            }
+            $(".countdown").html(timerc);
+            setTimeout("countdown()", 1000); //设置1000毫秒以后执行一次本函数
+        };
+    };*/
+
+    new Vue({
+        el:'#msgBox',
+        data:{
+             msg:{
+                  status:'fail',
+                  text:'授权成功'
+             },
+            userId:'',
+            platform:'',
+            time:5
+        },
+        methods:{
+            jumpUrl:function(){
+                //console.log(467)
+                window.location.href=pathApi1+'/wx/weChat/toWeChatMain?userId='+this.userId+'&platform='+this.platform;
+            },
+            countdown:function() {
+                let me = this;
+                me.sendMsgDisabled = true;
+                let interval = window.setInterval(function() {
+                    me.time--;
+                    if ((me.time) <= 0) {
+                        me.sendMsgDisabled = false;
+                        window.clearInterval(interval);
+                        me.jumpUrl();
+                        return;
+                    }
+                    $(".countdown").html(me.time);
+                }, 1000);
+            }
+
+        },
+        created:function(){
+
+            var result = location.search;
+            console.log(result);
+            if (result.indexOf("?") != -1) {
+                var str = result.substr(1);
+                var backUserId=str.split("&")[0].split("=")[1];
+                var userId=backUserId.split("_")[0];
+                var platform=backUserId.split("_")[1];
+                var state=str.split("&")[1].split("=")[1];
+                var message=str.split("&")[2].split("=")[1];
+                console.log(message);
+                message= decodeURI(message);
+                console.log(message);
+                this.msg.status=state;
+                this.msg.text=message;
+                this.userId=userId;
+                this.platform=platform;
+            }
+
+            this.countdown();
+
+        }
+    })
+</script>
+</html>

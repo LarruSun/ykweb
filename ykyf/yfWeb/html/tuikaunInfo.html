@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="../css/orderInfo.css">
+    <script src="../../resources/common/lib/jquery.min.js"></script>
+    <script src="../../resources/common/lib/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="../js/msgbox/msgbox.css">
+    <script src="../js/msgbox/msgbox.js"></script>
+    <script src="../js/msgbox/msgUtil.js"></script>
+    <script src="../../resources/config.js"></script>
+    <title>售后订单</title>
+</head>
+<body>
+<section id="app" v-cloak>
+    <section class="sec1 disf_c">
+        <section>
+            <section>流水号：{{orderInfo.sonOrder.currentOrderNum}}</section>
+            <section>订单编号：{{orderInfo.orderNO}}</section>
+        </section>
+        <section class="textRed">
+            <span v-if="orderInfo.afterSaleOrders.length>0">{{afterStatus[orderInfo.afterSaleOrders[0].afterSaleStatus]}}</span>
+            <span v-else>{{orderStatus[orderInfo.status]}}</span>
+        </section>
+    </section>
+     <section class="sec2">
+          <section><span>退款时间：</span>   <b>{{times}}</b></section>
+          <!--<section><span>期望时间</span>   <b>立即送达</b></section>-->
+     </section>
+     <section class="sec2">
+         <section><span>退款方：</span>   <b>顾客</b></section>
+         <section style="display: flex"><span>退款理由：</span>
+             <dl>
+                 <dt><b>{{orderInfo.afterSaleOrders[0].cancelResult}}</b></dt>
+                 <dd><img v-bind:src="orderInfo.afterSaleOrders[0].refundImgs" alt="" ></dd>    <!--../images/cai.png-->
+             </dl>
+         </section>
+     </section>
+    <section class="sec3">
+        <section>用餐人数 ：<b>{{orderInfo.sonOrder.cyUseNum}}人</b></section>
+        <section>订单备注 ：<b>{{orderInfo.remark}}</b></section>
+        <section>发票抬头 ：<b>{{orderInfo.sonOrder.receiptType}}</b></section>
+    </section>
+    <section class="sec4">
+        <section class="sec_tit"><span><img src="../images/cai.png" alt="">菜品详情</span><span class="right45">数量</span><span>单价</span></section>
+        <section class="sec_box" v-for="item in foodList">
+            <section class="sec_obx_item">
+                <section class="disf_c"><b>{{item.commodityName}}</b><span class="text99 right45">x{{item.prodNum}}</span><span class="text99">￥{{item.price*0.01 | price}}</span></section>
+                <section><span class="textRed">{{item.tech}}</span></section>
+            </section>
+        </section>
+        <!--<section class="calc_tot">合计&nbsp;:&nbsp;{{orderInfo.soTotal*0.01}}</section>-->
+    </section>
+    <section class="sec5">
+        <section v-if="orderInfo.sonOrder.mealsFee"><span class="text99">餐盒费</span><span class="text99">￥{{orderInfo.sonOrder.mealsFee*0.01 | price}}</span></section>
+        <section v-for="item in surcharge"><span class="text99">{{ item.surchargeName }}</span><span class="text99">￥{{ item.total * 0.01 | price}}</span></section>
+        <section v-if="discountInfo.discountLimit"><span class="text99">会员折扣</span><span class="text99">-￥{{ discountInfo.discountmoney * 0.01 | price}}</span></section>
+    </section>
+    <section class="sec6">
+        <section>优惠：￥{{orderInfo.soTotal*0.01-orderInfo.payTotal*0.01 | price}} &nbsp;<span class="font16"> 合计:</span> <span class="textRed font16">￥{{orderInfo.payTotal*0.01 | price}}</span></section>
+    </section>
+    <section class="sec7">
+        <section><span class="width60" v-if="takeOutType">配送公司：</span><b>{{ takeOutType }}</b></section>
+        <section><span class="width60">配送员：</span><b>{{ orderInfo.summaryOrderTakeOut ? orderInfo.summaryOrderTakeOut.carrier_driver_name : ''  }}</b></section>
+        <section><span class="width60">配送地址：</span><b>{{orderInfo.userName}} {{orderInfo.phone}}</b></section>
+        <section><span class="width60"></span><b>{{orderInfo.address}}</b></section>
+    </section>
+    <section class="bot">
+        <section class="noPad" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus == 'applyStatus'">
+            <section class="wid_40" v-on:click="refuse">拒绝</section>
+            <section class="wid_60" v-on:click="showModal = true">同意</section>
+        </section>
+    </section>
+    <div class="change-dispatch" v-if="showModal">
+        <h2>退款操作</h2>
+        <p class="refund-tips">可退款余额: ￥{{orderInfo.payTotal*0.01 | price}}</p>
+        <p class="refund-tips" v-if="orderInfo.summaryOrderTakeOut.deliverFee && orderInfo.summaryOrderTakeOut.takeout_type != 'ZIYING_TAKEOUT' " style="font-size: 14px;color: #ff0000;">已支付骑手费用: ￥{{orderInfo.summaryOrderTakeOut.deliverFee * 0.01 | price}}元</p>
+        <div class="refund-input">
+            <span>退款金额</span>
+            <input type="number" placeholder="请输入金额" v-model="amount">
+            <span>元</span>
+        </div>
+        <div class="btn-wrap">
+            <button @click="acept">确定</button>
+            <button @click="showModal = false">取消</button>
+        </div>
+    </div>
+    <div class="modal" v-if="showModal" @click="showModal = false"></div>
+</section>
+</body>
+<script src="../js/flexible.js"></script>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/vue-router.min.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/tuikuanInfo.js"></script>
+</html>

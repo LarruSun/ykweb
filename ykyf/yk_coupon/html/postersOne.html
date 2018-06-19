@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>优惠券</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/ace.min.css"/>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody > tr > td, .table tfoot > tr > td {
+            padding: 8px;
+            line-height: 1.428571429;
+            border-bottom: 1px solid #ddd !important;
+        }
+
+        .iframe {
+            width: 100%;
+            height: 586px;
+        }
+    </style>
+
+    <style>
+        /** {
+            padding: 0;
+            margin: 0;
+        }*/
+
+        /*
+          * 外面盒子样式---自己定义
+          */
+
+        .page_div {
+            margin-top: 20px;
+            margin-bottom: -20px;
+            font-size: 15px;
+            font-family: "microsoft yahei";
+            color: #666666;
+            margin-right: 10px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            text-align: right;
+        }
+
+        /*
+         * 页数按钮样式
+         */
+
+        .page_div a {
+            min-width: 30px;
+            /*height: 28px;*/
+            border: 1px solid #dce0e0!important;
+            text-align: center;
+            margin: 0 2px;
+            cursor: pointer;
+            line-height: 1.42857143;
+            color: #666666;
+            font-size: 14px;
+            display: inline-block;
+            padding: 6px 12px;
+            text-decoration:none;
+        }
+
+        #firstPage,
+        #lastPage {
+            width: 50px;
+            color: #337AB7;
+            border: 1px solid #337AB7!important;
+        }
+
+        #prePage,
+        #nextPage {
+            width: 70px;
+            color: #337AB7;
+            border: 1px solid #337AB7!important;
+        }
+
+        #prePage:hover,#nextPage:hover{
+            background-color: #eee;
+        }
+
+        .page_div .current {
+            background-color: #337AB7;
+            border-color: #337AB7;
+            color: #FFFFFF;
+        }
+
+        .totalPages {
+            margin: 0 10px;
+        }
+
+        .totalPages span,
+        .totalSize span {
+            color: #337AB7;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="../img/logo.png" width="25" alt=""/>
+                    优惠券
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <span class="user-info">
+                            <small style="margin-top: 10px;" class="login_user"> 先生/女士 </small>
+                        </span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://yun.eaqul.com/ykyf/ykyf_html/server_my.html">
+                                <i class="icon-off"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container" >
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="../index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="active">
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content" id="tfqd_manage">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">海报列表</a>
+                    </li>
+                    <li>
+                    	<a href="#" class="page_name">新建海报</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row voucher_holds" >
+                    <div class="col-sm-12" style="min-width: 950px;box-sizing: border-box;padding-right: 400px;display: flex;justify-content: center;">
+                        <!--left s-->
+                        <div class="holds_box col-sm-4">
+
+                            <div class="holds_main2" >
+                                <div class="arch">
+                                    <div class="arch_mian">
+                                        <div class="arch_head ">
+                                        	<p class="posterName" style="position:absolute;top:26px;text-align:center;color:#ccc;width:100%;">
+                                        		优惠海报
+                                        	</p>
+                                            <img src="../img/arch_img.png"  alt="" class="img-responsive">
+                                            <p class="arch_p holds_her title_heider_html" style="margin-top:-32px;"></p>
+                                        </div>
+										<iframe name="phoneWin" id="phoneWin" class="iframe" src="" frameborder="0" >
+
+                                        </iframe>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--left e-->
+                        <!--right main start-->
+                        <div class="holds_right" style="position: absolute;right: 0;">
+
+                            <div class="holds_right_box">
+                                <p class="holds_right_setHeit center">海报设置</p>
+                                <div class="holds_right_setNav">
+                                    <a href="#" class="choose_set nava" ty="base">基本</a>
+                                    <a href="#" class="nava" ty="img">图片</a>
+                                    <a href="#" class="nava" ty="quan">券</a>
+                                    <a href="#" class="nava" ty="txt">文字</a>
+                                    <a href="#" class="nava" ty="bg">背景</a>
+                                    <a href="#" class="nava" ty="bgm">音乐</a>
+                                </div>
+                                <div class="holds_right_setMain">
+                                    <!--基本 S-->
+                                    <div class="holds_right_basic" style="">
+                                       <div class="basic_body">
+                                           <div class="holds_top_son2">
+                                               <p class="pag_mia">海报名称：</p>
+                                               <div class="pag">
+                                                   <label for="text" class=" control-label  ">
+                                                       <input type="text" class="title_heider" placeholder="优惠海报" value="优惠海报">
+                                                   </label>
+                                               </div>
+                                           </div>
+                                           <div class="holds_top_son2">
+                                               <p class="pag_mia">页面描述：</p>
+                                               <div class="pag">
+                                                   <label for="text" class=" control-label  ">
+                                                       <input type="text" class="holds_name2" placeholder="这家店不错，领券多一点，优惠多一点" value="这家店不错，领券多一点，优惠多一点">
+                                                   </label>
+                                                   <p class="description">通过微信分享时，页面描述会自动显示</p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <!--基本 E-->
+                                    <!--图片 S-->
+                                    <div class="holds_right_print" style="display: none">
+                                        <div class="basic_body">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">组件名称：</p>
+                                                <div class="pag  " >
+                                                    <label class="">
+                                                        <select name="sample-table-2_length" aria-controls="sample-table-2" size="1" class="img_assembly_set posterImgSelect">
+<!--                                                            <option value="图片1">图片1</option>
+                                                            <option value="图片2">图片2</option>
+                                                            <option value="图片3">图片3</option>-->
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="img_choose ">
+                                                <img class="postImgChose" src=""  alt="">
+                                              <!--  <a href="#">更改></a>-->
+
+                                            </div>
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">动画方式：</p>
+                                                <div class="pag">
+                                                    <label class="">
+                                                        <select class="ImgAnimSelect" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                            <option value="">默认</option>
+                                                            <option value="bounceIn">向外弹出</option>
+                                                            <option value="bounceInDown">向下弹出</option>
+                                                            <option value="bounceInLeft">向右弹出</option>
+                                                            <option value="bounceInRight">向左弹出</option>
+                                                            <option value="bounceInUp">向上弹出</option>
+                                                            <option value="fadeIn">平滑淡出</option>
+                                                            <option value="fadeInDown">向下淡出</option>
+                                                            <!-- <option value="fadeInDownBig">fadeInDownBig</option> -->
+                                                            <option value="fadeInLeft">向右淡出</option>
+                                                            <!-- <option value="fadeInLeftBig">fadeInLeftBig</option> -->
+                                                            <option value="fadeInRight">向左淡出</option>
+                                                            <!-- <option value="fadeInRightBig">fadeInRightBig</option> -->
+                                                            <option value="fadeInUp">向上淡出</option>
+                                                            <!-- <option value="fadeInUpBig">fadeInUpBig</option> -->
+                                                            <option value="flipInY">水平翻转</option>
+                                                            <option value="rollIn">向右回旋</option>
+                                                            <option value="rotateIn">中心旋转</option>
+                                                            <option value="rotateInDownLeft">自上向右旋转</option>
+                                                            <option value="rotateInDownRight">自上向左旋转</option>
+                                                            <option value="rotateInUpLeft">自下向左旋转</option>
+                                                            <option value="rotateInUpRight">自下向右旋转</option>
+                                                            <option value="slideInUp">向上滑出</option>
+                                                            <option value="slideInDown">向下滑出</option>
+                                                            <option value="slideInLeft">向右滑出</option>
+                                                            <option value="slideInRight">向左滑出</option>
+                                                            <option value="zoomIn">中心缩放</option>
+                                                            <option value="zoomInDown">向下缩放</option>
+                                                            <option value="zoomInLeft">向右缩放</option>
+                                                            <option value="zoomInRight">向左缩放</option>
+                                                            <option value="zoomInUp">向上缩放</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--图片 E-->
+                                    <!--券S-->
+                                    <div class="holds_right_ticket" style="display: none">
+                                        <div class="basic_body">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">部件名称：</p>
+                                                <div class="pag">
+                                                    <label class="">
+                                                        <select class="posterQuanSelect" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                           <!-- <option value="全部">优惠券1</option>
+                                                            <option value="全部">优惠券2</option>
+                                                            <option value="全部">优惠券3</option>-->
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="img_choose"  style="position: relative"> 
+
+                                                <div style="display: none" class="couponsNum_one">
+                                                    <div class="poster-quan" style="width: 100%;display: flex;justify-content: center;">
+									                    <div class="item" style="position: relative;width: 68%;height:68px;">
+									                            <img class="bgimg" style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;width: 100%;height: 100%;" src="../img/Vouve2.png" alt="">
+									                            <p style="position: absolute;padding: 12px 20px;box-sizing: border-box;height: 100%;align-items: baseline;"><i style="font-style: normal;color: #fb241f;font-size:18px;">￥</i>
+									                                <em class="vouchers arch_mi1" style="font-size: 30px;font-style: normal;font-weight: 600;color: #fb241f;"><span></span></em>
+									                                <span style="color: #f5c9aa;position: absolute;width: 100%;top:26px;font-size: 15px;margin-left: 32px;" class="arch_mi3_span2"></span>
+									                               <!--  满<b class="lowestConsume" style="font-weight:normal;">100</b>元可用 -->
+									                            </p>									                   
+									                    </div>
+									                </div>
+                                                </div>
+
+                                                <div style="display: none" class="couponsNum_two">
+                                                  <img src="../img/duang.png" alt="" style="width: 155px;height: 79px">
+                                                    <div class="arch_mi2" style="position: absolute;width: 12px;top: 42px; left: 120px;color: #eaef25;font-size: 16px;">
+                                                        <span>领取</span>
+                                                    </div>
+                                                    <div class="arch_mi1" style="color: rgba(100, 0, 2, 0.76);position: absolute;top: 33px; left: 154px;font-size: 14px;">
+                                                        <span style="font-size: 28px"></span>元
+                                                    </div>
+                                                    <div class="arch_mi3" style="font-size: 12px; color: #640002;position: absolute; right: 125px;top: 75px;">
+                                                        <span class="arch_mi3_span"></span><span class="arch_mi3_span2"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="holds_top_son3">
+                                                <p class="pag_mia">券名称：</p><p class="quanName"></p>
+                                                <a href="#" data-toggle="modal" data-target="" onclick="getCoupons()" >添加</a>
+                                            </div>
+<!--                                            <div class="holds_top_son3">
+                                                <p class="pag_mia">券样式：</p>
+                                                <div class="pag">
+                                                    <label class="">
+                                                        <select class="txtStyle" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                            <option value="样式1">样式1</option>
+                                                            <option value="样式2">样式2</option>
+                                                            <option value="样式3">样式3</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>-->
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">动画方式：</p>
+                                                <div class="pag">
+                                                    <label class="">
+                                                        <select class="QuanAnimSelect" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                            <option value="">默认</option>
+                                                            <option value="bounceIn">向外弹出</option>
+                                                            <option value="bounceInDown">向下弹出</option>
+                                                            <option value="bounceInLeft">向右弹出</option>
+                                                            <option value="bounceInRight">向左弹出</option>
+                                                            <option value="bounceInUp">向上弹出</option>
+                                                            <option value="fadeIn">平滑淡出</option>
+                                                            <option value="fadeInDown">向下淡出</option>
+                                                            <!-- <option value="fadeInDownBig">fadeInDownBig</option> -->
+                                                            <option value="fadeInLeft">向右淡出</option>
+                                                            <!-- <option value="fadeInLeftBig">fadeInLeftBig</option> -->
+                                                            <option value="fadeInRight">向左淡出</option>
+                                                            <!-- <option value="fadeInRightBig">fadeInRightBig</option> -->
+                                                            <option value="fadeInUp">向上淡出</option>
+                                                            <!-- <option value="fadeInUpBig">fadeInUpBig</option> -->
+                                                            <option value="flipInY">水平翻转</option>
+                                                            <option value="rollIn">向右回旋</option>
+                                                            <option value="rotateIn">中心旋转</option>
+                                                            <option value="rotateInDownLeft">自上向右旋转</option>
+                                                            <option value="rotateInDownRight">自上向左旋转</option>
+                                                            <option value="rotateInUpLeft">自下向左旋转</option>
+                                                            <option value="rotateInUpRight">自下向右旋转</option>
+                                                            <option value="slideInUp">向上滑出</option>
+                                                            <option value="slideInDown">向下滑出</option>
+                                                            <option value="slideInLeft">向右滑出</option>
+                                                            <option value="slideInRight">向左滑出</option>
+                                                            <option value="zoomIn">中心缩放</option>
+                                                            <option value="zoomInDown">向下缩放</option>
+                                                            <option value="zoomInLeft">向右缩放</option>
+                                                            <option value="zoomInRight">向左缩放</option>
+                                                            <option value="zoomInUp">向上缩放</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--券E-->
+                                    <!--文字 E-->
+                                    <div class="holds_right_character"  style="display: none">
+                                        <div class="basic_body">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">部件名称:</p>
+                                                <div class="pag">
+                                                    <label class="">
+                                                        <select class="posterTxtSelect" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                            <!--<option value="文本1">文本1</option>
+                                                            <option value="文本2">文本2</option>
+                                                            <option value="文本3">文本3</option>-->
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="pag_img txtShowBox" style="min-height: 60px;">
+                                                 
+<!--                                                <section class="RankEditor" style="font-family: 'microsoft YaHei'; border: 0px none; padding: 0px;">
+                                                    <section style="display:flex;justify-content: center;align-items: center;margin-top:20px;">
+                                                        <section>
+                                                            <section style="width:30px;height:10px;background:rgb(55,156,157);transform: skewX(45deg);"></section>
+                                                            <section style="width:30px;height:10px;background:rgb(55,156,157);transform: skewX(-45deg);"></section>
+                                                        </section>
+                                                        <section style="padding:0 15px;padding-top:7px;text-align:center;">
+                                                            <p class="title active" style="font-size:18px;font-weight:bold;color:rgb(55,156,157);min-width:1em;">稻香村十一优惠节</p>
+                                                        </section>
+                                                        <section>
+                                                            <section style="width:30px;height:10px;background:rgb(55,156,157);transform: skewX(-45deg);"></section>
+                                                            <section style="width:30px;height:10px;background:rgb(55,156,157);transform: skewX(45deg);"></section>
+                                                        </section>
+                                                    </section>
+                                                </section>
+                                                <section class="RankEditor2" style="margin-top:10px;text-align: center;display: none">
+                                                    <section>
+                                                        <span style="display:inline-block;width:30px;height:2px;background:rgb(42,170,222);vertical-align: bottom;"></span>
+                                                    </section>
+                                                    <section style="display:inline-block;vertical-align: top;">
+                                                        <section style="height:5px;border:1px solid rgb(42,170,222);border-bottom:none;"></section>
+                                                        <section class="title active" style="padding:2px 10px;font-size:18px;color:rgb(6,6,6);">稻香村十一优惠节</section>
+                                                        <section style="height:5px;border:1px solid rgb(42,170,222);border-top:none;"></section>
+                                                    </section>
+                                                    <section>
+                                                        <span style="display:inline-block;width:30px;height:2px;background:rgb(42,170,222);vertical-align: top;"></span>
+                                                    </section>
+                                                </section>
+                                                <section class="RankEditor3" style="border: 0px none; padding: 0px;margin-top:20px;display: none">
+                                                    <section style=" margin-bottom: 5px; border-top-width: 1px; border-top-style: solid; border-top-color: #f58fc6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #f58fc6; display: inline-block; width: 100%;"><section style="width: 10px; height: 5px; background-color: #f58fc6; float: left;"></section>
+                                                        <section style="width: 10px; height: 5px; background-color: #f6a1cf; float: left; clear: none;"></section>
+                                                        <section class="active" style="padding-top: 5px; padding-bottom: 5px; clear: both; color:#f58fc6;text-align: center;">
+                                                            <p class="brush" style="color: inherit; margin-top: 0px; margin-bottom: 0px;">
+                                                                <span class="brush" style="color:inherit;">稻香村十一优惠节</span>
+                                                            </p>
+                                                        </section>
+                                                    </section>
+                                                </section>-->
+                                            </div>
+                                            <div class="holds_top_s">
+                                                <!--<div class="holds_top_so">
+                                                    <p class="pag_mia">文本样式:</p>
+                                                    <div class="pag">
+                                                        <label class="">
+                                                            <select name="sample-table-2_length" aria-controls="sample-table-2" size="1" class="text_style">
+                                                                <option value="样式1">样式1</option>
+                                                                <option value="样式2">样式2</option>
+                                                                <option value="样式3">样式3</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>-->
+                                                <div class="holds_top_so">
+                                                    <p class="pag_mia">字体大小:</p>
+                                                    <label style="display: flex; align-items: center;">
+                                                        <input type="range" max="6" min="0" step="0.1" value="3" txttype="fontsize" class="range2 fontSizeInput rangeInput">
+                                                        <span class="range_text2 lbl" style="color: #999999;">0</span>
+                                                    </label>
+                                                </div>
+                                                <div class="holds_top_so">
+                                                    <p class="pag_mia">运动方式:</p>
+                                                    <div class="pag">
+                                                        <label class="">
+                                                            <select class="TxtAnimSelect" name="sample-table-2_length" aria-controls="sample-table-2" size="1">
+                                                                <option value="">默认</option>
+                                                                <option value="bounceIn">向外弹出</option>
+                                                            <option value="bounceInDown">向下弹出</option>
+                                                            <option value="bounceInLeft">向右弹出</option>
+                                                            <option value="bounceInRight">向左弹出</option>
+                                                            <option value="bounceInUp">向上弹出</option>
+                                                            <option value="fadeIn">平滑淡出</option>
+                                                            <option value="fadeInDown">向下淡出</option>
+                                                            <!-- <option value="fadeInDownBig">fadeInDownBig</option> -->
+                                                            <option value="fadeInLeft">向右淡出</option>
+                                                            <!-- <option value="fadeInLeftBig">fadeInLeftBig</option> -->
+                                                            <option value="fadeInRight">向左淡出</option>
+                                                            <!-- <option value="fadeInRightBig">fadeInRightBig</option> -->
+                                                            <option value="fadeInUp">向上淡出</option>
+                                                            <!-- <option value="fadeInUpBig">fadeInUpBig</option> -->
+                                                            <option value="flipInY">水平翻转</option>
+                                                            <option value="rollIn">向右回旋</option>
+                                                            <option value="rotateIn">中心旋转</option>
+                                                            <option value="rotateInDownLeft">自上向右旋转</option>
+                                                            <option value="rotateInDownRight">自上向左旋转</option>
+                                                            <option value="rotateInUpLeft">自下向左旋转</option>
+                                                            <option value="rotateInUpRight">自下向右旋转</option>
+                                                            <option value="slideInUp">向上滑出</option>
+                                                            <option value="slideInDown">向下滑出</option>
+                                                            <option value="slideInLeft">向右滑出</option>
+                                                            <option value="slideInRight">向左滑出</option>
+                                                            <option value="zoomIn">中心缩放</option>
+                                                            <option value="zoomInDown">向下缩放</option>
+                                                            <option value="zoomInLeft">向右缩放</option>
+                                                            <option value="zoomInRight">向左缩放</option>
+                                                            <option value="zoomInUp">向上缩放</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="holds_top_so">
+                                                    <p class="pag_mia" style="margin-right: 36px;">颜色:</p>
+                                                    <div class="pag">
+                                                        <label class="">
+                                                            <div class="form-item">
+                                                                <label for="color"></label>
+                                                                <input type="color" id=""  readonly="readonly" class="color_input range2 fontcolor rangeInput" txttype="fontcolor" name="color" value="#379c9d" style="width:123px"/>
+                                                            </div>
+                                                            <!-- <div id="picker"></div> -->
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="holds_top_so">
+                                                    <p class="pag_mia" style="margin-right: 26px;">字间距:</p>
+                                                        <label style="display: flex; align-items: center;">
+                                                            <input type="range" max="3" min="-1" step="0.1" value="1" txttype="fontmargin" class="range rangeInput">
+                                                            <span class="range_text lbl" style="color: #999999;">0</span>
+                                                        </label>
+                                                </div>
+                                                <div class="holds_top_so">
+                                                    <p class="pag_mia" style="margin-right: 40px;">行高:</p>
+                                                    <label style="display: flex; align-items: center;">
+                                                        <input type="range" max="6" min="0" step="0.1" value="3" txttype="fontlineheight" class="range2 rangeInput">
+                                                        <span class="range_text2 lbl" style="color: #999999;">0</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--文字S-->
+                                    <!--背景S-->
+                                    <div class="holds_right_backdrop" style="display: none">
+                                        <div class="basic_body">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">部件名称：<span>背景</span></p>
+                                                <div class="pag_img">
+                                                        <img src="../img/temp2.png" class="imgid deimgid"  alt="" style="width: 250px;height: 200px;">
+                                                    <p>背景图片尺寸建议800*600</p>
+                                                    <a href="#">更改></a>
+                                                    <div style="width: 57px;height: 27px;font-size: 13px;line-height: 21px;overflow: hidden;margin-top: -25px;margin-left: 141px;color: #999;opacity: 0;">
+                                                        <a href="#" class="fileid_a"> <input id="fileid" class="fileid"  type="file"></a>
+                                                    </div>
+                                                    <a href="#" class="restore_default">恢复默认</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--背景E-->
+                                    <!--音乐S-->
+                                    <div class="holds_right_music"  style="display: none">
+                                        <div class="basic_body">
+                                            <div class="holds_top_son2">
+                                                <p class="pag_mia">部件名称：<span>音乐</span></p>
+                                                <div class="media">
+                                                    <p class="pull-left music_c" style="margin-right: 200px;" 
+                                                     musicUrl="../voice/live.mp3" >怒放的生命</p>
+                                                    <img src="../img/iconfont-shengyin.png" alt="">
+                                                </div>
+                                                <div class="pag_img">
+                                                    <a href="#"  data-toggle="modal" data-target="#MusicCenter">更改></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--音乐E-->
+                                </div>
+                                <div class="holds_right_bottom">
+                                    <a href="#" class="btn btn-primary a_bottom" onClick="javascript:history.back(-1);">取消</a>
+                                    <!--<a href="#" class="btn btn-primary a_bottom">浏览</a>-->
+                                    <a href="#" class="btn btn-primary a_bottom savePosterBtn">保存</a>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.col -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<!-- <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a> -->
+<!--置顶图标 end-->
+<!--.main-container-->
+<!--更改优惠券 start-->
+<div class="modal" id="myModal_choose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_choose" aria-hidden="true">
+    <div class="modal-dialog" style=" width: 800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >选择优惠券</h4>
+            </div>
+            <div class="modal-body" >
+                <div class="create_list media" style=" margin-bottom: 15px;">
+                    <p class="pull-left" style="color: #999;">券海报里面的券须同步微信卡券，才可以放入券海报</p>
+                    <div class="pull-right">
+                        <input type="text" placeholder="请输入券名称" id="couponsName">
+                        <a href="#" class="btn btn-primary " style="padding: 0px 21px; border-radius: 2px;margin-left: 14px;margin-top: -4px;" onclick="getCoupons()" >查找</a>
+                    </div>
+                </div>
+                <table class="table  table-bordered table-hover center ">
+                    <thead>
+                    <tr>
+                        <th class="center">优惠券</th>
+                        <th class="center">有效期</th>
+                        <th class="center">库存/总量</th>
+                        <th class="center">同步</th>
+                    </tr>
+                    </thead>
+                    <tbody id="couponsList">
+                    <!-- <tr class="selected">
+                        <td class="center " style=" vertical-align: middle;">
+                            <div style=" display: flex;justify-content: flex-start;">
+                                <label class="jianm" style=" margin-top: 20px;  margin-right: 16px;">
+                                    <input name="form-field-radio" class="ace " type="radio">
+                                    <span class="lbl"></span>
+                                </label>
+                                <div class="table_cDiv">
+                                    <p class="table_cDiv_height" style="width: 88.64px;">
+                                            <span>
+                                                ￥<span class="table_cDiv_1">10</span>
+                                            </span>
+                                        <span class="table_cDiv_2">无限制</span>
+                                    </p>
+                                    <div class="table_cDiv_bottom">
+                                        <p class="table_cDiv_bottom_1">快活林20元代金券</p>
+                                        <p class="table_cDiv_bottom_3" style="text-align: left;">
+                                            <span class="label label-success">进行中</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td class="hidden-480 center"style="vertical-align: middle!important;">
+                            <p class="table_date">2016/08/04-2016/09/01</p>
+                        </td>
+                        <td class="hidden-480 center table_css" >199/200</td>
+                        <td class="hidden-480 center table_css"><p data-toggle="modal" data-target="#myModal_delivery" ><span class="icon-ok-circle" style="color: #82af6f;font-size: 17px;cursor: pointer">  微信</span></p></td>
+                    </tr>
+                     -->
+                    </tbody>
+                </table>
+
+                <div id="page" class="page_div"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary choose_true"  data-dismiss="modal">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--更改 end-->
+
+<!--音乐 start-->
+<div class="modal" id="MusicCenter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_choose" aria-hidden="true">
+    <div class="modal-dialog" style=" width: 800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >选择音乐</h4>
+            </div>
+            <div class="modal-body" >
+                <div class="hint_1">
+                    <!--<span ><img src="../img/jinggao.png" alt="">&nbsp;由于版本兼容的原因，您暂时只可以选择60s内的语音发送</span>-->
+                    <!--<a href="#" class="btn btn-primary " id="list" role="button"><img src="images/addb.png" width="18" alt="">新建语音</a>-->
+                </div>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="form-field-radio2" class="ace table_music" value="https://yun.eaqul.com/yk_coupon/voice/live.mp3" checked="checked" >
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>怒放的生命</td>
+                        <td>2016-10-28</td>
+                        <td>04:35</td>
+                        <td><a href=""><img src="../img/iconfont-shengyin.png" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="form-field-radio2" class="ace table_music" value="https://yun.eaqul.com/yk_coupon/voice/Jingle_ Bells.mp3">
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>圣诞歌曲</td>
+                        <td>2017-12-14</td>
+                        <td>03:43</td>
+                        <td><a href=""><img src="../img/iconfont-shengyin.png" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="form-field-radio2" class="ace table_music" value="https://yun.eaqul.com/yk_coupon/voice/areyouok.mp3">
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>Are You Ok</td>
+                        <td>2017-12-14</td>
+                        <td>02:10</td>
+                        <td><a href=""><img src="../img/iconfont-shengyin.png" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="form-field-radio2" class="ace table_music" value="https://yun.eaqul.com/yk_coupon/voice/galigali.mp3">
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>咖喱咖喱</td>
+                        <td>2017-12-14</td>
+                        <td>02:37</td>
+                        <td><a href=""><img src="../img/iconfont-shengyin.png" alt=""></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" value="" id="finput">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
+                <button type="button" class="btn btn-primary table_music_choose"  data-dismiss="modal">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--音乐 end-->
+</body>
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+
+<script src="../js/const.js"></script>
+<!--<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>-->
+
+<script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+<script src="../../resources/plugins/msgbox/msgbox.js"></script>
+
+<script type="text/javascript" src="../js/paging.js"></script> <!--分页-->
+
+<script>
+
+
+var posterId="";
+var templateId="";
+var backgroundImg=""
+var coupons="";
+var fileUpload="";
+var couponsNum=1;
+var mobileHtmlAddress='';
+
+//查询页面变量
+$(function(){
+    var ykyf_userId=getUserIdBySession();
+
+    if(ykyf_userId!=""){
+        $.ajax({
+            type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data:{
+                "userId":ykyf_userId
+            },
+            url:webApi+"/open/user/getUserById",
+            success:function(data){
+                console.log(data);
+                var loginInfo= data.data;
+                if(loginInfo!=null){ //登陆成功,
+                    var login_user=loginInfo.nickName;
+                    if(login_user!=undefined && login_user!='')
+                    $(".login_user").html(login_user);
+                }else{
+                    //alertErrors(resdata.errorMsg,1500);
+                }
+
+            },
+            error:function(data){
+                alertErrors("查询错误",1500);
+                console.log(data);
+            }
+        });
+    }
+
+})
+init();
+function init(){
+    var param = location.search;
+    if (param.indexOf("?") != -1) {
+        var str = param.substr(1);
+        var key = str.split("=")[0];
+        var value = str.split("=")[1];
+        if(key=="posterId"){//edit
+            posterId=value;
+            $("#finput").val(posterId);
+            getPostersAndTemplateById(posterId)
+        }else if(key=="templateId"){//add
+            templateId=value;
+            getTemplate(templateId);
+        }
+    }
+}
+
+function getTemplate(templateId){
+    if(templateId!=""){
+        $.ajax({
+            type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data:{
+                "couponsTemplateId":templateId
+            },
+            url:pathApi + "/coupons/coupon/getCouponsTemplateById",
+            //dataType:'json',
+            success:function(data){
+                console.log(data);
+                var data=data.data;
+                var htmlAddress=data.htmlAddress;
+                mobileHtmlAddress=data.mobileHtmlAddress;
+                couponsNum=data.couponsNum;
+                $("#phoneWin").attr("src","../WebPost/html/"+htmlAddress);
+                if(couponsNum==2){
+                    $(".couponsNum_two").css("display","block");
+                }else{
+                    $(".couponsNum_one").css("display","block");
+                }
+
+                wait(onload,1000);
+            },
+            error:function(data){
+                alertErrors("查询错误",1500);
+                console.log(data);
+            }
+        });
+    }
+}
+
+function getPostersAndTemplateById(posterId){
+    if(posterId!=""){
+        $.ajax({
+            type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data:{
+                "couponsPostersId":posterId
+            },
+            url:pathApi + "/coupons/coupon/getPostersAndTemplateById",
+            success:function(data){
+                console.log(data);
+                var template=data.data.template;
+                var htmlAddress=template.htmlAddress;
+                mobileHtmlAddress=template.mobileHtmlAddress;
+                couponsNum=template.couponsNum;
+                $("#phoneWin").attr("src","../WebPost/html/"+htmlAddress);
+                if(couponsNum==2){
+                    $(".couponsNum_two").css("display","block");
+                }else{
+                    $(".couponsNum_one").css("display","block");
+                }
+
+                var posters=data.data.posters;
+                var posterName=posters.posterName;
+                var description=posters.description;
+                backgroundImg=posters.backgroundImg;
+                var backgroundMusic=posters.backgroundMusic;
+                var img=posters.img;
+                var quan=posters.quan;
+                var statu=posters.statu;
+                templateId=posters.templateId;
+                var txt=posters.txt;
+                var userId=posters.userId;
+                coupons=posters.coupons;
+
+                imgLoad(img);
+                couponsLoad(quan);
+                txtLoad(txt);
+                bgmLoad(backgroundMusic);
+                //bgimgLoad(tmepPageVal.backgroundImg);
+
+                $(".posterName").html(posterName);
+                $(".title_heider").val(posterName);
+                $(".holds_name2").val(description);
+
+                wait(onload,1000);
+
+            },
+            error:function(data){
+                alertErrors("查询错误",1500);
+                console.log(data);
+            }
+        });
+        $(".page_name").html("编辑海报");
+    }
+}
+
+function wait(method,time){
+    setTimeout(method,time);
+}
+
+$(".title_heider").bind('keyup',function(){
+    var cc=$(this).val();
+    $(".posterName").html(cc);
+    //console.log(cc);
+})
+
+/******************************************编辑页面组件初始化start*****************************************************/
+/* function bgimgLoad(data){
+	var iframeBg=document.getElementById('phoneWin').contentWindow.document.querySelector('.iframeBg');
+	if(data!=""){		
+		$(iframeBg).css({
+            "background":'url('+data+')'
+        });
+	}
+} */
+function bgmLoad(data){
+	if(data!=""){
+		var backgroundMusic=JSON.parse(data);
+		$(".music_c").html(backgroundMusic.musicName);
+	    $(".music_c").attr("musicUrl",backgroundMusic.musicUrl);
+	}
+}
+function imgLoad(data){
+		var posterImg=JSON.parse(data);
+	    var options='<option value="-1" >请选择图片</option>';
+	    for(var i=0;i<posterImg.length;i++){
+	    	var anim=posterImg[i].anim;
+	    	if(anim==undefined){
+	    		anim="";
+	    	}
+	        options+='<option value="'+posterImg[i].ind+'" anim="'+anim+'">图片'+(i+1)*1+'</option>';
+	    }
+	    $('.posterImgSelect').html(options);
+	
+}
+function couponsLoad(data){
+	var quanT=JSON.parse(data);
+	var options='<option value="-1" >请选择优惠券</option>';
+    for(var i=0;i<quanT.length;i++){
+    	var couponsId=quanT[i].couponsId;
+    	if(couponsId==undefined){
+    		couponsId="";
+    	}
+    	var couponsName=quanT[i].couponsName;
+    	if(couponsName==undefined){
+    		couponsName="";
+    	}
+    	var vouchers=quanT[i].vouchers;
+    	if(vouchers==undefined){
+    		vouchers="";
+    	}
+    	var lowestConsume=quanT[i].lowestConsume;
+    	if(lowestConsume==undefined){
+    		lowestConsume="";
+    	}
+    	var anim=quanT[i].anim;
+    	if(anim==undefined){
+    		anim="";
+    	}
+    	options+='<option value="'+quanT[i].ind+'" couponsId="'+couponsId+'" couponsName="'+couponsName+'" vouchers="'+vouchers+'" lowestConsume="'+lowestConsume+'" anim="'+anim+'">优惠券'+(i+1)*1+'</option>';
+    	$(".quanName").append(couponsName+"&nbsp;&nbsp;&nbsp;&nbsp;");
+    }
+    $(".posterQuanSelect").html(options);
+}
+function txtLoad(data){
+	var txt=JSON.parse(data);
+	/* var posterTxt=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-txt"); */
+	var options='<option value="-1" >请选择文本</option>';
+    for(var i=0;i<txt.length;i++){
+    	//fontsize":"0.6rem","fontmargin":"0rem","fontlineheight":"0.9rem"
+    	var text=txt[i].txt;
+    	if(text==undefined){
+    		text="";
+    	}
+    	var anim=txt[i].anim;
+    	if(anim==undefined){
+    		anim="";
+    	}
+    	var fontsize=txt[i].fontsize;
+    	if(fontsize==undefined){
+    		fontsize="";
+    	}
+    	var fontmargin=txt[i].fontmargin;
+    	if(fontmargin==undefined){
+    		fontmargin="";
+    	}
+    	var fontlineheight=txt[i].fontlineheight;
+    	if(fontlineheight==undefined){
+    		fontlineheight="";
+    	}
+    	var fontcolor=txt[i].fontcolor;
+    	if(fontcolor==undefined){
+    		fontcolor="";
+    	}
+        options+='<option  fontcolor="'+fontcolor+'" txt="'+text+'" value="'+txt[i].ind+'" anim="'+anim+'" fontsize="'+fontsize+'" fontmargin="'+fontmargin+'" fontlineheight="'+fontlineheight+'" >文本'+(i+1)*1+'</option>';
+/*     	if(text!=""){
+    		$(posterTxt).eq(i).find("p").html(text);
+    	} */
+    }
+    
+    
+    $(".posterTxtSelect").html(options);
+}
+/******************************************编辑页面组件初始化end*****************************************************/
+
+$(function(){                                           //修改音乐
+    $(".table_music").bind('click',function(){
+        var music_name= $(this).parent().parent().next().html();
+        var music_url=$(this).val();
+        //console.log(music_name)
+        $(".table_music_choose").on('click',function(){
+            $(".music_c").html(music_name);
+            $(".music_c").attr("musicUrl",music_url);
+            var bgMusic=document.getElementById('phoneWin').contentWindow.document.getElementsByClassName('bgMusic');
+            $(bgMusic).attr("src",music_url);
+        })
+    })
+})
+
+$(function(){
+	couponsClick();
+})
+//选择添加优惠券
+function couponsClick(){
+	$("#myModal_choose .table tbody input").click(function(){                       //券添加
+        var coupon_money=$(this).parent().next().find(".table_cDiv_1").html();
+        var coupon_money2=$(this).parent().next().find(".table_cDiv_2").html();
+        var coupon_name=$(this).parent().next().find(".table_cDiv_bottom_1").html();
+        //var yuk_time=$(this).parent().parent().next().next().html();
+        console.log(coupon_money,coupon_money2);
+        $("#myModal_choose .choose_true").click(function(){
+            $(".arch_mi1 span").html(coupon_money);
+            $(".arch_mi3_span2").html(coupon_money2);
+            if($(".arch_mi3_span2").html()=="无限制"){
+                $(".arch_mi3_span").hide();
+            }else{
+                $(".arch_mi3_span").show();
+            }
+            var quanName="";
+            var choose_label_coupons=document.querySelectorAll("#myModal_choose .table tbody input");
+        	$(choose_label_coupons).each(function(i,o){
+                if($(this).prop("checked")){
+                    couponsId=$(this).val();
+                    $(".posterQuanSelect option:selected").attr("vouchers",coupon_money);
+                    $(".posterQuanSelect option:selected").attr("lowestConsume",coupon_money2);
+                    $(".posterQuanSelect option:selected").attr("couponsName",coupon_name);
+                    var options=$(".posterQuanSelect option:selected").attr("couponsId",couponsId);
+                    
+                    //显示券名称
+                    $(".posterQuanSelect option").each(function(){
+                    	if($(this).val()>=0){
+                    		var quanOptionName=$(this).attr("couponsName");
+                            if(quanOptionName!=undefined){
+                            	quanName+=quanOptionName+"&nbsp;&nbsp;&nbsp;&nbsp;";
+                            }
+                    	}
+                    })
+                }
+            })
+            $(".quanName").html(quanName);
+        });
+    });
+}
+
+var gloDom;
+$(function(){
+    $(".holds_right_setNav a").each(function(i) {
+        $(this).bind('click', {index:i}, function(e){
+        	$(this).addClass("choose_set");
+            $(this).siblings().removeClass("choose_set");
+            if(e.data.index==0){
+                $(".holds_right_basic").show().siblings().hide();
+            }
+            if(e.data.index==1){
+                $(".holds_right_print").show().siblings().hide();
+            }
+            if(e.data.index==2){
+                $(".holds_right_ticket").show().siblings().hide();
+            }
+            if(e.data.index==3){
+                $(".holds_right_character").show().siblings().hide();
+            }
+            if(e.data.index==4){
+                $(".holds_right_backdrop").show().siblings().hide();
+            }
+            if(e.data.index==5){
+                $(".holds_right_music").show().siblings().hide();
+            }
+        });
+    });
+})
+
+
+$(".color_input").click(function(){                 //字体颜色
+    var color_in= $(this).css("background-color")
+    $(".one_P_size").css('color',color_in)
+})
+
+function imageChangeValids(fileId,saveImgId,iframebg){                            //选择图片
+    //判断上传图片大小问题
+    console.log("w23");
+    var f = document.getElementById(fileId).files;
+    if(f[0]!=null){
+        var fileSize = 0;
+        fileSize = Math.round(f[0].size*100/(1024 * 1024))/100;
+        if(parseFloat(fileSize)>parseFloat(0.5)){
+           // alertErrors("图片大小不能超过2M",2000);
+            return;
+        }else{
+            var obj=new FileReader();
+            obj.readAsDataURL(f[0]);
+            obj.onload=function(){
+                $(iframebg).css({//上传背景图展示
+                    "background":'url('+obj.result+')'
+                });
+                console.log(iframebg);
+                $("#"+fileId).change(function(){imageChangeValids(fileId,saveImgId)});
+                $(".imgid").attr("src",obj.result);
+            }
+            fileUpload=obj;
+        }
+    }else{
+       // alertErrors("文件格式选择错误,请重新选择",2000);
+    }
+    console.log(f)
+}
+
+
+
+//左右交互
+/*window.onload = */
+    function onload(){
+
+    var posterImg = document.getElementById('phoneWin').contentWindow.document.getElementsByClassName('poster-img');     //获取海报中所有所需编辑的图片
+    var posterQuanT=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-quan");    //获取海报中所有所需编辑的券
+    var posterTxt=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-txt");    //获取海报中所有所需编辑的文本
+    var setbgInput=document.getElementById("fileid");      //获取设置背景图的input DOM节点
+    if(posterId==""){
+    	posterImgOptions(posterImg);
+        posterQunaOptions(posterQuanT);
+        posterTxtOptions(posterTxt);
+    }
+    var posterImgSelect=document.querySelector(".posterImgSelect");
+    var posterQuanSelect=document.querySelector(".posterQuanSelect");
+    var posterTxtSelect=document.querySelector(".posterTxtSelect");
+    posterImgSelect.onchange=function(){
+    	debugger;
+        var ind=$(this).val();
+        gloDom=$(posterImg[ind])
+        Animfun(gloDom,ind);
+        var csrc=$(gloDom).attr("src");
+        $(".postImgChose").attr("src",csrc);
+    }
+    posterQuanSelect.onchange=function(){
+    	debugger;
+        var ind=$(this).val();
+        gloDom=$(posterQuanT[ind])
+        Animfun(gloDom,ind);
+        var selectedVouchers=$(".posterQuanSelect option:selected").attr("vouchers");
+        var selectedConsume=$(".posterQuanSelect option:selected").attr("lowestConsume");
+        if(selectedVouchers==undefined || selectedConsume==undefined){
+        	selectedVouchers="";
+        	selectedConsume="";
+        }
+        $(".arch_mi1 span").html(selectedVouchers);
+        $(".arch_mi3_span2").html(selectedConsume);
+    }
+    posterTxtSelect.onchange=function(){
+    	debugger;
+        var ind=$(this).val();
+        $("#color").attr("elc",ind);
+        gloDom=$(posterTxt[ind]);
+        Animfun(gloDom,ind);
+        $(".txtShowBox").empty();
+        gloDom.clone().attr("contenteditable","true").css("border","1px solid #ddd").appendTo($(".txtShowBox")).keyup(function(){
+            var txt=$(this).find("p").html();
+            gloDom.find("p").html(txt);
+            var sind=parseInt(ind)+1;
+            if(sind>0){
+                $(".posterTxtSelect option").eq(sind).attr("txt",txt);
+            }
+        });
+        txtStylefun(gloDom,ind);
+        //getDomStyle($(posterTxt[ind]));
+    }
+    //修改背景图
+   // setbgInput.onchange=imageChangeValids('fileid','imgid')
+    var posterdom=document.getElementById('phoneWin').contentWindow.document.querySelector('.iframeBg');
+    var src=$(posterdom).css("background-image").split('"')[1];
+    $(".deimgid").attr("src",src);
+    setbgInput.onchange=function(){
+        imageChangeValids('fileid','imgid',posterdom);
+    }
+
+    var savePosterBtn=document.querySelector(".savePosterBtn");
+    savePosterBtn.onclick=function(){
+    	if(fileUpload!=""){
+    		uploadimg();
+    	}else{
+    		saveTemplate();
+    	}
+    }
+
+
+    $(".holds_right_setNav a").each(function(i) {
+        $(this).bind('click', {index:i}, function(e){
+        	$(this).addClass("choose_set");
+            $(this).siblings().removeClass("choose_set");
+            if(e.data.index==0){
+                $(".holds_right_basic").show().siblings().hide();
+            }
+            if(e.data.index==1){
+                $(".holds_right_print").show().siblings().hide();
+                //gloDom=$()
+                var ind=$(".holds_right_print").find(".posterImgSelect").val();
+                gloDom=$(posterImg[ind]);
+            }
+            if(e.data.index==2){
+                $(".holds_right_ticket").show().siblings().hide();
+                var ind=$(".holds_right_ticket").find(".posterQuanSelect").val();
+                gloDom=$(posterQuanT[ind]);
+            }
+            if(e.data.index==3){
+                $(".holds_right_character").show().siblings().hide();
+                var ind=$(".holds_right_character").find(".posterTxtSelect").val();
+                gloDom=$(posterTxt[ind]);
+            }
+            if(e.data.index==4){
+                $(".holds_right_backdrop").show().siblings().hide();
+            }
+            if(e.data.index==5){
+                $(".holds_right_music").show().siblings().hide();
+            }
+        });
+    });
+
+    //sonDOMClick();
+}
+
+function saveTemplate(){
+	var obj={};
+    var posterName=$(".title_heider").val();
+    if(posterName==""){
+        posterName=$(".title_heider").attr("placeholder");
+    }
+    obj.posterName=posterName;
+    var description=$(".holds_name2").val();
+    if(description==""){
+    	description=$(".holds_name2").attr("placeholder");
+    }
+    obj.description=description;
+    var img=[];
+    var quan=[];
+    var txt=[];
+    $(".posterImgSelect option").each(function(){
+        if($(this).val()>=0){
+            var oobj={};
+            oobj.ind=$(this).val();
+            oobj.anim=$(this).attr("anim");
+            img.push(oobj);
+        }
+    })
+    obj.img=JSON.stringify(img);
+    var couponsArr=[]
+    var errMessage="请先添加优惠券，再保存";
+    var errFlag=true;
+    $(".posterQuanSelect option").each(function(){
+        if($(this).val()>=0){
+        	if(!$(this).attr("couponsId")){
+        		errMessage="请添加 优惠券"+(parseInt($(this).val())+1)+"，再保存";
+        		errFlag=false;
+        	}
+            var oobj={};
+            oobj.ind=$(this).val();
+            oobj.anim=$(this).attr("anim");
+            oobj.couponsId=$(this).attr("couponsId");
+            oobj.couponsName=$(this).attr("couponsName");
+            oobj.vouchers=$(this).attr("vouchers");
+            oobj.lowestConsume=$(this).attr("lowestConsume")
+            quan.push(oobj);
+            couponsArr.push($(this).attr("couponsId"));
+        }
+    })
+    coupons=couponsArr.join(",");
+    if(coupons=="" || !errFlag){
+    	alertErrors(errMessage,1500);
+    	return false;
+    }
+    obj.coupons=coupons;
+    obj.quan=JSON.stringify(quan);
+    
+    $(".posterTxtSelect option").each(function(){
+        if($(this).val()>=0){
+            var oobj={};
+            oobj.ind=$(this).val();
+            oobj.txt=$(this).attr("txt").trim();
+            oobj.anim=$(this).attr("anim");
+            oobj.fontsize=$(this).attr("fontsize");
+            oobj.fontmargin=$(this).attr("fontmargin");
+            oobj.fontlineheight=$(this).attr("fontlineheight");
+            oobj.fontcolor=$(this).attr("fontcolor");
+            txt.push(oobj);
+        }
+    })
+    obj.txt=JSON.stringify(txt);
+    obj.templateId=templateId;
+    if(fileUpload==""){
+    	obj.backgroundImg=backgroundImg;
+    }else{
+    	obj.backgroundImg=$(".imgid").attr("src");
+    }
+    
+    var backgroundMusic={};
+    backgroundMusic.musicName=$(".music_c").html();
+    backgroundMusic.musicUrl=$(".music_c").attr("musicUrl");
+    if(backgroundMusic.musicUrl=="../voice/live.mp3"){
+    	obj.backgroundMusic="";
+    }else{
+    	obj.backgroundMusic=JSON.stringify(backgroundMusic);
+    }
+    console.log(obj);
+    var _url="";
+    if(posterId==""){
+    	_url=pathApi+"/web/coupon/add/addCouponsPosters";
+    	obj.qrcode=path+"/yk_coupon/WebPost/html/"+mobileHtmlAddress+"?posterId=";
+    }else{
+    	obj.id=posterId;
+    	_url=pathApi+"/web/coupon/edit/updateCouponsPosters"
+    }
+    alertInfo('请稍候..', 1500);
+    //ajax保存
+    $.ajax({
+			type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+			data:obj,
+			url:_url,
+			async:true,
+			success:function(data){
+				if(data.type=="success"){
+					alertSuccess("编辑成功",1500);
+					location.href="channel_management.html";
+				}else{
+					alertErrors("编辑失败",1500);
+				}
+			},
+			error:function(data){
+				alertErrors("提交错误",1500);
+			}
+		});
+}
+
+//获取需要编辑的图片渲染到图片列表select中
+function posterImgOptions(posterImg){
+    var options='<option value="-1" >请选择图片</option>';
+    for(var i=0;i<posterImg.length;i++){
+        options+='<option value="'+i+'">图片'+(i+1)*1+'</option>';
+    }
+    $('.posterImgSelect').html(options);
+}
+//获取需要编辑的券渲染到图片列表select中
+function posterQunaOptions(quanT){
+    var options='<option value="-1" >请选择优惠券</option>';
+    for(var i=0;i<quanT.length;i++){
+        options+='<option value="'+i+'">优惠券'+(i+1)*1+'</option>';
+    }
+    $(".posterQuanSelect").html(options);
+}
+//获取需要编辑的文本渲染到图片列表select中
+function posterTxtOptions(txt){
+    var options='<option value="-1" >请选择文本</option>';
+    for(var i=0;i<txt.length;i++){
+        options+='<option txt='+$(txt[i]).find("p").html()+' value="'+i+'">文本'+(i+1)*1+'</option>';
+    }
+    $(".posterTxtSelect").html(options);
+    
+    //文本1默认选中及相关事件绑定
+    /* var posterTxt=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-txt");    //获取海报中所有所需编辑的文本
+    var ind=$(".posterTxtSelect option").eq(1).val();
+    $("#color").attr("elc",ind);
+    Animfun($(posterTxt[ind]),ind);
+    $(".txtShowBox").empty();
+     $(posterTxt[ind]).clone().attr("contenteditable","true").css("border","1px solid #ddd").appendTo($(".txtShowBox")).keyup(function(){
+        var txt=$(".txtShowBox").find("p").html();
+        $(posterTxt[ind]).find("p").html(txt);
+        var sind=parseInt(ind)+1;
+        if(sind>0){
+            $(".posterTxtSelect option").eq(sind).attr("txt",txt);
+        }
+    });
+    txtStylefun($(posterTxt[ind]),ind); */
+    
+}
+//运动方式选择函数（接收参数为操作对象dom节点）
+function Animfun(dom,ind){
+    var posterImg = document.getElementById('phoneWin').contentWindow.document.getElementsByClassName('poster-img');     //获取海报中所有所需编辑的图片
+    var posterQuanT=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-quan");    //获取海报中所有所需编辑的券
+    var posterTxt=document.getElementById("phoneWin").contentWindow.document.getElementsByClassName("poster-txt");    //获取海报中所有所需编辑的文本
+    var ImgAnimSelect=document.querySelector(".ImgAnimSelect");
+    var QuanAnimSelect=document.querySelector(".QuanAnimSelect");
+    var TxtAnimSelect=document.querySelector(".TxtAnimSelect");
+    ImgAnimSelect.onchange=function(){
+            var anim = $(this).val();
+            var ind=$(this).parent().parent().parent().parent().find(".posterImgSelect").val();
+            gloDom=$(posterImg[ind]);
+            testAnim(gloDom,anim);
+            var sind=parseInt(ind)+1;
+            if(sind>0){
+                $(".posterImgSelect option").eq(sind).attr("anim",anim);
+            }
+     }
+    QuanAnimSelect.onchange=function(){
+            var anim = $(this).val();
+            var ind=$(this).parent().parent().parent().parent().find(".posterQuanSelect").val();
+            gloDom=$(posterQuanT[ind]);
+            testAnim(gloDom,anim);
+            var sind=parseInt(ind)+1;
+            if(sind>0){
+                $(".posterQuanSelect option").eq(sind).attr("anim",anim);
+            }
+    }
+    TxtAnimSelect.onchange=function(){
+            var anim = $(this).val();
+            var ind=$(this).parent().parent().parent().parent().parent().find(".posterTxtSelect").val();
+            gloDom=$(posterTxt[ind]);
+            testAnim(gloDom,anim);
+            var sind=parseInt(ind)+1;
+            if(sind>0){
+                $(".posterTxtSelect option").eq(sind).attr("anim",anim);
+            }
+    }
+}
+
+//文本样式的设置函数(可以设置所选文本的字体大小,字体间距,字体行高,字体颜色)
+function txtStylefun(dom,ind){
+    var txtStyle=document.querySelectorAll(".rangeInput");
+    var obj={};
+    for(var i=0;i<txtStyle.length;i++){
+        txtStyle[i].oninput=txtStyle[i].onchange=function(){
+             var val=$(this).val();
+             var txttype=$(this).attr("txttype");
+             $(this).next().html(val);
+             if(txttype=='fontsize'){
+                 dom.find("p").css("font-size",val+'rem');
+                 obj.fontsize=val+'rem';
+             }
+             if(txttype=='fontmargin'){
+                 dom.find("p").css("letter-spacing",val+'rem');
+                 obj.fontmargin=val+'rem';
+             }
+             if(txttype=='fontlineheight'){
+                 dom.find("p").css("line-height",val+'rem');
+                 obj.fontlineheight=val+'rem';
+             }
+             if(txttype=='fontcolor'){
+                 dom.find("p").css("color",val);
+                 obj.fontcolor=val;
+                 console.log(val);
+             }
+            var sind=parseInt(ind)+1;
+            if(sind>0){
+                $(".posterTxtSelect option").eq(sind).attr("fontsize",obj.fontsize).attr("fontmargin",obj.fontmargin).attr("fontlineheight",obj.fontlineheight).attr("fontcolor",obj.fontcolor);
+            }
+        }
+    }
+
+}
+
+//运动函数（接收两个参数，操作的dom节点和运动方式x）
+function testAnim(dom,x) {
+   dom.removeClass(x + ' animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $(this).removeClass(x + ' animated');
+    });
+};
+
+
+
+/******************************************上传背景图片******************************************************/
+function uploadimg(){
+		var obj1={};
+		if(posterId!=null){
+		    obj1.posterId=posterId;
+        }
+	    obj1['file']=document.getElementById("fileid").files[0];
+		var formData = new FormData();
+    	for(var i in obj1){
+    		formData.append(i,obj1[i]);
+    	}
+		$.ajax({
+			url : pathApi+"/web/coupon/add/uploadImg",
+            xhrFields: {
+                withCredentials: true,
+            },
+			data:formData,
+			type:"post",
+			processData: false,
+	        contentType: false,
+			//mimeType:"multipart/form-data",
+	        success: function (data) {
+	          if(data.type=="success"){
+	        	  //backgroundImg=data.img;
+	        	  $(".imgid").attr("src",data.data);
+	        	  saveTemplate();
+	          }else{
+	        	  alertErrors(data.message,1500);
+	          }
+	        },  
+	        error: function (data, status, e) {
+	        	alertErrors("信息录入失败,请稍后再试",1500);
+	        }
+		});
+		
+	}
+	
+	//恢复默认背景图
+	$(".restore_default").click(function(){
+		var src="";
+		if(couponsNum==1){
+			src=path+"/yk_coupon/WebPost/images/bbg2.png";
+		}else{
+			src=path+"/yk_coupon/WebPost/images/bg.png";
+		}
+		$(".imgid").attr("src",src);
+		fileUpload="";
+		backgroundImg="";
+		var iframebg=document.getElementById('phoneWin').contentWindow.document.querySelector('.iframeBg');
+		$(iframebg).css({
+            "background":'url('+src+')'
+        });
+	})
+	
+/******************************************优惠券查询******************************************************/
+function getCoupons(num){
+    	var flagval=$(".posterQuanSelect").val();
+    	if(flagval<0){
+    		$("#myModal_choose").modal('hide');
+    		alertErrors("请先选择部件",1500);
+    		return false;
+    	}else{
+    		$("#myModal_choose").modal('show');
+    	}
+    	var couponsId="";
+    	var couponsOption=$(".posterQuanSelect").find("option");
+    	if(couponsOption.length>2){
+    		$(couponsOption).each(function(){
+    			if($(this).val()>=0 && (!$(this).prop("selected"))){
+    				couponsId=$(this).attr("couponsId");
+    			}
+    		})
+    	}
+    	
+    	var couponsName=$('#couponsName').val();
+
+    	if(num==undefined || num==null)
+    	    num=1;
+
+    	$.ajax({
+			type:"post",
+            xhrFields: {
+                withCredentials: true,
+            },
+			data:{
+				"couponsName":couponsName,
+				"outOfId":couponsId,
+                "page":num,
+                "pageSize":5,
+			},
+			url:pathApi + "/web/coupon/get/getCouponsListForPosters",
+			success:function(data){
+				console.log(data);
+				//var list=JSON.parse(data);
+                if(data!=null){
+                    if(data.type=="fail"){
+                        $("#couponsList").html("");
+                        alertErrors(data.message,2000);
+                    }else{
+                        var s=showList(data.data.list);
+                        $("#couponsList").html(s);
+                        debugger;
+                        var pageAll=1;
+                        if(data.data.pageAll!=0){
+                            pageAll=data.data.pageAll;
+                        }
+                        //分页
+                        $("#page").paging({
+                            pageNo: num,
+                            totalPage: pageAll,
+                            totalSize: data.data.countAll,
+                            callback: function(num) {
+                                getCoupons(num)
+                            }
+                        })
+
+                        couponsClick();//绑定选中事件
+                    }
+                }
+
+			},
+			error:function(data){
+				alertErrors("查询错误",1500);
+				console.log(data);
+			}
+		});
+		
+	} 
+
+function showList(list){
+	var s='';
+	for(var i in list){
+		s+='<tr class="selected">'
+        +'<td class="center " style=" vertical-align: middle;">'
+        +'<div style=" display: flex;justify-content: flex-start;">'
+        +'<label class="jianm" style=" margin-top: 20px;  margin-right: 16px;">'
+        +'<input name="form-field-radio" class="ace " type="radio" value="'+list[i].id+'">'
+        +'<span class="lbl"></span>'
+        +'</label>'
+        +'<div class="table_cDiv">'
+        +'<p class="table_cDiv_height" style="width: 88.64px;">'
+        +'<span>'
+        +'￥<span class="table_cDiv_1">'+list[i].vouchers+'</span>'
+        +'</span>'
+        if(list[i].lowestConsume!=0){
+        	s+='<span class="table_cDiv_2">满'+list[i].lowestConsume+'元可用</span>'
+        }else{
+        	s+='<span class="table_cDiv_2">无限制</span>'
+        }
+        s+='</p>'
+        +'<div class="table_cDiv_bottom">'
+        +'<p class="table_cDiv_bottom_1">'+list[i].couponsName+'</p>'
+        +'<p class="table_cDiv_bottom_3" style="text-align: left;">';
+        if(list[i].statu=="未开始"){
+        	s+='<span class="label label-warning">(未开始)</span>';
+        }else if(list[i].statu=="进行中"){
+        	s+='<span class="label label-success">(进行中)</span>';
+        }else{
+        	s+='<span class="label label-default">(已失效)</span>';
+        }
+        s+='</p>'
+        +'</div>'
+        +'</div>'
+        +'</div>'
+        +'</td>'
+        +'<td class="hidden-480 center"style="vertical-align: middle!important;">'
+        +'<p class="table_date">'+list[i].startDate+'&nbsp;&nbsp;~&nbsp;&nbsp;'+list[i].endDate+'</p>'
+        +'<div class="table_time">'
+        +'<p class="">'+list[i].useWeekDays+'</p>'
+        +'<p class="">'+list[i].periodTime+'</p>'
+        +'</div>'
+        +'</td>'
+        +'<td class="hidden-480 center table_css" >'+(list[i].allCount-list[i].receiveCount)+'/'+list[i].allCount+'</td>'
+        +'<td class="hidden-480 center table_css"><p data-toggle="modal" data-target="#myModal_delivery" ><span class="icon-ok-circle" style="color: #82af6f;font-size: 17px;cursor: pointer">  微信</span></p></td>'
+        +'</tr>'
+	}
+	return s;
+}
+/******************************************选择优惠券******************************************************/
+    function sonDOMClick(){
+    	 var sdocument=document.getElementById('phoneWin').contentWindow.document;
+    	 var navas=document.querySelectorAll(".nava");
+    	 sdocument.onclick=function(e){
+    		 var curDOM=e.target;
+    		 var hclass=$(curDOM).attr("class");
+    		 console.log(hclass);
+    		 if(hclass.indexOf("poster-img")>=0){
+    			 $(navas).each(function(){
+    				  if($(this).attr("ty")=='img'){
+    					   $(this).click();
+    					   console.log(this);
+    				  }
+    			 })
+    		 }
+    		 if(hclass.indexOf("poster-quan")>=0){
+    			 $(navas).each(function(){
+    				  if($(this).attr("ty")=='quan'){
+    					   $(this).click();
+    					   console.log(this);
+    				  }
+    			 })
+    		 }
+    		 if(hclass.indexOf("poster-txt")>=0){
+    			 $(navas).each(function(){
+    				  if($(this).attr("ty")=='txt'){
+    					   $(this).click();
+    					   console.log(this);
+    				  }
+    			 })
+    		 }
+    	 }
+    }
+    
+   
+
+
+</script>
+
+<script>
+
+    //分页
+    $("#page").paging({
+        pageNo:1,
+        totalPage: 1,
+        totalSize: 0,
+        callback: function(num) {
+            alert(num);
+            getCoupons(num);
+        }
+    })
+
+    /*
+    // 模拟ajax数据用以下方法，方便用户更好的掌握用法
+    //参数为当前页
+    ajaxTest(1);
+
+    function ajaxTest(num) {
+        $.ajax({
+            url: "table.json",
+            type: "get",
+            data: {},
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                //分页
+                $("#page").paging({
+                    pageNo: num,
+                    totalPage: data.totalPage,
+                    totalSize: data.totalSize,
+                    callback: function(num) {
+                        ajaxTest(num)
+                    }
+                })
+            }
+        })
+    }
+    */
+</script>
+
+</html>

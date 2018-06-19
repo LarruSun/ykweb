@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../coupon_common/page/pagination.css">
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="../index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <!--<li >-->
+                            <!--<a href="../html/promoting.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--推广的券-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li >-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="icon-columns"></i>-->
+                        <!--<span class="menu-text">别人的券</span>-->
+                        <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_stamps.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--券列表-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="../html/collect_receive.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--领用记录-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li  class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li  >
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content" id="app" v-cloak>
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">券海报</a>
+                    </li>
+                    <li>
+                        <a href="#">海报模板</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row channel_temp">
+                    <div class="create_lis col-sm-12">
+                        <label class="">券数量：
+                            <select @change="getTemplateByCondition" name="sample-table-2_length" aria-controls="sample-table-2" size="1" class="coupons_num">
+                                <option value="0">全部</option>
+                                <option value="1">单券</option>
+                                <option value="2">双券</option>
+                                <!--<option value="全部">3券</option>
+                                <option value="全部">4券</option>-->
+                            </select>
+                        </label>
+                        <div class="toWhere">
+                             <input type="text" placeholder="请输入模板名称" id="templateName">
+                            <a href="#" class="btn btn-primary find_a" v-on:click="getTemplateByCondition" >搜索</a>
+                        </div>
+                    </div>
+                    <div class="add_state " style="border-bottom: 0;margin-bottom: -17px;">
+                        <label class="add_state_1">应用场景：
+                            <a href="#" class="red selected applicationScene" style="margin-left: 15px;" v-on:click="getTemplateByCondition">全部({{allTemplateNum}})</a>
+
+                            <a class="applicationScene" v-for="templateType in templateTypeList" href="#" v-bind:value="templateType.typeId" v-on:click="getTemplateByCondition">{{templateType.typeName}}({{templateType.countNum}})</a>
+
+                        </label>
+                    </div>
+                    <div class="channel_temp_main col-sm-12" >
+                        <div class="temp_img col-sm-12 template_list">
+
+                            <div class="use_big" v-for="template in templateList">
+                                <div class="temp_img_son">
+                                    <img v-bind:src="template.image" alt="" >
+                                    <div class="temp_explain">
+                                        <p>{{template.templateName}}</p>
+                                        <div class="media" style="margin-bottom: 7px;margin-top: 0;">
+                                            <div class="temp_label pull-left" style="margin-top:-3px">
+                                                <span class="label label-warning">{{template.typeName}}</span>
+                                                <span class="label label-warning" v-if="template.couponsNum==1">单券</span>
+                                                <span class="label label-warning" v-if="template.couponsNum==2">双券</span>
+                                            </div>
+                                            <a v-bind:href="'postersOne.html?templateId='+template.id" class="pull-right">立即使用</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="use_big">
+                                <div class="temp_img_son">
+                                    <img src="../img/u107.jpg" alt="" >
+                                    <div class="temp_explain">
+                                        <p>圣诞节彩旗</p>
+                                        <div class="media" style="margin-bottom: 7px;margin-top: 0;">
+                                            <div class="temp_label pull-left" style="margin-top:-3px">
+                                                <span class="label label-warning">节日</span>
+                                                <span class="label label-warning">单券</span>
+                                            </div>
+                                            <a href="poster_two.html" class="pull-right">立即使用</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="use_big">
+                                <div class="temp_img_son">
+                                    <img src="../img/u105.jpg" alt="" >
+                                    <div class="temp_explain">
+                                        <p>桃花朵朵</p>
+                                        <div class="media" style="margin-bottom: 7px;margin-top: 0;">
+                                            <div class="temp_label pull-left" style="margin-top:-3px">
+                                                <span class="label label-warning">节日</span>
+                                                <span class="label label-warning">单券</span>
+                                            </div>
+                                            <a href="coupons_posters.html" class="pull-right">立即使用</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="use_big">
+                                <div class="temp_img_son">
+                                    <img src="../img/u107.jpg" alt="" >
+                                    <div class="temp_explain">
+                                        <p>圣诞节彩旗</p>
+                                        <div class="media" style="margin-bottom: 7px;margin-top: 0;">
+                                            <div class="temp_label pull-left" style="margin-top:-3px">
+                                                <span class="label label-warning">节日</span>
+                                                <span class="label label-warning">单券</span>
+                                            </div>
+                                            <a href="poster_two.html" class="pull-right">立即使用</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="use_big">
+                                <div class="temp_img_son">
+                                    <img src="../img/u105.jpg" alt="" >
+                                    <div class="temp_explain">
+                                        <p>桃花朵朵</p>
+                                        <div class="media" style="margin-bottom: 7px;margin-top: 0;">
+                                            <div class="temp_label pull-left" style="margin-top:-3px">
+                                                <span class="label label-warning">节日</span>
+                                                <span class="label label-warning">单券</span>
+                                            </div>
+                                            <a href="coupons_posters.html" class="pull-right">立即使用</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media p_cssA">
+                    <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                    <div class="pull-right">
+                        <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/public.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../js/const.js"></script>
+<script src="../coupon_common/page/pagination.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            templateTypeList:'',
+            allTemplateNum:'',
+            templateList:'',
+            //pathVue:pathVue,
+            cur: 1,//默认第一页
+            all:1,//总页数
+            pageSize:8, //每页总条数
+        },
+        components: {   //分页
+            'vue-pagination': Vue.Pagination
+        },
+        methods:{
+
+            listen: function (data) {  //分页
+                //console.log(data)
+                this.cur = data;
+                var _this=this;
+                var param={
+                    pageSize:_this.pageSize,
+                    page:data,
+                };
+
+                var typeId=$(".selected").attr("value");
+                if(typeId!=undefined && typeId!=''){
+                    param.typeId=typeId;
+                }
+                var couponsNum = $('select[name="sample-table-2_length"] option:selected').val();
+                if(couponsNum !=""){
+                    param.couponsNum = $('select[name="sample-table-2_length"] option:selected').val();
+                }
+                var templateName = $("#templateName").val();
+                if(templateName!=undefined && templateName !=""){
+                    param.templateName = templateName;
+                }
+                this.getTemplate(param);
+            },
+
+            getTemplateByCondition:function(e){
+                var dom=e.target;//获取dom
+                debugger;
+                if($(dom).hasClass("applicationScene")){
+                    var aParent=$(dom).parent();
+                    var brother=aParent.children();
+                    brother.removeClass("red selected");
+                    $(dom).addClass("red selected");
+                }
+                var data={};
+                var typeId=$(".selected").attr("value");
+                if(typeId!=undefined && typeId!=''){
+                    data.typeId=typeId;
+                }
+                var couponsNum = $('select[name="sample-table-2_length"] option:selected').val();
+                if(couponsNum !=""){
+                    data.couponsNum = $('select[name="sample-table-2_length"] option:selected').val();
+                }
+                var templateName = $("#templateName").val();
+                if(templateName!=undefined && templateName !=""){
+                    data.templateName = templateName;
+                }
+
+                this.getTemplate(data);
+            },
+
+            getTemplate:function(param){
+                this.$http.post(pathApi+"/coupons/coupon/postersTemplate",param,{emulateJSON:true,credentials: true}).then(function(res){
+                    console.log(res);
+                    //this.showTemplate(res.data.data.templateList.list);
+
+                    var templateMap=res.data.data.templateList;
+                    this.templateList=templateMap.list;
+                    this.templateTypeList=res.data.data.templateTypeList;
+                    this.allTemplateNum=res.data.data.allTemplateNum;
+                    var countAll=templateMap.countAll;//记录总条数
+                    this.all =templateMap.pageAll;//总页数
+
+                });
+            },
+
+        },
+
+        created:function() {
+            var param={};
+
+            this.$http.post(pathApi+"/coupons/coupon/postersTemplate",param,{emulateJSON:true,credentials: true}).then(function(res){
+                //this.$http.get(pathApi+'/wx/weChat/getWechatData?userId='+userId,{emulateJSON:true,credentials: true}).then(function(res){
+                console.log(res);
+                var templateMap=res.data.data.templateList;
+                this.templateList=templateMap.list;
+                this.templateTypeList=res.data.data.templateTypeList;
+                this.allTemplateNum=res.data.data.allTemplateNum;
+                var countAll=templateMap.countAll;//记录总条数
+                this.all =templateMap.pageAll;//总页数
+
+            });
+
+        }
+    });
+</script>
+
+</body>
+</html>

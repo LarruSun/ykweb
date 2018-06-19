@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="applyForList">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="order_list2.html">售后申请记录</a>
+                    </li>
+                    <li>
+                        <a href="#">订单详情</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12" id="order_xiang3">
+                        <div class="col-xs-12 order_xiang">
+                            <div class="widget-body" style="border: 0;">
+                                <div class="widget-main">
+                                    <div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
+                                        <ul class="wizard-steps">
+                                            <li  data-target="#step1" class="active">
+                                                <span class="step">1</span>
+                                                <span class="title">售后申请</span>
+                                            </li>
+                                            <li data-target="#step2" class="active" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='auditStatus'||orderInfo.afterSaleOrders[0].afterSaleStatus=='unrefundStatus'||orderInfo.afterSaleOrders[0].afterSaleStatus=='refundOrder'">
+                                                <span class="step">2</span>
+                                                <span class="title">已审核</span>
+                                            </li>
+                                            <li data-target="#step2"  v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='applyStatus'">
+                                                <span class="step">2</span>
+                                                <span class="title">已审核</span>
+                                            </li>
+                                            <li data-target="#step3" class="" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='applyStatus'||orderInfo.afterSaleOrders[0].afterSaleStatus=='auditStatus'||orderInfo.afterSaleOrders[0].afterSaleStatus=='unrefundStatus'">
+                                                <span class="step">3</span>
+                                                <span class="title">已完成</span>
+                                            </li>
+                                            <li data-target="#step3" class="active" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='refundOrder'">
+                                                <span class="step">3</span>
+                                                <span class="title">已完成</span>
+                                            </li>
+                                            <li data-target="#step2" class="active" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='unauditStatus'">
+                                                <span class="step">2</span>
+                                                <span class="title">审核不通过</span>
+                                            </li>
+                                            <li data-target="#step2" class="active" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='cancelSalStatus'">
+                                                <span class="step">2</span>
+                                                <span class="title">售后取消</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="step-content row-fluid position-relative order_behead" id="step-container">
+                                        <div class="step-pane active order_beh" id="step1">
+                                            <div class="order_bso2" style="    margin-top: 12px;">
+                                                <p>售后编号：<span>{{orderInfo.afterSaleOrders[0].id}}</span></p>
+                                                <p>付款方式：<span>{{initData.payType}}</span></p>
+                                                <p style="margin-right: 91px;">退款原因：<span>{{initData.refundResult}}</span></p>
+                                            </div>
+                                            <div class="order_bso">
+                                                <p>原单编号：<span>{{initData.orderNO}}</span></p>
+                                                <p>买家：<span>{{initData.userName}}</span></p>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table  table-bordered table-hover center table_all table_css">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="center">菜单名称</th>
+                                                        <th class="center">价格(元)</th>
+                                                        <th class="hidden-480 center">数量</th>
+                                                        <th class="center">优惠(元)</th>
+                                                        <th class="hidden-480 center">小计(元)</th>
+                                                        <th class="hidden-480 center">状态</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="selected" v-for="item in initData.foodList">
+                                                        <td class="hidden-480 center">{{item.commodityName}}&nbsp;&nbsp;<span style="color: #999;"></span></td>
+                                                        <td class="center">{{(item.price*0.01).toFixed(2)}}</td>
+                                                        <td class="hidden-480 center">{{item.prodNum}}</td>
+
+                                                        <td class="center" v-if="!item.cxPrice || item.cxPrice==0">0.00</td>
+                                                        <td class="center" v-else>{{((item.price-item.cxPrice)*0.01).toFixed(2)}}</td>
+
+                                                        <td class="center" v-if="!item.prodConPrice||item.prodConPrice==0">{{(item.prodAllPrice*0.01).toFixed(2)}}</td>
+                                                        <td class="center" v-else>{{(item.prodAllPrice*0.01).toFixed(2)}}</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='applyStatus'">申请退款</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='auditStatus'">已审核</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='unrefundStatus'">待退款</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='unauditStatus'">审核不通过</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='cancelSalStatus'">售后取消</td>
+                                                        <td class="center" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='refundOrder'">已退款</td>
+                                                        <!--状态通过item.afterSaleStatus判断-->
+                                                    </tr>
+                                                   <!-- <tr class="selected">
+                                                        <td class="hidden-480 center">香干炒肉&nbsp;&nbsp;<span style="color: #999;">(大份)</span></td>
+                                                        <td class="center">23.00</td>
+                                                        <td class="hidden-480 center">1</td>
+                                                        <td class="center">1.00</td>
+                                                        <td class="center">20.00</td>
+                                                        <td class="center">以退款</td>
+                                                    </tr>
+                                                    <tr class="selected">
+                                                        <td class="hidden-480 center">农家小炒肉&nbsp;&nbsp;<span style="color: #999;">(大份)</span></td>
+                                                        <td class="center">23.00</td>
+                                                        <td class="hidden-480 center">1</td>
+                                                        <td class="center">1.00</td>
+                                                        <td class="center">20.00</td>
+                                                        <td class="center">以退款</td>
+                                                    </tr>-->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="media">
+                                                <p class="pull-right" style="margin-top: 22px;"></p>
+                                                <div class="wizard-a pull-right ">
+                                                    <p>实付金额：￥
+
+                                                        <span >{{(payObj.payMoney*0.01).toFixed(2)}}</span>
+                                                    </p>
+                                                    <p v-if='payObj.tkMoney.length>0'>退款方式：<span >{{!payObj.isALL?'部分退款':'全额退款'}}</span></p>
+                                                    <p v-if='payObj.tkMoney.length>0'>退款金额：￥{{(payObj.tkMoneySum*0.01).toFixed(2)}}<span></span></p>
+                                                    <a  class="btn btn-primary a_bottom" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='applyStatus'" data-toggle="modal" data-target="#myModal">同意退款</a>
+                                                    <!-- <a  v-on:click="refund" class="btn btn-primary a_bottom" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='unrefundStatus'||orderInfo.afterSaleOrders[0].afterSaleStatus=='auditStatus'">退款</a> -->
+                                                    <a  v-on:click="refuse" class="btn btn-primary a_bottom" v-if="orderInfo.afterSaleOrders[0].afterSaleStatus=='applyStatus'">拒绝退款</a>
+                                                    <a  v-on:click="printTest" class="btn btn-primary a_bottom">打印小票</a>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                            
+
+                                        </div>
+                                    </div>
+                                </div><!-- /widget-main -->
+                            </div><!-- /widget-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 退款弹框 -->
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">退款操作</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p style="font-size: 18px;font-weight: 600">可退款余额: {{(orderInfo.afterSaleOrders[0].refundAmount*0.01).toFixed(2)}}元</p>
+                            <p style="font-size: 18px;font-weight: 600;color:red">已支付骑手费用: {{zifundSum}} 元</p>
+                            <div class="form-group">
+                                <label>退款金额:</label>
+                                <!-- v-model="refundSum" -->
+                                <input type="number" placeholder="请输入退款金额" v-model="refundSum">元
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary a_bottom"  v-on:click="acept()">确定</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        
+
+        
+        <div id="home" class="tab-pane active home_first" style="margin:0;display: none" >
+            <div class="col-sm-7 temple_left_list" style="margin:0">
+                <div class="sj_logo" style="text-align: center;font-size: 17px; font-weight: 600;margin-top: 12px;">
+                    <p class="sj_logo_p dcT"></p>
+                    <p class="sj_logo_p dcT">豹子头宾馆</p>
+                </div>
+                <div class="temple_list_top" style="margin-top: 27px;">
+                    <p style="font-size: 5px;">订单编号:<span >{{orderInfo.orderNO}}</span></p>
+                    <p style="font-size: 5px;">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;:<span >{{orderInfo.createDate|data}}</span></p>
+                    <p style="font-size: 5px;">机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;:<span >{{orderInfo.sonOrder.currentOrderNum}}</span></p>
+                    <p style="font-size: 5px;">操&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;:<span >爱吃饭的鱼</span></p>
+                </div>
+                <hr style="height:1px;border:none;border-top:1px solid #555555;">
+                <div class="temple_list_middle">
+                    <div class="fgx" style="text-align: -webkit-center;">
+                        <table class="table table-striped table-bordered table_css table-striped2 center" style="border-style:none; font-size: 5px;">
+                            <tbody><tr>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">菜名</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">数量</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">单价</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left; ">小计</td>
+                            </tr>
+                            <tr class="selected" v-for="item in foodList">
+                                <td class="" style="border-style:none; font-size: 5px;text-align: left;">{{item.commodityName}}</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">{{item.prodNum }}</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">{{item.price*0.01}}</td>
+
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;"> {{item.prodConPrice*0.01}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+                <div class="z_all" style="border-style:none;">
+                    <table class="table  table-bordered table-striped2 table_css center " style="border-style:none; font-size: 5px;">
+                        <tbody>
+                        <tr>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left;">总数</td>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left;"></td>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left; ">￥{{orderInfo.soTotal*0.01}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="fgx" style="text-align: center; font-size: 17px;font-weight: 600; margin-top: 12px;">
+
+                    <p class="fgx_pq dcB" style=" font-size: 17px; font-weight: 600; text-align: center">欢迎再次惠顾</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/order_xiang3.js"></script>
+</body>
+</html>

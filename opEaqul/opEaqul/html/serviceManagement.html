@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>易快云服管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../opEaqul_common/opEaqul_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../opEaqul_common/opEaqul_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/city/pagination.css" />
+    <style>
+        .trs th,.trs td{
+              text-align: center;
+        }
+        .trs input{
+             width:100px;
+             margin-right:10px;
+             margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">商户管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/MerchantManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/TemporaryManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                临时商户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/auditManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">员工管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/divisionalManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                部门管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/operationsManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                运营管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">服务管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="active">
+                            <a href="../html/serviceManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                服务信息管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">模板管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/SMSManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信业务模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSPricingManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信价格管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板类型管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券海报模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券模板管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">服务管理</a>
+                    </li>
+                    <li>
+                        <a href="#">服务信息管理</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="App">
+                <div class="row">
+                    <div class="col-xs-12 MerchantManagement">
+                        <div class="MerchantManagement_choose">
+                            <label for="text" class=" control-label">状态：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" class="role serStatus" >
+                                    <option value="">请选择</option>
+                                    <option value="1">已上线</option>
+                                    <option value="0">已下线</option>
+                                </select>
+                            </label>
+                            <div class=" mge_set">
+                                <label for="text" class=" control-label">
+                                    <input type="text" placeholder="请输入服务名称" class="serSeach"/>
+                                    <a href="#" class="btn btn-info a_bottom" v-on:click="seachServer">查询</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="MerchantManagement_bottom">
+                            <a href="#" class="btn btn-primary a_bottom"  data-toggle="modal" data-target="#myModal_serviceManagementAdd" v-on:click="addManagementModel">新增</a>
+                            <a href="#" class="btn btn-info a_bottom signature" data-toggle="modal"  data-target="" v-on:click="editManagementModel" >编辑</a>
+                            <a href="#" class="btn btn-danger a_bottom del" data-toggle="modal" data-target="" v-on:click="upManagementModel">上线</a>
+                            <a href="#" class="btn btn-danger a_bottom del" data-toggle="modal" data-target="" v-on:click="downManagementModel">下线</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">
+                                        <label>
+                                            <input class="ace clickAll" type="checkbox"  v-on:click="ckAll" >
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </th>
+                                    <th class="center">服务名称</th>
+                                    <th class="center">服务类型</th>
+                                    <th class="center">服务图标</th>
+                                    <th class="center">所属业务</th>
+                                    <th class="center">开通条件</th>
+                                    <th class="center">分佣比例</th>
+                                    <th class="center">状态</th>
+                                    <th class="center">基础服务</th>
+                                    <th class="center">云服排序</th>
+                                    <th class="center">创建时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="item in listManager" v-cloak>
+                                    <td class="center">
+                                        <label>
+                                            <input class="ace clickSon" type="checkbox" :value="item.id"  @click="sonlist(item)">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td class="center">{{item.serviceName}}</td>
+                                    <td class="center">{{item.serviceType}}</td>
+                                    <td class="center"><img v-bind:src="item.serviceImg" alt="" style="width:50px;height:50px;"></td>
+                                    <td class="center">{{item.businessName}}</td>
+                                    <td class="center">{{item.vipLimit}}</td>
+                                    <td class="center">{{item.profit}}</td>
+                                    <td class="center">{{item.status==1?'上架':'下架'}}</td>
+                                    <td class="center">{{item.basicService==1?'是':'否'}}</td>
+                                    <td class="center">{{item.orderNum}}</td>
+                                    <td class="center">{{item.createTime}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="media p_cssA">
+                            <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增 start-->
+                <div class="modal fade" id="myModal_serviceManagementAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog serviceManagement">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_rw">
+                                    新增
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <div class="services">
+                                    <p>服务名称:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" placeholder=""  class="addDeptName" v-model="addObj.serviceName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>基础服务：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.basicService">
+                                                <option value="">请选择</option>
+                                                <option value="1">是</option>
+                                                <option value="0">否</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务类型：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.serviceType">
+                                                <option value="">请选择</option>
+                                                <option value="经营渠道">经营渠道</option>
+                                                <option value="营销推广">营销推广</option>
+                                                <option value="行业管理">行业管理</option>
+                                                <option value="支付交易">支付交易</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务号：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.permissionCode">
+                                                <option value="">请选择</option>
+                                                <option value="">启用</option>
+                                                <option value="">停用</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>供应商：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.supplierId">
+                                                <option value="">请选择</option>
+                                                <option v-for="item in supplierList" v-bind:value="item.id">{{item.supplierName}}</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>排序号：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input style="" placeholder="" class="addDeptName" v-model="addObj.orderNum" >
+                                            <span class="lbl font_size"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>所属业务：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.busId">
+                                                <option value="">请选择</option>
+                                                <option v-for="item in busTypeList" v-bind:value="item.id">{{item.businessName}}</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>上架：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="addObj.status" >
+                                                <option value="">请选择</option>
+                                                <option value="1">上架</option>
+                                                <option value="0">下架</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>URL地址：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input type="url" placeholder=""  class="addDeptName" v-model="addObj.url">
+                                            <span class="lbl font_size"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务图标：</p>
+                                    <div>
+                                        <a href="#" style="display: inline-block;    position: relative;">
+                                            <img id="upimg" src="../images/camera.png"   alt="" style="border: 1px dashed #aaa;width:100px;height:100px;"  />
+                                            <input id="addfileid" v-on:change="getAddImg" type="file" style="width: 100px; height: 100px;left: 0; top: 0px; position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="services" >
+                                    <p>分佣比例：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input style="" type="number" min="1" max="100"  placeholder=""  class="addDeptName" v-model="addObj.profit">
+                                            <span class="lbl font_size">%</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div v-if="addObj.basicService=='0'">
+                                    <div class="services" >
+                                        <p>开通条件：</p>
+                                        <div>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="0" placeholder="" class="addDeptName" v-model="addObj.vipLimit" >V0级
+                                            </span>
+                                            <span class=" control-label">
+                                                <input style="" type="radio" name="tj" value="1" placeholder="" class="addDeptName" v-model="addObj.vipLimit">V1级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="2" placeholder="" class="addDeptName" v-model="addObj.vipLimit">V2级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="3" placeholder="" class="addDeptName" v-model="addObj.vipLimit">V3级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="4" placeholder="" class="addDeptName" v-model="addObj.vipLimit">V4级
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="services trs">
+                                        <p>规格：</p>
+                                        <table>
+                                            <tr v-for="(item,index) in addObj.priceMonth"><td><input style="width: 45px;" type="text" v-model="item.month">月</td><td><input style="width: 70px;" type="text" v-model="item.price">元&nbsp; &nbsp;<a href="javascript:;" v-on:click="delPriceMonth(item,0)">删除</a></td></tr>
+                                            <tr><td colspan="2"> <input type="button" value="添加规格" v-on:click="addPriceMonth(0)"></td></tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div class="services">
+                                    <p>服务简称：</p>
+                                    <div>
+                                        <textarea name="" maxlength="60" cols="50" rows="5" v-model="addObj.serviceDesc" placeholder="不超过60字"></textarea>
+                                    </div>
+                                </div>
+                                <my-addson :child-msg="item" :child-ind="index" v-for="(item,index) in addArr" @ievent = "ievent"></my-addson>
+
+                                <div class="featuresAdd">
+                                    <a href="#" class="btn btn-primary a_bottom addiIntroductions" @click="addiIntroductions(0)">添加功能及介绍</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="" v-on:click="addManagement">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增 end-->
+                <!--上线 start-->
+                <div class="modal fade" id="myModal_topThread" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_Dele">
+                                    上线
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">确定上线？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="modal" v-on:click="upManagement">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--上线 end-->
+                <!--下线 start-->
+                <div class="modal fade" id="myModal_tapeout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_tapeout">
+                                    上线
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">确定下线？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="modal" v-on:click="downManagement">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--下线 end-->
+                <!--编辑 start-->
+                <div class="modal fade" id="myModal_divisionalManagementEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true" v-cloak>
+                    <div class="modal-dialog serviceManagement">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_rws">
+                                    编辑
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <div class="services">
+                                    <p>服务名称:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" placeholder=""  class="addDeptName" v-model="editObj.serviceName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>基础服务：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="editObj.basicService">
+                                                <option value="">请选择</option>
+                                                <option value="1">是</option>
+                                                <option value="0">否</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务类型：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="editObj.serviceType">
+                                                <option value="">请选择</option>
+                                                <option value="经营渠道">经营渠道</option>
+                                                <option value="营销推广">营销推广</option>
+                                                <option value="行业管理">行业管理</option>
+                                                <option value="支付交易">支付交易</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务号：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" >
+                                                <option value="">请选择</option>
+                                                <option value="1">启用</option>
+                                                <option value="0">停用</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>供应商：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="editObj.supplierId">
+                                                <option value="">请选择</option>
+                                                <option v-for="item in supplierList" v-bind:value="item.id">{{item.supplierName}}</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>排序号：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input style="" placeholder=""  class="addDeptName" v-model="editObj.orderNum">
+                                            <span class="lbl font_size"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>所属业务：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="editObj.busId">
+                                                <option value="">请选择</option>
+                                                <option v-for="item in busTypeList" v-bind:value="item.id">{{item.businessName}}</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>上架：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" v-model="editObj.status">
+                                                <option value="">请选择</option>
+                                                <option value="1">上架</option>
+                                                <option value="0">下架</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>URL地址：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input style="" placeholder=""  class="addDeptName" v-model="editObj.url">
+                                            <span class="lbl font_size"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>服务图标：</p>
+                                    <div>
+                                        <a href="#" style="display: inline-block;    position: relative;">
+                                            <img  src=""  id="editimgid"  alt="" style="border: 1px dashed #aaa;width:100px;height:100px;"  />
+                                            <input id="fileid" v-on:change="getEditImg" type="file" style="width: 100px; height: 100px;left: 0; top: 0px; position: absolute; border: 1px solid #ddd;display: inline-block;opacity: 0;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p>分佣比例：</p>
+                                    <div>
+                                        <label for="text" class=" control-label">
+                                            <input type="number" min="1" max="100" placeholder=""  class="addDeptName" v-model="editObj.profit">
+                                            <span class="lbl font_size">%</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div v-if="editObj.basicService=='0'">
+                                    <div class="services" >
+                                        <p>开通条件：</p>
+                                        <div>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="0" placeholder="" class="addDeptName" v-model="editObj.vipLimit" >V0级
+                                            </span>
+                                            <span class=" control-label">
+                                                <input style="" type="radio" name="tj" value="1" placeholder="" class="addDeptName" v-model="editObj.vipLimit">V1级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="2" placeholder="" class="addDeptName" v-model="editObj.vipLimit">V2级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="3" placeholder="" class="addDeptName" v-model="editObj.vipLimit">V3级
+                                            </span>
+                                            <span  class=" control-label">
+                                                <input style="" type="radio" name="tj" value="4" placeholder="" class="addDeptName" v-model="editObj.vipLimit">V4级
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="services trs">
+                                        <p>规格：</p>
+                                        <table>
+                                            <tr v-for="(item,index) in editObj.priceMonth"><td><input style="width: 45px;" type="text" v-model="item.month">月</td><td><input style="width: 70px;" type="text" v-model="item.price">元&nbsp; &nbsp;<a href="javascript:;" v-on:click="delPriceMonth(item,1)">删除</a></td></tr>
+                                            <tr><td colspan="2"> <input type="button" value="添加规格" v-on:click="addPriceMonth(1)"></td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="services">
+                                    <p>服务简介：</p>
+                                    <div>
+                                        <textarea name="" id="" maxlength="60" placeholder="不超过60字" cols="60" rows="5" v-model="editObj.serviceDesc"></textarea>
+                                    </div>
+                                </div>
+                                <my-addson :child-msg="item" :child-ind="index" v-for="(item,index) in editArr" @ievent = "ievent"></my-addson>
+<!--                                <div class="servicesBox_add">
+                                    <div class="services">
+                                        <p>公能名称<span>1</span>：</p>
+                                        <div>
+                                            <label for="text" class=" control-label">
+                                                <input style="" placeholder=""  class="addDeptName">
+                                                <span class="lbl font_size">%</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="services">
+                                        <p>公能介绍<span>1</span>：</p>
+                                        <div>
+                                            <label for="text" class=" control-label">
+                                                <input style="" placeholder=""  class="addDeptName">
+                                                <span class="lbl font_size">%</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <a href="#" >删除</a>
+                                </div>-->
+                                <div class="featuresAdd">
+                                    <a href="#" class="btn btn-primary a_bottom" v-on:click="addiIntroductions(1)">添加功能及介绍</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="" v-on:click="editManagement" >
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--编辑 end-->
+            </div>
+
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace-extra.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/bootstrap.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-ui.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue-resource.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/cookie.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/lrz.bundle.js"></script>
+<!--分页 start-->
+<script src="../../opEaqul_common/opEaqul_plugins/page/pagination.js"></script>
+<!--分页 end-->
+<!--公共端口 s-->
+<script src="../js/const.js"></script>
+<!--公共端口 e-->
+<script src="../js/pageJs/serviceManagement.js"></script>
+<script src="../js/templete/jsPlugins.js"></script>
+<script src="../js/templete/serviceManagementModel.js"></script>
+<script>
+
+</script>
+</body>
+</html>

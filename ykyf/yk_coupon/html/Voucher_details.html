@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>优惠券</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/ace.min.css"/>
+    <link rel="stylesheet" href="../js/boot/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../coupon_common/msgbox/msgbox.css">
+    <script src="../coupon_common/msgbox/msgUtil.js"></script>
+    <script src="../coupon_common/msgbox/msgbox.js"></script>
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="active">
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="Voucher_list.html">券列表</a>
+                    </li>
+                    <li>
+                        <a href="#">券详情</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" style="min-width:1066px">
+                <div class="row voucher_details">
+                    <div class="col-sm-4 inleft iframe temp_box details_main">
+                        <div data-role="page" id="yhQuan_temp2" class="voucher_Cleft">
+                            <div class="con con_1 con_2 con_3 con_4">
+                                <div class="con_box">
+                                    <div class="create_logo_text">
+                                        <img src="../img/logo_x.png" alt=""
+                                             style="border: 1px solid #ddd;border-radius: 50%;border-top: 0; width: 65px;">
+                                        <p style=" font-size: 16px; color: #999;">{{user.nickName}}</p>
+                                    </div>
+                                    <h2 class="create_text">{{couponsInfo.couponsName}}</h2>
+                                    <div class="quan_set">
+                                        <p class="p1"><b class=" create_text_2">{{couponsInfo.vouchers}}</b><i class="zhe_zhe">元</i>
+                                            <span class="create_djq" v-if="couponsInfo.couponsType==0">代金券</span>
+                                            <span class="create_djq" v-if="couponsInfo.couponsType==1">折扣券</span>
+                                            <!--<span class="tongyon">通用</span>-->
+                                        </p>
+                                        <p class="p_color p2 manman" style="display: none" v-if="couponsInfo.limitLowestConsumeType!=0">
+                                            满<span class="create_text_3">{{couponsInfo.lowestConsume}}</span>元可用
+                                        </p>
+                                        <p class="p_color manman2" v-if="couponsInfo.limitLowestConsumeType==0">无限制</p>
+                                    </div>
+                                    <div class="get_btn">
+                                        <a href="#">立即领取</a>
+                                    </div>
+                                    <div class="canUseTime">
+                                        <dl>
+                                            <dt>可用时间:</dt>
+                                            <dd>
+                                                <span class="manage_create_time startDate">
+                                                    {{couponsInfo.startDate}}
+                                                </span>
+                                                至
+                                                <span class="manage_create_time2 endDate" > {{couponsInfo.endDate}}</span>
+                                                ,
+                                                <span id="periodTime">
+                                                <span v-if="couponsInfo.effectiveTimeType==0">全部</span>
+                                                <span class="time_all" v-if="couponsInfo.effectiveTimeType==1">
+                                                    {{couponsInfo.useWeekDays}} {{couponsInfo.periodTime}}
+                                              	 </span>
+                                                </span>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="imgBox" style="    position: relative;">
+                                        <img v-bind:src="couponsInfo.couponsImg" alt="">
+                                        <div class="shadow_text  media"
+                                             style="position: absolute; bottom: 6px;left: 0;width: 100%; background: rgba(153, 153, 153, 0.78);padding: 4px;color: #f9f6f6;">
+                                            <p class="pull-left shadow_text_val" style=" margin-bottom: 0;">
+                                                {{couponsInfo.remark}}</p>
+                                            <p class="pull-right" style=" margin-bottom: 0;">></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="info_see">
+                                        <p><span class="">使用说明</span> <a href="#">></a></p>
+                                        <p><span>适用门店</span> <a href="#">></a></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voucher_details_right col-sm-5">
+                        <div class="main_all">
+                            <div class="main_all">
+                                <div class="voucher_details_title">
+                                    <p>券名称：<span>{{couponsInfo.couponsName}}</span></p>
+                                </div>
+                                <div class="voucher_details_me">
+                                    <p>券面额：<span>{{couponsInfo.vouchers}}元</span></p>
+                                    <p style="display: block" v-if="couponsInfo.limitLowestConsumeType==1">满{{couponsInfo.lowestConsume}}元可用</p>
+                                    <p style="display: block" v-if="couponsInfo.limitLowestConsumeType==0">无限制</p>
+                                </div>
+                                <div class="voucher_details_mun">
+                                    <p>券总量：<span>{{couponsInfo.countNum}}</span></p>
+                                    <a class="voucher_alter" href="#" data-toggle="modal" data-target="#myModal_amount">修改</a>
+                                </div>
+                                <div class="voucher_details_limit">
+                                    <p>领取限制：<span>每人{{couponsInfo.receiveLimit}}次</span></p>
+                                    <a class="voucher_alter" href="#" data-toggle="modal"
+                                       data-target="#myModal_headline" >修改</a>
+                                </div>
+                                <div class="voucher_details_time">
+                                    <p>有效期：<span>{{couponsInfo.startDate}}-{{couponsInfo.endDate}}
+                                        <span class=" label label-default" style="color:#fff;margin-left: 30px" v-if="new Date(couponsInfo.endDate)<new Date() || couponsInfo.validityStatus==1">已失效</span></span></p>
+                                    <span class=" label label-default" style="color:#fff;margin-left: 30px" v-if="new Date(couponsInfo.startDate)<=new Date() && new Date(couponsInfo.endDate)>=new Date() && couponsInfo.validityStatus==0">进行中</span></span></p>
+                                    <span class=" label label-default" style="color:#fff;margin-left: 30px" v-if="new Date(couponsInfo.startDate)>new Date()">未开始</span></span></p>
+                                    <a class="voucher_alter" href="#" data-toggle="modal"
+                                       data-target="#myModal_validity" >修改</a>
+                                </div>
+                                <div class="voucher_details_kysd" v-if="couponsInfo.effectiveTimeType==1">
+                                    <p>可用时段：<span>{{couponsInfo.useWeekDays}}&nbsp;&nbsp;{{couponsInfo.periodTime}}</span></p>
+                                </div>
+                                <div class="voucher_details_kysd" v-if="couponsInfo.effectiveTimeType==0">
+                                    <p>可用时段：<span>全部</span></p>
+                                </div>
+                                <div class="voucher_details_itrodu">
+                                    <p>封面简介：<span>{{couponsInfo.remark}}</span></p>
+                                </div>
+                                <div class="voucher_details_storess">
+                                    <p>使用门店：</p>
+                                    <div class=" use_stores" style="margin-left: 96px;margin-top: -31px;">
+                                        <p style="margin-right: 12px;" v-for="item in shopList"><span style="margin-left: 0">{{item.branch_name}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="voucher_details_stores">
+                                    <p>同步：<span v-if="couponsInfo.syncTo !=undefined && couponsInfo.syncTo.indexOf('1')>=0">微信卡包(券)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span v-if="couponsInfo.syncTo !=undefined && couponsInfo.syncTo.indexOf('2')>=0">支付宝卡包(券)</span></p>
+                                </div>
+                                <div class="toWhere">
+                                    <a href="Voucher_list.html" class="btn btn-primary">返回</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.main-container-inner -->
+    </div><!-- /.main-content -->
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+
+    <!--可用时段 start-->
+    <div class="modal fade" id="myModal_infic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove2"
+         aria-hidden="true">
+        <div class="modal-dialog" style="width:700px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_remove2">
+                        可用时段
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="Cright_main_son8">
+                        <p class="use_p">可用时段</p>
+                        <div class="voucher_otherTime">
+                            <label class="control_time2">
+                                <input name="form-field-radio2" class="ace " type="radio" checked="checked">
+                                <span class="lbl">全部时段</span>
+                            </label>
+
+                            <label class="control_time2" style="margin-left: 13px">
+                                <input name="form-field-radio2" class="ace " type="radio">
+                                <span class="lbl">部分时段</span>
+                            </label>
+                        </div>
+                        <div class="timeOther" style="display: none">
+                            <p class="control_time">
+                                <span class="width100"></span>
+                                <span>日期：</span>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周一</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周二</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周三</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周四</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周五</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="input ace">
+                                    <span class="lbl">周六</span>
+                                </label>
+                                <label>
+                                    <input class="input ace" type="checkbox">
+                                    <span class="lbl">周日</span>
+                                </label>
+                            </p>
+                            <p class="height22">
+                                <span class="width100"></span>
+                                <a href="#">添加时间段</a>
+                            </p>
+
+                            <div class="nextShow" style="display: none">
+                                <div class="nextShow_p">
+                                    <span class="width100"></span>
+                                    <b href="#">时间&nbsp;</b>
+                                    <div class="jar_label jar_la">
+                                        <label>
+                                            <input class="voucher_time_data" type="text" placeholder="">&nbsp;-&nbsp;
+                                            <input class="height30 voucher_time_data1" type="text">
+                                        </label>
+                                    </div>
+                                    <div class="jar_label2 jar_la">
+                                        <label style="" class="time_val_3">
+                                            <input class="height30 voucher_time_data2" type="text">&nbsp;-&nbsp;
+                                            <input class="height30 voucher_time_data3" type="text">
+                                        </label>
+                                    </div>
+                                    <div class="jar_a">
+                                        <a href="javascript:void(0)" class="addTime2 voucher_addtine">添加时间段</a>&nbsp;
+                                        <a href="javascript:void(0)" class="delTime voucher_addtine">删除时间段</a>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+                                <br>
+                                <div class="nextShow_p_2">
+                                    <span class="width165"></span>
+                                    <p class="color999">请使用24小时制输入时间格式如：11:00-14:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!--可用时段 end-->
+
+    <!--有效期 start-->
+    <div class="modal" id="myModal_validity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_failure"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">有效期修改</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="voucher_modal_1 center" v-if="couponsInfo.syncTo !=undefined &&couponsInfo.syncTo.indexOf('1')>=0">
+                        <div class="voucher_time12" style="display: flex;justify-content: center;margin-left: 18px;" >
+                            <p style="margin-top: 4px;margin-right: 17px;">有效期:</p>
+                            <div> <input type="text"  readonly id="wei_datetime" disabled v-bind:value="couponsInfo.startDate"></div>
+                            &nbsp;-&nbsp;
+                            <div>  <input class="form_datetime"  type="text" readonly id="wei_datetime1" v-bind:value="couponsInfo.endDate"></div>
+                        </div>
+                        <div >已同步过微信的优惠券有效期只允许延长</div>
+                    </div>
+
+                    <div class="voucher_modal_1 center" v-else>
+                        <div class="voucher_time" style="display: flex;justify-content: center;margin-left: 18px;" >
+                            <p style="margin-top: 4px;margin-right: 17px;">有效期:</p>
+                            <div>  <input class="form_datetime" type="text"   id="wei_datetime" v-bind:value="couponsInfo.startDate"></div>
+                              &nbsp;-&nbsp;
+                            <div>   <input class="form_datetime"  type="text"  id="wei_datetime1" v-bind:value="couponsInfo.endDate"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="changeDate($event)" >确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--有效期 end-->
+
+    <!--标题 start-->
+    <div class="modal" id="myModal_headline" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >领取限制</h4>
+                </div>
+                <div class="modal-body center" >
+                    <div class="voucher_text">
+                        <label for="text" class=" control-label">
+                            <span class="lbl">每人领取</span>
+                            <input type="text" class="create_val" id="changeLimitGetNum" type="number" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/" maxlength="9">&nbsp;<span class="chiosed">张</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary"  v-on:click="changeLimitGet($event)">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--标题 end-->
+
+    <!--封面简介 start-->
+    <div class="modal" id="myModal_Introduction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">封面简介</h4>
+                </div>
+                <div class="modal-body center">
+                    <div class="voucher_text">
+                        <label for="text" class=" control-label">
+                            <span class="lbl">封面简介：</span>
+                            <input type="text" class="create_val">
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--封面简介 end-->
+
+    <!--券量 start-->
+    <div class="modal" id="myModal_amount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_amount"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">券量</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="voucher_modal_2 ">
+                        <div class="voucher_Mleft left">
+                            <p>{{couponsInfo.couponsName}}</p>
+                            <div class="voucher_Mleft_son">
+                                <p>券总量:<span>{{couponsInfo.countNum}}</span></p>
+                                <p>库存:<span>{{couponsInfo.countNum-couponsInfo.receiveNum}}</span></p>
+                            </div>
+                        </div>
+                        <div class="voucher_Mright">
+                            <div class="voucher_Mright_son">
+                                <label class="ace_2">
+                                    <input name="form-field-radio-count" class="ace" value=0 type="radio" checked="checked">
+                                    <span class="lbl">增加</span>
+                                </label>
+                                <label class="ace_2">
+                                    <input name="form-field-radio-count" class="ace" value=1 type="radio">
+                                    <span class="lbl">减少</span>
+                                </label>
+                            </div>
+                            <div class="voucher_Mright_son2">
+                                <label class="ace_2">
+                                    <input class="ace" type="number" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/" id="changenum" checked="checked">&nbsp;份
+                                    <p id="changenumremark"></p>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary"   v-on:click="changeCount($event)">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--券量 end-->
+    <!--.main-container-->
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/ace.min.js"></script>
+    <script src="../js/ace-extra.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/boot/bootstrap-datetimepicker.js"></script>
+    <script src="../js/boot/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="../js/flot/jquery.flot.min.js"></script>
+   <script src="../js/public.js"></script>
+   <script src="../js/time.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-resource.min.js"></script>
+    <script src="../js/const.js"></script>
+    <script src="../js/ywjs/Voucher_details.js"></script>
+    <script>
+        $(" .Cright_main_son8  .voucher_otherTime label").click(function () {
+            var n = $(this).index();
+            if (n == 0) {
+                $(" .Cright_main_son8 .timeOther").hide();
+            }
+            if (n == 1) {
+                $(" .Cright_main_son8 .timeOther").show();
+            }
+            console.log(n)
+        });
+    </script>
+</body>
+</html>

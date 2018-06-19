@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/weichat.css" />
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="../images/img/logo.png" width="25px" alt="会员管理" />
+                    会员管理
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="../avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!-- <li class="">
+                     <a href="../index.html" class="active">
+                         <i class="icon-desktop"></i>
+                         <span class="menu-text"> 首页 </span>
+                     </a>
+                 </li>-->
+                 <li >
+                     <a href="#" class="dropdown-toggle">
+                         <i class="Hui-iconfont">&#xe62b;</i>
+                         <span class="menu-text"> 客户关系管理 </span>
+
+                         <b class="arrow icon-angle-down"></b>
+                     </a>
+                     <ul class="submenu">
+                         <li>
+                             <a href="clients.html">
+                                 <i class="icon-double-angle-right"></i>
+                                 客户列表
+                             </a>
+                         </li>
+
+                         <!-- <li >
+                              <a href="management.html" class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  会员管理
+                              </a>
+                          </li>
+                          <li  >
+                              <a href="fans_management.html">
+                                  <i class="icon-double-angle-right"></i>
+                                  粉丝管理
+                              </a>
+                          </li>-->
+                          <li  class="">
+                              <a href="members_home.html">
+                                  <i class="icon-double-angle-right"></i>
+                                  会员主页
+                              </a>
+                          </li>
+                         <!-- <li >
+                              <a href="label.html" class="active">
+                                  <i class="icon-double-angle-right"></i>
+                                  标签管理
+                              </a>
+                          </li>-->
+                      </ul>
+                  </li>
+                  <li  class="active">
+                      <a href="#" class="dropdown-toggle">
+                          <i class="Hui-iconfont">&#xe6b4;</i>
+                          <span class="menu-text"> 卡管理 </span>
+                          <b class="arrow icon-angle-down"></b>
+                      </a>
+                      <ul class="submenu">
+                          <li >
+                              <a href="card_type.html">
+                                  <i class="icon-double-angle-right"></i>
+                                  等级卡管理
+                              </a>
+                          </li>
+                          <li >
+                              <a href="get_record.html" >
+                                  <i class="icon-double-angle-right"></i>
+                                  领取记录
+                              </a>
+                          </li>
+                          <!-- <li class="active">
+                               <a href="wechaVipCard.html" >
+                                   <i class="icon-double-angle-right"></i>
+                                   微信会员卡
+                               </a>
+                           </li>-->
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="#" class="dropdown-toggle">
+                           <i class="Hui-iconfont">&#xe694;</i>
+                           <span class="menu-text">积分管理 </span>
+                           <b class="arrow icon-angle-down"></b>
+                       </a>
+                       <ul class="submenu">
+                           <li>
+                               <a href="integal_set.html" class="active">
+                                   <i class="icon-double-angle-right"></i>
+                                   积分设置
+                               </a>
+                           </li>
+                           <li >
+                               <a href="integal_record.html" class="active">
+                                   <i class="icon-double-angle-right"></i>
+                                   积分记录
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="#" class="dropdown-toggle">
+                           <i class="Hui-iconfont">&#xe607;</i>
+                           <span class="menu-text">储值管理 </span>
+                           <b class="arrow icon-angle-down"></b>
+                       </a>
+
+                       <ul class="submenu">
+                           <li >
+                               <a href="store_value.html"  class="active">
+                                   <i class="icon-double-angle-right"></i>
+                                   储值设置
+                               </a>
+                           </li>
+
+                           <li>
+                               <a href="balance_record.html" class="active">
+                                   <i class="icon-double-angle-right"></i>
+                                   余额记录
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                <!--<li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li >
+                            <a href="integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!--<li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe61e;</i>
+                        <span class="menu-text"> 数据统计 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="expense_calendar.html" >
+                                <i class="icon-double-angle-right"></i>
+                                消费记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="wechaVipCard.html">微信会员卡</a>
+                    </li>
+                    <li>
+                        <a href="#">微信会员卡同步</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px;">
+                <div class="row " >
+                    <div class="col-sm-12 wechat_main">
+                        <div class="bg_add">
+                            <div class="bg_1 center">
+                                <div class="bg_2">
+                                    <img src="../images/img/bg_2.png" alt="" class="img-responsive img_titlePhone"/>
+                                    <div class="wechat_titlePhone">
+                                        <div class="mship_1 center">
+                                            <ul class="media-list" id="bgcolor">
+                                                <li class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="" src="../images/img/logo.png" alt="通用的占位符图像" width="40">
+                                                    </a>
+                                                    <div class="media-body mship_card">
+                                                        <p class="media-heading">
+                                                            <span>亿灵思智能科技<br />尊享会员</span>
+                                                            <img class="media-object" src="../images/img/u73.png" alt="通用的占位符图像" >
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="mship_card_1">
+                                                        <span class="mship_card_1_1" style="">
+                                                            0268&nbsp;&nbsp;&nbsp;8888&nbsp;&nbsp;&nbsp;8888
+                                                        </span>
+                                                        <span class="mship_card_1_2" >
+                                                            <img src="../images/img/i.png" alt="" width="18"/>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="accordion" class="accordion-style1 panel-group mship_right">
+                                        <div class="panel panel-default">
+                                            <p id="lyny" class="pl_1">适用门店</p>
+                                            <p class="pl_2" >
+                                                <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                            </p>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <div>
+                                                <p id="lyny" class="pl_1">公众号</p>
+                                                <p class="pl_2" >
+                                                    <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div id="clone_boxL">
+                                            <div class="panel panel-default clone_idL0 templateL" >
+                                                <div>
+                                                    <p id="lyny_a" class="pl_1">自定义入口（选填）</p>
+                                                    <p class="pl_2 pl_text" id="lyny_b">
+                                                        <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--左模板二-->
+                                        <div class="clone_boxL_2" id="" style="display: none ;">
+                                            <div class="panel panel-default clone_idL0 templateL" >
+                                                <div>
+                                                    <p id="lyny_v_1" class="pl_1">自定义入口（选填）</p>
+                                                    <p class="pl_2 "  id="lyny_v">
+                                                        <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--左模板二end-->
+                                        <!--左模板三-->
+                                        <div class="clone_boxL_3"  style="display: none ;">
+                                            <div class="panel panel-default clone_idL0 templateL" >
+                                                <div>
+                                                    <p id="lyny_c_1" class="pl_1">自定义入口（选填）</p>
+                                                    <p class="pl_2"  id="lyny_c">
+                                                        <i class="bigger-110 icon-angle-right" data-icon-hide="icon-angle-down" data-icon-show="icon-angle-right" ></i>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--左模板三end-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-lg-5 bg_5 mship_responsive" >
+                            <div style="">
+                                <div class="radio radio_2">
+                                    <label>
+                                        <span class="lbl font_size">卡封面：</span>
+                                    </label>
+
+                                    <label>
+                                        <input name="form-field-radio1" type="radio" class="ace" value="ok1"   onclick="aCheck1()" checked="checked">
+                                        <span class="lbl">图片</span>
+                                    </label>
+                                    <label>
+                                        <input name="form-field-radio1" type="radio" class="ace" value="ok2"  onclick="bCheck2()"  checked="checked">
+
+                                        <span class="lbl">颜色</span>
+                                    </label>
+                                </div>
+                                <div id="span1" style="display:block">
+                                    <select id="selec_1" size="1" name="sample-table-2_length" aria-controls="sample-table-2"  onchange="change(value)">
+                                        <option value="Orange">橙色</option>
+                                        <option value="pink">粉色</option>
+                                        <option value="green">绿色</option>
+                                        <option value="#000">黑色</option>
+                                    </select>
+                                </div>
+                                <div id="span2" style="display:none">
+                                    <div class="select_file">
+                                        <a href="javascript:void(0);">选择文件</a>
+                                        <input type="file" unselectable="on" value="选择文件" />
+                                    </div>
+                                </div>
+                                <div class="vip_wei">
+                                    <label>会员卡标题
+                                        <input  type="text" class="vip_wei_val" placeholder="会员尊享">
+                                        <span class="lbl" style="color:#999">4/9</span>
+                                    </label>
+                                    <p style="color:#999;margin-top: 10px;">建议会员卡标题包含商户名称或服务内容，如腾讯会员黄钻尊享卡</p>
+                                </div>
+                            </div>
+                            <hr />
+                            <div style="display: block;" id="span_1" >
+                                <div class="span_1" >
+                                    <button name="form-field-radio"  class="ace" onclick="eCheck_a()">添加自定义入口</button><br />
+                                    <span>可配置图文消息，货架，网页链接，用户可查看详情或领取更多卡券</span>
+                                </div>
+                            </div >
+                            <div style="display: none;" id="span_2">
+                                <!--模板右边-->
+                                <div id="clone_boxR">
+                                    <table class="table table-condensed table-responsive clone_idR0" id="tab_clone">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口一：</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td><a class="" id="" onclick="eCheck_b()">删除</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio mship_alert">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口名称：</span>
+                                                    </label>
+                                                    <input name=""  class="loe_hk10 eml_a"   placeholder="" >
+                                                    <span class="mship_color">0/5</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >引导语（选填）：</span>
+                                                    </label>
+                                                    <input  class="loe_hk10" id="eml_b" onkeyup="SwapTxt_b()" style="resize: none;" placeholder="">
+                                                    <span class="mship_color">0/6</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl  font_size" >点击跳转：</span>
+                                                    </label>
+
+                                                    <label style="margin-left: 46px;">
+                                                        <input name="form-field-radio2" type="radio" class="ace" value="ok1"   onclick="cCheck_4()"  >
+                                                        <span class="lbl">图文消息</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio2" type="radio" class="ace" value="ok1"   onclick="dCheck_3()" >
+                                                        <span class="lbl">卡券货架</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio2" type="radio" class="ace" value="ok1"   onclick="eCheck_2()" >
+                                                        <span class="lbl">网页链接</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio2" type="radio" class="ace" value="ok1"   onclick="fCheck_1()" checked="checked">
+                                                        <span class="lbl">跳转自定义功能</span>
+                                                    </label>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio" style="display:none" id="span3">
+                                                    <label>
+                                                        <span class="lbl mship_span">图文消息：</span>
+                                                    </label>
+                                                    <button class="out_1">选择图文消息</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span4">
+                                                    <label>
+                                                        <span class="lbl mship_span" >卡券货架：</span>
+                                                    </label>
+                                                    <button class="out_1">选择卡券货架</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span5">
+                                                    <label>
+                                                        <span class="lbl mship_span">网页链接：</span>
+                                                    </label>
+                                                    <span class="mship_http" >http://</span>
+                                                    <input class="loe_hk10" id="eml" onkeyup="SwapTxt()"  placeholder="">
+                                                </div>
+                                                <div class="radio" style="display:block"  id="span6">
+                                                    <label>
+                                                        <span class="lbl mship_span" >网页链接：</span>
+                                                    </label>
+                                                    <span  class="mship_http">http://</span>
+                                                    <input name="" cols="" rows="" class="loe_hk10" id="eml" onkeyup="SwapTxt_1()"  placeholder="">
+                                                    <div class="mship_right_drow" >
+                                                        <label style="margin-left: 46px;">
+                                                            <input name="form-field-radio3" type="radio" class="ace" value="ok1"   onclick="" checked="checked" >
+                                                            <span class="lbl">微点餐</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微会员</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">空中商城</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio3" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微活动</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!--模板二-->
+                                <div id="" class="clone_boxR2" style="display:none">
+                                    <table class="table table-condensed table-responsive clone_idR0" id="tab_clone">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口二：</span>
+                                                    </label>
+
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td><a class="out_v" id="">删除</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口名称：</span>
+                                                    </label>
+                                                    <input name="" cols="" rows="" class="loe_hk10 mship_alert" id="eml_v_1" onkeyup="SwapTxt_v_1()"  placeholder="" >
+                                                    <span class="mship_color">0/5</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >引导语（选填）：</span>
+                                                    </label>
+                                                    <input  class="loe_hk10" id="eml_v" onkeyup="SwapTxt_v()"  placeholder="">
+                                                    <span class="mship_color">0/6</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+
+                                                    <label>
+                                                        <span class="lbl font_size" >点击跳转：</span>
+                                                    </label>
+
+                                                    <label style="margin-left: 46px;">
+                                                        <input name="form-field-rad" type="radio" class="ace" value="ok1"   onclick="cCheck_4_1()" checked="checked" >
+                                                        <span class="lbl">图文消息</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-rad" type="radio" class="ace" value="ok1"   onclick="dCheck_3_2()" checked="checked">
+                                                        <span class="lbl">卡券货架</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-rad" type="radio" class="ace" value="ok1"   onclick="eCheck_2_3()" checked="checked">
+                                                        <span class="lbl">网页链接</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-rad" type="radio" class="ace" value="ok1"   onclick="fCheck_1_4()" checked="checked">
+                                                        <span class="lbl">跳转自定义功能</span>
+                                                    </label>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio" style="display:none" id="span3_1">
+                                                    <label>
+                                                        <span class="lbl mship_span">图文消息：</span>
+                                                    </label>
+                                                    <button class="out_1">选择图文消息</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span4_1">
+                                                    <label>
+                                                        <span class="lbl mship_span" >卡券货架：</span>
+                                                    </label>
+                                                    <button class="out_1">选择卡券货架</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span5_1">
+                                                    <label>
+                                                        <span class="lbl mship_span" >网页链接：</span>
+                                                    </label>
+                                                    <span  class="mship_http">http://</span>
+                                                    <textarea name="" cols="" rows="" class="loe_hk10" id="eml" onkeyup="SwapTxt()" style="resize: none;" placeholder=""></textarea>
+                                                </div>
+                                                <div class="radio" style="display:block"  id="span6_1">
+                                                    <label>
+                                                        <span class="lbl mship_span" >网页链接：</span>
+                                                    </label>
+                                                    <span  class="mship_http">http://</span>
+                                                    <textarea name="" cols="" rows="" class="loe_hk10" id="eml" onkeyup="SwapTxt_1()" style="resize: none;" placeholder=""></textarea>
+                                                    <div class="mship_right_drow">
+                                                        <label style="margin-left: 46px;">
+                                                            <input name="form-field-radio5" type="radio" class="ace" value="ok1"   onclick="" checked="checked" >
+                                                            <span class="lbl">微点餐</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio5" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微会员</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio5" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">空中商城</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio5" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微活动</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--模板二end-->
+                                <!--模板三-->
+                                <div id="" class="clone_boxR3" style="display:none">
+                                    <table class="table table-condensed table-responsive clone_idR0" id="tab_clone">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口三：</span>
+                                                    </label>
+
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td><a class="out_c" id="" >删除</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >入口名称：</span>
+                                                    </label>
+                                                    <input  class="loe_hk10 mship_alert" id="eml_c_1" onkeyup="SwapTxt_c_1()" placeholder="" >
+                                                    <span class="mship_color" >0/5</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+                                                    <label>
+                                                        <span class="lbl font_size" >引导语（选填）：</span>
+                                                    </label>
+                                                    <input  class="loe_hk10" id="eml_c" onkeyup="SwapTxt_c()" placeholder="">
+                                                    <span class="mship_color">0/6</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio">
+
+                                                    <label>
+                                                        <span class="lbl font_size" >点击跳转：</span>
+                                                    </label>
+
+                                                    <label style="margin-left: 46px;">
+                                                        <input name="form-field-radio6" type="radio" class="ace" value="ok1"   onclick="cCheck_4_5()" checked="checked" >
+                                                        <span class="lbl">图文消息</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio6" type="radio" class="ace" value="ok1"   onclick="dCheck_3_6()" checked="checked">
+                                                        <span class="lbl">卡券货架</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio6" type="radio" class="ace" value="ok1"   onclick="eCheck_2_7()" checked="checked">
+                                                        <span class="lbl">网页链接</span>
+                                                    </label>
+                                                    <label>
+                                                        <input name="form-field-radio6" type="radio" class="ace" value="ok1"   onclick="fCheck_1_8()" checked="checked">
+                                                        <span class="lbl">跳转自定义功能</span>
+                                                    </label>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radio" style="display:none" id="span3_2">
+                                                    <label>
+                                                        <span class="lbl mship_span" >图文消息：</span>
+                                                    </label>
+                                                    <button class="out_1">选择图文消息</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span4_2">
+                                                    <label>
+                                                        <span class="lbl mship_span">卡券货架：</span>
+                                                    </label>
+                                                    <button class="out_1">选择卡券货架</button>
+                                                </div>
+                                                <div class="radio" style="display:none" id="span5_2">
+                                                    <label>
+                                                        <span class="lbl mship_span" >网页链接：</span>
+                                                    </label>
+                                                    <span  class="mship_http">http://</span>
+                                                    <input name=""  class="loe_hk10" id="eml" onkeyup=""  placeholder=""></input>
+                                                </div>
+                                                <div class="radio" style="display:block"  id="span6_2">
+                                                    <label>
+                                                        <span class="lbl mship_span" >网页链接：</span>
+                                                    </label>
+                                                    <span  class="mship_http">http://</span>
+                                                    <input name=""  class="loe_hk10" id="eml" onkeyup=""  placeholder=""></input>
+                                                    <div class="mship_right_drow">
+                                                        <label style="margin-left: 46px;">
+                                                            <input name="form-field-radio7" type="radio" class="ace" value="ok1"   onclick="" checked="checked" >
+                                                            <span class="lbl">微点餐</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio7" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微会员</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio7" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">空中商城</span>
+                                                        </label>
+                                                        <label>
+                                                            <input name="form-field-radio7" type="radio" class="ace" value="ok1"   onclick="" checked="checked">
+                                                            <span class="lbl">微活动</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--模板三end-->
+                                <button name="form-field-radio"  class="ace"  style="margin:24px;" id="va" >添加自定义入口</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.main-content -->
+            </div><!-- /.main-container-inner -->
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="../images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+    <!--置顶图标 start-->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    <!--置顶图标 end-->
+</div><!--.main-container-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+
+<script >
+    function aCheck1(){
+        document.getElementById("span1").style.display = "none";
+        document.getElementById("span2").style.display = "block";
+    }
+    function bCheck2(){
+        document.getElementById("span1").style.display = "block";
+
+        document.getElementById("span2").style.display = "none";
+    }
+    function eCheck_a(){
+        document.getElementById("span_1").style.display="none";
+        document.getElementById("span_2").style.display="block";
+    }
+    function eCheck_b(){
+        document.getElementById("span_1").style.display="block";
+        document.getElementById("span_2").style.display="none";
+    }
+    $(document).ready(function(){
+        var n = 2;
+        var c=document.getElementsByClassName("clone_boxR2");
+        c.flag=true;
+        $("#va").click(function(){
+            var v=$(".out_v");
+            $('.clone_boxL_' + n + '').show();
+            $('.clone_boxR' + n + '').show();
+            n++;
+            if (n == 4){
+                n = 2;
+                c.flag=true;
+                window.alert("提示最多添加三个");
+                $("#va").css("display", "none");
+            } else{
+            }
+        });
+        $(".out_v").click(function(){
+            $(".clone_boxL_2").hide();
+            $(".clone_boxR2").hide();
+            c.flag=false;
+
+        });
+        $(".out_c").click(function(){
+            n--;
+            if(c.flag){
+                $(".clone_boxL_3").hide();
+                $(".clone_boxR3").hide();
+                $("#va").css("display", "block")
+            }
+
+        });
+
+    });
+    //卡片背景切换
+    function aa(){
+        document.bgColor = "Orange";
+    }
+    function change(){
+        var x = document.getElementById("selec_1").value;
+        document.getElementById("bgcolor").style.cssText = "background:" + x + ";border-radius: 13px;";
+        /*console.log(document.getElementById("qq"))*/
+    }
+
+    $(function(){
+        var num;
+        var index_=$(".Cright_m .radio label input");
+        var length_=$(".Cright_m .radio label input").length;
+        for(var i=0;i<length_;i++){
+            index_[i].index=i;
+            index_[i].onclick=function(){
+                num=this.index;
+                console.log(num);
+            }
+
+        }
+        $(".Cright_m .radio label input").click(function(){
+            if(num==0) {
+                $(this).parent().next().show();
+                $(".hhl_b .kojer").show();
+                $(".Cright_m .topp").hide();
+                $(".Cright_m .explain").hide();
+                $(".hhl_b .te_jar_img_B").hide();
+            }
+            if(num==1) {
+                $(this).parent().next().show();
+                $(".hhl_b .te_jar_img_B").show();
+                $(this).parent().parent().next().show();
+                $(".Cright_m .p1").hide();
+                $(".hhl_b .kojer").hide();
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

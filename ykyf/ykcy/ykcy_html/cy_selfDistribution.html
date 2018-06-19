@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar"  sonpage='cy_selfDistribution'>
+
+            <sidebar></sidebar>
+
+        </div>
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">自营配送员</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="selfDistribution">
+                <a href="#" @click='add()' class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增配送员</a>
+                
+                <div class="table-responsive">
+                    <div v-if='selfDistributionData[0]!="目前无自营配送人员，请新增自营配送员"'>
+                        <table style="margin-bottom:50px;" class="table  table-bordered table-hover center table_all table_css">
+                            <thead>
+                            <tr>
+                                <th class="center">姓名</th>
+                                <th class="center">电话</th>
+                                <th class="center">创建时间</th>
+                                <th class="center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected" v-for="(item,index) in selfDistributionData">
+                                <td class="center" v-cloak>{{item.name}}</td>
+                                <td class="center" v-cloak>{{item.phone}}</td>
+                                <td class="center" v-cloak>{{item.updateTime | data}}</td>
+                                <td class="center">
+                                    <a href="#" class="" data-toggle="modal" data-target="#editSelfDistribution" @click='passMessage(index)'>编辑</a>&nbsp;
+                                    <a href="#" class="" data-toggle="modal" data-target="#deleSelfDistribution" @click='passMessage(index)'>删除</a>&nbsp;
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- 分页 -->
+                        <div class="pull-right">
+                            <vue-pagination :cur.sync="page" :all.sync="allPage" v-on:btn-click="listen"></vue-pagination>
+                        </div>
+
+
+                    </div>
+                    <div v-else class="selfDistributionInitView">
+                        <div v-cloak>{{selfDistributionData[0]}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+
+    <!-- 新增配送员弹框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" >
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header cancelmessage">
+                            <h1>新增配送员</h1>
+                            <div class="form-group">
+                                <label for="selfDistributionName">姓名：</label>
+                                <input type="text" class="form-control" id="selfDistributionName" v-model='selfDistributionName'>
+                                </div>
+                            <div class="form-group">
+                                <label for="selfDistributionPhone">电话：</label>
+                                <input type="text" class="form-control" id="selfDistributionPhone" v-model='selfDistributionPhone'>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addSelfDistribution()">确定</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已经取消",1000)'>取消</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+            </div>
+    </div>
+
+        <!-- 编辑送员弹框 -->
+        <div class="modal fade" id="editSelfDistribution" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" >
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header cancelmessage">
+                                <h1>编辑</h1>
+                                <div class="form-group">
+                                    <label for="selfDistributionName">姓名：</label>
+                                    <input type="text" class="form-control" id="selfDistributionName" v-model='selfDistributionName'>
+                                    </div>
+                                <div class="form-group">
+                                    <label for="selfDistributionPhone">电话：</label>
+                                    <input type="text" class="form-control" id="selfDistributionPhone" v-model='selfDistributionPhone'>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" @click='editSelfDistribution()'>确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已经取消",1000)'>取消</button>
+                                </div>
+                            </div>
+                        
+                        </div>
+                </div>
+        </div>
+
+          <!-- 删除送员弹框 -->
+        <div class="modal fade" id="deleSelfDistribution" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header cancelmessage">
+                            <h1>提醒</h1>
+                            <h1>是否删除配送员：{{selfDistributionName}}</h1>
+                            <button  type="button" class="btn btn-primary" data-dismiss="modal" @click='deleSelfDistribution()'>确定</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已经取消",1000)'>取消</button>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.main-content -->
+        
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/cy_selfDistribution.js"></script>
+</body>
+</html>

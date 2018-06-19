@@ -1,0 +1,141 @@
+/* 导航条样式 */
+.breadcrumbs{
+    margin-top: 20px;
+    margin-left: 90px;
+    margin-bottom: 50px;
+    border: none;
+    border-bottom:1px solid #ccc;
+    width:90%;
+    padding-bottom: 20px;
+}
+.main-container .main-container-inner #breadcrumb{
+    margin: 0 20px 20px 20px;
+}
+.main-container .main-container-inner #breadcrumb a{
+    display: inline-block;
+    width: 105px;
+    height: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background: #fff;
+}
+
+ /* VIPInformation */
+
+.main-container .breadcrumbs .page-content .topTitle{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px dashed #ccc;
+    border-top: 1px solid #ccc;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 80%;
+    margin: auto;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .left{
+    width: 50%;
+    padding-left: 10%;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .left span,.main-container .main-container-inner .breadcrumbs .page-content .list .right span{
+    font-size: 12px;
+    color: #aaa;
+}
+.main-container .main-container-inner .breadcrumbs .page-content .list .right{
+    width: 50%;
+    padding-left: 20%;
+}
+
+
+
+/* VIP_customerList 开始 */
+
+.main-container .main-container-inner .page-content .lastList{
+    text-align:right;
+    border-bottom:1px solid #ccc;
+    margin-bottom:100px;
+    margin-left: 30px;
+    width:98%;
+    margin-bottom: 50px;
+}
+.main-container .main-container-inner .table-responsive table .selected .VIPinfor{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 75px;
+
+}
+.main-container .main-container-inner .table-responsive table .selected .VIPinfor .left{
+    width: 40%;
+}
+.main-container .main-container-inner .table-responsive table .selected .VIPinfor .right{
+    width: 60%;
+}
+.main-container .main-container-inner .table-responsive table .selected .VIPinfor .right p{
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    text-align: left;
+
+}
+
+
+
+
+
+/* VIP_customerList 结束 */
+
+/* VIP_gradeList开始 */
+.main-container .main-container-inner .tiShi{
+    margin:100px 0 50px 50px;
+    padding-left:5%; 
+    border-bottom:1px solid #ccc;
+    padding-bottom:50px;
+    width:90%
+}
+
+
+
+
+
+
+
+
+
+
+/* 取消订单弹框样式 */
+.modal-dialog{
+    margin-top: 200px;
+  }
+  .modal-dialog .modal-content .cancelmessage{
+    height: 320px;
+  }
+  .modal-dialog .modal-content .cancelmessage h1:nth-child(1){
+    text-align: center;
+    border-bottom: 1px solid #222;
+    font-weight: bolder;
+    padding-bottom: 10px;
+  }
+  
+  .modal-dialog .modal-content .cancelmessage h1:nth-child(2){
+    text-align: center;
+    height: 140px;
+    line-height: 140px;
+    font-weight: bolder;
+  }
+  .modal-dialog .modal-content button{
+    width: 140px;
+    height: 40px;
+    margin-left: 90px;
+  }
+  
+  /* 取消订单弹框样式结束 */
+
+
+ 
+
+
+ 

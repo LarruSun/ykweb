@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <!-- <link rel="stylesheet" href="../ykcy_css/pagination.css" /> -->
+    <link rel="stylesheet" href="../ykcy_css/couponList.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body style="overflow-x:hidden">
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="couponList" style="margin-top:20px;">
+    <sidebar></sidebar>
+</div>
+
+<div class="main-container" id="launchList" style="margin-left:10%;width:1400px;">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="couponList.html">优惠券</a>
+                </li>
+                <li>
+                    <a  href="#">优惠券投放列表</a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+            <!-- 导航条 -->
+            <!-- <div class="breadcrumbs" id="breadcrumb">
+                <a href="./couponList.html" style="margin-left:20px;">优惠券列标</a>
+                <a href="#" style="margin-left:20px;background:#428BCA;color:#fff">券投放列表</a>
+                <a href="#"  style="margin-left:20px;">领用记录</a> 
+            </div> -->
+            <div class="launchList">
+  
+
+
+                <div class="list">
+                    <div class="left">
+                        <img style="width:80px;margin-top:20px;" src="../ykcy_images/yhq.png" alt="网络错误">
+                        <p>
+                               
+                            <a style="width:99%" data-toggle="modal"  data-target="#fbs" class="btn btn-primary a_bottom" v-if='shopTf.length == 0'>发布</a>
+                            <button v-else disabled style="width:99%;margin-left:5px;"  class="btn btn-primary a_bottom">发布</button>
+                        </p>
+                       
+                    </div>
+
+                    <div class="right">
+                        <h2>到店领券</h2>
+                        <p>用户主动领取，领取场景：通过微信小程序领券入口领取</p>
+                    </div>
+                </div>
+
+
+                <div class="list">
+                    <div class="left">
+                        <img style="width:80px;margin-top:20px;" src="../ykcy_images/hy.png" alt="网络错误">
+                        <p>
+                            <a  style="width:99%" :href='"sendingCoupons.html?id="+id' class="btn btn-primary a_bottom" style="font-size:10px;">发布</a>
+                        </p>
+                       
+                    </div>
+
+                    <div class="right">
+                        <h2>会员送券</h2>
+                        <p>卖家主动派发，系统提醒用户获得优惠券</p>
+                    </div>
+     
+                </div>
+
+
+
+
+                <div class="list">
+                    <div class="left">
+                        <img style="width:80px;margin-top:20px;" src="../ykcy_images/jf.png" alt="网络错误">
+                        <p>
+                            <a style="width:99%" :href='"IntegralChange.html?id="+id' class="btn btn-primary a_bottom">发布</a>
+                        </p>
+                       
+                    </div>
+
+                    <div class="right">
+                        <h2>积分兑券</h2>
+                        <p>积分商城使用积分兑换优惠券</p>
+                    </div>
+     
+                </div>
+
+
+
+
+                <div class="list">
+                    <div class="left">
+                        <img style="width:80px;margin-top:20px;" src="../ykcy_images/hb.png" alt="网络错误">
+                        <p>
+                            <a style="width:99%" :href='"makingPoster.html?id="+id' class="btn btn-primary a_bottom">发布</a>
+                        </p>
+                       
+                    </div>
+
+                    <div class="right">
+                        <h2>海报领券</h2>
+                        <p>用户主动领取，领取场景：用户通过微信宣传海报，主动领取优惠券</p>
+                    </div>
+     
+                </div>
+
+
+
+
+
+            <!-- 到店领券弹框 -->
+
+                                 
+            <div class="modal fade" id="fbs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header cancelmessage">
+                                <h1>提醒</h1>
+                                <h1>
+                                    是否确定投放至到店领券
+                                </h1 >
+        
+                                <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                                <!-- checkList.html?flag=ddlq -->
+                                <button  class="btn btn-primary" data-dismiss="modal" @click='shopSubmit()' >确定</button>
+                                <button  class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+   
+    </div><!-- /.main-container-inner -->
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<!-- <script src="../ykcy_js/pagination.js"></script> -->
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/launchList.js"></script>
+</body>
+</html>

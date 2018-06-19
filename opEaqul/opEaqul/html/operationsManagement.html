@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>易快云服管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../opEaqul_common/opEaqul_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../opEaqul_common/opEaqul_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/city/pagination.css" />
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">商户管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/MerchantManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/TemporaryManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                临时商户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/auditManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">员工管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/divisionalManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                部门管理
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="../html/operationsManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                运营人员
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">服务管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/serviceManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                服务信息管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">模板管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/SMSManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信业务模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSPricingManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信价格管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板类型管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券海报模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                优惠券模板管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">员工管理</a>
+                    </li>
+                    <li>
+                        <a href="#">运营人员</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="App">
+                <div class="row">
+                    <div class="col-xs-12 MerchantManagement">
+                        <div class="MerchantManagement_choose">
+                            <label for="text" class=" control-label">角色：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" class="role" v-model="role_model">
+                                    <option value="">请选择</option>
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label">部门：
+                                <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" class="dept" v-model="section">
+                                    <option value="">请选择</option>
+                                    <option v-for="(item,index) in deptList" :value=item.id >{{item.deptName}}</option>
+                                </select>
+                            </label>
+                            <div class=" mge_set">
+                                <label for="text" class=" control-label">
+                                    <input type="text" placeholder="请输入姓名或手机号" class="phone" v-model="section_input"/>
+                                    <a href="#" class="btn btn-info a_bottom" @click="seachthis()">查询</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="MerchantManagement_bottom">
+                            <a href="#" class="btn btn-primary a_bottom adda" data-toggle="modal" data-target="#operationsManagementAdd">新增</a>
+                            <a href="#" class="btn btn-primary a_bottom dela" data-toggle="modal" data-target="" @click="dela()">删除</a>
+                            <a href="#" class="btn btn-primary a_bottom edita" data-toggle="modal" data-target="" @click="edit()">修改</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">
+                                        <!--<label>-->
+                                            <!--<input class="ace clickAll" type="checkbox">-->
+                                            <!--<span class="lbl"></span>-->
+                                        <!--</label>-->
+                                    </th>
+                                    <th class="center">名称</th>
+                                    <th class="center">角色</th>
+                                    <th class="center">登录账号</th>
+                                    <th class="center">联系电话</th>
+                                    <th class="center">部门</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in divisionalTable" v-cloak>
+                                    <td class="center">
+                                        <label>
+                                            <input class="ace clickSon" type="checkbox" :value="item.id"  @click="sonlist(item)">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td class="center">{{item.userName}}</td>
+                                    <td class="center">/</td>
+                                    <td class="center">{{item.accountName}}</td>
+                                    <td class="center">{{item.phone}}</td>
+                                    <td class="center">{{item.deptName}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="media p_cssA">
+                            <!--<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增 start-->
+                <div class="modal fade" id="operationsManagementAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_rw">
+                                    新增
+                                </h4>
+                            </div>
+                            <div class="modal-body operationsManagement_F">
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">姓名(必填)：</span>
+                                        <input style="" placeholder="运营人员姓名" class="addUserName">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">登录账号(必填)：</span>
+                                        <input style="" placeholder="登陆人员账号" class="addAccountName">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">登录密码(必填)：</span>
+                                        <input style="" placeholder="长度至少为6位,最多18位" maxlength="18" class="addPassword" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" type="password" >
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">确认密码(必填)：</span>
+                                        <input style="" placeholder="长度至少为6位,最多18位"  maxlength="18" class="addPassword2" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" type="password" >
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">手机(必填)：</span>
+                                        <input style="" placeholder="13888888888" class="addPhone">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label for="text" class=" control-label"><span class="font_width">部门(必选)：</span>
+                                        <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" class="addDept">
+                                            <option value="" selected="selected">请选择</option>
+                                            <option v-for="(item,index) in deptList" :value=item.id >{{item.deptName}}</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label style="">用户角色：
+                                        <!-- <input class="ace " type="checkbox" >
+                                         <span class="lbl">超级管理员</span>-->
+                                    </label>
+                                    <!-- <label style="">
+                                         <input class="ace " type="checkbox" >
+                                         <span class="lbl">部门管理</span>
+                                     </label>
+                                     <label style="">
+                                         <input class="ace " type="checkbox" >
+                                         <span class="lbl">test</span>
+                                     </label>-->
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="" @click="addyyUser()">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--新增 end-->
+                <!--删除 start-->
+                <div class="modal fade" id="operationsManagementDele" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    删除
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">确定删除？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" @click="delyyUser()">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--删除 end-->
+                <!--数据选择 start-->
+                <div class="modal fade" id="myModal_dataSelection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_dataSelection">
+                                    提示
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <p class="" style=" padding: 44px;font-size: 17px;">至少选择一条数据！</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" >
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--数据选择 end-->
+                <!--编辑 start-->
+                <div class="modal fade" id="operationsManagementEidt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_Eidt">
+                                    编辑
+                                </h4>
+                            </div>
+                            <div class="modal-body operationsManagement_F">
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">姓名(必填)：</span>
+                                        <input style="" placeholder="运营人员姓名" class="editUserName">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">登录账号(必填)：</span>
+                                        <input style="" placeholder="登陆人员账号" class="editAccountName">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">登录密码(必填)：</span>
+                                        <input type="password" style="" placeholder="长度至少为6位" class="editPassword" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" type="password">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">确认密码(必填)：</span>
+                                        <input type="password" style="" placeholder="长度至少为6位" class="editPassword2" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" type="password">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label>
+                                        <span class="lbl font_width">手机(必填)：</span>
+                                        <input style="" placeholder="13888888888" class="editPhone">
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label for="text" class=" control-label"><span class="font_width">部门(必选)：</span>
+                                        <select size="1" name="sample-table-2_length" aria-controls="sample-table-2" class="editDept">
+                                            <option value="" selected="selected">请选择</option>
+                                            <option v-for="(item,index) in deptList" :value=item.id >{{item.deptName}}</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="operationsManagement_son">
+                                    <label style="">用户角色：
+                                        <!-- <input class="ace " type="checkbox" >
+                                         <span class="lbl">超级管理员</span>-->
+                                    </label>
+                                    <!-- <label style="">
+                                         <input class="ace " type="checkbox" >
+                                         <span class="lbl">部门管理</span>
+                                     </label>
+                                     <label style="">
+                                         <input class="ace " type="checkbox" >
+                                         <span class="lbl">test</span>
+                                     </label>-->
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" class="btn btn-primary submit_a" data-dismiss="" @click="edita()">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <!--编辑 end-->
+
+            </div>
+
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../js/const.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace-extra.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/bootstrap.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-ui.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue-resource.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/cookie.js"></script>
+<!--分页 start-->
+<script src="../../opEaqul_common/opEaqul_plugins/page/pagination.js"></script>
+<!--分页 end-->
+<script src="../js/pageJs/operationsManagement.js"></script>
+<script src="../js/templete/jsPlugins.js"></script>
+<script>
+
+</script>
+</body>
+</html>

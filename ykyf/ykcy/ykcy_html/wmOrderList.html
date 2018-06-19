@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" >
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="wmOrderList">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a >订单管理</a>
+                    </li>
+                    <li>
+                        <a >外卖订单</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 order_list">
+                        <div class="order_time">
+                            <div class="order_showAll">
+                                <div class="order_show">
+                                    <label class="voucher_time">时段选择：
+                                        <input class="form_datetime" id="wei_datetime2" v-model="wei_datetime2" type="text">
+                                        &nbsp;至&nbsp;
+                                        <input class="form_datetime" id="wei_datetime3" v-model="wei_datetime3" type="text">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="order_bo">
+                                <a  class="order_today order_list_activ" v-on:click="timeChange(1,$event)">今</a>
+                                <a  class="order_today2" v-on:click="timeChange(2,$event)">昨</a>
+                                <a  class="order_today3" v-on:click="timeChange(3,$event)">周</a>
+                                <a  class="order_today4" v-on:click="timeChange(4,$event)">月</a>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-xs-12 col-sm-12 mge_set">
+                            <label for="text" class=" control-label  ">订单类型：
+                                <select size="1" name="sample-table-2_orderType" aria-controls="sample-table-2">
+                                    <option value="all">全部</option>
+                                    <option value="up">外卖自提</option>
+                                    <option value="sent">外卖配送</option>
+                                    <!--TradeTypeCodeEnum-->
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label  ">付款方式：
+                                <select size="1" name="sample-table-2_payType" aria-controls="sample-table-2">
+                                    <option value="">全部</option>
+                                    <option value="微信支付">微信支付</option>
+                                    <option value="余额支付">储值余额支付</option>
+                                    <option value="货到付款">货到付款</option>
+                                    <!--PayType-->
+                                </select>
+                            </label>
+                            <label for="text" class=" control-label  ">
+                                <input name='searchOrder' type="text" placeholder="请输入订单号"/>
+                                <a  class="btn btn-info a_bottom" v-on:click="getPageDate" >搜索</a>
+                            </label>
+                        </div>
+                        <div class="add_state0" style="  margin-top: 92px;border-top: 1px solid #ddd;  border-bottom: 1px solid #ddd; margin-bottom: 14px;">
+                            <div>
+                                <label class="add_state_1">订单状态：
+                                    <a  class="red" name="all" v-bind:name1="countInfo.num0" v-on:click="changRed">全部({{countInfo.num0}})</a>
+                                    <a  class="" name="NONPAYMENT" v-bind:name1="countInfo.num1" v-on:click="changRed">待付款({{countInfo.num1}})</a>
+                                    <a class="" name="NONRECEIVEORDER" v-bind:name1="countInfo.num2" v-on:click="changRed">待接单({{countInfo.num2}})</a>
+                                    <a  class="" name="NONSENDGOODS" v-bind:name1="countInfo.num3" v-on:click="changRed">待发货({{countInfo.num3}})</a>
+                                    <a  class="" name="SENDGOODS" v-bind:name1="countInfo.num4" v-on:click="changRed">已发货({{countInfo.num4}})</a>
+                                    <a  class="" name="HASDONE" v-bind:name1="countInfo.num5" v-on:click="changRed">已完成({{countInfo.num5}})</a>
+                                    <a  class="" name="HASCLOSED" v-bind:name1="countInfo.num6" v-on:click="changRed">已关闭({{countInfo.num6}})</a>
+
+
+                                    <!-- <br/>
+                                    <label class="add_state_1">配送状态：</label>
+                                    <a  class="" name="all" v-bind:name1="distributionInfo.num0" v-on:click="changRed">全部({{distributionInfo.num0}})</a>
+                                    <a  class="" name="DAIJIEDAN" v-bind:name1="distributionInfo.num1" v-on:click="changRed">待分配骑手({{distributionInfo.num1}})</a>
+                                    <a class="" name="DAIQUHUO" v-bind:name1="distributionInfo.num2" v-on:click="changRed">已分配骑手({{distributionInfo.num2}})</a>
+                                    <a  class="" name="PEISONGZHONG" v-bind:name1="distributionInfo.num3" v-on:click="changRed">骑手配送中({{distributionInfo.num3}})</a>
+                                    <a  class="" name="YICHANG" v-bind:name1="distributionInfo.num4" v-on:click="changRed">配送异常({{distributionInfo.num4}})</a>
+                                    <a  class="" name="YISONGDA" v-bind:name1="distributionInfo.num5" v-on:click="changRed">已送达({{distributionInfo.num5}})</a>
+                                    <a  class="" name="YIQUXIAO" v-bind:name1="distributionInfo.num6" v-on:click="changRed">已关闭({{distributionInfo.num6}})</a> -->
+
+                                <!-- <a  class="" value="all">售后中(5)</a>-->
+                                </label>
+                           
+                            </div>
+                
+                                
+                         
+                        </div>
+
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">顾客</th>
+                                    <th class="hidden-480 center">订单金额</th>
+                                    <th class="hidden-480 center">支付金额</th>
+                                    <th class="hidden-480 center">开单时间</th>
+                                    <th class="hidden-480 center">订单状态</th>
+                                    <th class="hidden-480 center">订单类型</th>
+                                    <th class="hidden-480 center">订单来源</th>
+                                    <th class="hidden-480 center">付款方式</th>
+                                    <th class="hidden-480 center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="order in orderList">
+                                    <td class="hidden-480 center">{{order.userName}}</td>
+                                    <td class="center">￥{{order.soTotal*0.01|getNum}}</td>
+                                    <td class="center">￥{{order.payTotal*0.01|getNum}}</td>
+                                    <td class="center">{{order.createDate|data }}</td>
+                                    <td class="center" style="position:relative">
+                                        <span  v-if="order.status=='NONPAYMENT'"  class="label label-warning" style="background-color:#f89406!important;">待支付</span></v-if>
+                                        <span v-else-if="order.status=='NONRECEIVEORDER'" class="label label-warning" style="background-color:#d15b47!important;">待接单</span></c:when>
+                                        <span  v-else-if="order.status=='NONSENDGOODS'"class="label label-warning" style="background-color:#3a87ad!important;">待发货</span></c:when>
+                                        <span  v-else-if="order.status=='SENDGOODS'" class="label label-warning" style="background-color:#82af6f!important;">已发货</span></c:when>
+                                        <span v-else-if="order.status=='HASDONE'" class="label label-warning" style="background-color:#abbac3!important;">已完成</span></c:when>
+                                        <span v-else-if="order.status=='HASCLOSED'||order.status=='TEMPORARY'" class="label label-warning" style="background-color:#abbac3!important;">已关闭</span></c:when>
+                                        <span  v-else>异常</span>
+                                        <!-- v-if='order.afterSale=="applyStatus"' -->
+                                        <a v-bind:href="'order_xiang3.html?orderId='+order.id+'&shopId='+shopId" class="isSalse" v-if='order.afterSale=="applyStatus"'>售</span>
+                                    </td>
+
+                                    <td class="center" v-if="order.sonOrder.cyType=='TSBUFFER'">堂食自助</td>
+                                    <td class="center" v-else-if="order.sonOrder.cyType=='TSORDER'">堂食点餐</td>
+                                    <td class="center" v-else-if="order.sonOrder.cyType=='TSAPPOINTMENT'">堂食预约</td>
+                                    <td class="center" v-else-if="order.sonOrder.cyType=='WMUNPAID'">外卖货到付款</td>
+                                    <td class="center" v-else="order.sonOrder.cyType=='SMALLWECHAT'">外卖配送</td>
+
+
+                                    <td class="center" v-if="!order.channelName">小程序</td>
+                                    <td class="center" v-if="order.channelName">{order.channelName}</td>
+
+                                    <td class="center">{{order.orderInfo}}</td>
+                                    <td class="center">
+                                        <a v-bind:href="'order_xiang2.html?orderId='+order.id+'&shopId='+shopId">详情</a>
+                                        <!-- <a href="#" class="xqnum">1</a> -->
+                                    </td>
+                                </tr>
+
+                               <!-- <tr class="selected">
+                                    <td class="hidden-480 center">林冲12387954875</td>
+                                    <td class="center">54.00</td>
+
+                                    <td class="center">2016/06/12&nbsp;15:30</td>
+                                    <td class="center"><span class="label label-info">待发货</span></td>
+                                    <td class="center">外卖自提</td>
+                                    <td class="center">微信公众号</td>
+                                    <td class="center">微信支付</td>
+                                    <td class="center"><a href="order_xiang2.html">详情</a></td>
+                                </tr>
+                                <tr class="selected">
+                                    <td class="hidden-480 center">小市12387954875</td>
+                                    <td class="center">25.00</td>
+
+                                    <td class="center">2016/06/12&nbsp;15:30</td>
+                                    <td class="center"><span class="label label-success">已完成</span></td>
+                                    <td class="center">外卖配送</td>
+                                    <td class="center">微信公众号</td>
+                                    <td class="center">微信支付</td>
+                                    <td class="center"><a href="order_xiang2.html">详情</a></td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="media p_cssA">
+                            <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="page-footer " style=" padding: 78px 0px 24px 0;margin-top: 85px;">
+                <div class="content_based" style=" text-align: center;padding: 0px 13px 1px;margin-bottom: -22px">
+                    <a id="toMiitbeian" href="javascript:void(0)" style="text-decoration: none;color: #666;">
+                        <p style=" margin-top: 14px;display: inline-block;">
+                            <img src="../images/logo_new2.png" alt="" width="25" style="    margin-right: 7px;"/>
+                            <img src="../images/name.png" alt="" width="71"/></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a  id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<script src="../ykcy_js/tubiao.js"></script>
+<script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+<script src="../ykcy_js/ywjs/wmOrderList.js"></script>
+</body>
+</html>

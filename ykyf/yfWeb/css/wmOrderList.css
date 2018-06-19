@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.1rem 0.28rem 0.3rem;
+    font-size: 0.28rem;
+}
+
+.header > div{
+    display: flex;
+    align-items: center;
+    margin-top: 0.2rem;
+}
+
+.header span {
+    display: inline-block;
+    width: 1.4rem;
+}
+
+.header select,.header input[type='date']{
+    width: 1.9rem;
+    height: 0.7rem;
+    font-size: 0.28rem;
+}
+
+.blank{
+    height: 0.1rem;
+    background-color: #eeeeee;
+}
+
+ul li{
+    display: flex;
+    font-size: 0.28rem;
+    padding: 0.28rem 0;
+    text-align: center;
+    border-bottom: 0.02rem solid #e5e5e5;
+}
+
+ul li>div:nth-child(1){
+    width: 18%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul li>div:nth-child(2){
+    width: 23%;
+}
+
+ul li>div:nth-child(3){
+    width: 36%;
+}
+
+ul li>div:nth-child(4){
+    width: 23%;
+}
+
+.loadMore{
+    padding: 0.28rem 0;
+    text-align: center;
+    font-size: 0.28rem;
+}
+

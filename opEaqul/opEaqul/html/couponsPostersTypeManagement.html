@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>易快云服管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../opEaqul_common/opEaqul_common_images/logo_new2.png" type="images/logo.png">
+    <link href="../../opEaqul_common/opEaqul_common_css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/ace.min.css" />
+    <link rel="stylesheet" href="../css/indexS.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_common_css/city/pagination.css" />
+    <link rel="stylesheet" href="../../opEaqul_common/opEaqul_plugins/msgbox/msgbox.css">
+</head>
+<body>
+<div class="navbar navbar-default" id="titleApp">
+    <my-component> </my-component>
+</div>
+<div class="main-container" id="main-container" style="">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">商户管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/MerchantManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/TemporaryManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                临时商户管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/auditManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                商户审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">员工管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/divisionalManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                部门管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/operationsManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                运营人员
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">服务管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/serviceManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                服务信息管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text">模板管理</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="../html/SMSManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信业务模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSPricingManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信价格管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/SMSTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                短信模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板类型管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="smallroutineTemplateManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                微信小程序模板管理
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="couponsPostersManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                券海报模板管理
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="../html/couponsPostersTypeManagement.html">
+                                <i class="icon-double-angle-right"></i>
+                                券海报模板类型管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content" style="min-width: 1038px;">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">模板管理</a>
+                    </li>
+                    <li>
+                        <a href="#">券海报模板类型管理</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" id="App" v-cloak>
+                <div class="row">
+                    <div class="col-xs-12 MerchantManagement">
+                        <div class="MerchantManagement_choose">
+                            <div class=" mge_set">
+                                <label for="text" class=" control-label">
+                                    <input type="text" placeholder="请输入券海报模板类型名称" class="seach" v-model="typeName"/>
+                                    <a href="#" class="btn btn-info a_bottom" @click="search">查询</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="MerchantManagement_bottom">
+                            <a href="#" class="btn btn-primary a_bottom"  data-toggle="modal" data-target="#myModal_divisionalManagementAdd" >新增</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center" width="100">
+                                        <!--<label>
+                                            <input class="ace clickAll" type="checkbox" @click="">
+                                            <span class="lbl"></span>
+                                        </label>-->
+                                        序号
+                                    </th>
+                                    <th class="center">模板类型名称</th>
+                                    <th class="center">类型说明</th>
+                                    <th class="center" width="300">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(type,index) in typeList">
+                                    <td class="center">
+                                        <!--<label>
+                                            <input class="ace clickSon" type="checkbox"  @click="">
+                                            <span class="lbl"></span>
+                                        </label>-->
+                                        {{index+1}}
+                                    </td>
+                                    <td class="center">{{type.typeName}}</td>
+                                    <td class="center">{{type.contain}}</td>
+                                    <td class="center">
+                                        <a href="#" class="btn btn-info a_bottom smsEdit" data-toggle="modal"  data-target="#myModal_divisionalManagementEdit" @click="getTypeById(type.id)">编辑</a>
+                                        <a href="#" class="btn btn-danger a_bottom smsDel" data-toggle="modal" data-target="#myModal_divisionalManagementDele" @click="bindSelected(type.id)">删除</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="media p_cssA">
+                            <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                            <div class="pull-right">
+                                <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--新增 start-->
+                <div class="modal fade" id="myModal_divisionalManagementAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog serviceManagement">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_raw">
+                                    新增
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <div class="services">
+                                    <p style="width: 150px">券海报模板类型名称:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" type="text" placeholder="券海报模板类型名称" v-model="addTypeObj.typeName" class="addDeptName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p style="width: 150px">类型说明:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" placeholder="类型说明" v-model="addTypeObj.contain" class="addDeptName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary submit_a"  @click="addCouponsTemplateType" data-dismiss="modal" >
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                </div>
+                    <!--新增 end-->
+
+                <!--编辑 start-->
+                <div class="modal fade" id="myModal_divisionalManagementEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                    <div class="modal-dialog serviceManagement">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel_edit">
+                                    编辑
+                                </h4>
+                            </div>
+                            <div class="modal-body center">
+                                <div class="services">
+                                    <p style="width: 150px">券海报模板类型名称:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" type="text" placeholder="券海报模板类型名称" v-model="editTypeObj.typeName" class="addDeptName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="services">
+                                    <p style="width: 150px">类型说明:</p>
+                                    <div>
+                                        <label>
+                                            <span class="lbl font_size"></span>
+                                            <input style="" placeholder="类型说明" v-model="editTypeObj.contain" class="addDeptName">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary submit_a"  @click="editCouponsTemplateType" data-dismiss="modal" >
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                </div>
+                <!--新增 end-->
+
+                    <!--删除 start-->
+                    <div class="modal fade" id="myModal_divisionalManagementDele" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel_Dele">
+                                        删除
+                                    </h4>
+                                </div>
+                                <div class="modal-body center">
+                                    <p class="" style=" padding: 44px;font-size: 17px;">确定删除？</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary submit_a" data-dismiss="modal" @click="deleteById">
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                    <!--删除 end-->
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-1.9.1.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace-extra.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/bootstrap.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/ace.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/jquery-ui.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/vue-resource.min.js"></script>
+<script src="../../opEaqul_common/opEaqul_common_js/cookie.js"></script>
+<!--分页 start-->
+<script src="../../opEaqul_common/opEaqul_plugins/page/pagination.js"></script>
+<!--分页 end-->
+<!--公共端口 s-->
+<script src="../js/const.js"></script>
+<!--公共端口 e-->
+<script src="../js/templete/jsPlugins.js"></script>
+<script src="../js/pageJs/couponsPostersTypeManagement.js"></script>
+<script src="../../opEaqul_common/opEaqul_plugins/msgbox/msgUtil.js"></script>
+<script src="../../opEaqul_common/opEaqul_plugins/msgbox/msgbox.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+*{padding:0;margin: 0;}
+$font-size:20;
+@function px2Rem($px){
+  @return $px/$font-size + rem;
+}
+%webpage {
+  width:100%;
+  height:100%;
+}
+html,body{
+  @extend %webpage;
+}
+.swiper-container{
+  margin:0 auto;
+  max-width:640px;
+  @extend %webpage;
+}
+
+.quanT1{
+  .box-1{
+    background: url("../images/bg.png");
+    position:relative;
+    .lt{
+      position:relative;
+      img{
+        position: absolute;
+        left:0;
+        top:0;
+        width:50%;
+        animation:big 2s linear alternate forwards;
+      }
+    }
+    .thz{
+      position: relative;
+      left:0;
+      bottom:0%;
+      right:0;
+      width:100%;
+      img{
+        width:100%;
+      }
+    }
+    .rb{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width:100%;
+      display: flex;
+      justify-content: flex-end;
+      img{
+        width:50%;
+      }
+    }
+    .logoBox{
+      margin-top: 16%;
+      width:100%;
+      .logoImg{
+        width: px2Rem(40);
+        height:px2Rem(40);
+        border-radius: 50%;
+      }
+      p{
+        width:100%;
+        text-align: center;
+      }
+      .tit{
+        font-size: 0.5rem;
+        color: #78394c;
+        font-weight: 500;
+      }
+      .desc{
+        font-size: 0.7rem;
+        color: #78394c;
+        font-weight: 500;
+      }
+    }
+    .quan{
+      display: flex;
+      justify-content: center;
+      margin-bottom:0.2rem;
+      margin-top: px2Rem(10);
+      .item{
+        width:100%;
+        height:px2Rem(36);
+        background: url("../images/duang.png");
+        background-size: 100% 106%;
+        display: flex;
+        a{
+          color:#d5cb40;
+          font-size:0.52rem;
+          text-shadow: none;
+          text-align: center;
+          box-sizing: border-box;
+          padding:px2Rem(4) px2Rem(3) px2Rem(3) 0.4rem;
+          font-weight: 100;
+          width:1.2rem;
+          text-decoration: none;
+        }
+        p{
+          box-sizing: border-box;
+          padding:0.2rem px2Rem(0) px2Rem(0) px2Rem(0);
+          width: 100%;
+          b{
+            width:100%;
+            text-align: center;
+            display: inline-block;
+            font-size:px2Rem(12);
+            color:#500304;
+            font-weight: 600;
+          }
+          span{
+            font-size:px2Rem(8);
+            display: inline-block;
+            width:100%;
+            text-align: center;
+            color:#702225;
+          }
+        }
+      }
+      .poster-quan:nth-of-type(2){
+        margin-left: 7%;
+      }
+    }
+  }
+}
+
+
+.quanT2{
+  height:100%;
+  .box-1{
+    background:url("../images/bbg2.png");
+    background-size: cover;
+    height:93%;
+    box-sizing: border-box;
+    .topd{
+        display: flex;
+        justify-content: center;
+        img{
+           width:80%;
+          height: 50%;
+        }
+    }
+    .botd{
+      position:fixed;
+      bottom: 0;
+      left:0;
+      right:0;
+      overflow: hidden;
+      height: 5.6rem;
+      .outimg{
+         width:100%;
+         position: absolute;
+        /* top:- px2Rem(120);*/
+         animation:rotate 2s ease-out  alternate forwards;
+         transform-origin: 50% 55.5%;
+
+      }
+      .inimg{
+         width:30%;
+         position: absolute;
+        /* top:- px2Rem(40);*/
+        top:4rem;
+         left:35%;
+      }
+    }
+    .logoBox{
+      margin-top: 16%;
+      width:100%;
+      .logoImg{
+        width: px2Rem(40);
+        height:px2Rem(40);
+        border-radius: 50%;
+      }
+      p{
+        width:100%;
+        text-align: center;
+      }
+      .tit{
+        font-size: 0.5rem;
+        color: #FFF;
+        font-weight: 500;
+      }
+      .desc{
+        font-size: 0.7rem;
+        color: #FFF;
+        font-weight: 500;
+        margin-top:3%;
+      }
+    }
+    .quan{
+      display: flex;
+      justify-content: center;
+      margin-top: 6%;
+      .item{
+        position: relative;
+        width:68%;
+        height:2.26rem;
+        .bgimg{
+          position: absolute;
+          left:0;
+          right:0;
+          top:0;
+          bottom:0;
+          width:100%;
+          height:100%;
+        }
+        p{
+          position: absolute;
+          padding:px2Rem(10);
+          box-sizing: border-box;
+          height:100%;
+          align-items: baseline;
+          i{
+            font-style: normal;
+            color:#fb241f;
+            font-size:px2Rem(12);
+          }
+          em{
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 600;
+            color:#fb241f;
+          }
+          span{
+            color:#f5c9aa;
+            position: absolute;
+            width: 100%;
+            margin-top:16%;
+            font-size:0.45rem;
+            padding-left:0.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes big {
+  0%{
+    width:100%;
+  }
+  100%{
+    width:50%;
+  }
+}
+
+@keyframes rotate {
+  form{
+    transform:rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.music-c{
+  position:absolute;
+  background:url(../images/music.png);
+  background-size:contain;
+  width:px2Rem(24);
+  height:px2Rem(24);
+  right:px2Rem(10);
+  top:px2Rem(10);
+  z-index: 6;
+  animation:cir 2s linear infinite;
+}
+@keyframes cir {
+  form{
+    transform:rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.music-note{
+  position:absolute;
+  background:url(../images/music.gif);
+  background-size:contain;
+  width:80px;
+  height:80px;
+  right:0px;
+  top:0px;
+  z-index: 2;
+}
+.swiper-slide {
+  &:after{
+    content:'';
+    position:absolute;
+    left:0;
+    right:0;
+    bottom: 20px;
+    margin:0 auto;
+    width:24px;
+    height:18px;
+    background:url(../images/slide.png);
+    background-size:contain;
+    animation: showUpDown  1s linear infinite;
+  }
+}
+@keyframes showUpDown {
+  form {
+    bottom:20px;
+    opacity:1;
+  }
+  to{
+    bottom:30px;
+    opacity:0;
+  }
+}

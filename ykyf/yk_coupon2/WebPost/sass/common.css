@@ -1,0 +1,2866 @@
+* {
+  padding: 0;
+  margin: 0; }
+[v-cloak] {
+  display: none !important;
+}
+a, img, ul, ol, li, table, thead, tbody, tfoot, tr, td, dl, dt, dd, h1, h2, h3, h4, h5, h6, input {
+  font-family: "Microsoft YaHei";
+  border-collapse: collapse;
+  text-decoration: none;
+  border: 0;
+  font-weight: normal;
+  list-style-type: none;
+  color: inherit; }
+
+img {
+  vertical-align: middle;
+  line-height: 0; }
+
+i {
+  font-style: normal; }
+
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+  text-shadow: none; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 14px; } }
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 16px; } }
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 18px; } }
+@media screen and (min-width: 440px) {
+  html {
+    font-size: 20px; } }
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 22px; } }
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 28px; } }
+#pageindex .header, #pageacVipCard .header, #pay .header, #surplusMoney .header, #charActive .header, #payOnline .header, #jifen .header,
+#jifenActive .header, #mine .header, #youhuijuan .header, #dealRecord .header, #myinfo .header, #editpayMM .header, #editInfo .header, #myorder .header,
+#creditsExchange .header, #VipActive .header, #jifenduihuan .header, #charyouhui .header, #cardPartner .header, #quanCenter .header, #yhDetail .header,
+#goodsList .header, #unionMerchant .header, #Haddress .header, #goodsDetails .header, #seeADetails .header, #useInfo .header, #cityList .header,
+#noAddress .header, #addAddress .header, #VipCards .header, #cardDetails .header, #defaultCard .header {
+  height: 2.93333rem;
+  background: #2d2c32;
+  color: #fff;
+  font-size: 1.06667rem; }
+  #pageindex .header span, #pageacVipCard .header span, #pay .header span, #surplusMoney .header span, #charActive .header span, #payOnline .header span, #jifen .header span,
+  #jifenActive .header span, #mine .header span, #youhuijuan .header span, #dealRecord .header span, #myinfo .header span, #editpayMM .header span, #editInfo .header span, #myorder .header span,
+  #creditsExchange .header span, #VipActive .header span, #jifenduihuan .header span, #charyouhui .header span, #cardPartner .header span, #quanCenter .header span, #yhDetail .header span,
+  #goodsList .header span, #unionMerchant .header span, #Haddress .header span, #goodsDetails .header span, #seeADetails .header span, #useInfo .header span, #cityList .header span,
+  #noAddress .header span, #addAddress .header span, #VipCards .header span, #cardDetails .header span, #defaultCard .header span {
+    position: absolute;
+    text-shadow: none;
+    font-weight: 100;
+    line-height: 2.93333rem;
+    font-size: 0.8rem;
+    float: left;
+    left: 0.66667rem; }
+  #pageindex .header a, #pageacVipCard .header a, #pay .header a, #surplusMoney .header a, #charActive .header a, #payOnline .header a, #jifen .header a,
+  #jifenActive .header a, #mine .header a, #youhuijuan .header a, #dealRecord .header a, #myinfo .header a, #editpayMM .header a, #editInfo .header a, #myorder .header a,
+  #creditsExchange .header a, #VipActive .header a, #jifenduihuan .header a, #charyouhui .header a, #cardPartner .header a, #quanCenter .header a, #yhDetail .header a,
+  #goodsList .header a, #unionMerchant .header a, #Haddress .header a, #goodsDetails .header a, #seeADetails .header a, #useInfo .header a, #cityList .header a,
+  #noAddress .header a, #addAddress .header a, #VipCards .header a, #cardDetails .header a, #defaultCard .header a {
+    position: absolute;
+    text-shadow: none;
+    line-height: 2.6rem;
+    color: #fff;
+    float: left;
+    left: 3.33333rem;
+    font-size: 0.8rem;
+    font-weight: 100; }
+  #pageindex .header h1, #pageacVipCard .header h1, #pay .header h1, #surplusMoney .header h1, #charActive .header h1, #payOnline .header h1, #jifen .header h1,
+  #jifenActive .header h1, #mine .header h1, #youhuijuan .header h1, #dealRecord .header h1, #myinfo .header h1, #editpayMM .header h1, #editInfo .header h1, #myorder .header h1,
+  #creditsExchange .header h1, #VipActive .header h1, #jifenduihuan .header h1, #charyouhui .header h1, #cardPartner .header h1, #quanCenter .header h1, #yhDetail .header h1,
+  #goodsList .header h1, #unionMerchant .header h1, #Haddress .header h1, #goodsDetails .header h1, #seeADetails .header h1, #useInfo .header h1, #cityList .header h1,
+  #noAddress .header h1, #addAddress .header h1, #VipCards .header h1, #cardDetails .header h1, #defaultCard .header h1 {
+    text-shadow: none; }
+
+#pageindex .ui-header, #pageacVipCard .ui-header, #pay .ui-header, #surplusMoney .ui-header, #charActive .ui-header, #payOnline .ui-header, #jifen .ui-header,
+#jifenActive .ui-header, #mine .ui-header, #youhuijuan .ui-header, #dealRecord .ui-header, #myinfo .ui-header, #editpayMM .ui-header, #editInfo .ui-header, #myorder .ui-header,
+#creditsExchange .ui-header, #VipActive .ui-header, #jifenduihuan .ui-header, #charyouhui .ui-headerr, #cardPartner .ui-header, #quanCenter .ui-header, #yhDetail .ui-header,
+#goodsList .ui-header, #unionMerchant .ui-header, #Haddress .ui-header, #goodsDetails .ui-header, #seeADetails .ui-header, #useInfo .ui-header, #cityList .ui-header,
+#noAddress .ui-header, #addAddress .ui-header, #VipCards .ui-header, #cardDetails .ui-header, #defaultCard .ui-header {
+  border: none; }
+
+.popup_bg {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  z-index: 98; }
+
+.popup {
+  display: none;
+  max-height: 90%;
+  position: fixed;
+  z-index: 99;
+  top: 20%;
+  background: #fff;
+  border-radius: 0.1rem;
+  left: 15%;
+  overflow: hidden; }
+
+.popup_top {
+  padding: 0.53333rem 0.33333rem 0.33333rem 0.66667rem;
+  background: #f4f5f9; }
+
+.popup_main {
+  height: 100%-3.33333rem;
+  overflow: auto;
+  box-sizing: border-box; }
+
+.popup_top .popup_close {
+  cursor: pointer;
+  float: right;
+  width: 1.33333rem;
+  height: 1.33333rem;
+  background: url(../img/closebg.png) no-repeat center;
+  background-size: 68%; }
+
+.popup_txt {
+  padding: 1rem 1.66667rem 2.66667rem;
+  line-height: 1rem;
+  font-size: 0.46667rem;
+  color: #5c5c5c; }
+
+.popup_bottom {
+  background: #f2f5f9;
+  padding: 0.66667rem; }
+
+.popup_title {
+  text-align: center;
+  width: 80%;
+  display: inline-block;
+  font-size: 0.8rem; }
+
+.alertPhone {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); }
+  .alertPhone .phoneBox {
+    width: 80%;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 70%;
+    border-radius: 0.66667rem; }
+    .alertPhone .phoneBox h2 {
+      text-align: center;
+      padding-top: 1rem;
+      font-size: 1.2rem; }
+    .alertPhone .phoneBox p {
+      text-align: center;
+      color: #666;
+      font-size: 0.86667rem;
+      margin: 1rem 0; }
+    .alertPhone .phoneBox .isTelBox {
+      border-top: 0.06667rem solid #e5e5e5;
+      padding: 1rem 0;
+      display: flex; }
+      .alertPhone .phoneBox .isTelBox a {
+        border-right: 0.06667rem solid #e5e5e5;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        color: #000;
+        font-size: 1rem;
+        font-weight: 100; }
+
+#pageacVipCard .nopaddingLR, #surplusMoney .nopaddingLR, #payOnline .nopaddingLR, #jifen .nopaddingLR, #editInfo .nopaddingLR {
+  padding-left: 0;
+  padding-right: 0;
+  background: url("../img/cardbg.png") center no-repeat;
+  background-size: 150%; }
+  #pageacVipCard .nopaddingLR dl, #surplusMoney .nopaddingLR dl, #payOnline .nopaddingLR dl, #jifen .nopaddingLR dl, #editInfo .nopaddingLR dl {
+    width: 100%;
+    margin-top: 14%; }
+    #pageacVipCard .nopaddingLR dl dt, #surplusMoney .nopaddingLR dl dt, #payOnline .nopaddingLR dl dt, #jifen .nopaddingLR dl dt, #editInfo .nopaddingLR dl dt {
+      width: 100%;
+      text-align: center; }
+      #pageacVipCard .nopaddingLR dl dt img, #surplusMoney .nopaddingLR dl dt img, #payOnline .nopaddingLR dl dt img, #jifen .nopaddingLR dl dt img, #editInfo .nopaddingLR dl dt img {
+        width: 4.66667rem;
+        height: 4.66667rem;
+        border-radius: 50%; }
+    #pageacVipCard .nopaddingLR dl dd, #surplusMoney .nopaddingLR dl dd, #payOnline .nopaddingLR dl dd, #jifen .nopaddingLR dl dd, #editInfo .nopaddingLR dl dd {
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.86667rem;
+      padding-top: 0.33333rem; }
+
+#pageacVipCard {
+  position: relative;
+  text-shadow: none; }
+  #pageacVipCard .fillBox i {
+    color: red; }
+  #pageacVipCard .fillBox p {
+    font-size: 0.8rem; }
+  #pageacVipCard .fillBox input {
+    outline: none; }
+  #pageacVipCard .fillBox .ui-focus {
+    box-shadow: 0 0 12px #fff; }
+  #pageacVipCard .fillBox .color9d {
+    color: #9d9d9d; }
+  #pageacVipCard .fillBox .borbutton {
+    margin-top: 1.66667rem;
+    width: 100%;
+    text-align: center; }
+    #pageacVipCard .fillBox .borbutton span {
+      display: inline-block;
+      width: 72%;
+      height: 2.86667rem;
+      background: #69adf4;
+      border-radius: 1.43333rem;
+      line-height: 2.86667rem;
+      color: #fff;
+      font-size: 0.93333rem; }
+  #pageacVipCard .fillBox02 {
+    padding-left: 0;
+    padding-right: 0; }
+    #pageacVipCard .fillBox02 .fillcon {
+      padding: 0 1rem;
+      box-sizing: border-box;
+      background: #fff; }
+    #pageacVipCard .fillBox02 p {
+      background: #fff; }
+      #pageacVipCard .fillBox02 p input {
+        height: 3rem;
+        outline: none;
+        line-height: 3rem;
+        font-size: 0.93333rem;
+        color: #999; }
+    #pageacVipCard .fillBox02 .fillPhoneNum {
+      border-bottom: 0.06667rem solid #e5e5e5; }
+      #pageacVipCard .fillBox02 .fillPhoneNum input {
+        width: 60%;
+        font-size: 0.8rem;
+        box-sizing: border-box;
+        padding: 0.66667rem 0; }
+      #pageacVipCard .fillBox02 .fillPhoneNum span {
+        float: right;
+        height: 2.06667rem;
+        padding: 0px 0.4rem;
+        background: #69adf4;
+        line-height: 2.06667rem;
+        color: #fff;
+        border-radius: 0.2rem;
+        font-size: 0.8rem;
+        margin-top: 0.5rem; }
+    #pageacVipCard .fillBox02 .borbutton {
+      margin-top: 1.66667rem;
+      width: 100%;
+      text-align: center; }
+      #pageacVipCard .fillBox02 .borbutton a {
+        display: inline-block;
+        width: 72%;
+        height: 2.86667rem;
+        background: #69adf4;
+        border-radius: 1.43333rem;
+        line-height: 2.86667rem;
+        color: #fff;
+        font-size: 0.93333rem; }
+  #pageacVipCard #chosesex {
+    width: 100%;
+    left: 0;
+    top: 46%;
+    bottom: 0;
+    position: absolute; }
+    #pageacVipCard #chosesex .closeBtn {
+      width: 100%;
+      height: 1.2rem;
+      background: rgba(0, 0, 0, 0.4);
+      position: relative; }
+      #pageacVipCard #chosesex .closeBtn i {
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        right: 0.43333rem;
+        bottom: -0.6rem;
+        border-radius: 50%;
+        background: #fff; }
+      #pageacVipCard #chosesex .closeBtn .popup_close {
+        position: absolute;
+        right: 0.53333rem;
+        bottom: -0.5rem;
+        background: #000 url(../img/closebg.png) no-repeat center;
+        background-size: 68%;
+        z-index: 100;
+        border-radius: 50%;
+        width: 1.33333rem;
+        height: 1.33333rem; }
+    #pageacVipCard #chosesex .popup_top {
+      box-sizing: border-box;
+      border-bottom: 0.06667rem solid #dcdcdd;
+      position: relative; }
+      #pageacVipCard #chosesex .popup_top p {
+        height: 2.66667rem;
+        color: #000;
+        line-height: 2.66667rem;
+        font-size: 0.8rem; }
+    #pageacVipCard #chosesex .popup_main {
+      box-sizing: border-box;
+      padding-left: 4%; }
+      #pageacVipCard #chosesex .popup_main p {
+        height: 3rem;
+        border-bottom: 0.06667rem solid #dcdcdd;
+        line-height: 3rem;
+        font-size: 0.8rem; }
+
+#pay {
+  text-shadow: none; }
+  #pay p {
+    width: 100%;
+    height: 2.66667rem;
+    line-height: 2.66667rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    background: #eff2f8; }
+  #pay .content dl {
+    width: 100%; }
+    #pay .content dl dt {
+      text-align: center;
+      margin-top: 20%;
+      margin-top: 20%; }
+      #pay .content dl dt img {
+        width: 76%;
+        height: 5.26667rem; }
+    #pay .content dl dd {
+      text-align: center;
+      padding-top: 4%;
+      font-size: 0.8rem; }
+      #pay .content dl dd img {
+        width: 11.2rem;
+        height: 11.2rem; }
+
+#surplusMoney {
+  background: #eee;
+  text-shadow: none; }
+  #surplusMoney .nopaddingLR dl {
+    margin-top: 10%; }
+    #surplusMoney .nopaddingLR dl dd {
+      font-size: 1.66667rem; }
+  #surplusMoney .content {
+    padding: 0; }
+    #surplusMoney .content .tit {
+      height: 3rem;
+      font-size: 1rem;
+      line-height: 3rem;
+      background: #fff;
+      padding: 0 1rem;
+      margin-bottom: 0.66667rem; }
+      #surplusMoney .content .tit a {
+        float: right;
+        color: #666;
+        font-weight: 100; }
+    #surplusMoney .content .boxItems {
+      background: #fff;
+      padding: 0 1rem;
+      box-sizing: border-box; }
+      #surplusMoney .content .boxItems div {
+        height: 3.33333rem;
+        border-top: 0.06667rem solid #e5e5e5;
+        box-sizing: border-box;
+        padding-top: 0.66667rem; }
+        #surplusMoney .content .boxItems div p {
+          font-size: 1rem; }
+          #surplusMoney .content .boxItems div p span {
+            float: right;
+            font-size: 0.66667rem;
+            color: #909090; }
+          #surplusMoney .content .boxItems div p i {
+            font-style: normal;
+            float: right;
+            font-size: 0.86667rem; }
+        #surplusMoney .content .boxItems div p:nth-of-type(2) {
+          font-size: 0.8rem; }
+      #surplusMoney .content .boxItems div:nth-of-type(1) {
+        border-top: none; }
+
+#charActive {
+  text-shadow: none; }
+  #charActive .ui-content {
+    overflow-x: visible; }
+  #charActive .topp {
+    font-size: 0.8rem;
+    position: relative;
+    height: 3rem;
+    line-height: 3rem;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 0 1.33333rem; }
+    #charActive .topp i {
+      width: 1.1rem;
+      height: 1.1rem;
+      position: absolute;
+      right: 6%;
+      border-radius: 50%;
+      top: 0.83333rem; }
+    #charActive .topp .on {
+      background: url("../img/yes.png") center no-repeat;
+      background-size: 82%;
+      border: none; }
+  #charActive .content {
+    padding: 0 0.66667rem; }
+    #charActive .content .on {
+      background: url("../img/yes.png") center no-repeat;
+      background-size: 82%;
+      border: none; }
+    #charActive .content div {
+      background: #fff;
+      height: 6.66667rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      padding: 0.66667rem; }
+      #charActive .content div dl:nth-of-type(1) {
+        box-sizing: border-box;
+        padding-top: 1rem;
+        width: 36%;
+        border-right: 0.06667rem dashed #e5e5e5; }
+        #charActive .content div dl:nth-of-type(1) dt span {
+          color: #f0a283;
+          border: 0.06667rem solid #f0a283;
+          padding: 0.16667rem 0.33333rem;
+          font-size: 0.8rem; }
+        #charActive .content div dl:nth-of-type(1) dd:nth-of-type(1) {
+          font-size: 1.06667rem;
+          margin-top: 0.8rem;
+          color: #666; }
+        #charActive .content div dl:nth-of-type(1) dd:nth-of-type(2) {
+          font-size: 0.66667rem;
+          color: #666;
+          margin-top: 0.33333rem; }
+      #charActive .content div dl:nth-of-type(2) {
+        position: relative;
+        width: 61%;
+        margin-left: 3%; }
+        #charActive .content div dl:nth-of-type(2) i {
+          position: absolute;
+          width: 0.8rem;
+          height: 0.8rem;
+          right: 2%;
+          top: 40%;
+          border-radius: 50%;
+          border: 0.06667rem solid #666; }
+        #charActive .content div dl:nth-of-type(2) .on {
+          background: url("../img/yes.png") center no-repeat;
+          background-size: 100%;
+          border: none; }
+        #charActive .content div dl:nth-of-type(2) dt {
+          font-size: 1rem; }
+          #charActive .content div dl:nth-of-type(2) dt img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 0.06667rem solid #dcdcdd;
+            margin-right: 2%; }
+        #charActive .content div dl:nth-of-type(2) dd {
+          font-size: 0.66667rem;
+          color: #959595;
+          text-shadow: none;
+          font-weight: 100; }
+          #charActive .content div dl:nth-of-type(2) dd span {
+            font-size: 0.66667rem; }
+        #charActive .content div dl:nth-of-type(2) .colorf {
+          color: #fff; }
+          #charActive .content div dl:nth-of-type(2) .colorf span {
+            color: #959595; }
+          #charActive .content div dl:nth-of-type(2) .colorf a {
+            color: #f56974;
+            float: right; }
+
+#payOnline {
+  background: #fff;
+  text-shadow: none; }
+  #payOnline .marTop {
+    margin-top: -54%; }
+  #payOnline .nopaddingLR dl {
+    margin-top: 10%; }
+    #payOnline .nopaddingLR dl dd {
+      font-size: 1.66667rem; }
+  #payOnline .content {
+    padding: 0; }
+    #payOnline .content .tit {
+      height: 2.66667rem;
+      font-size: 1rem;
+      background: #fff;
+      line-height: 2.66667rem;
+      box-sizing: border-box;
+      padding: 0 1rem; }
+      #payOnline .content .tit a {
+        float: right;
+        color: #666;
+        font-weight: 100; }
+    #payOnline .content .bg {
+      background: #eee;
+      height: 0.66667rem; }
+    #payOnline .content div {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-left: 1rem;
+      padding-right: 1rem; }
+      #payOnline .content div p {
+        width: 30%;
+        height: 3.66667rem;
+        border: 0.06667rem solid #dcdcdd;
+        margin-top: 3%;
+        text-align: center;
+        border-radius: 0.16667rem; }
+        #payOnline .content div p span {
+          width: 100%;
+          display: inline-block;
+          margin-top: 16%;
+          font-size: 0.66667rem;
+          color: #666; }
+          #payOnline .content div p span b {
+            font-size: 1.06667rem;
+            font-weight: 100;
+            color: #000; }
+      #payOnline .content div .on {
+        border-color: #69adf4;
+        color: #69adf4;
+        background: url(../img/czchose.png) bottom right no-repeat;
+        background-size: 16%; }
+        #payOnline .content div .on span {
+          color: #69adf4; }
+          #payOnline .content div .on span b {
+            color: #69adf4; }
+    #payOnline .content .chongZhi {
+      text-align: center;
+      margin-top: 10%;
+      padding-bottom: 2rem; }
+      #payOnline .content .chongZhi span {
+        display: inline-block;
+        width: 80%;
+        height: 3.2rem;
+        border: 0.06667rem solid #69adf4;
+        background: #69adf4;
+        line-height: 3.2rem;
+        text-align: center;
+        font-size: 1.06667rem;
+        color: #fff;
+        border-radius: 1.6rem; }
+        #payOnline .content .chongZhi span a {
+          color: #fff;
+          font-size: 1.2rem;
+          font-weight: 100; }
+  #payOnline .VRjianpan {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff; }
+    #payOnline .VRjianpan table {
+      width: 100%;
+      collapse: collapse; }
+      #payOnline .VRjianpan table tr .del {
+        background: url("../img/del.png") center no-repeat;
+        background-size: 40%; }
+      #payOnline .VRjianpan table tr .sure {
+        background: #69adf4;
+        color: #fff; }
+      #payOnline .VRjianpan table td {
+        border: 0.06667rem solid #dcdcdd;
+        text-align: center;
+        width: 25%;
+        height: 3.66667rem;
+        font-size: 1.66667rem; }
+        #payOnline .VRjianpan table td input {
+          width: 100%;
+          height: 100%;
+          outline: none;
+          text-align: center;
+          font-size: 1.13333rem; }
+
+#jifen {
+  background: #eee;
+  text-shadow: none; }
+  #jifen .nopaddingLR dl {
+    margin-top: 10%; }
+    #jifen .nopaddingLR dl dd {
+      font-size: 1.66667rem; }
+  #jifen .tit {
+    height: 2.66667rem;
+    font-size: 1rem;
+    heigth: 3rem;
+    background: #fff;
+    line-height: 3rem;
+    padding: 0 1rem; }
+    #jifen .tit a {
+      float: right;
+      color: #666;
+      font-weight: 100; }
+  #jifen .content {
+    padding: 0;
+    width: 100%; }
+    #jifen .content .tit {
+      height: 3rem;
+      font-size: 1rem;
+      line-height: 3rem;
+      background: #fff;
+      padding: 0 1rem;
+      margin-bottom: 0.66667rem; }
+      #jifen .content .tit a {
+        float: right;
+        color: #666;
+        font-weight: 100; }
+        #jifen .content .tit a span {
+          font-weight: 700; }
+    #jifen .content .boxItems {
+      background: #fff;
+      padding: 0 1rem;
+      box-sizing: border-box; }
+      #jifen .content .boxItems div {
+        height: 3.33333rem;
+        border-top: 0.06667rem solid #e5e5e5;
+        box-sizing: border-box;
+        padding-top: 0.66667rem; }
+        #jifen .content .boxItems div p {
+          font-size: 1rem; }
+          #jifen .content .boxItems div p span {
+            float: right;
+            font-size: 0.66667rem;
+            color: #909090; }
+          #jifen .content .boxItems div p i {
+            font-style: normal;
+            float: right;
+            font-size: 0.8rem; }
+        #jifen .content .boxItems div p:nth-of-type(2) {
+          font-size: 0.8rem; }
+      #jifen .content .boxItems div:nth-of-type(1) {
+        border-top: none; }
+
+#jifenActive {
+  background: #eee;
+  text-shadow: none; }
+  #jifenActive .ui-content {
+    overflow-x: visible; }
+  #jifenActive .content {
+    padding-top: 0;
+    padding-left: 1%;
+    padding-right: 1%; }
+    #jifenActive .content p {
+      font-size: 0.8rem;
+      position: relative; }
+      #jifenActive .content p i {
+        width: 1.1rem;
+        height: 1.1rem;
+        position: absolute;
+        right: 1%;
+        border-radius: 50%; }
+    #jifenActive .content .on {
+      background: url("../img/yes.png") center no-repeat;
+      background-size: 82%;
+      border: none; }
+    #jifenActive .content div {
+      background: #fff;
+      height: 6.66667rem;
+      padding: 0.66667rem 0;
+      margin-top: 0.66667rem;
+      display: flex;
+      justify-content: center; }
+      #jifenActive .content div dl:nth-of-type(1) {
+        box-sizing: border-box;
+        padding-top: 1rem;
+        width: 36%;
+        border-right: 0.06667rem dashed #e5e5e5; }
+        #jifenActive .content div dl:nth-of-type(1) dt span {
+          color: #69adf4;
+          border: 0.06667rem solid #69adf4;
+          padding: 0.16667rem 0.33333rem;
+          font-size: 0.66667rem; }
+        #jifenActive .content div dl:nth-of-type(1) dd:nth-of-type(1) {
+          font-size: 0.86667rem;
+          margin-top: 0.8rem;
+          color: #666; }
+        #jifenActive .content div dl:nth-of-type(1) dd:nth-of-type(2) {
+          font-size: 0.66667rem;
+          color: #666;
+          margin-top: 0.33333rem; }
+      #jifenActive .content div dl:nth-of-type(2) {
+        position: relative;
+        width: 61%;
+        margin-left: 3%; }
+        #jifenActive .content div dl:nth-of-type(2) i {
+          position: absolute;
+          width: 0.8rem;
+          height: 0.8rem;
+          right: 2%;
+          top: 55%;
+          border-radius: 50%;
+          border: 0.06667rem solid #666; }
+        #jifenActive .content div dl:nth-of-type(2) .on {
+          background: url("../img/yes.png") center no-repeat;
+          background-size: 100%;
+          border: none; }
+        #jifenActive .content div dl:nth-of-type(2) dt {
+          font-size: 1rem; }
+          #jifenActive .content div dl:nth-of-type(2) dt img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 0.06667rem solid #dcdcdd;
+            margin-right: 2%; }
+        #jifenActive .content div dl:nth-of-type(2) dd {
+          font-size: 0.73333rem;
+          color: #959595; }
+          #jifenActive .content div dl:nth-of-type(2) dd span {
+            font-size: 0.6rem;
+            font-weight: 100; }
+        #jifenActive .content div dl:nth-of-type(2) .colorf span {
+          color: #959595; }
+        #jifenActive .content div dl:nth-of-type(2) .colorf a {
+          color: #f56974;
+          float: right; }
+
+.color99 {
+  color: #999; }
+
+#mine {
+  background: #f2f7fa;
+  text-shadow: none;
+  font-size: 0.8rem; }
+  #mine .nopaddingLR .meInf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #fff; }
+    #mine .nopaddingLR .meInf dl {
+      display: flex;
+      align-items: center; }
+      #mine .nopaddingLR .meInf dl dt img {
+        width: 3rem;
+        height: 3rem; }
+      #mine .nopaddingLR .meInf dl dd {
+        margin-left: 0.66667rem; }
+  #mine .nopaddingLR .meList {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    margin-top: 0.53333rem;
+    padding: 1rem; }
+    #mine .nopaddingLR .meList dl {
+      width: 25%;
+      text-align: center; }
+      #mine .nopaddingLR .meList dl dt {
+        color: #999;
+        font-size: 1rem; }
+      #mine .nopaddingLR .meList dl dd {
+        margin-top: 0.53333rem;
+        color: #333;
+        font-size: 1rem; }
+  #mine .content {
+    padding: 1rem 0; }
+    #mine .content p {
+      box-sizing: border-box;
+      height: 3.33333rem;
+      line-height: 3.33333rem;
+      display: flex;
+      align-items: center; }
+      #mine .content p a {
+        color: #000;
+        font-weight: 100;
+        font-size: 0.93333rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%; }
+      #mine .content p i {
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        background: url("../img/r.png") center no-repeat;
+        background-size: 62%;
+        margin-top: 1.16667rem; }
+      #mine .content p img {
+        width: 1.53333rem;
+        height: 1.33333rem;
+        margin-right: 0.66667rem; }
+      #mine .content p b {
+        font-weight: 100;
+        margin-right: 0.33333rem;
+        color: #999;
+        font-size: 0.86667rem; }
+    #mine .content div {
+      padding: 0 1rem;
+      background: #fff;
+      margin-bottom: 1rem; }
+      #mine .content div .botm {
+        border-bottom: 0.06667rem solid #e5e5e5; }
+
+#youhuijuan {
+  text-shadow: none;
+  font-size: 0.8rem;
+  background: #eee; }
+  #youhuijuan .content {
+    padding: 1rem 0;
+    padding-top: 0; }
+    #youhuijuan .content h1 {
+      display: flex;
+      justify-content: center;
+      font-size: 0.8rem;
+      background: #fff;
+      padding-top: 1rem; }
+      #youhuijuan .content h1 span {
+        display: inline-block;
+        border-bottom: 0.13333rem solid #fff;
+        text-align: center;
+        margin: 0 5%;
+        height: 1.66667rem;
+        font-size: 0.93333rem; }
+      #youhuijuan .content h1 .on {
+        color: #ff4848;
+        border-color: #ff4848; }
+    #youhuijuan .content .Use {
+      margin-top: 2%;
+      box-sizing: border-box;
+      padding: 0 0.5rem; }
+      #youhuijuan .content .Use dl {
+        display: flex;
+        margin-top: 3%;
+        background: #fff;
+        border-radius: 0.33333rem; }
+        #youhuijuan .content .Use dl dt {
+          width: 7.53333rem;
+          height: 6.06667rem;
+          margin-right: 2%; }
+          #youhuijuan .content .Use dl dt img {
+            width: 100%;
+            height: 100%; }
+        #youhuijuan .content .Use dl dd {
+          width: 60%;
+          border-bottom: 0.06667rem dashed #dcdcdd;
+          height: 5.06667rem;
+          position: relative;
+          box-sizing: border-box;
+          padding-top: 0.33333rem; }
+          #youhuijuan .content .Use dl dd img {
+            width: 1.66667rem;
+            height: 1.66667rem;
+            border-radius: 50%; }
+          #youhuijuan .content .Use dl dd h3 {
+            text-indent: 1.66667rem; }
+          #youhuijuan .content .Use dl dd p {
+            font-size: 0.66667rem; }
+          #youhuijuan .content .Use dl dd p:nth-of-type(2) {
+            font-size: 0.66667rem;
+            width: 100%;
+            height: 1.66667rem;
+            line-height: 1.66667rem;
+            color: #b6b6b6; }
+            #youhuijuan .content .Use dl dd p:nth-of-type(2) span {
+              display: inline-block;
+              color: #f9596c;
+              border: 0.06667rem solid #f9596c;
+              border-radius: 0.53333rem;
+              float: right;
+              font-size: 0.66667rem;
+              height: 1.06667rem;
+              line-height: 1.06667rem;
+              margin-top: 2%;
+              padding: 0 0.33333rem; }
+          #youhuijuan .content .Use dl dd i {
+            position: absolute;
+            width: 4.33333rem;
+            height: 4.33333rem;
+            background: url("../img/used.png") center no-repeat;
+            background-size: 100%;
+            right: -0.66667rem;
+            top: 0; }
+    #youhuijuan .content .Use:nth-of-type(3) dd p:nth-of-type(2) span {
+      color: #b2b2b2;
+      border-color: #b2b2b2; }
+
+#dealRecord {
+  background: #eee; }
+  #dealRecord .content {
+    padding: 0; }
+    #dealRecord .content div {
+      height: 2.86667rem;
+      padding: 0 1rem;
+      background: #fff;
+      border-bottom: 0.06667rem solid #e5e5e5;
+      padding-top: 0.66667rem; }
+      #dealRecord .content div p {
+        font-size: 1rem; }
+        #dealRecord .content div p span {
+          float: right;
+          font-size: 0.66667rem;
+          color: #909090; }
+        #dealRecord .content div p i {
+          font-style: normal;
+          float: right;
+          font-size: 0.86667rem; }
+      #dealRecord .content div p:nth-of-type(2) {
+        font-size: 0.8rem; }
+
+#myinfo {
+  background: #eee; }
+  #myinfo .content {
+    padding: 0; }
+    #myinfo .content p {
+      position: relative;
+      font-size: 1rem;
+      background: #fff;
+      padding: 0 1rem;
+      border-bottom: 0.06667rem solid #e5e5e5;
+      height: 3rem;
+      line-height: 3rem; }
+      #myinfo .content p a {
+        float: right;
+        font-size: 0.86667rem;
+        text-shadow: none;
+        color: #878787;
+        font-weight: 100;
+        height: 80%; }
+        #myinfo .content p a span {
+          display: inline-block;
+          width: 10rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-right: 0.33333rem; }
+        #myinfo .content p a img {
+          width: 2.53333rem;
+          height: 2.53333rem;
+          border-radius: 0.33333rem;
+          vertical-align: middle; }
+        #myinfo .content p a i {
+          position: absolute;
+          right: 0.66667rem;
+          top: 40%;
+          width: 0.8rem;
+          height: 0.8rem;
+          background: url("../img/r.png") center no-repeat;
+          background-size: 62%; }
+    #myinfo .content .p1 {
+      margin-bottom: 0.66667rem;
+      height: 3.33333rem;
+      line-height: 3.33333rem;
+      border-bottom: none; }
+    #myinfo .content .p4 {
+      border-bottom: none;
+      margin-bottom: 0.66667rem; }
+    #myinfo .content .p7 {
+      border-bottom: none; }
+
+#editpayMM {
+  background: #eeeeee;
+  text-shadow: none; }
+  #editpayMM .content {
+    font-size: 0.93333rem;
+    padding: 0; }
+    #editpayMM .content p {
+      height: 3rem;
+      line-height: 3rem;
+      background: #fff;
+      box-sizing: border-box;
+      padding: 0 1rem;
+      color: #333;
+      border-bottom: 0.06667rem solid #eee; }
+      #editpayMM .content p span {
+        float: right;
+        padding: 0.33333rem;
+        background: #69adf4;
+        color: #fff;
+        border-radius: 0.33333rem;
+        height: 1rem;
+        margin-top: 2.5%;
+        vertical-align: middle;
+        line-height: 1rem; }
+      #editpayMM .content p b {
+        display: inline-block;
+        width: 80%;
+        height: 3.33333rem;
+        background: #69adf4;
+        border-radius: 1.16667rem;
+        text-align: center;
+        line-height: 3.33333rem;
+        color: #fff;
+        font-size: 1.2rem; }
+    #editpayMM .content p:nth-of-type(5) {
+      text-align: center;
+      margin-top: 8%;
+      background: #eee;
+      height: 3.33333rem; }
+    #editpayMM .content input {
+      outline: none;
+      font-size: 0.93333rem;
+      width: 4.66667rem; }
+    #editpayMM .content .yzm {
+      margin-bottom: 0.66667rem; }
+
+#editInfo {
+  position: relative;
+  text-shadow: none; }
+  #editInfo .fillBox i {
+    color: red; }
+  #editInfo .fillBox p {
+    font-size: 0.8rem; }
+  #editInfo .fillBox input {
+    outline: none; }
+  #editInfo .fillBox .ui-focus {
+    box-shadow: 0 0 12px #fff; }
+  #editInfo .fillBox .color9d {
+    color: #9d9d9d; }
+  #editInfo .fillBox .borbutton {
+    margin-top: 1.66667rem;
+    width: 100%;
+    text-align: center; }
+    #editInfo .fillBox .borbutton span {
+      display: inline-block;
+      width: 72%;
+      height: 2.86667rem;
+      background: #69adf4;
+      border-radius: 1.43333rem;
+      line-height: 2.86667rem;
+      color: #fff;
+      font-size: 0.93333rem; }
+
+#myorder {
+  text-shadow: none;
+  background: #eee; }
+  #myorder h3 {
+    font-size: 0.8rem;
+    font-weight: 100; }
+    #myorder h3 a {
+      float: right;
+      color: #878787;
+      font-weight: 100;
+      padding-right: 0.8rem;
+      padding-right: 0.8rem;
+      background: url("../img/r.png") center right no-repeat;
+      background-size: 9%; }
+  #myorder .AllOrder {
+    background: #fff;
+    padding: 0 1rem;
+    height: 3.06667rem;
+    line-height: 3.06667rem; }
+  #myorder .tab {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.66667rem;
+    font-size: 0.66667rem;
+    padding: 0 0.66667rem;
+    background: #fff;
+    padding-top: 1rem;
+    border-bottom: 0.06667rem solid #e5e5e5; }
+    #myorder .tab span {
+      width: 20%;
+      text-align: center;
+      height: 4rem;
+      border-bottom: 0.13333rem solid #fff; }
+      #myorder .tab span b {
+        position: relative;
+        font-weight: 100; }
+      #myorder .tab span img {
+        width: 1.46667rem;
+        height: 1.46667rem;
+        margin-bottom: 8%; }
+      #myorder .tab span i {
+        font-style: normal;
+        position: absolute;
+        right: -0.93333rem;
+        top: -0.8rem;
+        font-size: 0.8rem; }
+      #myorder .tab span .ion {
+        border-radius: 0.53333rem;
+        background: #f56974;
+        color: #fff;
+        padding: 0.33333rem;
+        height: 0.53333rem;
+        text-align: center;
+        line-height: 0.53333rem; }
+    #myorder .tab .spanon {
+      border-bottom: 0.13333rem solid #f56974;
+      color: #f56974; }
+  #myorder .content {
+    padding: 0; }
+    #myorder .content .items1 {
+      margin-bottom: 0.66667rem; }
+      #myorder .content .items1 h1 {
+        font-size: 0.8rem;
+        font-weight: 100;
+        padding: 0.66667rem 0 1rem 0;
+        color: #878787;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        height: 2.26667rem;
+        line-height: 2.26667rem; }
+        #myorder .content .items1 h1 b {
+          float: right;
+          font-weight: 100;
+          color: #f56974; }
+      #myorder .content .items1 h2 {
+        font-weight: 100;
+        font-size: 0.93333rem;
+        text-align: right;
+        background: #fff;
+        height: 2.26667rem;
+        line-height: 2.26667rem;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        border-bottom: 0.06667rem solid #e5e5e5; }
+        #myorder .content .items1 h2 b {
+          font-weight: 100;
+          color: #f56974;
+          margin-right: 0.26667rem; }
+      #myorder .content .items1 dl {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 0.66667rem 1rem;
+        box-sizing: border-box;
+        background: #f7f7f7; }
+        #myorder .content .items1 dl dt {
+          margin-right: 3%;
+          width: 6rem;
+          height: 4rem;
+          text-align: center;
+          vertical-align: middle; }
+          #myorder .content .items1 dl dt img {
+            max-height: 100%; }
+        #myorder .content .items1 dl dd h3 {
+          width: 85%; }
+        #myorder .content .items1 dl dd p {
+          color: #878787;
+          font-size: 0.6rem;
+          margin-top: 2%; }
+    #myorder .content i {
+      font-style: normal; }
+    #myorder .content .price {
+      position: absolute;
+      color: #f56974;
+      right: 1rem;
+      top: 13%;
+      font-size: 0.8rem; }
+    #myorder .content .num {
+      position: absolute;
+      color: #878787;
+      right: 1rem;
+      top: 44%;
+      font-size: 0.6rem; }
+  #myorder .more {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #878787;
+    background: #fff;
+    padding: 1rem 0.66667rem; }
+    #myorder .more span {
+      display: inline-block;
+      padding: 0.26667rem;
+      border: 0.06667rem solid #878787;
+      margin-left: 0.33333rem;
+      width: 3.66667rem;
+      text-align: center; }
+
+#creditsExchange {
+  background: #fff; }
+  #creditsExchange .nopaddingLR {
+    position: relative;
+    text-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+    background: url("../img/cardbg.png") center no-repeat;
+    background-size: 150%;
+    height: 11.66667rem; }
+    #creditsExchange .nopaddingLR .topBox {
+      color: #fff;
+      height: 4.86667rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      #creditsExchange .nopaddingLR .topBox dl {
+        width: 40%;
+        box-sizing: border-box;
+        height: 4.23333rem;
+        font-size: 0.8rem;
+        font-weight: 100;
+        padding-left: 2%; }
+        #creditsExchange .nopaddingLR .topBox dl dt {
+          width: 2.83333rem;
+          height: 2.83333rem;
+          float: left;
+          margin-right: 0.66667rem; }
+          #creditsExchange .nopaddingLR .topBox dl dt img {
+            width: 100%;
+            height: 100%; }
+        #creditsExchange .nopaddingLR .topBox dl dd {
+          margin-top: 0.73333rem;
+          float: left; }
+      #creditsExchange .nopaddingLR .topBox dl:nth-of-type(2) dt {
+        box-sizing: border-box;
+        padding: 0.33333rem; }
+      #creditsExchange .nopaddingLR .topBox dl:nth-of-type(2) dd {
+        line-height: 1.8rem;
+        padding-bottom: 0.53333rem; }
+    #creditsExchange .nopaddingLR h2 {
+      text-align: center;
+      font-size: 1.33333rem;
+      color: #fff;
+      line-height: 1.66667rem;
+      font-weight: 100;
+      text-shadow: none; }
+    #creditsExchange .nopaddingLR p {
+      position: absolute;
+      bottom: 2%;
+      color: #fff;
+      left: 2%; }
+  #creditsExchange .content p {
+    text-shadow: none;
+    font-size: 1rem;
+    color: #666;
+    height: 3.26667rem;
+    line-height: 3.26667rem;
+    color: #333; }
+    #creditsExchange .content p input {
+      width: 40%;
+      outline: none;
+      height: 2rem;
+      border: 0.06667rem solid #e5e5e5; }
+    #creditsExchange .content p b {
+      font-weight: 100;
+      color: #666; }
+  #creditsExchange .content div {
+    margin-top: 30%;
+    text-align: center; }
+    #creditsExchange .content div span {
+      display: inline-block;
+      width: 80%;
+      height: 3.2rem;
+      border: 0.06667rem solid #69adf4;
+      background: #69adf4;
+      line-height: 3.2rem;
+      text-align: center;
+      font-size: 1.06667rem;
+      color: #fff;
+      border-radius: 1.6rem;
+      text-shadow: none; }
+
+#VipActive {
+  background: #eee;
+  text-shadow: none; }
+  #VipActive .ui-content {
+    overflow-x: visible; }
+  #VipActive .content {
+    padding: 0; }
+    #VipActive .content p {
+      background: #fff;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: center;
+      font-size: 0.8rem; }
+      #VipActive .content p span {
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        height: 2rem; }
+      #VipActive .content p .on {
+        border-bottom: 0.13333rem solid red; }
+    #VipActive .content .item div {
+      background: #fff;
+      height: 6.66667rem;
+      margin-top: 1rem;
+      padding: 0.66667rem 0.26667rem;
+      display: flex;
+      justify-content: center; }
+      #VipActive .content .item div dl:nth-of-type(1) {
+        box-sizing: border-box;
+        padding-top: 1rem;
+        width: 36%;
+        border-right: 0.06667rem dashed #e5e5e5; }
+        #VipActive .content .item div dl:nth-of-type(1) dt span {
+          color: #69adf4;
+          border: 0.06667rem solid #69adf4;
+          padding: 0.16667rem 0.33333rem;
+          font-size: 0.66667rem; }
+        #VipActive .content .item div dl:nth-of-type(1) dd:nth-of-type(1) {
+          font-size: 0.86667rem;
+          margin-top: 0.8rem;
+          color: #666; }
+        #VipActive .content .item div dl:nth-of-type(1) dd:nth-of-type(2) {
+          font-size: 0.66667rem;
+          color: #666;
+          margin-top: 0.33333rem; }
+      #VipActive .content .item div dl:nth-of-type(2) {
+        position: relative;
+        width: 61%;
+        margin-left: 3%; }
+        #VipActive .content .item div dl:nth-of-type(2) i {
+          position: absolute;
+          width: 0.8rem;
+          height: 0.8rem;
+          right: 2%;
+          top: 55%;
+          border-radius: 50%;
+          border: 0.06667rem solid #666; }
+        #VipActive .content .item div dl:nth-of-type(2) .on {
+          background: url("../img/yes.png") center no-repeat;
+          background-size: 100%;
+          border: none; }
+        #VipActive .content .item div dl:nth-of-type(2) dt {
+          font-size: 1rem; }
+          #VipActive .content .item div dl:nth-of-type(2) dt img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 0.06667rem solid #dcdcdd;
+            margin-right: 2%; }
+        #VipActive .content .item div dl:nth-of-type(2) dd {
+          font-size: 0.8rem;
+          color: #a0a0a0; }
+          #VipActive .content .item div dl:nth-of-type(2) dd span {
+            font-size: 0.8rem;
+            font-weight: 100;
+            color: #a0a0a0; }
+        #VipActive .content .item div dl:nth-of-type(2) .colorf span {
+          color: #959595; }
+        #VipActive .content .item div dl:nth-of-type(2) .colorf a {
+          color: #f56974;
+          float: right;
+          text-shadow: none;
+          font-weight: 100; }
+
+#jifenduihuan {
+  background: #eee; }
+  #jifenduihuan .content {
+    background: #ebebeb;
+    height: 100%; }
+    #jifenduihuan .content .jifenCard {
+      background: #fff;
+      position: relative;
+      margin-top: 8%;
+      padding-bottom: 8%;
+      padding-top: 16%; }
+      #jifenduihuan .content .jifenCard dl {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: -6%; }
+        #jifenduihuan .content .jifenCard dl dt img {
+          max-width: 3.33333rem;
+          max-height: 3.33333rem;
+          border-radius: 50%; }
+        #jifenduihuan .content .jifenCard dl dd {
+          font-size: 0.8rem;
+          text-shadow: none;
+          color: #999999; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(1) {
+        width: 100%;
+        text-align: center; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(1) img {
+          max-width: 90%; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(2) {
+        text-align: center;
+        margin: 4% 0 3% 0;
+        font-size: 0.8rem; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(3) {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #f56974; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(4) {
+        text-align: center;
+        margin: 3% 0 6% 0; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(4) span {
+          display: inline-block;
+          padding: 0.2rem;
+          border: 0.06667rem solid #f56974;
+          margin-right: 2%;
+          color: #f56974;
+          font-size: 0.8rem; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(5) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(5) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(5) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(6) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(6) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(6) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(7) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(7) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(7) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(8) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(8) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(8) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #jifenduihuan .content .jifenCard p:nth-of-type(9) {
+        width: 100%;
+        text-align: center;
+        margin: 8% 0; }
+        #jifenduihuan .content .jifenCard p:nth-of-type(9) span {
+          display: inline-block;
+          width: 70%;
+          height: 2.66667rem;
+          text-align: center;
+          color: #fff;
+          background: #69adf4;
+          border-radius: 1.33333rem;
+          font-size: 1rem;
+          font-weight: 100;
+          line-height: 2.66667rem;
+          text-shadow: none; }
+
+#charyouhui {
+  background: #eee; }
+  #charyouhui .content {
+    background: #ebebeb;
+    height: 100%; }
+    #charyouhui .content .jifenCard {
+      background: #fff;
+      position: relative;
+      margin-top: 8%;
+      padding-bottom: 8%;
+      padding-top: 16%; }
+      #charyouhui .content .jifenCard dl {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: -6%; }
+        #charyouhui .content .jifenCard dl dt img {
+          max-width: 3.33333rem;
+          max-height: 3.33333rem;
+          border-radius: 50%; }
+        #charyouhui .content .jifenCard dl dd {
+          font-size: 0.8rem;
+          text-shadow: none;
+          color: #999999; }
+      #charyouhui .content .jifenCard p:nth-of-type(1) {
+        width: 100%;
+        text-align: center; }
+        #charyouhui .content .jifenCard p:nth-of-type(1) img {
+          max-width: 90%; }
+      #charyouhui .content .jifenCard p:nth-of-type(2) {
+        text-align: center;
+        margin: 4% 0 3% 0;
+        font-size: 0.8rem; }
+      #charyouhui .content .jifenCard p:nth-of-type(3) {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #f56974;
+        margin: 3% 0 1% 0; }
+        #charyouhui .content .jifenCard p:nth-of-type(3) span {
+          display: inline-block;
+          padding: 0.2rem;
+          border: 0.06667rem solid #f56974;
+          margin-right: 2%;
+          color: #f56974;
+          font-size: 0.8rem; }
+      #charyouhui .content .jifenCard p:nth-of-type(4) {
+        box-sizing: border-box;
+        padding-left: 28%;
+        padding-bottom: 6%;
+        color: #f56974;
+        font-size: 0.8rem; }
+      #charyouhui .content .jifenCard p:nth-of-type(5) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #charyouhui .content .jifenCard p:nth-of-type(5) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #charyouhui .content .jifenCard p:nth-of-type(5) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #charyouhui .content .jifenCard p:nth-of-type(6) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #charyouhui .content .jifenCard p:nth-of-type(6) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #charyouhui .content .jifenCard p:nth-of-type(6) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #charyouhui .content .jifenCard p:nth-of-type(7) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #charyouhui .content .jifenCard p:nth-of-type(7) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #charyouhui .content .jifenCard p:nth-of-type(7) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #charyouhui .content .jifenCard p:nth-of-type(8) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box; }
+        #charyouhui .content .jifenCard p:nth-of-type(8) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #charyouhui .content .jifenCard p:nth-of-type(8) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #charyouhui .content .jifenCard .lastp {
+        width: 100%;
+        text-align: center;
+        margin: 8% 0; }
+        #charyouhui .content .jifenCard .lastp span {
+          display: inline-block;
+          width: 70%;
+          height: 2.66667rem;
+          text-align: center;
+          color: #fff;
+          background: #69adf4;
+          border-radius: 1.33333rem;
+          font-size: 1rem;
+          font-weight: 100;
+          line-height: 2.66667rem;
+          text-shadow: none; }
+
+#cardPartner {
+  background: #eee; }
+  #cardPartner .content {
+    background: #ebebeb;
+    height: 100%; }
+    #cardPartner .content .jifenCard {
+      background: #fff;
+      position: relative;
+      margin-top: 8%;
+      padding-bottom: 8%;
+      padding-top: 16%; }
+      #cardPartner .content .jifenCard dl {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: -6%; }
+        #cardPartner .content .jifenCard dl dt img {
+          max-width: 3.33333rem;
+          max-height: 3.33333rem;
+          border-radius: 50%; }
+        #cardPartner .content .jifenCard dl dd {
+          font-size: 0.8rem;
+          text-shadow: none;
+          color: #999999; }
+      #cardPartner .content .jifenCard p:nth-of-type(1) {
+        width: 100%;
+        text-align: center; }
+        #cardPartner .content .jifenCard p:nth-of-type(1) img {
+          max-width: 90%; }
+      #cardPartner .content .jifenCard p:nth-of-type(2) {
+        text-align: center;
+        margin: 4% 0 3% 0;
+        font-size: 0.8rem; }
+      #cardPartner .content .jifenCard p:nth-of-type(3) {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #f56974;
+        margin: 3% 0 1% 0; }
+        #cardPartner .content .jifenCard p:nth-of-type(3) span {
+          display: inline-block;
+          padding: 0.2rem;
+          border: 0.06667rem solid #f56974;
+          margin-right: 2%;
+          color: #f56974;
+          font-size: 0.8rem; }
+      #cardPartner .content .jifenCard p:nth-of-type(4) {
+        box-sizing: border-box;
+        padding-left: 28%;
+        padding-bottom: 2%;
+        color: #f56974;
+        font-size: 0.8rem; }
+      #cardPartner .content .jifenCard p:nth-of-type(5) {
+        padding-left: 5%;
+        height: 1.33333rem;
+        box-sizing: border-box;
+        text-align: center; }
+        #cardPartner .content .jifenCard p:nth-of-type(5) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #cardPartner .content .jifenCard p:nth-of-type(5) i {
+          font-style: normal;
+          color: #a9a9a9;
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #cardPartner .content .jifenCard p:nth-of-type(6) {
+        padding-left: 5%;
+        height: 1.66667rem;
+        margin: 4% 0 4% 0;
+        box-sizing: border-box;
+        font-size: 0.8rem; }
+        #cardPartner .content .jifenCard p:nth-of-type(6) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #cardPartner .content .jifenCard p:nth-of-type(6) a {
+          float: right;
+          color: #000;
+          text-shadow: none;
+          font-weight: 100;
+          padding-right: 5%; }
+      #cardPartner .content .jifenCard p:nth-of-type(7) {
+        padding-left: 5%;
+        height: 1.66667rem;
+        box-sizing: border-box;
+        font-size: 0.8rem; }
+        #cardPartner .content .jifenCard p:nth-of-type(7) b {
+          font-weight: 100;
+          font-size: 0.8rem; }
+        #cardPartner .content .jifenCard p:nth-of-type(7) a {
+          float: right;
+          color: #000;
+          text-shadow: none;
+          font-weight: 100;
+          padding-right: 5%; }
+        #cardPartner .content .jifenCard p:nth-of-type(7) span {
+          color: #878787; }
+      #cardPartner .content .jifenCard .lastp {
+        width: 100%;
+        text-align: center;
+        margin: 8% 0; }
+        #cardPartner .content .jifenCard .lastp span {
+          display: inline-block;
+          width: 70%;
+          height: 2.66667rem;
+          text-align: center;
+          color: #fff;
+          background: #69adf4;
+          border-radius: 1.33333rem;
+          font-size: 1rem;
+          font-weight: 100;
+          line-height: 2.66667rem;
+          text-shadow: none; }
+
+#quanCenter {
+  background: #eee; }
+  #quanCenter .bg {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    display: none; }
+  #quanCenter .nopaddingLR {
+    background: #fff;
+    z-index: 10;
+    position: relative;
+    padding-bottom: 0.33333rem; }
+    #quanCenter .nopaddingLR p:nth-of-type(1) {
+      text-align: center;
+      font-size: 0.8rem; }
+      #quanCenter .nopaddingLR p:nth-of-type(1) img {
+        max-width: 100%;
+        max-height: 6.66667rem; }
+    #quanCenter .nopaddingLR p:nth-of-type(2) {
+      margin-top: 3%;
+      text-align: center; }
+      #quanCenter .nopaddingLR p:nth-of-type(2) select {
+        width: 4rem;
+        font-size: 0.8rem;
+        height: 1.66667rem;
+        text-align: center; }
+        #quanCenter .nopaddingLR p:nth-of-type(2) select option {
+          outline: none;
+          border: none;
+          box-shadow: none;
+          border: solid 2px #000;
+          style: normal;
+          font-size: 0.8rem; }
+      #quanCenter .nopaddingLR p:nth-of-type(2) input {
+        width: 78%;
+        height: 2.66667rem;
+        line-height: 2.66667rem;
+        background: #eee url(../img/sear.png) 3% center no-repeat;
+        border: 0.06667rem solid #c6c4c4;
+        border-radius: 1.33333rem;
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 2rem;
+        background-size: 7%;
+        font-size: 1rem;
+        box-sizing: border-box;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; }
+  #quanCenter .content {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    z-index: 10; }
+    #quanCenter .content .topBan .colorRed {
+      color: red; }
+    #quanCenter .content .topBan .banTit {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10%;
+      box-sizing: border-box;
+      padding-left: 0; }
+      #quanCenter .content .topBan .banTit span {
+        display: inline-block;
+        font-size: 0.8rem;
+        box-sizing: border-box; }
+        #quanCenter .content .topBan .banTit span b {
+          font-weight: 100;
+          margin-right: 0.2rem;
+          font-size: 1rem; }
+        #quanCenter .content .topBan .banTit span i {
+          display: inline-block;
+          width: 0.66667rem;
+          height: 0.66667rem;
+          background: url(../img/bot.png) right center no-repeat;
+          background-size: 100%; }
+    #quanCenter .content .topBan .banBox {
+      width: 102%;
+      position: relative;
+      height: 10.2rem;
+      left: -1rem; }
+      #quanCenter .content .topBan .banBox .bg10 {
+        width: 100%;
+        height: 0.33333rem;
+        background: #eee;
+        position: absolute;
+        margin-top: 0.53333rem;
+        z-index: 10; }
+      #quanCenter .content .topBan .banBox .banItem {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        z-index: 3;
+        padding-top: 0.86667rem;
+        background: #fff;
+        top: 0; }
+        #quanCenter .content .topBan .banBox .banItem ul {
+          width: 26%;
+          height: 10.2rem;
+          float: left;
+          background: #fff;
+          font-size: 0.93333rem;
+          margin-right: 4%; }
+          #quanCenter .content .topBan .banBox .banItem ul li {
+            text-shadow: none;
+            height: 20%;
+            line-height: 2rem;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            border: 0.06667rem solid #e5e5e5;
+            border-top: none;
+            background: #f2f7fa;
+            border-left: none;
+            font-size: 0.93333rem; }
+          #quanCenter .content .topBan .banBox .banItem ul .on {
+            border-right: none;
+            background: #fff; }
+        #quanCenter .content .topBan .banBox .banItem .ban1itemR {
+          width: 70%;
+          float: left;
+          height: 10.2rem;
+          position: relative; }
+          #quanCenter .content .topBan .banBox .banItem .ban1itemR div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #fff; }
+            #quanCenter .content .topBan .banBox .banItem .ban1itemR div p {
+              height: 20%;
+              line-height: 2rem;
+              text-shadow: none;
+              font-size: 0.8rem; }
+            #quanCenter .content .topBan .banBox .banItem .ban1itemR div i {
+              font-style: normal;
+              float: right;
+              margin-right: 6%;
+              color: #bbb; }
+  #quanCenter .conBox {
+    margin-top: 11%; }
+    #quanCenter .conBox div {
+      display: flex;
+      justify-content: space-between;
+      border-left: 0.2rem solid #69adf4;
+      height: 5rem;
+      box-sizing: border-box;
+      padding-top: 3%;
+      padding-bottom: 3%;
+      margin-bottom: 2%;
+      background: #fff;
+      margn-top: 0.66667rem; }
+      #quanCenter .conBox div dl dt {
+        margin-bottom: 3%; }
+      #quanCenter .conBox div dl:nth-of-type(1) {
+        color: #69adf4;
+        text-align: center;
+        height: 100%;
+        vertical-align: middle;
+        width: 24%;
+        border-right: 0.06667rem dashed #e5e5e5; }
+        #quanCenter .conBox div dl:nth-of-type(1) dt {
+          font-size: 1.33333rem;
+          height: 2rem; }
+        #quanCenter .conBox div dl:nth-of-type(1) dd {
+          font-size: 0.8rem;
+          font-weight: 100; }
+      #quanCenter .conBox div .hasBg {
+        background: url("../img/usedbg.png") top right no-repeat;
+        background-size: 40%; }
+      #quanCenter .conBox div dl:nth-of-type(2) {
+        width: 43%;
+        text-align: center;
+        padding-left: 0.33333rem; }
+        #quanCenter .conBox div dl:nth-of-type(2) dt {
+          height: 2rem;
+          font-size: 0.8rem;
+          overflow: hidden; }
+          #quanCenter .conBox div dl:nth-of-type(2) dt img {
+            max-width: 2rem;
+            max-height: 100%; }
+        #quanCenter .conBox div dl:nth-of-type(2) dd {
+          font-size: 0.6rem;
+          text-align: left; }
+          #quanCenter .conBox div dl:nth-of-type(2) dd p {
+            width: 74%;
+            background: #b5c6eb;
+            height: 0.66667rem;
+            display: inline-block;
+            border-radius: 0.33333rem;
+            position: relative;
+            font-size: 0.8rem; }
+            #quanCenter .conBox div dl:nth-of-type(2) dd p i {
+              position: absolute;
+              height: 100%;
+              background: #80b4f1;
+              border-radius: 0.33333rem;
+              left: 0; }
+      #quanCenter .conBox div dl:nth-of-type(3) {
+        width: 30%;
+        text-align: center; }
+        #quanCenter .conBox div dl:nth-of-type(3) dd {
+          margin-top: 21%; }
+          #quanCenter .conBox div dl:nth-of-type(3) dd span {
+            display: inline-block;
+            border: 0.06667rem solid #69adf4;
+            border-radius: 1.8rem;
+            height: 2rem;
+            width: 5.13333rem;
+            text-align: center;
+            line-height: 1.8rem; }
+          #quanCenter .conBox div dl:nth-of-type(3) dd a {
+            font-size: 0.8rem;
+            background: #69adf4;
+            text-shadow: none;
+            color: #fff;
+            height: 1.8rem;
+            display: inline-block;
+            line-height: 1.8rem;
+            margin: 0.1rem;
+            width: 4rem;
+            text-align: center;
+            padding: 0 9%;
+            border-radius: 1rem;
+            font-weight: 100; }
+
+#yhDetail .nopaddingLR p {
+  width: 100%; }
+  #yhDetail .nopaddingLR p img {
+    width: 100%;
+    max-height: 10rem; }
+#yhDetail .nopaddingLR h2 {
+  font-size: 1.2rem;
+  height: 2.66667rem;
+  line-height: 2.66667rem; }
+#yhDetail .nopaddingLR div {
+  color: #f56974;
+  height: 3.33333rem; }
+  #yhDetail .nopaddingLR div dl {
+    width: 30%;
+    text-align: center;
+    float: left; }
+    #yhDetail .nopaddingLR div dl dt {
+      font-size: 1.66667rem; }
+    #yhDetail .nopaddingLR div dl dd {
+      font-size: 0.8rem; }
+  #yhDetail .nopaddingLR div span {
+    float: left;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    border: 0.06667rem solid #f56974;
+    margin-left: 2%;
+    margin-top: 2%; }
+#yhDetail .nopaddingLR p {
+  font-size: 0.86667rem;
+  color: #999999;
+  line-height: 1.33333rem; }
+  #yhDetail .nopaddingLR p b {
+    font-weight: 100;
+    font-size: 0.8rem;
+    color: #666666; }
+#yhDetail .nopaddingLR .borbot {
+  border-bottom: 0.06667rem solid #e5e5e5;
+  padding-bottom: 0.66667rem; }
+#yhDetail .nopaddingLR .content dl {
+  display: flex;
+  width: 100%;
+  padding-top: 0.66667rem; }
+  #yhDetail .nopaddingLR .content dl dt {
+    width: 17%; }
+    #yhDetail .nopaddingLR .content dl dt img {
+      width: 3.33333rem; }
+  #yhDetail .nopaddingLR .content dl dd {
+    padding-top: 2%;
+    width: 83%;
+    text-align: left; }
+    #yhDetail .nopaddingLR .content dl dd h2 {
+      font-size: 1.2rem;
+      position: relative;
+      color: #000; }
+      #yhDetail .nopaddingLR .content dl dd h2 p {
+        position: absolute;
+        width: 8rem;
+        background: #fff;
+        left: 20%;
+        top: -2.6rem;
+        z-index: 4;
+        display: none; }
+        #yhDetail .nopaddingLR .content dl dd h2 p span {
+          width: 100%;
+          height: 1.33333rem;
+          text-align: center;
+          border: none;
+          padding: 0;
+          background: #fff;
+          color: #000; }
+          #yhDetail .nopaddingLR .content dl dd h2 p span a {
+            width: 48%;
+            height: 1.33333rem;
+            border: 0.06667rem solid #f56974;
+            font-size: 0.8rem;
+            color: dodgerblue;
+            background: pink; }
+      #yhDetail .nopaddingLR .content dl dd h2 img {
+        width: 1.66667rem;
+        margin-left: 6%; }
+    #yhDetail .nopaddingLR .content dl dd p {
+      font-size: 0.8rem;
+      color: #666;
+      line-height: 1.33333rem;
+      position: relative;
+      width: 100%;
+      margin: 0; }
+      #yhDetail .nopaddingLR .content dl dd p img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1.66667rem; }
+#yhDetail .nopaddingLR .content p {
+  width: 100%;
+  margin: 4% 0 4% 0;
+  font-size: 1rem;
+  color: #666; }
+  #yhDetail .nopaddingLR .content p a {
+    float: right;
+    color: #333;
+    font-weight: 100; }
+#yhDetail .bot3p {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  padding-bottom: 2rem;
+  font-size: 0.93333rem; }
+  #yhDetail .bot3p .height89 {
+    height: 2.96667rem;
+    line-height: 2.96667rem;
+    border-top: 0.06667rem solid #e5e5e5; }
+    #yhDetail .bot3p .height89 a {
+      float: right;
+      color: #333; }
+  #yhDetail .bot3p .btn {
+    text-align: center;
+    margin-top: 6%; }
+    #yhDetail .bot3p .btn span {
+      display: inline-block;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      background: #69adf4;
+      color: #fff;
+      height: 2.66667rem;
+      line-height: 2.66667rem;
+      border-radius: 1.33333rem;
+      font-weight: 100;
+      text-shadow: none;
+      font-size: 1.2rem;
+      border: none;
+      margin-left: 6%; }
+#yhDetail .popup_bg {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  z-index: 98; }
+#yhDetail .popdel {
+  width: 80%;
+  margin: 58% auto;
+  background: #fff;
+  padding: 4% 0;
+  border-radius: 1rem;
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  left: 10%; }
+  #yhDetail .popdel h3 {
+    width: 100%;
+    font-size: 1.33333rem;
+    color: #000;
+    text-align: center; }
+  #yhDetail .popdel div {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #999;
+    margin: 6% 0 6% 0; }
+  #yhDetail .popdel p {
+    width: 100%;
+    display: flex;
+    border-top: 0.06667rem solid #e5e5e5;
+    padding-top: 0.66667rem; }
+    #yhDetail .popdel p a {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      font-size: 1.33333rem;
+      font-weight: 100;
+      text-shadow: none;
+      color: #000; }
+    #yhDetail .popdel p .sureTel {
+      border-right: 0.06667rem solid #e5e5e5; }
+
+#goodsList .content {
+  padding-left: 0;
+  padding-right: 0; }
+  #goodsList .content .list {
+    border-bottom: 0.06667rem solid #e5e5e5;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    display: flex; }
+    #goodsList .content .list dl {
+      width: 80%;
+      border-right: 0.06667rem solid #e5e5e5;
+      height: 4rem; }
+      #goodsList .content .list dl dt {
+        font-size: 1.33333rem; }
+        #goodsList .content .list dl dt span {
+          font-size: 1.06667rem;
+          color: #999999; }
+      #goodsList .content .list dl dd {
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: 6%;
+        position: relative; }
+        #goodsList .content .list dl dd img {
+          width: 1.33333rem;
+          position: absolute;
+          right: 9%;
+          bottom: 3%; }
+    #goodsList .content .list b {
+      text-align: center;
+      vertical-align: middle;
+      width: 20%;
+      padding-top: 4%;
+      box-sizing: border-box; }
+      #goodsList .content .list b img {
+        width: 1.66667rem; }
+
+#unionMerchant {
+  background: #eee; }
+  #unionMerchant .nopaddingLR {
+    z-index: 10;
+    background: #fff;
+    position: relative; }
+    #unionMerchant .nopaddingLR p:nth-of-type(1) {
+      text-align: center;
+      font-size: 0.8rem; }
+      #unionMerchant .nopaddingLR p:nth-of-type(1) img {
+        max-width: 100%;
+        max-height: 6.66667rem; }
+    #unionMerchant .nopaddingLR p:nth-of-type(2) {
+      margin-top: 3%;
+      text-align: center; }
+      #unionMerchant .nopaddingLR p:nth-of-type(2) select {
+        width: 4rem;
+        font-size: 0.8rem;
+        height: 1.66667rem;
+        text-align: center; }
+        #unionMerchant .nopaddingLR p:nth-of-type(2) select option {
+          outline: none;
+          border: none;
+          box-shadow: none;
+          border: solid 0.06667rem #000;
+          style: normal;
+          font-size: 0.8rem; }
+      #unionMerchant .nopaddingLR p:nth-of-type(2) input {
+        width: 78%;
+        height: 2.66667rem;
+        line-height: 2.66667rem;
+        background: #eee url(../img/sear.png) 3% center no-repeat;
+        border: 0.06667rem solid #c6c4c4;
+        border-radius: 1.33333rem;
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 2rem;
+        background-size: 7%;
+        font-size: 1rem;
+        box-sizing: border-box;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; }
+  #unionMerchant .bg {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    display: none; }
+  #unionMerchant .content {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border-top: 0.06667rem solid #eee;
+    z-index: 10; }
+    #unionMerchant .content .topBan .colorRed {
+      color: red; }
+    #unionMerchant .content .topBan .banTit {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10%;
+      box-sizing: border-box;
+      padding-left: 0; }
+      #unionMerchant .content .topBan .banTit span {
+        display: inline-block;
+        font-size: 1rem;
+        box-sizing: border-box; }
+        #unionMerchant .content .topBan .banTit span b {
+          font-weight: 100;
+          margin-right: 0.2rem; }
+        #unionMerchant .content .topBan .banTit span i {
+          display: inline-block;
+          width: 0.66667rem;
+          height: 0.66667rem;
+          background: url(../img/bot.png) right center no-repeat;
+          background-size: 100%; }
+    #unionMerchant .content .topBan .banBox {
+      width: 102%;
+      position: relative;
+      height: 10.2rem;
+      left: -1rem; }
+      #unionMerchant .content .topBan .banBox .bg10 {
+        width: 100%;
+        height: 0.33333rem;
+        background: #eee;
+        position: absolute;
+        margin-top: 0.53333rem;
+        z-index: 10; }
+      #unionMerchant .content .topBan .banBox .banItem {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        z-index: 3;
+        padding-top: 0.86667rem;
+        background: #fff;
+        top: 0; }
+        #unionMerchant .content .topBan .banBox .banItem ul {
+          width: 26%;
+          height: 10.2rem;
+          float: left;
+          background: #fff;
+          font-size: 0.93333rem;
+          margin-right: 4%; }
+          #unionMerchant .content .topBan .banBox .banItem ul li {
+            text-shadow: none;
+            height: 20%;
+            line-height: 2rem;
+            padding-left: 1rem;
+            box-sizing: border-box;
+            border: 0.06667rem solid #e5e5e5;
+            border-top: none;
+            background: #f2f7fa;
+            border-left: none; }
+          #unionMerchant .content .topBan .banBox .banItem ul .on {
+            border-right: none;
+            background: #fff; }
+        #unionMerchant .content .topBan .banBox .banItem .ban1itemR {
+          width: 70%;
+          float: left;
+          height: 10.2rem;
+          position: relative; }
+          #unionMerchant .content .topBan .banBox .banItem .ban1itemR div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #fff; }
+            #unionMerchant .content .topBan .banBox .banItem .ban1itemR div p {
+              height: 20%;
+              line-height: 2rem;
+              text-shadow: none;
+              font-size: 0.8rem; }
+            #unionMerchant .content .topBan .banBox .banItem .ban1itemR div i {
+              font-style: normal;
+              float: right;
+              margin-right: 6%;
+              color: #bbb; }
+  #unionMerchant .conBox {
+    margin-top: 13%;
+    padding-left: 0;
+    padding-right: 0; }
+    #unionMerchant .conBox dl {
+      background: #fff;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.66667rem;
+      display: flex;
+      margin-bottom: 4%; }
+      #unionMerchant .conBox dl dt {
+        width: 29%;
+        margin-right: 3%; }
+        #unionMerchant .conBox dl dt img {
+          max-width: 100%;
+          height: 5.33333rem; }
+      #unionMerchant .conBox dl dd {
+        width: 68%; }
+        #unionMerchant .conBox dl dd h3 {
+          font-size: 1.13333rem;
+          height: 1.66667rem;
+          line-height: 1.66667rem;
+          color: #000; }
+          #unionMerchant .conBox dl dd h3 span {
+            font-size: 0.66667rem;
+            color: #666666;
+            float: right; }
+        #unionMerchant .conBox dl dd p {
+          height: 2.33333rem;
+          line-height: 2.33333rem; }
+          #unionMerchant .conBox dl dd p strong {
+            font-size: 1.33333rem;
+            color: #f56974;
+            font-weight: 100; }
+          #unionMerchant .conBox dl dd p span {
+            font-size: 0.8rem;
+            padding: 0 0.26667rem;
+            border: 0.06667rem solid #666;
+            margin-left: 4%;
+            color: #666; }
+          #unionMerchant .conBox dl dd p b {
+            font-weight: 100;
+            height: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+            padding: 0.26667rem 0.8rem;
+            border: 0.06667rem solid #999;
+            border-radius: 0.83333rem; }
+        #unionMerchant .conBox dl dd .address {
+          position: relative;
+          padding-left: 1.33333rem;
+          font-size: 0.8rem;
+          color: #333;
+          border-top: 0.06667rem solid #eee; }
+          #unionMerchant .conBox dl dd .address i {
+            position: absolute;
+            width: 1.33333rem;
+            height: 1.33333rem;
+            background: url("../img/posi.png") center no-repeat;
+            background-size: 75%;
+            left: 0;
+            top: 18%; }
+          #unionMerchant .conBox dl dd .address img {
+            position: absolute;
+            width: 1.13333rem;
+            height: 1.13333rem;
+            right: 0;
+            top: 20%; }
+
+#Haddress {
+  background: #ebebeb; }
+  #Haddress .content {
+    padding: 0; }
+    #Haddress .content .useing {
+      position: relative;
+      background: #fff;
+      padding: 0.5rem 1rem;
+      box-sizing: border-box;
+      width: 100%; }
+      #Haddress .content .useing .tit {
+        font-size: 1rem;
+        color: #333; }
+      #Haddress .content .useing .address {
+        font-size: 0.93333rem;
+        color: #666;
+        margin: 0.66667rem 0 0.86667rem 0; }
+      #Haddress .content .useing .bot {
+        position: relative;
+        padding-left: 1.33333rem;
+        font-size: 0.86667rem;
+        color: #b3b3b3;
+        height: 2.13333rem;
+        line-height: 2.13333rem;
+        border-top: 0.06667rem solid #e5e5e5;
+        padding-top: 0.53333rem; }
+        #Haddress .content .useing .bot .on {
+          position: absolute;
+          width: 0.86667rem;
+          height: 0.86667rem;
+          border: 0.06667rem solid #999594;
+          border-radius: 0.46667rem;
+          left: 0;
+          top: 39%; }
+        #Haddress .content .useing .bot .ion {
+          background: url("../img/yes.png") center no-repeat;
+          background-size: 100%;
+          border: none; }
+        #Haddress .content .useing .bot span {
+          float: right; }
+          #Haddress .content .useing .bot span i {
+            font-style: normal; }
+          #Haddress .content .useing .bot span .edit {
+            padding-left: 1.33333rem;
+            background: url("../img/editbg.png") 0 center no-repeat;
+            background-size: 34%;
+            margin-right: 2rem; }
+          #Haddress .content .useing .bot span .del {
+            padding-left: 1.33333rem;
+            background: url("../img/delbg.png") 0 center no-repeat;
+            background-size: 34%; }
+      #Haddress .content .useing .yes {
+        position: absolute;
+        right: 3%;
+        top: 14%;
+        width: 2.66667rem;
+        height: 2rem;
+        background: url("../img/dui.png") center no-repeat;
+        background-size: 66%; }
+      #Haddress .content .useing .sy {
+        position: absolute;
+        right: 5%;
+        top: 14%;
+        width: 2.66667rem;
+        height: 1.33333rem;
+        border: 0.06667rem solid #666;
+        text-align: center;
+        line-height: 1.33333rem;
+        font-size: 0.8rem;
+        border-radius: 0.16667rem; }
+    #Haddress .content .used {
+      background: #fff;
+      padding: 0.5rem 1rem;
+      box-sizing: border-box;
+      width: 100%;
+      margin-top: 4%; }
+      #Haddress .content .used div {
+        margin-bottom: 8%;
+        position: relative; }
+      #Haddress .content .used .tit {
+        font-size: 1rem;
+        color: #333; }
+      #Haddress .content .used .address {
+        font-size: 0.93333rem;
+        color: #666;
+        margin: 0.66667rem 0 0.86667rem 0; }
+      #Haddress .content .used .bot {
+        position: relative;
+        padding-left: 1.33333rem;
+        font-size: 0.86667rem;
+        color: #b3b3b3;
+        height: 2.13333rem;
+        line-height: 2.13333rem;
+        border-top: 0.06667rem solid #e5e5e5;
+        padding-top: 0.53333rem; }
+        #Haddress .content .used .bot .on {
+          position: absolute;
+          width: 0.86667rem;
+          height: 0.86667rem;
+          border: 0.06667rem solid #999594;
+          border-radius: 0.46667rem;
+          left: 0;
+          top: 39%; }
+        #Haddress .content .used .bot .ion {
+          background: url("../img/yes.png") center no-repeat;
+          background-size: 100%;
+          border: none; }
+        #Haddress .content .used .bot span {
+          float: right; }
+          #Haddress .content .used .bot span i {
+            font-style: normal; }
+          #Haddress .content .used .bot span .edit {
+            padding-left: 1.33333rem;
+            background: url("../img/editbg.png") 0 center no-repeat;
+            background-size: 34%;
+            margin-right: 2rem; }
+          #Haddress .content .used .bot span .del {
+            padding-left: 1.33333rem;
+            background: url("../img/delbg.png") 0 center no-repeat;
+            background-size: 34%; }
+      #Haddress .content .used .sy {
+        position: absolute;
+        right: 1%;
+        top: 14%;
+        width: 2.66667rem;
+        height: 1.33333rem;
+        border: 0.06667rem solid #999;
+        text-align: center;
+        line-height: 1.33333rem;
+        font-size: 0.8rem;
+        border-radius: 0.16667rem; }
+      #Haddress .content .used .yes {
+        position: absolute;
+        right: 1%;
+        top: 14%;
+        width: 2.66667rem;
+        height: 2rem;
+        background: url("../img/dui.png") center no-repeat;
+        background-size: 66%; }
+    #Haddress .content .setAddress {
+      height: 4.66667rem;
+      background: #fff;
+      margin-top: 4%; }
+      #Haddress .content .setAddress span {
+        float: right;
+        padding: 0.46667rem 0.8rem;
+        background: #69adf4;
+        text-shadow: none;
+        color: #fff;
+        font-weight: 100;
+        font-size: 0.8rem;
+        margin-right: 4%;
+        margin-top: 6%;
+        border-radius: 0.26667rem; }
+        #Haddress .content .setAddress span img {
+          width: 1rem;
+          height: 0.8rem; }
+  #Haddress #deladdress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 80%; }
+    #Haddress #deladdress .popup_top {
+      font-size: 1.2rem;
+      height: 4rem;
+      line-height: 4rem;
+      background: #fff;
+      text-align: center;
+      border-bottom: 0.06667rem solid #e5e5e5; }
+    #Haddress #deladdress .popup_main p {
+      width: 100%; }
+      #Haddress #deladdress .popup_main p span {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        height: 3.33333rem;
+        line-height: 3.33333rem;
+        border-right: 0.06667rem solid #e5e5e5;
+        box-sizing: border-box; }
+      #Haddress #deladdress .popup_main p .on {
+        color: #f56974; }
+
+#goodsDetails {
+  background: #ebebeb; }
+  #goodsDetails .content {
+    padding: 0; }
+  #goodsDetails .top {
+    padding: 4% 0 10% 0; }
+    #goodsDetails .top h3 {
+      text-align: center;
+      font-size: 1.33333rem; }
+    #goodsDetails .top p {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #cecece;
+      margin-top: 0.66667rem; }
+  #goodsDetails .cont p {
+    background: #fff;
+    font-size: 0.8rem;
+    height: 2.66667rem;
+    line-height: 2.66667rem; }
+    #goodsDetails .cont p span {
+      color: #bebebe;
+      font-size: 0.8rem;
+      display: inline-block;
+      width: 24%;
+      box-sizing: border-box;
+      padding-left: 4%; }
+    #goodsDetails .cont p i {
+      font-style: normal;
+      float: right;
+      width: 1rem;
+      height: 1.33333rem;
+      background: url("../img/r.png") center no-repeat;
+      margin-top: 2.5%;
+      background-size: 60%; }
+  #goodsDetails .cont p:nth-of-type(3) {
+    margin-top: 0.66667rem; }
+
+#seeADetails .content p {
+  line-height: 1.33333rem;
+  font-size: 0.8rem; }
+  #seeADetails .content p span {
+    margin-right: 0.66667rem; }
+
+#useInfo .content h3 {
+  font-size: 0.8rem; }
+#useInfo .content p {
+  font-size: 0.8rem;
+  line-height: 1.33333rem; }
+
+#cityList .content {
+  background: #f0f0f0; }
+  #cityList .content p input {
+    width: 100%;
+    outline: none;
+    height: 2rem;
+    border: 0.06667rem solid #9d9d9d;
+    border-radius: 1rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+    box-sizing: border-box;
+    background: url("../img/sear.png") 0.66667rem center no-repeat;
+    background-size: 5%;
+    font-size: 0.8rem; }
+  #cityList .content h3 {
+    margin: 5% 0 6% 0;
+    font-size: 1rem;
+    font-weight: 100; }
+    #cityList .content h3 span {
+      color: #b5b5b5; }
+  #cityList .content h4 {
+    color: #868686; }
+  #cityList .content .list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    #cityList .content .list p {
+      width: 100%; }
+      #cityList .content .list p span {
+        display: inline-block;
+        width: 30%;
+        background: #fff;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        font-size: 0.8rem;
+        color: #5b5b5b;
+        margin: 2% 1% 2% 0; }
+
+#noAddress .content dl {
+  width: 100%;
+  text-align: center;
+  margin: 40% 0 20% 0; }
+  #noAddress .content dl dt img {
+    width: 30%; }
+  #noAddress .content dl dd {
+    margin-top: 6%;
+    font-size: 1rem; }
+#noAddress .content p {
+  text-align: center; }
+  #noAddress .content p span {
+    padding: 0.2rem 0.8rem;
+    display: inline-block;
+    border: 0.06667rem solid #89bef6;
+    font-size: 0.8rem;
+    color: #89bef6; }
+
+#addAddress {
+  background: #eee; }
+  #addAddress .content {
+    padding: 0; }
+    #addAddress .content h3 {
+      height: 3.5rem;
+      line-height: 3.5rem;
+      background: #fff;
+      box-sizing: border-box;
+      padding-left: 1rem;
+      border-bottom: 0.06667rem solid #e5e5e5; }
+      #addAddress .content h3 span {
+        width: 6rem;
+        display: inline-block;
+        font-weight: 800;
+        font-size: 1rem;
+        color: #333; }
+      #addAddress .content h3 input {
+        color: #999;
+        outline: none;
+        font-size: 1rem; }
+    #addAddress .content .h3_2 {
+      margin-bottom: 0.66667rem;
+      border-bottom: none; }
+    #addAddress .content .lasth3 {
+      border-bottom: none; }
+    #addAddress .content p {
+      width: 100%;
+      text-align: center; }
+      #addAddress .content p span {
+        width: 66%;
+        display: inline-block;
+        color: #fff;
+        background: #69adf4;
+        line-height: 2.66667rem;
+        height: 2.66667rem;
+        text-shadow: none;
+        border-radius: 1.33333rem;
+        margin-top: 5rem;
+        font-size: 1.2rem; }
+
+#VipCards {
+  background: #f2f7fa;
+  text-shadow: none;
+  font-size: 0.8rem; }
+  #VipCards .nopaddingLR .meInf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #fff; }
+    #VipCards .nopaddingLR .meInf dl {
+      display: flex;
+      align-items: center; }
+      #VipCards .nopaddingLR .meInf dl dt img {
+        width: 3rem;
+        height: 3rem; }
+      #VipCards .nopaddingLR .meInf dl dd {
+        margin-left: 0.66667rem; }
+  #VipCards .content {
+    background: #fff;
+    padding: 1rem;
+    margin-top: 1rem; }
+    #VipCards .content .card {
+      width: 100%;
+      background: #9058cb;
+      box-sizing: border-box;
+      padding: 0.66667rem;
+      border-top-left-radius: 0.66667rem;
+      border-top-right-radius: 0.66667rem;
+      margin-bottom: 1rem;
+      box-shadow: 0.1rem 0.1rem 0.2rem #999; }
+      #VipCards .content .card h1 {
+        position: relative;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 100;
+        text-shadow: none;
+        /*             span:before{
+                       position: absolute;
+                       left:0;
+                       top:0;
+                       content: "";
+                       display: inline-block;
+                       width:0px;
+                       height:0px;
+                       background: inherit;
+                       border-top:px2Rem(20px)  solid rgba(0,0,0,0);
+                       border-left:px2Rem(20px)  solid rgba(255,255,255,1);
+                       border-bottom:px2Rem(20px)  solid rgba(0,0,0,0);
+                       border-right:px2Rem(20px)  solid rgba(0,0,0,0);
+                     }*/ }
+        #VipCards .content .card h1 b {
+          font-weight: 100; }
+        #VipCards .content .card h1 .default {
+          font-size: 0.8rem;
+          position: absolute;
+          right: -1rem;
+          height: 1.33333rem;
+          line-height: 1.33333rem;
+          padding: 0 0.6rem;
+          padding-left: 0.8rem;
+          background: url(../img/defCard.png) 15% 24%;
+          box-sizing: border-box;
+          box-shadow: 0.1rem 0.1rem 0.2rem #999; }
+      #VipCards .content .card p {
+        color: #fff;
+        margin-top: 0.66667rem;
+        display: flex;
+        justify-content: space-between; }
+        #VipCards .content .card p span {
+          font-size: 0.8rem; }
+
+#cardDetails, #defaultCard {
+  background: #f2f7fa; }
+  #cardDetails .nopaddingLR, #defaultCard .nopaddingLR {
+    box-sizing: border-box;
+    padding: 1rem; }
+    #cardDetails .nopaddingLR .cardDiv, #defaultCard .nopaddingLR .cardDiv {
+      background: #9058cb;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+      color: #fff;
+      text-shadow: none;
+      border-radius: 0.66667rem;
+      box-shadow: 0.1rem 0.1rem 0.2rem #999; }
+      #cardDetails .nopaddingLR .cardDiv .cardT, #defaultCard .nopaddingLR .cardDiv .cardT {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #cardDetails .nopaddingLR .cardDiv .cardT .cardLogo, #defaultCard .nopaddingLR .cardDiv .cardT .cardLogo {
+          font-size: 1rem; }
+          #cardDetails .nopaddingLR .cardDiv .cardT .cardLogo img, #defaultCard .nopaddingLR .cardDiv .cardT .cardLogo img {
+            width: 2.66667rem;
+            height: 2.66667rem;
+            margin-right: 0.66667rem; }
+        #cardDetails .nopaddingLR .cardDiv .cardT .ma img, #defaultCard .nopaddingLR .cardDiv .cardT .ma img {
+          width: 1.53333rem;
+          height: 1.53333rem; }
+      #cardDetails .nopaddingLR .cardDiv .cardB, #defaultCard .nopaddingLR .cardDiv .cardB {
+        margin-top: 3.33333rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #cardDetails .nopaddingLR .cardDiv .cardB dl dt, #defaultCard .nopaddingLR .cardDiv .cardB dl dt {
+          font-size: 1rem; }
+        #cardDetails .nopaddingLR .cardDiv .cardB dl dd, #defaultCard .nopaddingLR .cardDiv .cardB dl dd {
+          font-size: 0.8rem; }
+    #cardDetails .nopaddingLR .cardOpa, #defaultCard .nopaddingLR .cardOpa {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.66667rem; }
+      #cardDetails .nopaddingLR .cardOpa span, #defaultCard .nopaddingLR .cardOpa span {
+        border: 0.06667rem solid #69adf4;
+        padding: 0.33333rem 1rem;
+        border-radius: 0.2rem;
+        margin-right: 0.66667rem; }
+  #cardDetails .content .userInfo, #defaultCard .content .userInfo {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0.66667rem 1rem; }
+    #cardDetails .content .userInfo dl, #defaultCard .content .userInfo dl {
+      display: flex;
+      align-items: center; }
+      #cardDetails .content .userInfo dl dt, #defaultCard .content .userInfo dl dt {
+        margin-right: 0.66667rem; }
+        #cardDetails .content .userInfo dl dt img, #defaultCard .content .userInfo dl dt img {
+          width: 2.66667rem;
+          height: 2.66667rem; }
+      #cardDetails .content .userInfo dl dd b, #defaultCard .content .userInfo dl dd b {
+        font-size: 1rem; }
+      #cardDetails .content .userInfo dl dd p, #defaultCard .content .userInfo dl dd p {
+        font-size: 0.8rem;
+        color: #999; }
+  #cardDetails .content .VipInter, #defaultCard .content .VipInter {
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0.66667rem;
+    margin-top: 0.66667rem; }
+    #cardDetails .content .VipInter h1, #defaultCard .content .VipInter h1 {
+      font-size: 1rem;
+      padding-bottom: 0.53333rem;
+      border-bottom: 0.06667rem solid #e5e5e5; }
+      #cardDetails .content .VipInter h1 img, #defaultCard .content .VipInter h1 img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-right: 0.53333rem; }
+    #cardDetails .content .VipInter .showBox, #defaultCard .content .VipInter .showBox {
+      box-sizing: border-box;
+      padding: 0.66667rem;
+      padding-bottom: 0;
+      display: flex; }
+      #cardDetails .content .VipInter .showBox dl, #defaultCard .content .VipInter .showBox dl {
+        text-align: center;
+        width: 20%; }
+        #cardDetails .content .VipInter .showBox dl dt img, #defaultCard .content .VipInter .showBox dl dt img {
+          max-width: 3.33333rem;
+          height: 2rem; }
+        #cardDetails .content .VipInter .showBox dl dd, #defaultCard .content .VipInter .showBox dl dd {
+          font-size: 0.8rem;
+          margin-top: 0.66667rem; }
+  #cardDetails .content .usetoKnow, #defaultCard .content .usetoKnow {
+    box-sizing: border-box;
+    background: #fff;
+    padding: 0.66667rem;
+    margin-top: 0.66667rem; }
+    #cardDetails .content .usetoKnow h1, #defaultCard .content .usetoKnow h1 {
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #cardDetails .content .usetoKnow h1 span img, #defaultCard .content .usetoKnow h1 span img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-right: 0.53333rem; }
+      #cardDetails .content .usetoKnow h1 img, #defaultCard .content .usetoKnow h1 img {
+        width: 1rem;
+        height: 0.66667rem; }
+      #cardDetails .content .usetoKnow h1 .onimg, #defaultCard .content .usetoKnow h1 .onimg {
+        transform: rotateZ(180deg); }
+    #cardDetails .content .usetoKnow .know_list, #defaultCard .content .usetoKnow .know_list {
+      box-sizing: border-box;
+      padding-left: 2rem;
+      padding-top: 0.66667rem;
+      height: 0;
+      overflow: hidden; }
+      #cardDetails .content .usetoKnow .know_list p, #defaultCard .content .usetoKnow .know_list p {
+        font-size: 0.66667rem;
+        line-height: 1.2rem;
+        color: #999; }
+
+/*# sourceMappingURL=common.css.map */

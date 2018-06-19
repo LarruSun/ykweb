@@ -1,0 +1,98 @@
+.edit_data_popup .popup_main {
+  padding: 30px 30px 50px;
+}
+#storeManagement .link_nav {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc; }
+  #storeManagement .link_nav b {
+    font-weight: 100; }
+#storeManagement .storeManagement .storeManagement_headerSet {
+  display: flex;
+  justify-content: left;
+  margin-top: 17px;
+  margin-bottom: 17px; }
+  #storeManagement .storeManagement .storeManagement_headerSet a {
+    margin-right: 20px;
+    background: #ededed;
+    border: 1px solid #ddd;
+    color: #333;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    width: 110px; }
+  #storeManagement .storeManagement .storeManagement_headerSet .login_css {
+    margin-right: 20px; }
+    #storeManagement .storeManagement .storeManagement_headerSet .login_css .city_chose select {
+      height: 36px;
+      line-height: 35px;
+      width: 110px;
+      margin-right: 5px; }
+  #storeManagement .storeManagement .storeManagement_headerSet .search_main .search_btn {
+    width: 70px;
+    height: 35px;
+    background: #fdb912 url(../ykyf_images/search_bg.png) no-repeat center center;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    margin-left: -1px; }
+#storeManagement .storeManagement .storeManagement_body .storeManagement_box {
+  display: flex;
+  flex-wrap: wrap; }
+  #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    width: 280px;
+    position: relative;
+    height: 141px;
+    margin-right: 13px;
+    margin-bottom: 12px; }
+    #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management {
+      display: flex;
+      padding: 14px;
+      padding-bottom: 6px; }
+      #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName {
+        margin-left: 8px;
+        margin-top: -5px; }
+        #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName .management_userName_top {
+          width: 215px;
+          display: flex; }
+          #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName .management_userName_top p:nth-child(1) {
+            font-size: 1.17em;
+            margin-right: 12px; }
+          #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName .management_userName_top p:nth-child(2) {
+            display: inline-block;
+            font-size: 12px;
+            border: 1px solid #d47878;
+            color: #d47878;
+            padding: 2px 6px; }
+        #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName .management_userName_bottom {
+          display: flex;
+          color: #999;
+          margin-top: 5px; }
+          #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management .management_userName .management_userName_bottom img {
+            margin-right: 5px; }
+    #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management_address {
+      display: flex;
+      margin-top: 12px;
+      text-align: center;
+      margin-left: 18px;
+      color: #999; }
+      #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management_address p {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 203px; }
+    #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management_set {
+      display: flex;
+      background: #e5e5e5;
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+      height: 32px;
+      line-height: 28px; }
+      #storeManagement .storeManagement .storeManagement_body .storeManagement_box .storeManagement_son .management_set a {
+        margin-left: 23px;
+        color: #8787f7; }
+
+/*# sourceMappingURL=storeManagement.css.map */

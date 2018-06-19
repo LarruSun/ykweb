@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+
+    <style>
+     
+    </style>
+
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="wmOrderList">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a >外卖订单</a>
+                    </li>
+                    <li>
+                        <a >订单详情</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 ">
+                        <div class="col-xs-12 order_xiang">
+                            <div class="widget-body" style="border: 0;">
+                                <div class="widget-main">
+                                    <div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
+                                        <ul class="wizard-steps">
+                                            <li data-target="#step1" class="active" >
+                                                <span class="step">1</span>
+                                                <span class="title">待支付</span>
+                                                <p>{{parseInt(orderInfo.createDate) | data}}</p>
+                                            </li>
+                                            <li data-target="#step2" class="active" v-if="orderInfo.status=='HASCLOSED'">
+                                                    <span class="step">2</span>
+                                                    <span class="title">已关闭</span>
+                                                    <p>{{orderTimes.topTime.HASCLOSED | data}}</p>
+                                            </li>
+                                            <li data-target="#step2"  v-if="orderInfo.status=='NONPAYMENT' || orderInfo.status==''">
+                                                <span class="step">2</span>
+                                                <span class="title">已支付</span>
+                                                <!-- <p>2017-5-18 15：25</p> -->
+                                            </li>
+                                            <li data-target="#step2" class="active" v-else-if="orderInfo.status!='HASCLOSED'">
+                                                <span class="step">2</span>
+                                                <span class="title">已支付</span>
+                                                <p>{{orderTimes.topTime.NONRECEIVEORDER | data}}</p>
+                                            </li>
+
+                                            <li data-target="#step3" v-if="orderInfo.status=='NONPAYMENT' ||
+                                                orderInfo.status=='ALREADYPAIDSTATUS' || orderInfo.status==''">
+                                                <span class="step">3</span>
+                                                <span class="title">待接单</span>
+                                                <!-- <p>2017-5-18 15：25</p> -->
+                                            </li>
+                                            <li data-target="#step3" class=" active" v-else-if="orderInfo.status!='HASCLOSED'">
+                                                <span class="step">3</span>
+                                                <span class="title">待接单</span>
+                                                <p>{{orderTimes.topTime.NONRECEIVEORDER | data}}</p>
+                                            </li>
+
+                                            <li data-target="#step4" v-if="orderInfo.status=='NONPAYMENT' ||
+                                                orderInfo.status=='ALREADYPAIDSTATUS' || orderInfo.status=='NONRECEIVEORDER' ||
+                                                orderInfo.status==''" >
+                                                <span class="step">4</span>
+                                                <span class="title">待发货</span>
+                                                <!-- <p>2017-5-18 15：25</p> -->
+                                            </li>
+                                            <li data-target="#step4" class=" active"  v-else-if="orderInfo.status!='HASCLOSED'">
+
+                                                <span class="step">4</span>
+                                                <span class="title">待发货</span>
+                                                <p>{{orderTimes.topTime.NONSENDGOODS | data}}</p>
+                                            </li>
+
+                                            <li data-target="#step5" class=" active" v-if="orderInfo.status=='SENDGOODS' ||
+                                                orderInfo.status=='HASDONE'">
+                                                <span class="step">5</span>
+                                                <span class="title">已发货</span>
+                                                <p>{{orderTimes.topTime.SENDGOODS | data}}</p>
+                                            </li>
+                                            <li data-target="#step5"  v-else-if="orderInfo.status!='HASCLOSED'">
+                                                <span class="step">5</span>
+                                                <span class="title">已发货</span>
+                                                <!-- <p>2017-5-18 15：25</p> -->
+                                            </li>
+
+                                            <li data-target="#step5" class=" active" v-if="orderInfo.status=='HASDONE'">
+                                                <span class="step">6</span>
+                                                <span class="title">已完成</span>
+                                                <p>{{orderTimes.topTime.HASDONE | data}}</p>
+                                            </li>
+                                            <li data-target="#step6" v-else-if="orderInfo.status!='HASCLOSED'">
+                                                <span class="step">6</span>
+                                                <span class="title">已完成</span>
+                                                <!-- <p>2017-5-18 15：25</p> -->
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="step-content row-fluid position-relative order_behead" id="step-container">
+                                        <div class="step-pane active order_beh" id="step1">
+                                                                       
+                                            <div class="order_bso">
+                                                <p style="margin:20px 0 20px 0;width:35%">
+                                                    售后编号：
+                                                    <span  v-if='this.afterSaleOrders.length >0'>{{afterSaleOrders[0].id}}</span>
+                                                     <span class="num"  v-if='this.afterSaleOrders.length >0'>{{afterSaleOrders.length}}</span>
+                                                </p>
+                                                <p v-if='this.afterSaleOrders.length >0' style="margin:20px 0 0 0;">
+                                                    <a v-bind:href="'order_xiang3.html?orderId='+orderId+'&shopId='+shopId">进入查看</a>
+                                                </p>
+                                            </div>
+
+                                            <div class="order_bso">
+                                                <p>订单编号：<span>{{orderInfo.orderNO}}</span></p>
+                                                <p>付款方式：<span>{{orderInfo.orderInfo}}</span></p>
+                                                <p>买家留言：{{orderInfo.remark}}<span></span></p>
+                                            </div>
+
+
+                                            <div class="order_bso">
+                                                <p style="margin-right: 0px;">订单类型：
+                                                    <!-- <span v-if="orderInfo.orderType=='TSCATERING'">堂食自助</span>
+                                                    <span v-if="orderInfo.orderType=='WMCATERING'">外卖订单</span> -->
+                                                    <span>{{orderInfo.orderType | ddlx}}</span>
+                                                </p>
+
+                                                <p>买家：<span>{{orderInfo.userName}}</span></p>
+                                                <p><span style="color: blue;">手机：{{orderInfo.phone}}</span></p>
+                                                <p> 配送地址：<span>{{orderInfo.address}}</span></p>
+                                                <!-- <p v-if='this.orderState=="HASCLOSED" || this.orderState=="CANCEL" || this.orderState=="TEMPORARY"'>退款流水编号<span></span></p> -->
+                                                <!-- <p v-if='this.orderState=="CANCEL"'>退款流水编号<span>{{orderInfo.afterSale.id}}</span></p> -->
+                                                <p v-if='this.orderState=="CANCEL" && this.orderInfo.afterSale &&this.orderInfo.afterSale.id'>退款流水编号<span>{{orderInfo.afterSale.id}}</span></p>
+                                            </div>
+
+
+                                            <!-- 详情列表开始 -->
+                                            <!-- 不等于订单状态的   已取消 自营配送 -->
+                                            <div style="border:none" class="order_bso">
+                                                <!-- v-if='this.orderInfo.status!="CANCEL"
+                                                && orderInfo.summaryOrderTakeOut.takeout_type =="ZIYING_TAKEOUT"'> -->
+                                                <p>配送类型：<span>{{orderInfo.summaryOrderTakeOut.takeout_type | pslx}}</span></p>
+                                                <p  v-if='orderInfo.summaryOrderTakeOut.takeout_type != "ZIYING_TAKEOUT"'>配送公司：<span>{{orderInfo.summaryOrderTakeOut.takeout_type | psgs}}</span></p>
+                                                <p  v-if='orderInfo.summaryOrderTakeOut.takeout_type != "ZIYING_TAKEOUT"'>配送状态：<span>{{orderInfo.summaryOrderTakeOut.takeout_status_description}}</span></p>
+                                                <p>发单时间：<span>{{(orderTimes.orderTime.DAIJIEDAN) | data}}</span></p>
+                                                <!-- <p v-if='false'>原因：<span>长时间无人接单</span></p> -->
+                                            </div>
+
+                                            <!-- 第三方取消订单的显示 -->
+                                            <div style="border:none" class="order_bso" v-if='orderInfo.summaryOrderTakeOut.takeout_status=="YIQUXIAO"'>
+                                                    <p >取消来源：<span>{{orderInfo.summaryOrderTakeOut.cancel_from}}</span></p>
+                                                    <p >取消原因：<span>{{orderInfo.summaryOrderTakeOut.cancel_reason}}</span></p>
+                                                    <p >取消时间：<span>{{orderInfo.summaryOrderTakeOut.push_time | data }}</span></p>
+                                            </div>
+
+
+                                            <!-- 接单后(非共有)  异常 完成   不是待接单和待付款则显示 -->
+                                            <!--不是 待接单 待支付 不是自营配送 不是第三方取消 不是已取消订单-->
+                                            <div 
+                                                v-if='this.orderState != "NONRECEIVEORDER"
+                                                && this.orderState != "NONPAYMENT" 
+                                                && orderInfo.summaryOrderTakeOut.takeout_type !="ZIYING_TAKEOUT"
+                                                && orderInfo.summaryOrderTakeOut.takeout_status !="YIGUOQI"
+                                                && this.orderState != "CANCEL"'>
+                                                <div style="border:none" class="order_bso">
+                                                    <p>配送订单号：<span>{{orderInfo.summaryOrderTakeOut.id}}</span></p>
+                                                    <p>配送员ID：<span>{{orderInfo.summaryOrderTakeOut.carrier_driver_id}}</span></p>
+                                                    <p>配送员姓名：
+                                                        <span v-if=" orderInfo.summaryOrderTakeOut.carrier_driver_name !='商家配送'">{{orderInfo.summaryOrderTakeOut.carrier_driver_name}}</span>
+                                                        <span v-else></span>
+                                                    </p>                                           
+                                                    <p>配送员手机号：<span>{{orderInfo.summaryOrderTakeOut.carrier_driver_phone}}</span></p>
+                                                </div>
+
+
+
+                                                <div style="border:none" class="order_bso" v-if='orderInfo.summaryOrderTakeOut.takeout_status!="DAIJIEDAN"'>
+                                                    <p>接单时间：<span>{{orderTimes.orderTime.DAIQUHUO | data}}</span></p>
+                                                    <!-- 代取货之前都是不显示的 -->
+                                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status != "DAIQUHUO"' -->
+                                                    <p >取货时间：<span>{{orderTimes.orderTime.YIQUHUO  | data}}</span></p>
+                                                    <!-- 已送达   -->
+                                                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status =="YISONGDA"' -->
+                                                    <p >送达时间：<span>{{orderTimes.orderTime.YISONGDA | data}}</span></p>
+                                                </div>
+                                                
+
+
+                                                <div style="border:none;" class="order_bso">
+                                                    <!-- 取消切在15分钟之内  有违约金就没有配送距离  其他的都有-->
+                                                    <p v-if='this.orderState=="HASCLOSED" || this.orderState=="CANCEL" || this.orderState=="TEMPORARY"'>违约金：<span>{{orderInfo.summaryOrderTakeOut.deliverFee | changeMoney}}</span></p>
+                                                    <p v-else>支付配送费：<span>{{orderInfo.summaryOrderTakeOut.deliverFee | changeMoney}}</span></p>
+
+                                                    <p>配送距离：<span>{{orderInfo.summaryOrderTakeOut.distance | changeDistance}}</span></p>
+                                                </div>
+
+
+                                            </div> 
+
+                                            <!-- 四个按钮 -->
+                                            <div class="cancelbtn" style="text-align:right;border-bottom: 1px dashed #666;;margin-bottom:30px;">
+                                                 <!-- 等于第三方关闭  不等于订单已关闭  不等于订单已完成-->
+                                                <a href="#"  class="btn btn-primary a_bottom"  data-toggle="modal" data-target="#againRelease" @click=againFB() style="text-indent:-18px"
+                                                 v-if='(orderInfo.summaryOrderTakeOut.takeout_status == "YIQUXIAO"
+                                                 || orderInfo.summaryOrderTakeOut.takeout_status == "YICHANG"
+                                                 || orderInfo.summaryOrderTakeOut.takeout_status == "YIGUOQI")
+                                                 && orderInfo.status != "HASCLOSED"
+                                                 && orderInfo.status != "HASDONE" 
+                                                 '>
+                                                    再次发布配送
+                                                </a>
+                                                
+                                                <!-- 等于第三方异常  第三方待接单 自营配送 且不等于 待支付 待接单 订单关闭  订单完成-->
+                                                <a href="#"  class="btn btn-primary a_bottom" data-toggle="modal" data-target="#replaceDistribution" @click='changePS()'                                 
+                                                 v-if='orderInfo.status!="NONPAYMENT"
+                                                 && orderInfo.status!="NONRECEIVEORDER"
+                                                 && orderInfo.status != "HASCLOSED"
+                                                 && orderInfo.status != "HASDONE"
+                                                 && (orderInfo.summaryOrderTakeOut.takeout_status == "YIQUXIAO"                            
+                                                 || orderInfo.summaryOrderTakeOut.takeout_status == "YICHANG"
+                                                 || orderInfo.summaryOrderTakeOut.takeout_status == "YIGUOQI"
+                                                 || orderInfo.summaryOrderTakeOut.takeout_status == "DAIJIEDAN"
+                                                 || orderInfo.summaryOrderTakeOut.takeout_type == "ZIYING_TAKEOUT")'>
+                                                    更换配送
+                                                </a>
+                                                <!-- 不等于待支付，费接单，异常-->
+                                                <!-- <a href="#"  data-toggle="modal" data-target="#replaceDistribution"
+                                                 v-if='orderInfo.summaryOrderTakeOut.takeout_type == "ZIYING_TAKEOUT"' @click='changePS()'>
+                                                    选择配送员
+                                                </a> -->
+                                                <!-- 不等于 自营 第三配送中，第三方配送完成 订单关闭  订单完成 -->
+                                                <a href="#"  class="btn btn-primary a_bottom" data-toggle="modal" data-target="#myModal"
+                                                 v-if='orderInfo.summaryOrderTakeOut.takeout_type != "ZIYING_TAKEOUT"
+                                                 && orderInfo.summaryOrderTakeOut.takeout_status != "PEISONGZHONG"
+                                                 && orderInfo.summaryOrderTakeOut.takeout_status != "YISONGDA"
+                                                 && orderInfo.status != "HASCLOSED"
+                                                 && orderInfo.status != "HASDONE"'>
+                                                    取消订单
+                                                </a>
+                                            </div>
+
+                                            
+                                            <div class="table-responsive">
+                                                <table class="table  table-bordered table-hover center table_all table_css">
+                                                    <thead>
+                                                    <tr >
+                                                        <th class="center">菜单名称</th>
+                                                        <th class="center">价格(元)</th>
+                                                        <th class="hidden-480 center">数量</th>
+                                                        <th class="center">优惠(元)</th>
+                                                        <th class="hidden-480 center">小计(元)</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="selected" v-for="item in foodList">
+                                                        <td class="hidden-480 center">{{item.commodityName}}&nbsp;&nbsp;<span style="color: #999;"></span></td>
+                                                        <td class="center">{{item.price | changeMoney}}</td>
+                                                        <td class="hidden-480 center">{{item.prodNum}}</td>
+
+                                                        <td class="center" v-if="!item.cxPrice || item.cxPrice==0">0.00</td>
+                                                        <td class="center" v-else>{{(item.price-item.cxPrice)/100}}</td>
+
+                                                        <td class="center" v-if="!item.prodConPrice||item.prodConPrice==0">{{item.prodAllPrice*0.01}}</td>
+                                                        <td class="center" v-else>{{item.prodAllPrice | changeMoney}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                            <div class="media">
+                                                <p class="pull-right" style="margin-top: 22px;"></p>
+                                                <div class="wizard-a pull-right" style="min-width:150px">
+                                                    <p>总计金额：<span>￥{{allPrice | changeMoney}}</span></p>
+                                                    <p>优惠方式：<span>{{discount}}</span></p>
+                                                    <p>优惠金额：<span>￥{{orderInfo.discounts | changeMoney}}</span></p>
+                                                    <p>餐盒费：<span>￥{{orderInfo.sonOrder.mealsFee | changeMoney}}</span></p>
+                                                    <p>配送费：<span>￥{{orderInfo.sonOrder.deliveryFee | changeMoney}}</span></p>
+                                                    <p>支付方式：<span>{{orderInfo.orderInfo}}</span></p>
+                                                    <p style="margin-bottom:25px;">支付金额：<span>￥{{orderInfo.payTotal | changeMoney}}</span></p>
+                                                    <!-- <p>退款金额：￥<span v-for="item in orderInfo.orderInfo" v-if="item.state==2">{{item.payAmount*0.01}}</span></p> -->
+                                                    <a href="javascript:void(0)" class="btn btn-primary a_bottom" name="" v-if="orderInfo.status=='NONRECEIVEORDER'" v-on:click="acept">接单</a>
+                                                    <a href="javascript:void(0)"  class="btn btn-primary a_bottom" name="" v-if="orderInfo.status=='NONRECEIVEORDER'" v-on:click="refuse">拒绝</a>
+                                                    <a href="javascript:void(0)"  class="btn btn-primary a_bottom" name="" v-if="orderInfo.status=='NONSENDGOODS'  &&  orderInfo.summaryOrderTakeOut.takeout_type == 'ZIYING_TAKEOUT'" v-on:click="acept">发货</a>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary a_bottom" name="" v-if="orderInfo.summaryOrderTakeOut.takeout_type == 'ZIYING_TAKEOUT'">取消</a>
+                                                    <a class="btn btn-primary a_bottom" v-on:click="printTest" v-if='orderInfo.status!="NONPAYMENT" && orderInfo.status!="NONRECEIVEORDER"' >打印小票</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /widget-main -->
+                            </div><!-- /widget-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="home" class="tab-pane active home_first" style="margin:0;display: none" >
+            <div class="col-sm-7 temple_left_list" style="margin:0">
+                <div class="sj_logo" style="text-align: center;font-size: 17px; font-weight: 600;margin-top: 12px;">
+                        <p class="sj_logo_p dcT"></p>
+                        <p class="sj_logo_p dcT">豹子头宾馆</p>
+                </div>
+                <div class="temple_list_top" style="margin-top: 27px;">
+                    <p style="font-size: 5px;">订单编号:<span >{{orderInfo.orderNO}}</span></p>
+                    <p style="font-size: 5px;">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;:<span >{{orderInfo.createDate|data}}</span></p>
+                    <p style="font-size: 5px;">机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;:<span >{{orderInfo.sonOrder.currentOrderNum}}</span></p>
+                    <p style="font-size: 5px;">操&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;:<span >爱吃饭的鱼</span></p>
+                </div>
+                <hr style="height:1px;border:none;border-top:1px solid #555555;">
+                <div class="temple_list_middle">
+                    <div class="fgx" style="text-align: -webkit-center;">
+                        <table class="table table-striped table-bordered table_css table-striped2 center" style="border-style:none; font-size: 5px;">
+                            <tbody><tr>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">菜名</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">数量</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">单价</td>
+                                <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left; ">小计</td>
+                            </tr>
+                                <tr class="selected" v-for="item in foodList">
+                                    <td class="" style="border-style:none; font-size: 5px;text-align: left;">{{item.commodityName}}</td>
+                                    <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">{{item.prodNum }}</td>
+                                    <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;">{{item.price*0.01}}</td>
+
+                                    <td class="hidden-480 " style="border-style:none; font-size: 5px;text-align: left;"> {{item.prodConPrice*0.01}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+                <div class="z_all" style="border-style:none;">
+                    <table class="table  table-bordered table-striped2 table_css center " style="border-style:none; font-size: 5px;">
+                        <tbody>
+                        <tr>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left;">总数</td>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left;"></td>
+                            <td class="hidden-480 " style="width:28%;border-style:none; font-size: 5px;text-align: left; ">￥{{orderInfo.soTotal*0.01}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="fgx" style="text-align: center; font-size: 17px;font-weight: 600; margin-top: 12px;">
+
+                    <p class="fgx_pq dcB" style=" font-size: 17px; font-weight: 600; text-align: center">欢迎再次惠顾</p>
+                </div>
+            </div>
+    </div><!-- /.main-container-inner -->
+
+
+    <!-- 取消订单弹框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header cancelmessage">
+                    <h1>提醒</h1>
+                    <h5 v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' style="height:20px;text-align:center;color:red;margin-top:30px;">该单为骑手代取货状态，取消将会扣除一定的手续费</h5>
+                    <h1 :style='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"?"text-align: center;margin:30px 0 30px 0":""'>
+                        是否确认取消此订单
+                    </h1>
+
+                    <!-- v-if='orderInfo.summaryOrderTakeOut.takeout_status == "DAIQUHUO"' -->
+                    
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal" @click='refuse()'>确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已取消",1000)'>取消</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 再次发布订单弹框 -->
+    <div class="modal fade" id="againRelease" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header cancelmessage">
+                    <h1>再次发布订单配送</h1>
+                    <div class="form-group" style="display:flex;flex-flow: row wrap">
+                        <label for="againReleasePhone">电话：</label>
+                        <input name='phone'  style="width:80%;margin-left:2%;"  type="text" class="form-control" id='againReleasePhone' placeholder="请输入手机号码">
+                    </div>
+              
+                    <div class="form-group" style="display:flex;flex-flow: row wrap">
+                        <label>地址：</label>
+                        <!-- <select @change='selectSheng($event)' class="form-control" style="width:20%;margin-left:2%;" name='sheng' v-model='againReleaseCity'> -->
+                        <select @change='selectSheng($event)' class="form-control" style="width:20%;margin-left:2%;" name='sheng'>
+                                <option v-for='item in sheng'>{{item}}</option>
+                                <!-- <option>江西省</option>
+                                <option>湖南省</option> -->
+                        </select>
+                        <select @change='selectShi($event)' class="form-control" style="width:20%;margin-left:10%;" name='shi'>
+                            <option v-for='item in shi'>{{item}}</option>
+                            <!-- <option>广州市</option>
+                            <option>东莞市</option> -->
+                        </select>
+                        <select @change='selectQu($event)' class="form-control" style="width:20%;margin-left:10%;" name='qu'>
+                            <option v-for='item in qu'>{{item}}</option>
+                                <!-- <option>福田区</option>
+                                <option>宝安区</option> -->
+                        </select>
+                        <!-- <input name='xxAdd' style="width:80%;margin:20px 0 0 10%" type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入详细地址" v-model="againReleaseAdd"> -->
+                        <input name='xxAdd' style="width:80%;margin:20px 0 0 10%" type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入详细地址">
+                    </div>   
+                    
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal" @click='againRelease()'>确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已取消",1000)'>取消</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+     <!-- 更换配送弹框 -->
+     <div class="modal fade" id="replaceDistribution" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header cancelmessage">
+                    <h1>更改配送</h1>
+                    <div style="text-align: center;margin:30px 0 30px 0">
+                        <label class="radio-inline">
+                            <input type="radio" name="distribution" id="distribution1" v-model='distribution' value="ZIYING_TAKEOUT" style="width:20px;">自营配送
+                        </label>
+                        <label class="radio-inline">
+                                <input type="radio" name="distribution" id="distribution2" v-model='distribution' value="DADA_TAKEOUT">达达配送
+                        </label>
+                        <label class="radio-inline" title="即将开放"  disabled>
+                                <input type="radio" disabled name="distribution" id="distribution3" v-model='distribution' value="FENGNIAO_TAKEOUT" >蜂鸟配送
+                        </label>
+                        </label>
+                    </div>
+                    <!-- <select class="form-control" style="margin:30px 0 30px 0" name='isSelect' v-model='selectDistribution'> -->
+                    <select class="form-control" style="margin:30px 0 30px 0" name='isSelect' v-if='psFlag'>
+                        <option>商家配送</option>
+                        <option v-for='(item,index) in psyData' >配送员：{{item.name}} ；{{item.phone}}</option>
+                    </select>
+                    
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal" @click='replaceDistribution()'>确定</button>
+                    <button  type="button" class="btn btn-default" data-dismiss="modal" @click='alertErrors("操作已取消",1000)'>取消</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+
+<!-- <script src="../ykcy_js/tubiao.js"></script> -->
+<!-- <script src="../ykcy_resources/ykcy_lib/highcharts.js"></script>    -->
+<!-- <script src="js/poblic.js"></script> -->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/ywjs/order_xiang2.js"></script>
+
+</body>
+</html>

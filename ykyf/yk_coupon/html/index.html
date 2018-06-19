@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../coupon_common/msgbox/msgbox.css">
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/ace-extra.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/flot/jquery.flot.min.js"></script>
+    <script src="../js/ace.min.js"></script>
+    <script src="../js/tubiao/highcharts.js"></script>
+    <script src="../js/tubiao/exporting.js"></script>
+    <script src="../coupon_common/msgbox/msgUtil.js"></script>
+    <script src="../coupon_common/msgbox/msgbox.js"></script>
+    <script src="../../resources/config.js"></script>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+     <div id="head">
+         <headd></headd>
+     </div>
+   <!-- <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="img/logo.png" width="25" alt="" />
+                    优惠券
+                </small>
+            </a>&lt;!&ndash; /.brand &ndash;&gt;
+        </div>&lt;!&ndash; /.navbar-header &ndash;&gt;
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>&lt;!&ndash; /.navbar-header &ndash;&gt;
+    </div>&lt;!&ndash; /.container &ndash;&gt;-->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="../html/Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+                        <!--<li >-->
+                            <!--<a href="html/promoting.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--推广的券-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li >-->
+                    <!--<a href="#" class="dropdown-toggle">-->
+                        <!--<i class="icon-columns"></i>-->
+                        <!--<span class="menu-text">别人的券</span>-->
+                        <!--<b class="arrow icon-angle-down"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="submenu">-->
+                        <!--<li>-->
+                            <!--<a href="html/collect_stamps.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--券列表-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="html/collect_receive.html">-->
+                                <!--<i class="icon-double-angle-right"></i>-->
+                                <!--领用记录-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li  >
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content"  id="tfqd_manage" v-cloak>
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content"   style="min-width: 1086px;">
+                <div class="row ">
+                    <div class="col-xs-12">
+                        <div class="col-sm-3 col-xs-12 main_left">
+                            <div class="widget-box">
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <div class="tab-content" style=" margin-top: 21px;margin-bottom: -23px;   margin-left: -24px;">
+                                            <div class="main_left_left">
+                                                <div class="media" style="    margin-top: -66px;">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" v-bind:src="user.businessLogo" alt="" width="68">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body main_left_lr">
+                                                        <div class="media-heading idh">
+                                                            <p>{{user.nickName}}&nbsp;<span style="color: #00c2ff; font-size: 14px;">V{{user.level}}</span></p>
+                                                            <p style="font-size: 13px">账号： &nbsp;<span>{{user.loginName}}</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 main_left_right" style="     padding: 12px 0 12px 12px;   border: 1px solid #ddd;">
+                            <div class="main_function">
+                                <div class="media" style="    background:#f4f5f9;padding: 5px 0 0 16px;margin-left: -12px;    margin-top: -12px;">
+                                    <p class="pull-left ">优惠券概况</p>
+                                </div>
+                                <div class="main_function_body" style=" margin-left: 49px;margin-top: 24px;">
+                                    <div class="tool" >
+                                        <a href="#" style="position: relative">
+                                            <img src="../img/add_01.png" alt="" style="margin-bottom: 3px;"> <p style=" color: #666;position: absolute;top: -3px;right: -20px;font-size: 17px;">{{countInfo.startcount}}</p><br>
+                                            <span>进行中</span>
+                                        </a>
+                                    </div>
+                                    <div class="tool">
+                                        <a href="#" style="position: relative">
+                                            <img src="../img/add_02.png" alt="" style="margin-bottom: 3px;"> <p style=" color: #666;position: absolute;top: -3px;right: -20px;font-size: 17px;">{{countInfo.unstart}}</p><br>
+                                            <span>未开始</span>
+                                        </a>
+                                    </div>
+                                    <div class="tool">
+                                        <a href="#" style="position: relative">
+                                            <img src="../img/add_03.png" alt="" style="margin-bottom: 5px;"> <p style=" color: #666;position: absolute;top: -3px;right: -20px;font-size: 17px;">{{countInfo.invalidcount}}</p><br>
+                                            <span>已失效</span>
+                                        </a>
+                                    </div>
+                                    <div class="tool">
+                                        <a href="#" style="position: relative">
+                                            <img src="../img/add_04.png" alt="" style="margin-bottom: 3px;"> <p style=" color: #666;position: absolute;top: -3px;right: -20px;font-size: 17px;">{{countInfo.publishcount}}</p>
+                                            <br>
+                                            <span>推广中</span>
+                                        </a>
+                                    </div>
+                                    <!--<div class="tool" style="  margin-right: 0;">-->
+                                        <!--<a href="#">-->
+                                            <!--<img src="img/add_05.png" alt="" style="margin-bottom: 5px;"><br>-->
+                                            <!--<span>积分兑换</span>-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                    <div style="clear: both;"></div>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12 main_right_bottom" style="    margin-top: 17px; width: 99.5%;   padding: 0;">
+                            <div class="widget-box main_right">
+                                <div class="widget-body ">
+                                    <div class="widget-main sad" style="    padding: 12px 0 12px 12px;">
+                                        <div class="tab-content main_con" style="padding: 16px 0px;">
+                                            <div class="main_right_right ">
+                                                <div class="" style="     margin-top: -27px;   background:#f4f5f9;    padding:9px 0px 1px 16px;;margin-left: -12px;">
+                                                    <p class=" "> 昨日效果概况</p>
+                                                </div>
+                                                <div class="main_right_1" style="      text-align: center;  margin-top: 24px;">
+                                                    <div class="main_right_main col-sm-2">
+                                                        <a href="#"><span>{{yesTodayInfo.receivecount}}</span></a><br><br>
+                                                        <a href="#" class="send">领取次数 </a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-2">
+                                                        <a href="#"><span>{{yesTodayInfo.usecount}}</span></a><br><br>
+                                                        <a href="#" class="send">使用次数 </a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-2">
+                                                        <a href="#"><span>￥{{yesTodayInfo.realPayAmt}}</span></a><br><br>
+                                                        <a href="#" class="send">实收金额（元）</a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-2">
+                                                        <a href="#"><span>&nbsp;&nbsp;￥{{yesTodayInfo.deductionAmt}}</span></a><br><br>
+                                                        <a href="#" class="send"> 优惠金额（元）</a>
+                                                    </div>
+                                                    <div style="clear: both"></div>
+                                                </div>
+                                                <div style="clear: both"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 " style="border: 1px solid #ddd;margin-top: 13px;    padding: 0;">
+                            <div class="" style=" background: #f4f5f9;padding: 9px 0px 1px 16px;">
+                                <p class=" ">优惠券发放和核销统计</p>
+                            </div>
+                           <div style="position: relative">
+                               <div style="width: 29px;height: 30px;border: 1px solid #fff;background: #fff;position: absolute;right: 13.5%;z-index: 9;top: 5px;"></div>
+                               <div id="container" style="width:84%;height:400px;margin-left: 3%;">
+
+                               </div>
+                           </div>
+
+                        </div>
+                    </div>
+                </div><!-- /.main-content -->
+            </div><!-- /.main-container-inner -->
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/ywjs/login.js"></script>
+<script src="../js/public.js"></script>
+
+</body>
+</html>

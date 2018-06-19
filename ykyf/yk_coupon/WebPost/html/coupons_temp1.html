@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="pageName">领取优惠券</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../sass/swiper.css">
+    <link rel="stylesheet" href="../sass/animate.css">
+    <link rel="stylesheet" href="../sass/app.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+    <script src="../../../resources/config.js"></script>
+</head>
+<body class="quanT2" >
+<section class="swiper-container" id="app" v-cloak>
+    <i class="music-c" v-on:click="audioListener" ></i>
+    <i class="music-note">
+        <audio class="bgMusic" v-bind:src="backgroundMusicUrl" autoplay></audio>
+    </i>
+    <section class="swiper-wrapper">
+        <article class="swiper-slide box-1 iframeBg" v-bind:style="backgroundImgStyle">
+            <div class="ani topd" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="1s" swiper-animate-delay=".5s" >
+                <img class=" poster-img" src="https://yun.eaqul.com/yk_coupon/WebPost/images/timg.png" alt="" id="temp1_img">
+            </div>
+            <div class="logoBox" >
+                <p class="ani" swiper-animate-effect="fadeInDownBig" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+                    <img id="tit" class="logoImg poster-img" v-bind:src="user.businessLogo" alt="">
+                </p>
+                <div class="poster-txt" style="outline: none">
+                    <p class="tit ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="2s" swiper-animate-delay="1.5s">{{user.nickName}}</p>
+                </div>
+                <div class="poster-txt" style="outline: none">
+                    <p class="desc ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="2s" swiper-animate-delay="1.5s">{{postInfo.posterName}}</p>
+                </div>
+            </div>
+            <div class="quan">
+                <div class="poster-quan" style="width: 100%;display: flex;justify-content: center;">
+                    <div class="item ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="2s" swiper-animate-delay="1.5s" >
+                        <a href="#" data-ajax="false" data-role="none" v-on:click="toGetCoupon">
+                            <img class="bgimg" src="../images/Vouve2.png" alt="">
+                            <p><i>￥</i><em class="vouchers">{{couponsInfo.vouchers}}</em>
+                                <!--<span class="lowestConsume"></span>-->
+                                <span style="position:relative" class="lowestConsume" v-if="couponsInfo.limitLowestConsumeType==1">满{{couponsInfo.lowestConsume}}元可用</span>
+                                <span style="position:relative" class="lowestConsume" v-if="couponsInfo.limitLowestConsumeType==0">无限制</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ani botd" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay=".5s" >
+                <img class="outimg" src="../images/qteatho.png" alt="">
+                <img class="inimg" src="../images/qteathi.png" alt="">
+            </div>
+        </article>
+    </section>
+    <!-- <nav class="swiper-pagination"></nav>-->
+</section>
+</body>
+<script src="../js/flexible.js"></script>
+<script src="../js/jquery-3.0.0.js"></script>
+<script src="../js/touch.js"></script>
+<script src="../js/swiper.js"></script>
+<script src="../js/swiper.animate1.0.2.min.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script src="../../js/vue-resource.min.js"></script>
+<script src="../../js/const.js"></script>
+<script src="../js/ywjs/coupons_temp1.js"></script>
+<script>
+
+    //获取后台数据生成用户指定的微场景
+    /*function getDatatoSet(){
+        var postersId="${posters.id}";
+        if(postersId!=""){
+            $.ajax({
+                type:"post",
+                data:{
+                    "postersId":postersId
+                },
+                url:"${path}/coupon/data/pageReq.do",
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    //var list=JSON.parse(data);
+                    setDomAttr(data.tmepPageVal);
+                    init();
+                },
+                error:function(data){
+                    alert("查询错误");
+                    console.log(data);
+                }
+            });
+        }
+    }*/
+
+
+
+
+</script>
+</html>

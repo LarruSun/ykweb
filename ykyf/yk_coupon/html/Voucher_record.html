@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>优惠券</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/logo.png" type="img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <link rel="stylesheet" href="../js/boot/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="../css/pagination.css" />
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/ace.min.js"></script>
+    <script src="../js/ace-extra.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/flot/jquery.flot.min.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <link rel="stylesheet" href="../coupon_common/msgbox/msgbox.css">
+    <script src="../coupon_common/msgbox/msgUtil.js"></script>
+    <script src="../coupon_common/msgbox/msgbox.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div id="head">
+        <headd></headd>
+    </div>
+</div>
+<div class="main-container" id="main-container" v-cloak>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <li>
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text"> 代金券 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="Voucher_list.html">
+                                <i class="icon-double-angle-right"></i>
+                                券列表
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a href="../html/Voucher_record.html">
+                                <i class="icon-double-angle-right"></i>
+                                领用记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li  class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-columns"></i>
+                        <span class="menu-text">券海报</span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="../html/channel_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报列表
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="../html/channel_temp.html">
+                                <i class="icon-double-angle-right"></i>
+                                海报模板
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.nav-list -->
+        </div>
+        <div class="main-content" id="tfqd_manage">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="Voucher_list.html">优惠券</a>
+                    </li>
+                    <li>
+                        <a href="#">领用记录</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content" style="min-width: 1086px;">
+                <div class="row " >
+                    <div class="col-xs-12 order_list">
+                        <div class="order_time">
+                            <div class="order_showAll">
+                                <div class="order_show">
+                                    <label class="voucher_time">时段选择：
+                                        <input class="form_datetime" id="wei_datetime2" readonly value="" type="text">
+                                        &nbsp;至&nbsp;
+                                        <input class="form_datetime" id="wei_datetime3" readonly value="" type="text">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="order_bo">
+                                <a href="#" class="order_today " v-on:click="timeChange(1)">今</a>
+                                <a href="#" class="order_today2" v-on:click="timeChange(2)">昨</a>
+                                <a href="#" class="order_today3" v-on:click="timeChange(3)">周</a>
+                                <a href="#" class="order_today4" v-on:click="timeChange(4)">月</a>
+                                <a href="#" class="order_today4" v-on:click="timeChange(5)">全部</a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 mge_set">
+                            <label for="text" class=" control-label  ">
+                                <input type="text" placeholder="请输入券名称" id="couponsName" />
+                            </label>
+                            <label for="text" class=" control-label  ">
+                                <input type="text" placeholder="请输入手机号或会员名" id="phone" />
+                                <a href="#" class="btn btn-info a_bottom " v-on:click="getReceiveList(1)">搜索</a>
+                            </label>
+                        </div>
+                        <table class="table  table-bordered table-hover center tbShow">
+                            <thead>
+                            <tr>
+                                <th class="center">券名称</th>
+                                <th class="center">客户信息</th>
+                                <th class="center">领取渠道</th>
+                                <th class="center">领取时间</th>
+                                <th class="center">使用时间</th>
+                                <th class="center">原单金额</th>
+                                <th class="center">优惠金额</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="selected" v-for="item in receiveList">
+                                <td class="center " style=" vertical-align: middle;">
+                                    <div class="table_cDiv">
+                                        <p class="table_cDiv_height" style="width:88.64px">
+                                            <span>
+                                                ￥<span class="table_cDiv_1">{{item.vouchers}}</span>
+                                            </span>
+                                            <span class="table_cDiv_2" v-if="item.lowestConsume==0" >无限制</span>
+                                            <span class="table_cDiv_2" v-if="item.lowestConsume!=0" >满{{item.lowestConsume}}元可用</span>
+                                        </p>
+                                        <div class="table_cDiv_bottom">
+                                            <p class="table_cDiv_bottom_1">{{item.couponsName}}</p>
+                                            <p class="table_cDiv_bottom_3">
+                                            <span class=" label label-default"  v-if="new Date(item.endDate)<new Date() || item.validityStatus==1">已失效</span></span></p>
+                                            <span class=" label label-success"  v-if="new Date(item.startDate)<=new Date() && new Date(item.endDate)>=new Date() && item.validityStatus==0">进行中</span></span></p>
+                                            <span class=" label label-default"  v-if="new Date(item.startDate)>new Date()">未开始</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="hidden-480 center table_css">{{item.phone}}<br/> </td>
+                                <td class="hidden-480 center table_css">{{item.receiveChannel}}</td>
+                                <td class="hidden-480 center table_css">{{item.receiveDate}}</td>
+                                <td class="hidden-480 center table_css">{{item.useDate}}</td>
+                                <td class="hidden-480 center table_css" v-if="item.payAmt">￥{{item.payAmt*0.01}}</td>
+                                <td class="hidden-480 center table_css" v-else></td>
+                                <td class="hidden-480 center table_css" v-if="item.realPayAmt">￥{{item.realPayAmt*0.01}}</td>
+                                <td class="hidden-480 center table_css" v-else></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.main-content -->
+                <div class="media p_cssA">
+                    <!--//<p class="pull-left p_css">共<span>{{count}}</span>条记录,第<span>1/{{page}}</span>页</p>-->
+                    <div class="pull-right">
+                        <vue-pagination :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-pagination>
+                    </div>
+                </div>
+            </div><!-- /.main-container-inner -->
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--footer s-->
+<div class="page-footer footer_scroll" style=" ">
+    <div class="content_based" style=" ">
+        <a id="toMiitbeian" href="javascript:void(0)" style="">
+            <p style=" ">
+                <img src="../img/logo_new2.png" alt="" width="25" style="   ">
+                <img src="../img/name.png" alt="" width="71"></p>
+        </a>
+    </div>
+</div>
+<!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+<!--.main-container-->
+<script src="../js/boot/bootstrap-datetimepicker.js"></script>
+<script src="../js/boot/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/time.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource.min.js"></script>
+<script src="../js/const.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../js/ywjs/Voucher_record.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="cy_depart">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">堂食菜谱</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row ">
+                    <div class="col-xs-12 mge_camp">
+                        <div class="mge_camp_aup">
+                            <a href="#" type="button" class="btn btn-success a_bottom" data-toggle="modal" data-target="#myModal_fen">新增出品部门</a>
+                        </div>
+                       <!-- <div class="mge_set">
+                            <label for="text" class=" control-label">
+                                <input type="text" placeholder=""/>
+                                <a href="#" class="btn btn-primary a_bottom">搜索</a>
+                            </label>
+                        </div>-->
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered table-hover center table_all table_css">
+                                <thead>
+                                <tr>
+                                    <th class="center">出品部门</th>
+                                    <th class="center">位置</th>
+                                    <th class="center">打印机数量</th>
+                                    <th class="center">菜品数量</th>
+                                    <th class="center">创建时间</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="selected" v-for="(item,index) in departments">
+                                    <td class="center">{{item.deptName}}</td>
+                                    <td class="center">{{item.floor}}</td>
+                                    <td class="center">{{item.printerNum}}</td>
+                                    <td class="center">{{item.foodNum}}</td>
+                                    <td class="center">{{item.createTime|data}}</td>
+                                    <td class="center">
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_fen2" v-on:click="getthis(item.id)">编辑</a>&nbsp;
+                                        <a href="#" class="" data-toggle="modal" data-target="#myModal_remove" v-on:click="getthis(item.id)">删除</a>&nbsp;
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--新增出品部门 start-->
+            <div class="modal fade" id="myModal_fen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_rw">
+                                添加出品部门
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <div class="scroll_name">
+                                <div class="">
+                                    <label>
+                                        <span class="lbl font_size">出品部门名称：</span>
+                                        <input placeholder="" class="addName" >
+                                    </label>
+
+                                </div>
+
+                                <div class="" style="    margin-top: 18px;">
+                                    <label>
+                                        <span class="lbl font_size" style="margin-right: 27px;" >位置：</span>
+                                        <input placeholder="" class="addFloor">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="addDepartment()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--新增出品部门 end-->
+            <!--编辑出品部门 start-->
+            <div class="modal fade" id="myModal_fen2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rw2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_rw2">
+                                编辑分类
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <div class="scroll_name">
+                                <div class="">
+                                    <label>
+                                        <span class="lbl font_size">出品部门名称：</span>
+                                        <input placeholder="" class="editName">
+                                    </label>
+
+                                </div>
+
+                                <div class="" style="    margin-top: 18px;">
+                                    <label>
+                                        <span class="lbl font_size" style="margin-right: 27px;">位置：</span>
+                                        <input placeholder="" class="editFloor">
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="editDepartment()">
+                                确定
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--编辑部门 end-->
+            <!--删除分类 start-->
+            <div class="modal fade" id="myModal_remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_remove" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel_remove">
+                                删除分类
+                            </h4>
+                        </div>
+                        <div class="modal-body center">
+                            <h4>确认删除此分类吗？</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="" v-on:click="del()">
+                                确定
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!--删除做法 end-->
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/cy_department.js"></script>
+</body>
+</html>

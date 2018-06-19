@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/new_index.css" />
+    <link href="../css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/ace.min.css" />
+    <script src="../../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="storeValueBody">
+    <div class="navbar navbar-default" id="navbar">
+        <headd></headd>
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar">
+                <ul class="nav nav-list">
+                    <!-- <li class="">
+                         <a href="../index.html" class="active">
+                             <i class="icon-desktop"></i>
+                             <span class="menu-text"> 首页 </span>
+                         </a>
+                     </li>-->
+                     <li >
+                         <a href="#" class="dropdown-toggle">
+                             <i class="Hui-iconfont">&#xe62b;</i>
+                             <span class="menu-text"> 客户关系管理 </span>
+
+                             <b class="arrow icon-angle-down"></b>
+                         </a>
+                         <ul class="submenu">
+                             <li>
+                                 <a href="clients.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     客户列表
+                                 </a>
+                             </li>
+
+                             <!--<li >
+                                 <a href="management.html" class="active">
+                                     <i class="icon-double-angle-right"></i>
+                                     会员管理
+                                 </a>
+                             </li>
+                             <li  >
+                                 <a href="fans_management.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     粉丝管理
+                                 </a>
+                             </li>-->
+                             <li  class="">
+                                 <a href="members_home.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     会员主页
+                                 </a>
+                             </li>
+                             <!--<li >
+                                 <a href="label.html" class="active">
+                                     <i class="icon-double-angle-right"></i>
+                                     标签管理
+                                 </a>
+                             </li>-->
+                         </ul>
+                     </li>
+                     <li>
+                         <a href="#" class="dropdown-toggle">
+                             <i class="Hui-iconfont">&#xe6b4;</i>
+                             <span class="menu-text"> 卡管理 </span>
+                             <b class="arrow icon-angle-down"></b>
+                         </a>
+                         <ul class="submenu">
+                             <li>
+                                 <a href="card_type.html">
+                                     <i class="icon-double-angle-right"></i>
+                                     等级卡管理
+                                 </a>
+                             </li>
+                             <li >
+                                 <a href="get_record.html" >
+                                     <i class="icon-double-angle-right"></i>
+                                     领取记录
+                                 </a>
+                             </li>
+                             <!-- <li >
+                                  <a href="wechaVipCard.html" >
+                                      <i class="icon-double-angle-right"></i>
+                                      微信会员卡
+                                  </a>
+                              </li>-->
+                          </ul>
+                      </li>
+                      <li>
+                          <a href="#" class="dropdown-toggle">
+                              <i class="Hui-iconfont">&#xe694;</i>
+                              <span class="menu-text">积分管理 </span>
+                              <b class="arrow icon-angle-down"></b>
+                          </a>
+                          <ul class="submenu">
+                              <li>
+                                  <a href="integal_set.html" class="active">
+                                      <i class="icon-double-angle-right"></i>
+                                      积分设置
+                                  </a>
+                              </li>
+                              <li >
+                                  <a href="integal_record.html" class="active">
+                                      <i class="icon-double-angle-right"></i>
+                                      积分记录
+                                  </a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="active">
+                          <a href="#" class="dropdown-toggle">
+                              <i class="Hui-iconfont">&#xe607;</i>
+                              <span class="menu-text">储值管理 </span>
+                              <b class="arrow icon-angle-down"></b>
+                          </a>
+
+                          <ul class="submenu">
+                              <li  class="active">
+                                  <a href="store_value.html"  class="active">
+                                      <i class="icon-double-angle-right"></i>
+                                      储值设置
+                                  </a>
+                              </li>
+
+                              <li>
+                                  <a href="balance_record.html" class="active">
+                                      <i class="icon-double-angle-right"></i>
+                                      余额记录
+                                  </a>
+                              </li>
+                          </ul>
+                      </li>
+                    <!--<li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe64b;</i>
+                            <span class="menu-text"> 活动管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li >
+                                <a href="recharge_discounts.html" class="dropdown-toggle">
+                                    <i class="icon-desktop"></i>
+                                    <span class="menu-text"> 充值优惠 </span>
+
+                                </a>
+                            </li>
+                            <li >
+                                <a href="integral_convert.html" class="dropdown-toggle">
+                                    <i class="icon-desktop"></i>
+                                    <span class="menu-text"> 积分兑换 </span>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    <!--<li >
+                        <a href="#" class="dropdown-toggle">
+                            <i class="Hui-iconfont">&#xe61e;</i>
+                            <span class="menu-text"> 数据统计 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li >
+                                <a href="expense_calendar.html" >
+                                    <i class="icon-double-angle-right"></i>
+                                    消费记录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+                </ul><!-- /.nav-list -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="#">储值管理</a>
+                        </li>
+                        <li>
+                            <a href="#">储值设置</a>
+                        </li>
+                    </ul><!-- .breadcrumb -->
+                </div>
+                <div class="page-content" style="min-width: 1086px;">
+                    <div class="row ">
+                        <div class="col-sm-12 store_value">
+                            <!--<div class="store_value_first">
+                                <div class="index_prompt" style="">
+                                    <div class="temp_newxj_title" style=" ">
+                                        <span style="margin-bottom: 0;color: #666;">储值卡设置</span>
+                                    </div>
+                                </div>
+                                <div class="index_prompt_2">
+                                    <p class="store_value_title">只有开通了储值功能的卡类型，才能进行充值，只有开通储值功能的卡类型，才能开通提现功能</p>
+                                    <div class="table-responsive">
+                                        <table  class="table  table-bordered table-hover center table_all table_css">
+                                            <thead>
+                                            <tr>
+                                                <th class="center ">卡类型</th>
+                                                <th class="center">卡类型分类</th>
+                                                <th class="hidden-480 center ">开通储值</th>
+                                                <th class="center ">初始储值</th>
+                                                <th class="hidden-480 center">开通提醒</th>
+                                                <th class="hidden-480 center">最小提现额</th>
+                                                <th class="hidden-480 center">售价</th>
+                                                <th class="hidden-480 center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="selected">
+                                                <td class="hidden-480 center value1">普通卡</td>
+                                                <td class="center">无门槛</td>
+                                                <td class="hidden-480 center value2"><span class="label label-danger">否</span></td>
+                                                <td class="center value3">-</td>
+                                                <td class="center"><span class="label label-danger">否</span></td>
+                                                <td class="center">-</td>
+                                                <td class="center">0</td>
+                                                <td class="center">
+                                                    <a href="#"  data-toggle="modal" data-target="#myModal_store_value" class="store_value_set">设置</a>&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr class="selected">
+                                                <td class="hidden-480 center value1">白银卡</td>
+                                                <td class="center">等级规则</td>
+                                                <td class="hidden-480 center value2"><span class="label label-success">是</span></td>
+                                                <td class="center value3">￥10</td>
+                                                <td class="center"><span class="label label-danger">否</span></td>
+                                                <td class="center">-</td>
+                                                <td class="center">0</td>
+                                                <td class="center">
+                                                    <a href="#"  data-toggle="modal" data-target="#myModal_store_value" class="store_value_set">设置</a>&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr class="selected">
+                                                <td class="hidden-480 center value1">黄金卡</td>
+                                                <td class="center">等级规则</td>
+                                                <td class="hidden-480 center value2"><span class="label label-success">是</span></td>
+                                                <td class="center value3">￥100</td>
+                                                <td class="center"><span class="label label-success">是</span></td>
+                                                <td class="center">￥2000</td>
+                                                <td class="center">0</td>
+                                                <td class="center">
+                                                    <a href="#"  data-toggle="modal" data-target="#myModal_store_value" class="store_value_set">设置</a>&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr class="selected">
+                                                <td class="hidden-480 center value1">美食月卡</td>
+                                                <td class="center">付费</td>
+                                                <td class="hidden-480 center value2"><span class="label label-success">是</span></td>
+                                                <td class="center  value3">￥100</td>
+                                                <td class="center"><span class="label label-danger">否</span></td>
+                                                <td class="center">-</td>
+                                                <td class="center">￥80</td>
+                                                <td class="center">
+                                                    <a href="#"  data-toggle="modal" data-target="#myModal_store_value" class="store_value_set">设置</a>&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr class="selected">
+                                                <td class="hidden-480 center  value1">美食年卡 </td>
+                                                <td class="center">付费</td>
+                                                <td class="hidden-480 center value2"><span class="label label-success">是</span></td>
+                                                <td class="center  value3">￥100</td>
+                                                <td class="center"><span class="label label-danger">否</span></td>
+                                                <td class="center">-</td>
+                                                <td class="center">￥780</td>
+                                                <td class="center">
+                                                    <a href="#"  data-toggle="modal" data-target="#myModal_store_value" class="store_value_set">设置</a>&nbsp;
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="store_value_two" style="margin-top: 0px;">
+                                <div class="index_prompt" style="">
+                                    <div class="temp_newxj_title" style=" ">
+                                        <span style="margin-bottom: 0;color: #666;">充值面额设置</span>
+                                    </div>
+                                </div>
+                                <div class="index_prompt_2">
+                                    <p class="store_value_title">最多只能设置6个充值面额</p>
+                                    <div class="tabl_sive">
+                                       <div class="tabl_show">
+                                           <div class="show_box">
+                                               <div class="show_son show_son1" v-for="item in list" @click="bindId(item.id,item.rechargeDenomination)" v-cloak>
+                                                    <a data-toggle="modal"  data-target="#myModal_stlue">{{ item.rechargeDenomination }}元</a>
+                                                  <div class="show_box_css" style="display: none;"  data-toggle="modal" data-target="#myModal_stlue">
+                                                      <p>编辑</p>
+                                                  </div>
+                                               </div>
+                                               <div style="clear: both"></div>
+                                           </div>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div><!-- /.main-content -->
+                </div><!-- /.main-container-inner -->
+            </div><!--/.main-container-->
+        </div>
+        <!--footer s-->
+        <div class="page-footer footer_scroll" style=" ">
+            <div class="content_based" style=" ">
+                <a id="toMiitbeian" href="javascript:void(0)" style="">
+                    <p style=" ">
+                        <img src="../images/img/logo_new2.png" alt="" width="25" style="   ">
+                        <img src="../images/img/name.png" alt="" width="71"></p>
+                </a>
+            </div>
+        </div>
+        <!--footer e-->
+        <!--置顶图标 start-->
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+        <!--置顶图标 end-->
+    </div><!--.main-container-->
+    <!--储值设置 modal start-->
+    <div class="modal fade" id="myModal_store_value" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_rwa" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_rwa">
+                        储值设置
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height" style="    height: 171px;">
+                    <div class="scan_show_label" style=" ">
+                        <div class="holds_top_son2">
+                            <p class="pag_mia" style="float: left;margin-top: 0px;">&nbsp;卡类型：</p>
+                            <div class="pag" style=" float: left;margin-left: 58px;">
+                               <p class="card_typeModal">黄金卡</p>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="holds_Card2" style="margin-top: 12px">
+                            <p class="pag_mia" style="float: left;margin-top: 6px;margin-right: 23px;">&nbsp;储值开通：</p>
+                            <div class="pag" style=" float: left;margin-left: 22px;">
+                                   <div style="margin-left: -135px;">
+                                       <label style="margin-right: 12px">
+                                           <input class="ace clickAll open" name="radioss" type="radio" checked="checked">
+                                           <span class="lbl">开通</span>
+                                       </label>
+                                       <label>
+                                           <input class="ace clickAll notopen" name="radioss" type="radio" >
+                                           <span class="lbl">不开通</span>
+                                       </label>
+                                   </div>
+                                   <div style="    margin-left: -87px;">
+                                       <label>
+                                           <input class="ace clickAll initial" type="checkbox" checked="checked">
+                                           <span class="lbl">初始储值</span>
+                                       </label>
+                                       <label>
+                                           <input class="ace value_Modal" type="text" value="" style="width: 71px;">
+                                           <span class="lbl">元</span>
+                                       </label>
+                                   </div>
+                                    <p style="color: #999;font-size: 12px">初始储值是指会员领卡后的奖励金额,请谨慎设置</p>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary a_bottom" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--储值设置 modal end-->
+    <!--面额设置50 modal start-->
+    <div class="modal fade" id="myModal_stlue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_ra" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel_ra">
+                        储值设置
+                    </h4>
+                </div>
+                <div class="modal-body center modal-body_height" style="    height: 160px;">
+                    <div class="scan_show_label" style="    margin-top: 34px;margin-left: 100px; ">
+                        <div class="holds_top_son2">
+                            <p class="pag_mia" style="float: left;margin-top: 4px;">&nbsp;面额：</p>
+                            <div class="pag pag_val" style=" float: left;margin-left: 58px;">
+                                <label>
+                                    <input class="ace " type="text" placeholder="请输入面额" v-model="form.rechargeDenomination">
+                                    <span class="lbl">元</span>
+                                </label>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default a_bottom" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary a_bottom fifty_set" data-dismiss="modal" @click="save">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--面额设置 modal end-->
+</div>
+<!--面额设置 modal end-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/ace-extra.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/flot/jquery.flot.min.js"></script>
+<script src="../js/ace.min.js"></script>
+<script src="../js/js.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../myjs/const.js"></script>
+<script src="../myjs/storeValue.js"></script>
+<script src="../js/tubiao/highcharts.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".show_box .show_son1 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+            //console.log($(this))
+        })
+        $(".show_box .show_son2 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+            //console.log($(this))
+        })
+        $(".show_box .show_son3 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+            //console.log($(this))
+        })
+        $(".show_box .show_son4 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+            //console.log($(this))
+        })
+        $(".show_box .show_son5 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+            //console.log($(this))
+        })
+        $(".show_box .show_son6 ").bind('mouseenter',function(){
+            $(this).find(".show_box_css").show()
+           // console.log($(this))
+        })
+        $(".show_box .show_son ").bind('mouseleave',function(){
+            $(this).find(".show_box_css").hide()
+            //console.log($(this))
+        })
+    })
+    function changeLR(txt1,txt2,txt3,txt4){
+        $(txt1).bind('click',function(){
+            var cc=$(txt2).val();
+            $(txt3).html(cc+'元');
+            $(txt2).val('');
+            console.log(cc);
+        })
+    }
+    changeLR(".fifty_set",".pag_val input",".show_son1 a");
+    changeLR(".fifty_set1",".pag_val1 input",".show_son2 a");
+    changeLR(".fifty_set2",".pag_val2 input",".show_son3 a");
+    changeLR(".fifty_set3",".pag_val3 input",".show_son4 a");
+    changeLR(".fifty_set4",".pag_val4 input",".show_son5 a");
+    changeLR(".fifty_set5",".pag_val5 input",".show_son6 a");
+    $(function(){
+       $(".store_value_set").bind('click',function(){
+          var value1_= $(this).parent().parent().find(".value1").text();//卡类型
+          var value2_= $(this).parent().parent().find(".value2").text();//是否开通
+          var value3_= $(this).parent().parent().find(".value3").text();//开通储值
+           //var ff=value3_.substr(1,value3_.length)
+           //console.log(ff);
+           if(value2_=='是'){
+               $("#myModal_store_value .open").prop("checked",true);
+               $("#myModal_store_value .initial").prop("checked",true);
+               $("#myModal_store_value .value_Modal").val(value3_.substr(1,value3_.length))
+           }else{
+               $("#myModal_store_value .initial").prop("checked",false);
+               $("#myModal_store_value .notopen").prop("checked",true);
+               $("#myModal_store_value .value_Modal").val(" ")
+           }
+           $("#myModal_store_value .card_typeModal").text(value1_);
+       })
+        $('.value_Modal').keyup(function(){
+            var value=$(this).val().trim();
+            var reg=/^[1-9]\d*$/;
+            if((reg.test(value))&&value>0){
+                return true;
+            }else{
+                $(this).val(" ");
+                alert("瞎几把玩！");
+            }
+        })
+    })
+</script>
+</body>
+</html>

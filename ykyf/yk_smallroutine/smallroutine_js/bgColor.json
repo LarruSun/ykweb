@@ -1,0 +1,22 @@
+[
+  {
+    "bgColor":"#306be9",
+    "sonColor":["#ffffff","#b5caf9","#073598","#3d3d3d","#011b54"]
+  },
+  {
+    "bgColor":"#e8504a",
+    "sonColor":["#ffffff","#fdaaa7","#bf0d06","#5c0501","#333333"]
+  },
+  {
+    "bgColor":"#5ac1dc",
+    "sonColor":["#ffffff","#9be6f9","#0486a8","#005065","#333333"]
+  },
+  {
+    "bgColor":"#f7b722",
+    "sonColor":["#ffffff","#fbe2a6","#bc8402","#664802","#333333"]
+  },
+  {
+    "bgColor":"#5eb760",
+    "sonColor":["#ffffff","#e4e0e0","#037205","#666666","#333333"]
+  }
+]

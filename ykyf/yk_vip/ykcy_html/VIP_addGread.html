@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ykcy_images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/iconfont.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../ykcy_css/pagination.css" />
+    <link rel="stylesheet" href="../ykcy_css/VIP_index.css" />
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/config.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <headd></headd>
+</div>
+
+<div class="sidebar" id="sidebar" sonpage="VIP_gradeList" style="margin-top:20px;">
+
+    <sidebar></sidebar>
+
+</div>
+
+<div class="main-container" id="VIP_addGread" style="margin-left:10%;">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+            <!-- .导航显示 -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="iconfont icon-shouye"></i>
+                    <a href="couponList.html">会员等级</a>
+                </li>
+                <li>
+                    <a href="#" v-if='addData.id'>编辑</a>
+                    <a href="#" v-else>新增</a>
+                </li>
+            </ul>
+
+            <ul class="breadcrumb" style="margin-left:70%">
+                <li>
+                    <a href="VIP_gradeList.html">返回会员等级列表</a>
+                </li> 
+            </ul>
+        </div>
+
+
+        <div class="main-container-inner" style="width:95%;margin:auto">
+           
+
+
+            <div class="breadcrumbs">
+               
+
+
+                <div class="page-content">
+                    <p class="topTitle">会员卡基本信息</p>
+                    <div class="list">
+                        <div class="left" style="text-align:right;width:42%;">
+                            <p>等级名称：</p>
+                        </div>
+
+                        <div class="right" style="padding-left:20px">
+                            <div>
+                                <input name='searchOrder' type="text"  placeholder="" v-model='addData.name'/>
+                                <p style="color:#aaa">1~16个字符，支持中英文及数字</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list">
+                            <div class="left" style="text-align:right;width:42%;">
+                                <p>会员等级：</p>
+                            </div>
+    
+                            <div class="right" style="padding-left:20px">
+                                <div>
+                                    <input name='search' type="number"  placeholder="" v-model='addData.level'/>
+                                </div>
+                            </div>
+                    </div>
+                    
+
+
+                    <div class="list">
+                            <div class="left" style="text-align:right;width:42%;">
+                                <p>最低消费：</p>
+                            </div>
+    
+                            <div class="right" style="padding-left:20px">
+                                <div>
+                                    <input type="number" v-model='minConsumeAmount'/> &nbsp; 元
+                                    <p style="color:#aaa">
+                                        用户的累计消费达到最低消费值就会改变会员等级                                             
+                                    </p>
+                                </div>
+                            </div>
+                    </div>
+
+
+                    <div class="list">
+                            <div class="left" style="text-align:right;width:42%;">
+                                <p>会员权益：</p>
+                            </div>
+    
+                            <div class="right" style="padding-left:20px">
+                                <div>
+                                    <label for="ql">会员折扣
+                                        <input type="checkbox" checked id="ql"> &nbsp; &nbsp; &nbsp;
+                                        <input type="number" style="width:20%" v-model='addData.discount'> &nbsp; 折
+                                        <p style="color:#aaa">
+                                            请填写1-9.9之间的数字，精确到小数点后1位                                             
+                                        </p>
+                                    </label>
+                                </div>
+                            </div>
+                    </div>
+
+
+                    <div class="list" style="margin-top:10px">
+                            <div class="left" style="text-align:right;width:42%;">
+                                <p>使用须知：</p>
+                            </div>
+    
+                            <div class="right"  style="padding-left:20px">
+                                <div class="dishes_up">
+                                        <input type="text" style="width:50%" v-model='addData.remark1'></br>
+                                        <input type="text" style="width:50%" v-model='addData.remark2'></br>
+                                        <input type="text" style="width:50%" v-model='addData.remark3'></br>
+                                        <input type="text" style="width:50%" v-model='addData.remark4'></br>
+                                        <input type="text" style="width:50%" v-model='addData.remark5'></br>
+                                </div>
+                            </div>
+                    </div>
+
+                   
+
+
+
+             
+                </div>
+
+
+
+
+
+
+   
+                <div style="margin:auto;width:100px;margin-top:50px">
+                        <a href="#" @click=sbumit() class="btn btn-primary a_bottom" style="width:100px;">确认提交</a> 
+                </div>
+
+            
+            
+            
+            </div>
+
+
+
+
+
+
+
+            
+
+
+        </div>
+
+
+
+
+
+   
+    </div><!-- /.main-container-inner -->
+
+
+
+
+
+
+
+</div><!-- /.main-content -->
+
+
+
+
+
+
+
+
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../ykcy_js/const.js"></script>
+<script src="../ykcy_js/pagination.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script src="../ykcy_js/VIP_addGread.js"></script>
+</body>
+</html>

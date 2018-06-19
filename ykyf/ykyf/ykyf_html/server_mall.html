@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务商城</title>
+    <link rel="shortcut icon" href="../../resources/common/images/yklogo.png" type="image/x-icon">
+    <!--<link rel="stylesheet" href="../../resources/common/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="resources/common/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="../../resources/common/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykyf_css/common.css">
+    <link rel="stylesheet" href="../ykyf_css/server_mall.css">
+    <link rel="stylesheet" href="../../resources/plugins/msgbox/msgbox.css">
+    <script src="../../resources/common/lib/jquery.min.js"></script>
+    <script src="../../resources/common/lib/vue.min.js"></script>
+    <script src="../../resources/common/lib/vue-resource.min.js"></script>
+    <script src="../../resources/common/lib/vue-router.min.js"></script>
+    <script src="../../resources/common/lib/jquery.qrcode.min.js"></script>
+    <script src="../../resources/plugins/mqtt/sockjs-0.3.js"></script>
+    <script src="../../resources/plugins/mqtt/stomp.js"></script>
+    <script src="../../resources/plugins/msgbox/msgUtil.js"></script>
+    <script src="../../resources/plugins/msgbox/msgbox.js"></script>
+    <script src="../../resources/config.js"></script>
+</head>
+<body>
+<div id="wrap" class="server_my">
+    <div id="head">
+        <headd></headd>
+    </div>
+    <div class="main main_box" id="indApp">
+        <div class="content_based clear_fix">
+            <!--
+            左边导航换成HTML
+             -->
+            <div class="side_left float_l" id="leftNav" sonpage="nav_server_mall">
+                <!-- <leftban></leftban>-->
+                <!--                <h3 class="slide_title slide_titles list_index leftTiT "><a href="index_new.html">首页</a></h3>
+                                <h3 class="slide_title slide_titles list_serve leftTiT">功能与服务</h3>
+                                <ul class="slide_main">
+                                    <li class="on leftTiT selected"><a href="javascript:;">我的服务</a></li>
+                                    <li class="on leftTiT"><a href="javascript:;">服务商城</a></li>
+                                </ul>
+                                <h3 class="slide_title slide_titles list_facility">设备管理</h3>
+                                <ul class="slide_main">
+                                    <li class="on leftTiT"><a href="javascript:;">我的设备</a></li>
+                                    <li class="on leftTiT"><a href="#">设备商城</a></li>
+                                </ul>
+                                <h3 class="slide_title slide_titles list_account">我的帐户</h3>
+                                <ul class="slide_main">
+                                    <li class="on leftTiT"><a href="javascript:;">帐户总览</a></li>
+                                    <li class="on leftTiT"><a href="javascript:;">交易记录</a></li>
+                                </ul>
+                                <h3 class="slide_title slide_titles list_set leftTiT">设置</h3>
+                                <ul class="slide_main">
+                                    <li class="on leftTiT"><a href="merchant_set.html">商家设置</a></li>
+                                    <li class="on leftTiT"><a href="javascript:;">系统设置</a></li>
+                                    <li class="on leftTiT"><a href="javascript:;">门店管理</a></li>
+                                </ul>
+                                <h3 class="slide_title slide_titles list_message leftTiT">我的消息</h3>-->
+            </div>
+
+            <div class="main_content float_r">
+                <div class="clear_fix server_mall" id="server_mall">
+                    <div class="link_nav">
+                        <b>服务商城</b>
+                    </div>
+                    <router-view ></router-view>
+
+<!--                    <div>
+                        <div class="back_nav"><img class="back_nav_img" src="https://www.lolola.cn:443/easy-quick-dynamic/resources/images/myService/back_bg.png" id="backser_n" alt="返回上一页">服务商城/优惠券详情</div>
+                        <div class="main_content_box">
+                            <div class="content_solid clear_fix clasla_t">
+                                <div class="content_solid_l float_l clasla_t_l">
+                                    <dl>
+                                        <dt><img src="http://file.lolola.cn:88/group1/M00/00/00/eExPsVpvABuAM2c9AAAgNnOuwjs761.jpg" alt="" class="vip_ico"></dt>
+                                        <input class="easyFind" type="hidden" value="9" name="serviceId" id="serviceId">
+                                        <dd><b>优惠券</b><br>
+                                            &lt;!&ndash; <span>未开通</span> &ndash;&gt;
+
+                                            <span>未开通</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="content_solid_r float_r clasla_t_c">
+
+                                    <h3 class="title">价格</h3>
+                                    <p class="deadline">
+
+                                        <span class="on"><b class="month">1</b>月/￥<b class="price">0.01</b></span>
+
+
+                                        <span><b class="month">1</b>月/￥<b class="price">0.02</b></span>
+
+                                    </p>
+
+                                </div>
+                                <div class="clasla_t_r">
+                                    <input id="open" disabled="true" type="button" value="开通" class="submit">
+                                    <p style="color:red;font-size:12px;text-align:left;">商家级别不够,无法开通</p>
+                                </div>
+                            </div>
+                            <div class="content_solid">
+                                <div class="content_solid_main">
+                                    <h3 class="title">开通条件</h3>
+                                    <div>
+                                        <p><span><i>•</i>商家级别:</span>
+
+                                            <span class="spr">V1级别</span>
+
+                                        </p>
+                                    </div>
+                                    <h3 class="title">功能介绍</h3>
+                                    <div>
+                                        <p>利用电子优惠券吸引更多的新用户，回馈老客户</p>
+                                    </div>
+
+                                    <div>
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="popup_bg"></div>
+                    <div class="popup edit_data_popup" id="popup_k_2" >
+                        <div class="popup_top" style="cursor: move;">
+                            <span class="popup_close" onclick="hide_popup('#popup_k_2')"></span>
+                            <b class="popup_title">开通确认</b>
+                        </div>
+                        <div class="popup_main" style="height: 244px;">
+                            <table>
+                                <tbody><tr>
+                                    <td class="textR"><span class="table_l_txt">业务类型：</span></td>
+                                    <td class="textL fname"></td>
+                                </tr>
+                                <tr>
+                                    <td class="textR"><span class="table_3_txt">总&nbsp;金&nbsp;额：</span></td>
+                                    <td class="textL"><span class="total"></span>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="textR"><span class="table_2_txt">规格：</span></td>
+                                    <td class="textL"><span class="format"></span>月</td>
+                                </tr>
+                                <tr id="cue">
+                                    <td class="textR"><span class="table_4_txt">支付方式：</span></td>
+                                    <td class="textL">
+                                        <label><input type="radio" name="zftype" data-paytype="余额" checked="checked" v-model="picked" value="0" style="width:14px;" class="table_r_input typeIE8">&nbsp;账户余额（余额<strong class="red"></strong>元）</label>
+                                        <label><input type="radio" name="zftype" data-paytype="微信" style="width:14px;"  v-model="picked" value="1"  class="table_r_input typeIE8">&nbsp;微信支付</label>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="popup_bottom align_center">
+                            <input type="submit" class="nextBtn" value="下一步" v-on:click="next">
+                            <input type="reset" value="取消" onclick="hide_popup('#popup_k_2')">
+                        </div>
+                    </div>
+
+                    <div class="popup edit_data_popup" id="popup_k_3">
+                        <div class="popup_top" style="cursor: move;">
+                            <span class="popup_close" onclick="hide_popup('#popup_k_3')"></span>
+                            <b class="popup_title">订单支付</b>
+                        </div>
+                        <div class="popup_main">
+                            <div class=" pay_ye" style="display: block;">
+                                <p><span>金额:</span><span class="red" id="readyPay"></span>元</p>
+                                <p><input type="password" class="yuepaypwd" placeholder="请输入支付密码" style="border:1px solid #e5e5e5;padding:5px;"></p>
+                            </div>
+                        </div>
+                        <div class="popup_bottom align_center">
+                            <input type="submit" value="确定" v-on:click="yuePay">
+                            <input type="reset" value="取消" onclick="hide_popup('#popup_k_3')">
+                        </div>
+                    </div>
+
+                    <div class="popup edit_data_popup" id="popup_k_4">
+                        <div class="popup_top" style="cursor: move;">
+                            <span class="popup_close" onclick="hide_popup('#popup_k_4')"></span>
+                            <b class="popup_title">订单支付</b>
+                        </div>
+                        <div class="popup_main">
+                            <div class="pay_wx" style="">
+                                <div>
+                                    <p><b class="wd70">应付金额</b> <span class="shouldPay">0.01</span>元</p>
+                                </div>
+                                <div>
+                                    <div>
+                                        <b class="wd70">微信支付</b>
+                                        <div style="display:flex;padding-left:106px;">
+                                            <div>
+                                                <img id="output">
+                                            </div>
+                                            <dl style="width:auto;height:auto;margin-left:40px;padding-top: 40px;">
+                                                <dt style="margin:0;"><div id="qrcode" style="margin-left: 56px;"></div></dt>
+                                                <dd style="color:#999;font-size:14px;margin-top:10px;">微信/支付宝扫码支付,成功后自动完成订购</dd>
+                                            </dl>
+                                        </div>
+                                        <p class="tishi">提示:充值成功后请点击确认按钮</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup_bottom align_center">
+                            <input type="submit" value="确定" v-on:click="wxPayOk">
+                            <input type="reset" value="取消" onclick="hide_popup('#popup_k_4')">
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="foot">
+        <foot></foot>
+    </div>
+ </div>
+</div>
+
+<script src="../ykyf_js/const.js"></script>
+<script src="../ykyf_js/server_mall.js"></script>
+<script src="../ykyf_js/tool.js"></script>
+
+<script>
+    leftBan();
+</script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="vip/images/img/logo.png" type="assets/images/img/logo.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/new_index.css" />
+    <link href="css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/ace.min.css" />
+    <script src="../resources/config.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ace-ie.min.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="indexBody">
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="images/img/logo.png" width="25px" alt="会员管理" />
+                    会员管理
+                </small>
+                <span style="font-size: 13px;color: #e1edf3;margin-left: 15px">
+                    <img src="images/img/t5.png" width="17" alt="" style="margin-top: -3px; margin-left: 10px;margin-right: 0px;">
+                    <span></span><!-- J-hoset创意烤鸭-->
+                </span>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="vip/avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="icon-caret-down"></i>
+                    </a>
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="icon-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar">
+            <ul class="nav nav-list">
+                <!--<li class="active">
+                    <a href="index.html" >
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页 </span>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe62b;</i>
+                        <span class="menu-text"> 客户关系管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="html/clients.html">
+                                <i class="icon-double-angle-right"></i>
+                                客户列表
+                            </a>
+                        </li>
+
+                        <!--<li >
+                            <a href="html/management.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                会员管理
+                            </a>
+                        </li>
+                        <li  >
+                            <a href="html/fans_management.html">
+                                <i class="icon-double-angle-right"></i>
+                                粉丝管理
+                            </a>
+                        </li>-->
+                        <li  class="">
+                            <a href="html/members_home.html">
+                                <i class="icon-double-angle-right"></i>
+                                会员主页
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="html/label.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                标签管理
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe6b4;</i>
+                        <span class="menu-text"> 卡管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="html/card_type.html">
+                                <i class="icon-double-angle-right"></i>
+                                等级卡管理
+                            </a>
+                        </li>
+                        <li >
+                            <a href="html/get_record.html" >
+                                <i class="icon-double-angle-right"></i>
+                                领取记录
+                            </a>
+                        </li>
+                        <!--<li >
+                            <a href="html/wechaVipCard.html" >
+                                <i class="icon-double-angle-right"></i>
+                                微信会员卡
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe694;</i>
+                        <span class="menu-text">积分管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="html/integal_set.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分设置
+                            </a>
+                        </li>
+                        <li >
+                            <a href="html/integal_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                积分记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe607;</i>
+                        <span class="menu-text">储值管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li >
+                            <a href="html/store_value.html"  class="active">
+                                <i class="icon-double-angle-right"></i>
+                                储值设置
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/balance_record.html" class="active">
+                                <i class="icon-double-angle-right"></i>
+                                余额记录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="Hui-iconfont">&#xe64b;</i>
+                        <span class="menu-text"> 活动管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li >
+                            <a href="html/recharge_discounts.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 充值优惠 </span>
+
+                            </a>
+                        </li>
+                        <li >
+                            <a href="html/integral_convert.html" class="dropdown-toggle">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 积分兑换 </span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <!-- <li >
+                     <a href="#" class="dropdown-toggle">
+                         <i class="Hui-iconfont">&#xe61e;</i>
+                         <span class="menu-text"> 数据统计 </span>
+                         <b class="arrow icon-angle-down"></b>
+                     </a>
+                     <ul class="submenu">
+                         <li >
+                             <a href="html/expense_calendar.html" >
+                                 <i class="icon-double-angle-right"></i>
+                                 消费记录
+                             </a>
+                         </li>
+                     </ul>
+                 </li>-->
+             </ul><!-- /.nav-list -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                </ul><!-- .breadcrumb -->
+            </div>
+            <div class="page-content" style="min-width: 1086px;">
+                <div class="row ">
+                    <div class="col-xs-12">
+                        <div class="col-sm-12 col-xs-12 main_right_bottom" style="    margin-top: 17px; width: 99.5%;   padding: 0;">
+                            <div class="widget-box main_right">
+                                <div class="widget-body ">
+                                    <div class="widget-main sad" style="    padding: 12px 0 12px 12px;">
+                                        <div class="tab-content main_con" style="padding: 16px 0px;">
+                                            <div class="main_right_right ">
+                                                <div class="" style="     margin-top: -27px;   background:#f4f5f9;    padding:9px 0px 1px 16px;;margin-left: -12px;">
+                                                    <p class=" ">会员概况</p>
+                                                </div>
+                                                <div class="main_right_1" style="      text-align: center;  margin-top: 24px;">
+                                                    <div class="main_right_main col-sm-3">
+                                                        <a href="html/clients.html"><span v-cloak>{{memberCount}}</span></a><br><br>
+                                                        <a href="html/clients.html" class="send">会员数量</a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-3">
+                                                        <a href="#"><span v-cloak>{{vipCount*0.01}}</span></a><br><br>
+                                                        <a href="#" class="send">会员余额</a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-3">
+                                                        <a href="#"><span>898000</span></a><br><br>
+                                                        <a href="#" class="send">会员积分</a>
+                                                    </div>
+                                                    <div class="main_right_main col-sm-3">
+                                                        <a href="#"><span v-cloak>{{memberActivityNum}}</span></a><br><br>
+                                                        <a href="#" class="send">会员活动</a>
+                                                    </div>
+                                                    <div style="clear: both"></div>
+                                                </div>
+                                                <div style="clear: both"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12 main_right_2" style=" padding-left: 0; padding-right: 0; margin-left: 0px;">
+                            <div class="widget-box main_right" style="    border: 0;">
+                                <div class="widget-body ">
+                                    <div class="widget-main col-sm-6 " style="border: 1px solid #ddd;padding: 12px 0;height: 291px">
+                                        <div class="" style="     margin-top: -12px;background: #f4f5f9;padding: 9px 0px 1px 16px;">
+                                            <p class=" ">会员属性</p>
+                                        </div>
+                                        <div class="hhhj" style="display: flex;justify-content: center;">
+                                            <div id="container" style="width:200px;height:250px;margin-right: 17px;"></div>
+                                            <div id="container1" style="width:200px;height:250px;"></div>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 " style="width: 47.5%;border: 1px solid #ddd;float:right;margin-right: 6px;     padding: 0;">
+                                        <div class="" style=" background: #f4f5f9;padding: 9px 0px 1px 16px;">
+                                            <p class=" ">会员消费</p>
+                                        </div>
+                                        <div id="container2" style="width:100%;height:250px;float: left;"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 " style="border: 1px solid #ddd;margin-top: 13px;    padding: 0;">
+                            <div class="" style=" background: #f4f5f9;padding: 9px 0px 1px 16px;">
+                                <p class=" ">新增会员</p>
+                            </div>
+                            <div id="container3" style="width:84%;height:400px;margin-left: 3%;"></div>
+                        </div>
+                    </div>
+                </div><!-- /.main-content -->
+             </div><!-- /.main-container-inner -->
+        </div><!--/.main-container-->
+    </div>
+    <!--footer s-->
+    <div class="page-footer footer_scroll" style=" ">
+        <div class="content_based" style=" ">
+            <a id="toMiitbeian" href="javascript:void(0)" style="">
+                <p style=" ">
+                    <img src="vip/images/img/logo_new2.png" alt="" width="25" style="   ">
+                    <img src="vip/images/img/name.png" alt="" width="71"></p>
+            </a>
+        </div>
+    </div>
+    <!--footer e-->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+</div><!--.main-container-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/ace-extra.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/flot/jquery.flot.min.js"></script>
+<script src="js/ace.min.js"></script>
+<script src="js/js.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-resource.min.js"></script>
+<script src="myjs/const.js"></script>
+<script src="js/tubiao/highcharts.js"></script>
+<script type="text/javascript">
+    (function(H) {
+        var each = H.each;
+        H.wrap(H.seriesTypes.column.prototype, 'drawPoints', function(proceed) {
+            var series = this;
+            if (series.data.length > 0) {
+                var width = series.barW > series.options.maxPointWidth ? series.options.maxPointWidth : series.barW;
+                each(this.data, function(point) {
+                    point.shapeArgs.x += (point.shapeArgs.width - width) / 2;
+                    point.shapeArgs.width = width;
+                });
+            }
+            proceed.call(this);
+        })
+    })(Highcharts);
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                width:198
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false,
+                        width:180
+                    },
+                    showInLegend: true
+                },
+            },
+
+            series: [{
+                type: 'pie',
+                name: '会员积分',
+                data: [
+                    ['男',   45.0],
+                    ['女',   26.8],
+                    {
+                        name: '未知',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    }
+                ]
+            }]
+        });
+    });
+
+    $(function () {
+        $('#container1').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '会员积分',
+                data: [
+                    ['积分>2000',   85.0],
+                    ['积分<2000',       15.0]
+                ]
+            }]
+        });
+    });
+    $(function () {
+        $('#container2').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: {
+                title: {
+                    text: '消费金额 (元)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true          // 开启数据标签
+                    },
+                    enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                }
+            },
+            series: [{
+                name: '消费',
+                data: [7000.0, 6459, 9245, 1445, 1894, 2175, 2592, 2685, 2393, 1843, 9139, 8986]
+            }]
+        });
+    })
+    $(function () {
+        $('#container3').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    '2017-06-08',
+                    '2017-06-09',
+                    '2017-06-10',
+                    '2017-06-11',
+                    '2017-06-12',
+                    '2017-06-13',
+                    '2017-06-14',
+                    '2017-06-15',
+                    '2017-06-16',
+                    '2017-06-17',
+                    '2017-06-18',
+                    '2017-06-19'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '新增会员 (人)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}人</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0,
+                    maxPointWidth: 30
+                }
+            },
+            series: [{
+                name: '新增',
+                data: [2349, 1271, 4306, 8129, 9144, 5176, 3135, 1548, 2166, 9194, 9645, 5354],lineWidth:1
+            }]
+        });
+    });
+</script>
+<script>
+    new Vue({
+        el:'#indexBody',
+        data:{
+            vipCount: '',
+            memberCount : '',
+            memberActivityNum:''
+        },
+        methods:{
+        },
+        created(){
+            Vue.http.get(pathApi + '/member/memberAccount',{credentials:true}).then(res => {
+                if(res.data.type == 'success'){
+                    this.$data.vipCount = res.data.data
+                }else{
+                    this.$data.vipCount = 0
+                }
+            });
+            Vue.http.get(pathApi + '/member/memberCount',{credentials:true}).then(res => {
+                if(res.data.type == 'success'){
+                    this.$data.memberCount = res.data.data
+                }else{
+                    this.$data.memberCount = 0
+                }
+            });
+            Vue.http.get(pathApi + '/member/getActivityNum',{credentials:true}).then(res => {
+                if(res.data.type == 'success'){
+                  this.$data.memberActivityNum = res.data.data
+                }else{
+                  this.$data.memberActivityNum = 0
+                }
+        });
+        }
+    });
+
+</script>
+</body>
+</html>

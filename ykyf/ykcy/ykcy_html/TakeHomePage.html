@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微点餐</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="images/logo.png">
+
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/bootstrap.min.css"  />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/font-awesome.min.css" />
+    <link rel="stylesheet" href="../ykcy_resources/ykcy_libcss/ace.min.css" />
+    <link rel="stylesheet" href="../ykcy_css/index.css" />
+    <script src="../../resources/config.js"></script>
+    <style>
+        .set_takeout .menu_left .menu_left_main .menu_left_body{
+            padding-bottom: 0px;
+        }
+        .menu_jkoer{
+            margin-top: 45px;
+            height: 461px;
+            overflow: auto;
+            width: 324px;
+            margin-left: -7px;
+            overflow-x: hidden;
+        }
+        .menu_head2 .menu_head2P_p{
+            cursor: pointer;
+            text-align: center;
+            padding: 7px 0;
+        }
+        .set_takeout .menu_left .menu_left_main .menu_left_body .menu_head2{
+            margin-top: 0;
+            background: #eee;
+        }
+        .menu_head2 .menu_head2P_p .menu_head2_LINQU{
+            font-size: 15px;
+            background: #71a0dc;
+            display: inline-block;
+            margin-bottom: 0px;
+            padding: 6px 16px;
+            border-radius: 2px;
+            color: #fff;
+        }
+        .menu_set{
+            margin-top: 0px!important;
+        }
+        .set_takeout .menu_left .menu_left_main .menu_left_body .menu_set .menu_show{
+            float: left;
+            width: 210px;
+        }
+        .set_takeout .menu_left .menu_left_main .menu_left_body .menu_set .menu_lest .menu_ul{
+            margin-left: 0;
+        }
+        .bigMenu_set .menu_lest .menu_ul{
+            list-style: none;
+            margin: 0;
+            display: flex;
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: scroll;
+            float: left;
+            overflow-y: hidden;
+        }
+        .bigMenu_set .menu_lest .menu_ul li a{
+            display: inline-block;
+            padding: 7px 18px;
+            min-width: 62px;
+            text-decoration: none;
+            color: #666;
+        }
+
+        .menu_ulA{
+            border-bottom: 3px solid red;
+        }
+        .menu_ulA a{
+            color:red!important;
+        }
+        .menu_ul::-webkit-scrollbar
+        {
+            width: 4px;
+            height: 6px;
+            background-color: #F5F5F5;
+
+        }
+        .menu_jkoer::-webkit-scrollbar
+        {
+            width: 4px;
+            height: 6px;
+            background-color: #ffffff;
+
+        }
+
+        .bigMenu_set .menu_show{
+            display: flex;
+            width: 322px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 14px 0px 0 0;
+        }
+        .bigMenu_set .menu_show .menu_jb{
+            background: #eff3f8;
+            margin-bottom: 5px;
+        }
+        .bigMenu_set .menu_show .menu_jb .bigMenu_img img{
+            width: 154px;
+        }
+        .bigMenu_set .menu_show .menu_jb .show_price .menu_jb_title{
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+        .bigMenu_set .menu_show .menu_jb .show_price .menu_price{
+            font-size: 12px;
+            color: #999;
+        }
+        .bigMenu_set .menu_show .menu_jb .bigMenu_set{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4px 0 0px;
+            margin-top: -18px;
+        }
+        .bigMenu_set .menu_show .menu_jb .bigMenu_set .menu_jb_title2{
+            margin-top: 10px;
+            font-size: 17px;
+        }
+        .bigMenu_set .menu_show .menu_jb .bigMenu_set .menu_as img{
+            width: 28px;
+        }
+        .set_takeout .menu_left .menu_left_main .menu_left_body .menu_left_footer{
+            float: left;
+            margin-top: 16px;
+            height: 57px;
+            background: #efefef;
+            width: 319px;
+
+            margin-left: 0;
+        }
+        /*定义滚动条轨道 内阴影+圆角*/
+        .menu_ul::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        ::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+
+    <headd></headd>
+
+</div>
+<div class="main-container" id="main-container">
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" sonpage="takeIndex">
+
+            <sidebar></sidebar>
+
+        </div>
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">移动门店管理</a>
+                    </li>
+                    <li>
+                        <a href="#">外卖主页</a>
+                    </li>
+                </ul><!-- .导航 -->
+            </div>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-sm-12 set_takeout">
+                        <div class="menu_left col-sm-4">
+                            <div class="menu_left_main">
+                                <div class="menu_head ">
+                                    <img src="../ykcy_images/arch_img.png" alt="" class="img-responsive"/>
+                                    <p class="menu_title eat-in2">外卖主页</p>
+                                </div>
+                                <div class="menu_left_body" style="">
+                                    <div class="add_order " style="">
+                                        <div style="height: 115px;align-items: center;display: flex;justify-content: center;position: relative">
+                                            <div style="text-align: center;margin-top: 25px">
+                                                <img src="../ykcy_images/kf.png" alt=""/>
+                                                <p style="color: #fff;margin-top: 2px; font-size: 16px;margin-bottom: 0;">天香府(龙鳞山庄店)</p>
+                                                <p style=" color: #fff;font-size: 12px;"><span>起送价&nbsp;￥30</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>配送费&nbsp;￥5</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>商家配送&nbsp;约30分钟</span></p>
+                                            </div>
+                                            <div style="background: #fff;border-radius: 4px;position: absolute;top: 3px;right: 2px;cursor: pointer;">
+                                                <img src="../ykcy_images/sear.png" alt="" style="padding: 2px 12px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="menu_jkoer" style="  ">
+                                        <div class="menu_head2">
+                                            <div class="menu_head2P_p">
+                                                <p class="menu_head2_LINQU">
+                                                    领取优惠券
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="menu_set"><!--默认模板-->
+                                                <div class="menu_lest">
+                                                    <ul class="menu_ul">
+                                                        <li v-for="(item,index) in status" v-bind:class="item.id">
+                                                            <a>{{item.name}}</a>
+                                                        </li>
+                                                        <li v-for="(item,index) in types">
+                                                            <a href="#">{{item.name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div style="margin-left: 95px;background: #ddd;">
+                                                        <p style="padding: 5px 0 3px 4px;margin-bottom: 0;font-size: 14px;">特价</p>
+                                                    </div>
+                                                    <div class="menu_show">
+                                                        <div class="menu_jb">
+                                                            <p class="menu_jb_title">煎饼果子</p>
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥4.5</span>/份</p>
+                                                            <div class="show_price">
+                                                                <img src="../ykcy_images/eat1.png" alt=""/>
+                                                                <p class="menu_price">月售1052份</p>
+                                                                <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu_pizza">
+                                                            <p class="menu_jb_title">海鲜披萨(7寸)</p>
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥4.5</span>/份</p>
+                                                            <div class="show_price">
+                                                                <img src="../ykcy_images/eat2.png" alt=""/>
+                                                                <p class="menu_price">月售1052份</p>
+                                                                <a href="#" class="menu_as">可选规格</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu_jb">
+                                                            <p class="menu_jb_title">鲜榨薯条</p>
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥6.5</span>/份</p>
+                                                            <div class="show_price">
+                                                                <img src="../ykcy_images/eat2.png" alt=""/>
+                                                                <p class="menu_price">月售1052份</p>
+                                                                <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu_jb">
+                                                            <p class="menu_jb_title">鲜榨薯条</p>
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥6.5</span>/份</p>
+                                                            <div class="show_price">
+                                                                <img src="../ykcy_images/eat2.png" alt=""/>
+                                                                <p class="menu_price">月售1052份</p>
+                                                                <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                            </div>
+                                                        </div>
+                                                        <div style="clear:both"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bigMenu_set" style="display: none;"><!--大图模板-->
+                                                <div class="menu_lest">
+                                                    <ul class="menu_ul">
+                                                        <li v-for="(item,index) in status" v-bind:class="item.id">
+                                                            <a>{{item.name}}</a>
+                                                        </li>
+                                                        <li v-for="(item,index) in types">
+                                                            <a href="#">{{item.name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="menu_show">
+                                                    <div class="menu_jb">
+                                                        <div class="bigMenu_img">
+                                                            <img src="../ykcy_images/eat1.png" alt=""/>
+                                                        </div>
+                                                        <div class="show_price">
+                                                            <p class="menu_jb_title">煎饼果子</p>
+                                                            <p class="menu_price">月售1052份</p>
+                                                        </div>
+                                                        <div class="bigMenu_set">
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥4.5</span></p>
+                                                            <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="menu_jb">
+                                                        <div class="bigMenu_img">
+                                                            <img src="../ykcy_images/eat2.png" alt=""/>
+                                                        </div>
+                                                        <div class="show_price">
+                                                            <p class="menu_jb_title">海鲜披萨(7寸)</p>
+                                                            <p class="menu_price">月售1052份</p>
+                                                        </div>
+                                                        <div class="bigMenu_set">
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥14.5</span></p>
+                                                            <a href="#" class="menu_as" style="border: 1px solid #999;color: red;text-decoration: none;padding: 3px 3px;border-radius: 6px;">可选规格</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="menu_jb">
+                                                        <div class="bigMenu_img">
+                                                            <img src="../ykcy_images/eat2.png" alt=""/>
+                                                        </div>
+                                                        <div class="show_price">
+                                                            <p class="menu_jb_title">鲜榨薯条</p>
+                                                            <p class="menu_price">月售1052份</p>
+                                                        </div>
+                                                        <div class="bigMenu_set">
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥4.5</span></p>
+                                                            <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="menu_jb">
+                                                        <div class="bigMenu_img">
+                                                            <img src="../ykcy_images/eat2.png" alt=""/>
+                                                        </div>
+                                                        <div class="show_price">
+                                                            <p class="menu_jb_title">鲜榨薯条</p>
+                                                            <p class="menu_price">月售1052份</p>
+                                                        </div>
+                                                        <div class="bigMenu_set">
+                                                            <p class="menu_jb_title2"><span style="color: red;">￥4.5</span></p>
+                                                            <a href="#" class="menu_as"><img src="../ykcy_images/add.png" alt=""/></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu_left_footer">
+                                            <div class="menu_footer_main">
+                                                <div class="menu_footer_go">
+                                                    <img src="../ykcy_images/eq.png" alt=""/>
+                                                    <p>购物车是空的</p>
+                                                </div>
+                                                <div class="menu_choose">
+                                                    <a href="#" class="menu_cho">选好了</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp_right col-sm-7">
+                            <p class="temp_Rtitle">基本信息</p>
+                            <div class="Cright_main_son1">
+                                <p class="pag_mia">封面：</p>
+                                <div class="Cright_m" style="margin-left: 0">
+                                    <div class="radio">
+
+                                        <div class="p1">
+                                            <div class="choseColor"><span class="bColor"><span class="backcolor" ></span></span>
+                                                <div class="colorList" style="display: none">
+                                                    <span style="    background-color:#7e95c5"></span>
+                                                    <span style="background-color: rgba(184, 206, 52, 0.88)"></span>
+                                                    <span style="    background-color: rgba(123, 63, 37, 0.79)"></span>
+                                                    <span style="background:#2e8965;"></span>
+                                                    <span style="background:#4ebc30;"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="holds_top_gnadd" style="margin-top: 39px;display: none;">
+                                <p class="temp_Rtitle">点餐模板</p>
+                                <div class="function_button_preferential OrderTemplate" style="    margin-left:63px;">
+                                    <label class="ace_block" style="margin: 0 47px;">
+                                        <input name="form-fiel" class="ace ace_1" type="radio" checked="checked">
+                                        <span class="lbl">默认模板</span>
+                                    </label>
+                                    <label class="ace_block">
+                                        <input name="form-fiel" class="ace ace_1" type="radio">
+                                        <span class="lbl">大图模板</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="holds_top_gn">
+                                <p class="temp_Rtitle">标签</p>
+                                <div class="function_button">
+                                    <label v-for="(item,index) in status">
+                                        <input type="checkbox" class="ace" v-bind:value="item.id" v-model="checkStatus" v-on:click="getchecked">
+                                        <span class="lbl">{{item.name}}</span>
+                                    </label>
+                                </div>
+                                <div class="toWhere" style="    margin-top: 45px;">
+                                    <a class="btn btn-primary a_bottom" v-on:click="save">确定</a>
+                                    <a href="#" class="btn btn-primary a_bottom">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-content -->
+<!--置顶图标 start-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<!--置顶图标 end-->
+
+<script src="../ykcy_resources/ykcy_lib/jquery.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/bootstrap.min.js"></script>
+<script src="../ykcy_resources/ykcy_lib/ace.min.js"></script>
+<script src="../../resources/common/lib/vue.min.js"></script>
+<script src="../../resources/common/lib/vue-resource.min.js"></script>
+<script src="../../resources/common/lib/vue-router.min.js"></script>
+<script src="../ykcy_js/const.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script>
+    new Vue({
+        el: "#main-container",
+        data: {
+            status:{},
+            types:{},
+            checkStatus:[],
+            temType:0,
+            backgroundColor:'rgb(126, 149, 197)',
+            tem:{id:''},
+            shopId:location.href.split("=")[1]
+        },
+        methods:{
+            getchecked:function(e){
+                if($(e.target).prop("checked")){
+                    $("."+$(e.target).val()).show();
+                    this.checkStatus.push($(e.target).val());
+                }else{
+                    $("."+$(e.target).val()).hide();
+                   for(var i=0;i<this.checkStatus;i++){
+                       if($(e.target()).val()==this.checkStatus[i]){
+                           this.checkStatus.splice(i,1);
+                       }
+                   }
+                }
+            },
+            save:function(){
+                var saveData={
+                    name:'外卖主页',
+                    checkStatus:this.checkStatus.join(","),
+                    temType:$(".OrderTemplate input").eq(0).prop("checked")?"0":"1",//大图模式1  默认0
+                    backgroundColor:$(".backcolor").css("background-color"),
+                    shopId:this.shopId
+                };
+                if(null!=this.tem&&this.tem.id!='')
+                    saveData.id=this.tem.id;
+                console.log(saveData);
+                this.$http.post(cyApi+'/save/takeoutIndex',saveData,{emulateJSON:true,credentials: true}).then(function(res){
+                    if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                        alert("保存成功")
+                    }
+                });
+
+            }
+        },
+        filters: {
+
+        },
+        watch:{
+
+        },
+        created:function() {
+            this.$http.post(cyApi+'/get/takeoutIndex',{"shopId":this.shopId},{emulateJSON:true,credentials: true}).then(function(res){
+                console.log(res)
+                if(res.data.message=='SUCCESS'||res.body.type=='SUCCESS'||res.body.type=='success'){
+                    this.status=res.data.data.status;
+                    this.types = res.data.data.types;
+                    this.tem=res.data.data.tem;
+                    if(null!=this.tem&&this.tem.tpvs.length>0){
+                        for(var i=0;i<this.tem.tpvs.length;i++){
+                            var tpv=this.tem.tpvs[i];
+                            if(tpv.labelName=="temType"){
+                                this.temType=tpv.value;
+                            }else if(tpv.labelName=="backgroundColor"){
+                                this.backgroundColor=tpv.value;
+                            }else if(tpv.laberName='checkstatus'){
+                                console.log(tpv);
+                                this.checkStatus=tpv.value.split(",");
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+</script>
+<script >
+    $(function() {
+        $(".OrderTemplate input").each(function (i) {
+            $(this).bind('click', {index: i}, function (e) {
+                //console.log(e.data.index);
+                if (e.data.index == 0) {
+                    $(".menu_set").show()
+                    $(".bigMenu_set").hide()
+                }
+                if (e.data.index == 1) {
+                    $(".bigMenu_set").show()
+                    $(".menu_set").hide()
+                }
+            });
+        })
+        $(".bigMenu_set .menu_lest .menu_ul li").click(function(){
+            $(this).addClass("menu_ulA").siblings().removeClass("menu_ulA")
+        })
+    })
+
+    $(".Cright_main_son1 .p1 .choseColor .bColor").click(function(){
+        $(this).next().show();
+        var that=$(this);
+        $(".Cright_main_son1 .p1 .choseColor .colorList span").click(function(){
+            $(this).parent().hide();
+            var bg=$(this).css("background-color");
+            that.children("span").css("background-color",bg);
+            $(".menu_left .menu_left_main .menu_left_body .add_order").css("background-color",bg);
+        })
+    });
+</script>
+</body>
+</html>
